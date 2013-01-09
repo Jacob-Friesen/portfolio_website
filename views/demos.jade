@@ -1,0 +1,44 @@
+#demoBox.expBox(name="demoBox")
+	#green.topWrapper
+		button#closeBtn.closeBtn X
+	#hTitleWrapper.titleWrapper(name="hTitleWrapper)
+		h1 Demos
+	#hTextWrapper.textWrapper(name="hTextWrapper")
+		p These are samples of school and work term programs I built. Due to the legal or practical nature of some of these demos, not all components of them are downloadable. Click on an image to see a larger version.
+		hr
+		
+		// demo
+		- var demo_list = constant.page_text.demos.demos
+		- for(var d = 0; d < demo_list.length; d += 1)
+			.demoPane(id="demo_#{d}")
+				#changeGreen.topWrapper
+					h3.title= demo_list[d].name
+					button.collapseText(id="demo#{d}Clps")-
+							
+				// downloads
+				div(id="demolinks_#{d}")
+					// description
+					div(id="demo#{d}Downloads)
+						div(id="demo4Main")
+							br
+							
+							- var style = "";
+							- if(!demo_list[d].image)
+								style = "width: 100%";
+							
+							.demoText(style=style)
+								p= demo_list[d].description
+							- if(demo_list[d].image)
+								.centerLine
+								.demoPic
+									img.demoImg(id="demoImg#{d}", src=demo_list[d].image[0], alt=demo_list[d].image[1])
+				
+					- if (demo_list[d].link_text && demo_list[d].link)
+						.downloadLinks
+							p
+								- if (typeof no_script !== "undefined" && no_script == true && demo_list[d].link_text.toLowerCase().split('flash').length > 1)
+									b Enable JavaScript to view Youtube video
+								- else
+									b= demo_list[d].link_text 
+									a.jsLink(href=demo_list[d].link[0], title=demo_list[d].link[1]) here
+									a.nonJSLink(href=demo_list[d].link[0], title=demo_list[d].link[1]) here

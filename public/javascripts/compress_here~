@@ -1,0 +1,2 @@
+java -jar ../../js_compiler/compiler.jar --js=../constants.js --js=jquery.min.js --js=jquery.lightbox_me.min.js --js=jquery.watcher.min.js --js=oo.min.js --js=jquery.canvas_drag0.5.min.js --js=jquery.icbm.min.js --js=combined.js --js_output_file=min.js
+cat min.js | gzip > min.js.gz

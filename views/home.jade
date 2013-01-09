@@ -1,0 +1,17 @@
+#homeBox.mainBox
+	#blue.topWrapper
+		button#closeBtn.closeBtn X
+	#hTitleWrapper.titleWrapper
+		h1 Home
+	#hMainPicture.mainPicture
+		- var home_src = "images/Jacob_s.jpg"
+		- if (typeof no_script !== "undefined" && no_script == true)
+			home_src = "images/Jacob.jpg"
+		img#mainImg.mainImage(src=home_src, alt="Jacob Friesen")
+	#hTextWrapper.textWrapper
+		p= constant.page_text.home.introduction
+		b.specialties= constant.page_text.home.specialty_title
+		ul.specialties
+			- var specialties =  constant.page_text.home.specialties;
+			- for (var i = 0; i < specialties.length; i++)
+				li= specialties[i]

@@ -1,0 +1,63 @@
+/*
+* Describes experience page formatting.
+*/
+
+li {
+	margin-top: 7px;
+	margin-right: 10px;
+	font-size: 14px;
+}
+
+div.job, div.jobClps{
+	border: 1px solid darkGrey;
+	margin-top: 15px;
+	-moz-border-radius:7px;
+	border-radius:7px;
+	-moz-box-shadow: 5px 5px 3px rgba(0,0,0,.5);
+	box-shadow: 5px 5px 3px rgba(0,0,0,.5);
+	text-align: top;
+}
+
+div.jobClps{
+	-moz-border-radius:7px 7px 0 0;
+	border-radius:7px 7px 0 0;
+	margin-bottom: -2px;
+}
+
+div.jobTitle {
+	padding-left: 10px;
+	padding-right: 10px;
+	height: 15px;
+	border: 0px
+}
+
+div.rightJobTitle{
+	width: 100px;
+}
+
+div.jobText {
+	display: block;
+}
+
+h3.title, h3.title_r {
+	margin-left: 2px;
+	margin-top: 4px;
+	float: left;
+	font-size: 15px;
+}
+
+h3.title_r{
+	float: right;
+	margin-right: 2px; 
+}
+
+ul.jobDesc, p.jobName {
+	margin: 17px 15px 15px 15px;
+}
+
+p.jobName {
+	margin-top: 20px;
+	font-size: 16px;
+	border: 0px solid black;
+	border-bottom-width: 1px;	
+}

@@ -1,0 +1,11 @@
+- var tile_menu = "tile_menu";
+div(id="window_container0", class="window_container0")
+    h5.panel_title(id="panel_title0") Open...
+    div(class="window0")
+        // open menu
+        div(id="menu_holder0", class=tile_menu)
+            div.tile_menu_cent(id="tile_menu_cent0")
+                - var pages = constant.pages;
+                - for (var p = 0; p < pages.length; p++)
+                    - var page_id = pages[p].toLowerCase() + "Btn"
+                    button.leftMenuButton(id=page_id, title="Jacob Friesen #{pages[p]}")= pages[p]

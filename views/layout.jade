@@ -1,0 +1,60 @@
+//- Only get system wide scripts on page load
+- if (!prev_loaded)
+  !!! strict
+  html
+    head
+      // Preload checks: noscript - mobile - IE
+      noscript
+        meta(http-equiv="refresh", content="0; url=no_script")
+      script(type="text/javascript")
+        var detect_mobile = function(){
+          var MOBILE_WIDTH = 720;
+          var MOBILE_STRING = "mobile";
+          var MOBILE_DOMAIN = "http://m.jacobfriesen.com"
+          
+          if (navigator.userAgent.toLowerCase().search(MOBILE_STRING) > 0 || screen.width <= MOBILE_WIDTH)
+              window.location = MOBILE_DOMAIN;
+        }();
+      <!--[if lte IE 8]>
+      script
+        window.location = "no_script";
+      <![endif]-->
+    
+      // title and metas
+      title= title
+      meta(http-equiv="Content-Type", content="text/html; charset=UTF-8")
+      meta(http-equiv="X-UA-Compatible", content="IE=9")
+      meta(name="language", content="en-us")
+      meta(name="google-site-verification", content="235PQo0UN80dd5QGhY0NR8UGc2HkUTW_8qTSduslRBs")// required for google webmasters
+      meta(name="description", content="Jacob Friesen's Website")
+      meta(name="keywords", content= "jacob friesen, jacob friesen web developer, jacob, JACOB, jacob friesen's website")
+      meta(name="revisit-after", content="1 day")
+      meta(name="classification", content="Jacob Friesen, Home")
+      meta(name="Robots", content="INDEX,FOLLOW")
+      link(rel="shortcut icon", href="images/favicon.ico", type="image/x-icon")
+      
+      // scripts
+      link(rel='stylesheet', href='/stylesheets/style_c.css')
+      link(rel='stylesheet', href='/stylesheets/experience_c.css')
+      link(rel='stylesheet', href='/stylesheets/skills_c.css')
+      link(rel='stylesheet', href='/stylesheets/demos_c.css')
+      link(rel='stylesheet', href='/stylesheets/blog_c.css')
+      link(rel='stylesheet', href='/stylesheets/window_tiles_c.css')
+      link(rel='stylesheet', href='/stylesheets/icbm_c.css')
+      
+      //-script(src='constants.js', defer="defer")
+      //-script(src="javascripts/jquery.min.js", defer="defer")
+      //-script(src="javascripts/jquery.lightbox_me.min.js", defer="defer")
+      //-script(src="javascripts/jquery.watcher.min.js", defer="defer")
+      //-script(src="javascripts/oo.min.js", defer="defer")
+      //-script(src="javascripts/jquery.canvas_drag0.5.min.js", defer="defer")
+      //-script(src="javascripts/jquery.window_tiles.min.js", defer="defer")
+      //-script(src="javascripts/jquery.icbm.min.js", defer="defer")
+      //-script(src="javascripts/combined.js", defer="defer")
+      
+      script(src="javascripts/min.js", defer="defer")
+      script(src="javascripts/jquery.window_tiles.min.js", defer="defer")
+      
+    body!= body
+- else
+  body!= body

@@ -1,0 +1,11 @@
+#icon_based_menu.icon_based_menu
+    .icbm_main_objects
+        h2 Jacob Friesen - Web Developer
+        - var pages = constant.pages;
+        - for (var p = 0; p < pages.length; p++)
+            .icbm_object
+                // # Makes the objects look more clickable by giving a hand like item in most browsers instead of a pointer
+                a(href="#")
+                    div
+                        img.icbm_image(src="images/menu_icons/#{pages[p].toLowerCase()}_page_grey.png")
+                        h2= pages[p]

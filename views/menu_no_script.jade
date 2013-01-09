@@ -1,0 +1,31 @@
+//- First time page entry
+- if (!id)
+	- var id = 0;
+
+//- Prep menus
+- var menu_css = [];
+- for(var i = 0; i < constant.pages.length; i+=1)
+	- menu_css.push('leftMenuButton');
+	
+- var menu_links = ['no_script'];
+- var pages = constant.pages;
+- for(var i = 1; i < constant.pages.length; i+=1)
+	- menu_links.push('no_script?id='+i+'&link='+pages[i].toLowerCase());
+
+//- Change menu lists to reflect currently selected menu item
+- for(var i = 0; i < menu_css.length; i++)
+	- if (i == id)
+		- menu_css[i] = "clickedButton";
+		- menu_links[i] = "#";
+		- break;
+	
+// Left menu
+#rolloutMenu.rolloutMenu
+	span.menuTitle Menu
+	hr.underText
+	- var pages = constant.pages;
+	- for (var p = 0; p < pages.length; p++)
+		- var p_lower = pages[p].toLowerCase(); 
+		a(title="Jacob Friesen #{pages[p]}", class=menu_css[p], id="#{p_lower}BoxBtn", href=menu_links[p])
+			.menuTxt= pages[p]
+	.menuBottom

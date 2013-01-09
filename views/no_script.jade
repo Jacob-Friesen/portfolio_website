@@ -1,0 +1,53 @@
+!!! strict
+html
+head
+	script
+		var elem = document.createElement('canvas');
+		if(elem.getContext && elem.getContext('2d'))
+			window.location = "index";
+	
+		//vars for adding correct non-canvas content
+		var message;
+
+	// title and metas
+	title= title
+	meta(http-equiv="Content-Type", content="text/html; charset=UTF-8")
+	meta(name="language", content="en-us")
+	meta(name="google-site-verification", content="235PQo0UN80dd5QGhY0NR8UGc2HkUTW_8qTSduslRBs")// required for google webmasters
+	meta(name="description", content="Jacob Friesen's Website")
+	meta(name="keywords", content= "jacob friesen, jacob friesen web developer, jacob, JACOB, jacob friesen's website")
+	meta(name="revisit-after", content="1 day")
+	meta(name="classification", content="Jacob Friesen, Home")
+	meta(name="Robots", content="INDEX,FOLLOW")
+	
+	//scripts
+	link(rel="shortcut icon", href="http://www.jacobfriesen.com/favicon.ico", style="width:16px;height:16px")
+	link(rel='stylesheet', href='/stylesheets/style_c.css')
+	link(rel='stylesheet', href='/stylesheets/experience_c.css')
+	link(rel='stylesheet', href='/stylesheets/skills_c.css')
+	link(rel='stylesheet', href='/stylesheets/demos_c.css')
+	link(rel='stylesheet', href='/stylesheets/blog_c.css')
+	link(rel='stylesheet', href='/stylesheets/ns_c.css')
+	
+	<!--[if lte IE 7]>
+	link(rel="stylesheet", href="/stylesheets/ns_IE7.css")
+	<![endif]-->
+	
+body
+	// Javascript Recommend
+	#enableJSTop.topBarNS
+		center
+			h3#msgJS It is recommended you enable Javascript when viewing this website. <a style="color:white" href="http://www.enable-javascript.com/">how?</a>
+	
+	// Canvas supported browser Recommend
+	script
+		document.getElementById('msgJS').innerHTML =  "It is recommended you upgrade to a more modern browser when viewing this website. " +
+													"<a style='color:white' href=" + "http://www.microsoft.com/presspass/presskits/internetexplorer/" + ">Internet Explorer 9</a>, " +
+													"<a style='color:white' href=" + "http://www.mozilla.com/en-US/firefox/fx/" + ">Firefox</a>, " +
+													"<a style='color:white' href=" + "http://www.google.com/chrome/" + ">Chrome</a>, " +
+													"<a style='color:white' href=" + "http://www.opera.com/" + ">Opera</a>";
+	
+	.centerInit
+		!=partial("menu_no_script", {layout: false, cur_page: cur_page, id: id})
+		.windowSpace
+			!=partial(cur_page, {layout: false, no_script: true})
