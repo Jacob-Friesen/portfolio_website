@@ -137,15 +137,14 @@ jQuery(document).ready(function() {
 		'/images/menu_icons/demos_page_grey.png',
 		'/images/menu_icons/blog_page_grey.png'
     ]
-    map_imgs['http://'+LOCATION+map_srcs[0]] =  function () {tiles.trigger_open(0)};
-    map_imgs['http://'+LOCATION+map_srcs[1]] =  function () {tiles.trigger_open(1)};
-    map_imgs['http://'+LOCATION+map_srcs[2]] =  function () {tiles.trigger_open(2)};
-    map_imgs['http://'+LOCATION+map_srcs[3]] =  function () {tiles.trigger_open(3)};
-    map_imgs['http://'+LOCATION+map_srcs[4]] =  function () {tiles.trigger_open(4)};
+    map_imgs['http://'+LOCATION+map_srcs[0]] =  function () {tiles.open_item(0)};
+    map_imgs['http://'+LOCATION+map_srcs[1]] =  function () {tiles.open_item(1)};
+    map_imgs['http://'+LOCATION+map_srcs[2]] =  function () {tiles.open_item(2)};
+    map_imgs['http://'+LOCATION+map_srcs[3]] =  function () {tiles.open_item(3)};
+    map_imgs['http://'+LOCATION+map_srcs[4]] =  function () {tiles.open_item(4)};
 
     var icbm = $(document.body).icbm({
-        map_imgs: map_imgs,
-        z_index: 3
+        map_imgs: map_imgs
     });
 	
 	// determine window to open from page address

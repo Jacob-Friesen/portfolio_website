@@ -3,12 +3,12 @@ h5.panel_title {
 	color: black;
 	size: 20px;
 }
-	div.window_container0{
+	div.window_container{
 		width: 700px;
 		margin: 30px auto 0 auto;
 		padding-bottom: 30px;
 	}
-		div.window0{
+		div.window{
 			height: 300%;
 			
 			border: 1px solid black;
@@ -28,6 +28,6 @@ h5.panel_title {
 				div.tile_menu_cent {
 					width: 112px;
 				}
-		div.window0 {
+		div.window {
 			border-color: black;
 		}
