@@ -6,11 +6,13 @@
       // Preload checks: noscript - mobile - IE
       noscript
         meta(http-equiv="refresh", content="0; url=no_script")
+        
+      // inlined so it is ran immediately
       script(type="text/javascript")
         var detect_mobile = function(){
           var MOBILE_WIDTH = 720;
           var MOBILE_STRING = "mobile";
-          var MOBILE_DOMAIN = "http://m.jacobfriesen.com"
+          var MOBILE_DOMAIN = "http://m.jacobfriesen.com";
           
           if (navigator.userAgent.toLowerCase().search(MOBILE_STRING) > 0 || screen.width <= MOBILE_WIDTH)
               window.location = MOBILE_DOMAIN;
@@ -46,11 +48,16 @@
       //-script(src="javascripts/jquery.min.js", defer="defer")
       //-script(src="javascripts/jquery.lightbox_me.min.js", defer="defer")
       //-script(src="javascripts/jquery.watcher.min.js", defer="defer")
-      //-script(src="javascripts/oo.min.js", defer="defer")
       //-script(src="javascripts/jquery.canvas_drag0.5.min.js", defer="defer")
       //-script(src="javascripts/jquery.window_tiles.js", defer="defer")
       //-script(src="javascripts/jquery.icbm.js", defer="defer")
-      //-script(src="javascripts/combined.js", defer="defer")
+      //-
+      //-script(src="javascripts/Utility.js", defer="defer")
+      //-script(src="javascripts/System.js", defer="defer")
+      //-script(src="javascripts/Skills.js", defer="defer")
+      //-script(src="javascripts/Experience.js", defer="defer")
+      //-script(src="javascripts/Demos.js", defer="defer")
+      //-script(src="javascripts/Blog.js", defer="defer")
       
       script(src="javascripts/min.js", defer="defer")
       
