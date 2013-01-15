@@ -360,14 +360,36 @@ module.exports = {
             introduction: "These are samples of school and work term programs I built. Due to the legal or practical nature of some of these demos, \
                            not all components of them are downloadable/viewable. Click on an image to see a larger version.",
             demos: [
+				{
+                    name: "Winnipeg JS Mobile Interface",
+                    description: "In late December 2012 I developed the mobile interface for winnipegjs.com. Using the desktop design as a baseline, I used CSS \
+								  and some some JavaScript to make the interface look good and work well across multiple devices. For detecting misbehaving browsers \
+								  like IE 7 on Windows Phone 7, I used tactics like IE includes and user agent sniffing. Most of the JavaScript was done server side \
+								  (the website is implemented in Node.js) to set and detect cookies so mobile browsers would be able to switch to desktop and vice versa.",
+                    image: ["images/winnipegjs_s.png", "Winnipeg JS mobile interface picture"],
+					links: [
+						{
+							link_text: 'Website (View with mobile browser): ',
+							link: ["http://winnipegjs.com", "Winnipeg JS user group's website"]
+						},
+						{
+							link_text: 'Source: ',
+							link: ["https://github.com/yagudaev/winnipegjs", "Winnipeg JS website source code"]
+						}
+					]
+                },
                 {
                     name: "Iders IMS Website",
                     description: "In the Fall coop term of 2011 I worked on the information management website at Iders with some other Web Developers. \
 					    The below video is about an additional feature I implemented, that is automatically opening the windows you had open \
 					    from last session in your new session. Keep in mind this is a web interface.",
                     image: ["images/IdersIMS2_s.png", "Iders IMS2 Screen Picture"],
-                    link_text: 'Video (Flash): ',
-                    link: ["http://www.youtube.com/watch?v=1tB5szfXYCo", "Jacob Friesen demonstrating IMS2 auto window session loading"]
+					links: [
+						{
+							link_text: 'Video (Flash): ',
+							link: ["http://www.youtube.com/watch?v=1tB5szfXYCo", "Jacob Friesen demonstrating IMS2 auto window session loading"]
+						}
+					]
                 },
 				{
                     name: "AES Implementation",
@@ -375,8 +397,12 @@ module.exports = {
 					some complexity and demonstrates my ability to code in a C environment. Since the code closely follows the AES specification the \
 					implementation was done in a bottom up C style rather than a top down C++ style. See the README for instructions.",
                     image: ["images/aes_s.png", "AES Picture"],
-                    link_text: 'Github Source: ',
-                    link: ["https://github.com/Jacob-Friesen/aes_implementation", "Jacob Friesen's AES implementation"]
+					links: [
+						{
+							link_text: 'Github Source: ',
+							link: ["https://github.com/Jacob-Friesen/aes_implementation", "Jacob Friesen's AES implementation"]
+						}
+					]
                 },
                 {
                     name: "Nutrifacts Project",
@@ -385,8 +411,12 @@ module.exports = {
                                   user preferences. These preferences are in the form of ratings which influence along with the filters the suggested \
                                   items for each item selected.",
                     image: ["images/nutrifactsMainScreen_s.jpg", "Nutrifacts main screen picture"],
-                    link_text: 'Java Source Code (Zipped): ',
-                    link: ["http://www.jacobfriesen.com/downloads/nutrifacts.zip", "Jacob Friesen Nutrifacts Project Download"]
+					links: [
+						{
+							link_text: 'Java Source Code (Zipped): ',
+							link: ["http://www.jacobfriesen.com/downloads/nutrifacts.zip", "Jacob Friesen Nutrifacts Project Download"]
+						}
+					]
                 },
                 {
                     name: "RWRP Website",
@@ -394,8 +424,12 @@ module.exports = {
                                   of the website; design, front end, and back end. I have included a video demoing one of the features I worked on as a \
 					    link below.",
                     image: ["images/RWRPMain_s.jpg", "RWRP website picture"],
-                    link_text: 'Video (Flash): ',
-                    link: ["http://www.youtube.com/watch?v=hV-JQ9dC2nI", "Jacob Friesen demonstrating the RWRP website"]
+					links: [
+						{
+							link_text: 'Video (Flash): ',
+							link: ["http://www.youtube.com/watch?v=hV-JQ9dC2nI", "Jacob Friesen demonstrating the RWRP website"]
+						}
+					]
                 },
                 {
                     name: "Movie Organizer",
@@ -404,8 +438,12 @@ module.exports = {
                                   Human Computer Interaction course. The focus was on user interaction not developing an entire application so the database \
                                   is just an XML file and there may be some small display glitches.",
                     image: ["images/movOrgPic_s.jpg", "Jacob Friesen Movie Organizer Picture"],
-                    link_text: 'C# Source Code (Zipped): ',
-                    link: ["http://www.jacobfriesen.com/downloads/MovieOrganizerSource.zip", "Jacob Friesen Movie Organizer Download"]
+					links: [
+						{
+							link_text: 'C# Source Code (Zipped): ',
+							link: ["http://www.jacobfriesen.com/downloads/MovieOrganizerSource.zip", "Jacob Friesen Movie Organizer Download"]
+						}
+					]
                 },
                 {
                     name: "Doctor Scheduling Project",
@@ -414,8 +452,12 @@ module.exports = {
                                   patients have the same condition the first one that requests treatment is treated first. This project was done for my Object \
                                   Orientation (Comp 2150) course.",
                     image: ["images/schedulingHsptl_s.jpg", "Jacob Friesen Doctor Scheduling Picture"],
-                    link_text: 'Java Source Code (Zipped): ',
-                    link: ["http://www.jacobfriesen.com/downloads/schedulePatients.zip", "Jacob Friesen Patient Scheduler Download"]
+					links: [
+						{
+							link_text: 'Java Source Code (Zipped): ',
+							link: ["http://www.jacobfriesen.com/downloads/schedulePatients.zip", "Jacob Friesen Patient Scheduler Download"]
+						}
+					]
                 },
                 {
                     name: "Contact List Project",
@@ -423,8 +465,12 @@ module.exports = {
                                   numbers which is read from a XML file. Using this application you can add, delete or edit any entry clicked on in the list \
                                   display. This was done as part of an assignment I had in my current Human Computer Interaction course.",
                     image: ["images/contactList_s.jpg", "Jacob Friesen Contact List Picture"],
-                    link_text: 'C# Source Code (Zipped): ',
-                    link: ["http://www.jacobfriesen.com/downloads/contactList.zip", "Jacob Friesen Contact List Download"]
+					links: [
+						{
+							link_text: 'C# Source Code (Zipped): ',
+							link: ["http://www.jacobfriesen.com/downloads/contactList.zip", "Jacob Friesen Contact List Download"]
+						}
+					]
                 }
             ]
         },

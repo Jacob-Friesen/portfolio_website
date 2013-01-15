@@ -19,9 +19,7 @@
 				div(id="demolinks_#{d}")
 					// description
 					div(id="demo#{d}Downloads)
-						div(id="demo4Main")
-							br
-							
+						.demoMain
 							- var style = "";
 							- if(!demo_list[d].image)
 								style = "width: 100%";
@@ -29,16 +27,17 @@
 							.demoText(style=style)
 								p= demo_list[d].description
 							- if(demo_list[d].image)
-								.centerLine
 								.demoPic
 									img.demoImg(id="demoImg#{d}", src=demo_list[d].image[0], alt=demo_list[d].image[1])
 				
-					- if (demo_list[d].link_text && demo_list[d].link)
+					- if (demo_list[d].links)
 						.downloadLinks
 							p
 								- if (typeof no_script !== "undefined" && no_script == true && demo_list[d].link_text.toLowerCase().split('flash').length > 1)
 									b Enable JavaScript to view Youtube video
 								- else
-									b= demo_list[d].link_text 
-									a.jsLink(href=demo_list[d].link[0], title=demo_list[d].link[1]) here
-									a.nonJSLink(href=demo_list[d].link[0], title=demo_list[d].link[1]) here
+									- var links = demo_list[d].links;
+									- for (var l = 0; l < links.length; l += 1)
+										b= links[l].link_text
+										a.jsLink(href=links[l].link[0], title=links[l].link[1]) here
+										a.nonJSLink(href=links[l].link[0], title=links[l].link[1]) here
