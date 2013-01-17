@@ -33,7 +33,7 @@ app.configure('production', function(){
 });
 
 // Routes
-require('./routes')(app);
+require('./routes/desktop')(app);
 
 app.listen(PORT, function(){
   console.log("JacobFriesen.com listening on port %d in %s mode", app.address().port, app.settings.env);

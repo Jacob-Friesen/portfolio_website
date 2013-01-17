@@ -1,0 +1,24 @@
+html
+head
+    meta(charset="utf-8")
+    title Mocha Tests
+    link(rel="stylesheet", href="/stylesheets/mocha.css")
+    script(src="../javascripts/jquery.min.js")
+    script(src="/javascripts/mocha/mocha.js")
+    script
+        mocha.setup('bdd');
+    script(src="/javascripts/chai/chai.js")
+    
+    // tested
+    script(src="/javascripts/Selector.js")
+    
+    // tests
+    script(src="/javascripts/test/test.js")
+    script(src="/javascripts/test/Selector.test.js")
+    
+    script
+        $(function() {
+            mocha.run();
+        })
+body
+    #mocha

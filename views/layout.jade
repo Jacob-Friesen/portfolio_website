@@ -7,21 +7,13 @@
       noscript
         meta(http-equiv="refresh", content="0; url=no_script")
         
-      // inlined so it is ran immediately
-      script(type="text/javascript")
-        var detect_mobile = function(){
-          var MOBILE_WIDTH = 720;
-          var MOBILE_STRING = "mobile";
-          var MOBILE_DOMAIN = "http://m.jacobfriesen.com";
-          
-          if (navigator.userAgent.toLowerCase().search(MOBILE_STRING) > 0 || screen.width <= MOBILE_WIDTH)
-              window.location = MOBILE_DOMAIN;
-        }();
+      // Go to specific lesser IE version or try and render the appropriate interface, notice non-defered
       <!--[if lte IE 8]>
       script
         window.location = "no_script";
       <![endif]-->
-    
+      //-script(src="javascripts/Selector.js", defer="defer")
+      
       // title and metas
       title= title
       meta(http-equiv="Content-Type", content="text/html; charset=UTF-8")
@@ -35,32 +27,12 @@
       meta(name="Robots", content="INDEX,FOLLOW")
       link(rel="shortcut icon", href="images/favicon.ico", type="image/x-icon")
       
-      // scripts
-      link(rel='stylesheet', href='/stylesheets/style_c.css')
-      link(rel='stylesheet', href='/stylesheets/experience_c.css')
-      link(rel='stylesheet', href='/stylesheets/skills_c.css')
-      link(rel='stylesheet', href='/stylesheets/demos.css')
-      link(rel='stylesheet', href='/stylesheets/blog_c.css')
-      link(rel='stylesheet', href='/stylesheets/window_tiles_c.css')
-      link(rel='stylesheet', href='/stylesheets/icbm_c.css')
+      // common js
+      script(src="javascripts/jquery.min.js")
       
-      //-script(src='constants.js', defer="defer")
-      //-script(src="javascripts/jquery.min.js", defer="defer")
-      //-script(src="javascripts/jquery.lightbox_me.min.js", defer="defer")
-      //-script(src="javascripts/jquery.watcher.min.js", defer="defer")
-      //-script(src="javascripts/jquery.canvas_drag0.5.min.js", defer="defer")
-      //-script(src="javascripts/jquery.window_tiles.js", defer="defer")
-      //-script(src="javascripts/jquery.icbm.js", defer="defer")
-      //-
-      //-script(src="javascripts/Utility.js", defer="defer")
-      //-script(src="javascripts/System.js", defer="defer")
-      //-script(src="javascripts/Skills.js", defer="defer")
-      //-script(src="javascripts/Experience.js", defer="defer")
-      //-script(src="javascripts/Demos.js", defer="defer")
-      //-script(src="javascripts/Blog.js", defer="defer")
-      
-      script(src="javascripts/min.js", defer="defer")
-      
-    body!= body
+    body
+      // script inlined for faster initialization
+      script(defer="defer")
+        var Selector={MOBILE_DOMAIN:"http://m.jacobfriesen.com",NOSCRIPT_DOMAIN:"/no_script",scripts:{js_location:"javascripts/desktop/",js:["min.js"],js_loaded:[],css_location:"/stylesheets/desktop/",css:["style_c.css","experience_c.css","skills_c.css","demos_c.css","window_tiles_c.css","icbm_c.css"]},loaded:{pages:0,js:0,css:0},PAGES_TO_LOAD:2,init:function(b){var a=720;var c="mobile";if(typeof mocha!=="undefined"&&b){return this}if(navigator.userAgent.toLowerCase().search(c)>0||screen.width<=a){this.render_mobile()}else{this.render_desktop()}return this},render_mobile:function(){window.location=this.MOBILE_DOMAIN},render_desktop:function(){document.body.style.display="none";this.load_css();this.load_js();this.load_pages()},load_js:function(){var b=this;for(var a=0;a<this.scripts.js.length;a+=1){this.ajax_load(this.scripts.js_location+this.scripts.js[a],null,function(c){b.scripts.js_loaded.push(c);b.loaded.js+=1})}},is_system_loaded:function(){if(this.loaded.css==this.scripts.css.length&&this.loaded.js==this.scripts.js.length&&this.loaded.pages==this.PAGES_TO_LOAD){return true}return false},start_system:function(){document.body.style.display="block";for(var i=0;i<this.scripts.js_loaded.length;i+=1){eval(this.scripts.js_loaded[i])}start_system()},load_css:function(){for(var b=0;b<this.scripts.css.length;b+=1){var a=document.createElement("link");a.rel="stylesheet";a.type="text/css";a.href=this.scripts.css_location+this.scripts.css[b];document.head.appendChild(a);this.loaded.css+=1}},load_pages:function(){var a=this;if(!a.ajax_load("index_page_load",document.body,function(c){a.loaded.pages+=1})){window.location(NOSCRIPT_DOMAIN)}var b=(window.location+"").replace("#","");if(window.location.pathname==="/"){b=b+"home"}if(!a.ajax_load(b+"_page_load",null,function(c){var d=document.createElement("div");d.id=window.location.pathname.replace("/","").replace("#","")+"_cache";d.style.display="none";d.innerHTML=c;document.body.appendChild(d);a.loaded.pages+=1})){window.location(NOSCRIPT_DOMAIN)}},ajax_load:function(d,a,f){function e(){if(window.XMLHttpRequest){return new window.XMLHttpRequest}else{try{return new ActiveXObject("MSXML2.XMLHTTP")}catch(g){return null}}}function b(){if(c.readyState==4){if(c.status==200){if(a!=null){if(typeof a.innerHTML==="undefined"||a.innerHTML===""){a.innerHTML=""}a.innerHTML+=c.responseText}if(f!=null){f(c.responseText)}}}}var c=e();if(c==null){return false}else{c.open("GET",d,true);c.onreadystatechange=b;c.send()}return true}}.init(true);(function loaded(){if(Selector.is_system_loaded()){Selector.start_system()}else{setTimeout(loaded,50)}})();
 - else
   body!= body
