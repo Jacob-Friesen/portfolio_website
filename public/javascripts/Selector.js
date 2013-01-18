@@ -2,8 +2,8 @@
 var Selector = {
     MOBILE_DOMAIN: "http://m.jacobfriesen.com",
     NOSCRIPT_DOMAIN: "/no_script",
+    INDEX_PAGE: "index_page_load",
     
-    // do this??
     scripts: {
         js_location: 'javascripts/desktop/',
         js: [
@@ -44,7 +44,7 @@ var Selector = {
     PAGES_TO_LOAD: 2,
     
     // Takes the user agent with the screen width to render the appropriate interface
-    init: function(dont_run){
+    init: function(dont_run, width, user_string){
         var MOBILE_WIDTH = 720;
         var MOBILE_STRING = "mobile";
         
@@ -52,7 +52,7 @@ var Selector = {
         if (typeof mocha !== "undefined" && dont_run)
             return this;
         
-        if (navigator.userAgent.toLowerCase().search(MOBILE_STRING) > 0 || screen.width <= MOBILE_WIDTH)
+        if (user_string.search(MOBILE_STRING) > 0 || width <= MOBILE_WIDTH)
             this.render_mobile();
         else
             this.render_desktop();
@@ -71,7 +71,24 @@ var Selector = {
         
         this.load_css();
         this.load_js();
-        this.load_pages();
+        this.load_pages(window.location);
+    },
+    
+    // starts up the system loading the required scripts
+    start_system: function(){
+        document.body.style.display = 'block';
+        
+        for (var i = 0; i < this.scripts.js_loaded.length; i += 1)
+            eval(this.scripts.js_loaded[i]);
+        start_system();
+    },
+    
+    is_system_loaded: function(){
+        if(this.loaded.css == this.scripts.css.length &&
+           this.loaded.js == this.scripts.js.length &&
+           this.loaded.pages == this.PAGES_TO_LOAD)
+            return true;
+        return false;
     },
     
     // Uses AJAX to load a script into an object for later execution
@@ -83,23 +100,6 @@ var Selector = {
                 parent.loaded.js += 1;
             });
         }
-    },
-    
-    is_system_loaded: function(){
-        if(this.loaded.css == this.scripts.css.length &&
-           this.loaded.js == this.scripts.js.length &&
-           this.loaded.pages == this.PAGES_TO_LOAD)
-            return true;
-        return false;
-    },
-    
-    // starts up the system loading the required scripts
-    start_system: function(){
-        document.body.style.display = 'block';
-        
-        for (var i = 0; i < this.scripts.js_loaded.length; i += 1)
-            eval(this.scripts.js_loaded[i]);
-        start_system();
     },
     
     load_css: function (){
@@ -114,24 +114,30 @@ var Selector = {
         }
     },
     
-    // Loads the index and specified address page
-    load_pages: function(){
+    // Loads the index and specified address, no callbacks this just starts the calls
+    load_pages: function(address){
         var parent = this;
         
-        if (!parent.ajax_load('index_page_load', document.body, function(response){
+        if (!parent.ajax_load(this.INDEX_PAGE, document.body, function(response){
             parent.loaded.pages += 1;
         })){
             window.location(NOSCRIPT_DOMAIN);
         }
         
         // OPTIMIZATION: Preload needed page into cache
-        var page = (window.location + "").replace('#','')
-        if (window.location.pathname === '/')
-            page = page + 'home';
+        var page = (address + "").replace('#','');
+        var path = address.pathname;
+        if (typeof address.pathname === 'undefined'){
+            path = page = '/home';
+        }
+        else if (address.pathname === '/'){
+            page += 'home';
+            path = 'home';
+        }
             
-        if (!parent.ajax_load(page + "_page_load", null, function(response){
+        if (!this.ajax_load(page + "_page_load", null, function(response){
             var div = document.createElement('div');
-            div.id = window.location.pathname.replace('/','').replace('#','') + "_cache";
+            div.id = path.replace('/','').replace('#','') + "_cache";
             div.style.display = 'none';
             div.innerHTML = response
             document.body.appendChild(div);
@@ -158,13 +164,13 @@ var Selector = {
             }
         }
         
-        // on complete load page into the element then call the callback with the retreived data
+        // On complete load page into the element then call the callback with the retreived data
         function handler() {
             if (requester.readyState == 4) {
                 if (requester.status == 200) {
                     if (element != null){
                         if (typeof element.innerHTML === 'undefined' || element.innerHTML === '')
-                            element.innerHTML = ''; 
+                            element.innerHTML = '';
                         element.innerHTML += requester.responseText;
                     }
                     if (callback != null)
@@ -184,11 +190,11 @@ var Selector = {
         
         return true;
     }
-}.init(true);
+}.init(true, screen.width, navigator.userAgent.toLowerCase());
 
-// event loop to check when everything is loaded, once loaded evaluate the js and start the system
+// Event loop to check when everything is loaded, once loaded evaluate the js and start the system
 (function loaded(){
-    if (Selector.is_system_loaded())
+    if (Selector.is_system_loaded() && typeof mocha === "undefined")
         Selector.start_system();
     else
         setTimeout(loaded, 50);

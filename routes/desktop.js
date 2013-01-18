@@ -17,7 +17,7 @@ module.exports = function(app){
   
   // regular page loads
   app.get('/test', function default_render(req, res){
-    res.render('test/index', {prev_loaded: true, desktop: true});
+    res.render('test/index', {layout: 'test/index.jade'});
   });
   app.get('/home', default_render);
   app.get('/demos', default_render);
