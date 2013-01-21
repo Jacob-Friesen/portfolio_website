@@ -58,7 +58,6 @@
 	Window_Tile = function(item, item_num, exec_after, tiles){
         return {
             OPEN_TITLE: 'Open...',
-            FILE_TYPE: '_page_load',
             ITEM_NUM: item_num,
             
             close_btn: null,
@@ -79,8 +78,11 @@
 				var cached = $('#' + this.item_id + '_cache');
 				if (cached[0] == null)
 					$.ajax({
-						url: this.item_id + this.FILE_TYPE,
+						type: 'POST',// See routes
+						url: this.item_id,
 						context: this,
+						data: Selector.get_mode_string(),
+						contentType: 'application/json',
 						
 						// Displays object in parent then resizes the parent
 						success: this.render_child

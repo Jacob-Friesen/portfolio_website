@@ -38,7 +38,7 @@ start_system = function (){
     });
 	
 	// determine window to open from page address
-	switch(window.location.pathname.replace('/','')) {
+	switch(window.location.pathname.replace('/','').replace('#','')) {
 		case "home": 		icbm.set_open(0); break;
 		case "skills": 		icbm.set_open(1); break;
 		case "experience": 	icbm.set_open(2); break;

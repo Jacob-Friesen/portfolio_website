@@ -85,26 +85,48 @@ describe('Selector', function() {
     });
     
     describe('#load_css()', function() {
-        it('the correct amount of css files were loaded and counted', function(done){
-            Selector.load_css();
-            
-            // wait for the css to load
-            setTimeout(function(){
-                assert.equal(Selector.loaded.css, Selector.scripts.css.length);
-                reset_head();
-                done();
-            }, 50)
+        afterEach(function(){
+            Selector.loaded.css = 0;
+            Selector.mode = 'desktop';
+            reset_head();
         })
         
-        it('the correct amount of css files are in the head', function(done){
+        function test_css_load(assert_callback, done){
             Selector.load_css();
             
             // wait for the css to load
             setTimeout(function(){
-                assert.equal(Selector.scripts.css.length, $(document.head).children("link:not(link[href$='mocha.css'])").length);
-                reset_head();
+                assert_callback();
                 done();
             }, 50)
+        }
+        
+        it('the correct amount of desktop css files were loaded and counted', function(done){
+            test_css_load(function(){
+                assert.equal(Selector.loaded.css, Selector.scripts.desktop.css.length);
+            }, done)
+        })
+        
+        it('the correct amount of desktop css files are in the head', function(done){
+            test_css_load(function(){
+                assert.equal(Selector.scripts.desktop.css.length, $(document.head).children("link:not(link[href$='mocha.css'])").length);
+            }, done)
+        })
+        
+        it('the correct amount of mobile css files were loaded and counted', function(done){
+            Selector.mode = 'mobile';
+            
+            test_css_load(function(){
+                assert.equal(Selector.loaded.css, Selector.scripts.mobile.css.length);
+            }, done)
+        })
+        
+        it('the correct amount of mobile css files are in the head', function(done){
+            Selector.mode = 'mobile';
+            
+            test_css_load(function(){
+                assert.equal(Selector.scripts.mobile.css.length, $(document.head).children("link:not(link[href$='mocha.css'])").length);
+            }, done)
         })
     });
     
@@ -120,62 +142,117 @@ describe('Selector', function() {
         })
         
         afterEach(function(){
+            Selector.loaded.js = 0;
+            Selector.mode = 'desktop'
             Selector.ajax_load.restore();
         })
         
-        it('the correct amount of js files were loaded and counted', function(done){
+        function test_js_load(assert_callback, done){
             Selector.load_js();
             
-            // wait for the js to load
+            // wait for the css to load
             setTimeout(function(){
-                assert.equal(Selector.loaded.js, Selector.scripts.js.length);
+                assert_callback();
                 done();
             }, 50)
+        }
+        
+        it('the correct amount of desktop js files were loaded and counted', function(done){
+            test_js_load(function(){
+                assert.equal(Selector.loaded.js, Selector.scripts.desktop.js.length);
+            }, done)
         })
         
-        it('the correct amount of js files were evaled', function(){
-            Selector.load_js();
-            
-            setTimeout(function(){
-                for (var i = 0; i < Selector.scripts.js.length; i++)
+        it('the correct amount of desktop js files were evaled', function(done){
+             test_js_load(function(){
+                for (var i = 0; i < Selector.scripts.desktop.js.length; i++)
                     assert.equal(Selector.scripts.js_loaded[i], this.JS_TEST_VAL);
-            })
+            }, done)
+        })
+        
+        it('the correct amount of mobile js files were loaded and counted', function(done){
+            Selector.mode = 'mobile';
+            
+            test_js_load(function(){
+                assert.equal(Selector.loaded.js, Selector.scripts.mobile.js.length);
+            }, done)
+        })
+        
+        it('the correct amount of mobile js files were evaled', function(done){
+            Selector.mode = 'mobile';
+            
+            test_js_load(function(){
+                for (var i = 0; i < Selector.scripts.mobile.js.length; i++)
+                    assert.equal(Selector.scripts.js_loaded[i], this.JS_TEST_VAL);
+            }, done)
         })
     });
     
     describe('#is_system_loaded()', function() {
         afterEach(function(){
+            Selector.mode = 'desktop';
             Selector.loaded.css = 0;
             Selector.loaded.js = 0;
             Selector.loaded.pages = 0;
         })
         
-        it('the system is not loaded when all css is present', function(){
-            Selector.loaded.css = Selector.scripts.css.length;
+        
+        it('is not loaded when all desktop css is present', function(){
+            Selector.loaded.css = Selector.scripts.desktop.css.length;
             assert.equal(Selector.is_system_loaded(), false);
         })
         
-        it('the system is not loaded when all js is present', function(){
-            Selector.loaded.js = Selector.scripts.js.length;
+        it('is not loaded when all mobile css is present', function(){
+            Selector.mode = 'mobile';
+            
+            Selector.loaded.css = Selector.scripts.mobile.css.length;
             assert.equal(Selector.is_system_loaded(), false);
         })
         
-        it('the system is not loaded when all pages are present', function(){
+        it('is not loaded when all desktop js is present', function(){
+            Selector.loaded.js = Selector.scripts.desktop.js.length;
+            assert.equal(Selector.is_system_loaded(), false);
+        })
+        
+        it('is not loaded when all mobile js is present', function(){
+            Selector.mode = 'mobile';
+            
+            Selector.loaded.js = Selector.scripts.mobile.js.length;
+            assert.equal(Selector.is_system_loaded(), false);
+        })
+        
+        it('is not loaded when all pages are present', function(){
             Selector.loaded.pages = Selector.PAGES_TO_LOAD;
             assert.equal(Selector.is_system_loaded(), false);
         })
         
-        it('the system is not loaded when all css and js are present', function(){
-            Selector.loaded.js = Selector.scripts.js.length;
-            Selector.loaded.css = Selector.scripts.css.length;
+        function test_js_css_load(mode){
+            Selector.loaded.js = Selector.scripts[mode].js.length;
+            Selector.loaded.css = Selector.scripts[mode].css.length;
             assert.equal(Selector.is_system_loaded(), false);
+        }
+        it('is not loaded when all desktop css and js are present', function(){
+            test_js_css_load(Selector.mode);
         })
         
-        it('the system is loaded when all css, js and pages are present', function(){
-            Selector.loaded.js = Selector.scripts.js.length;
-            Selector.loaded.css = Selector.scripts.css.length;
+        it('is not loaded when all mobile css and js are present', function(){
+            Selector.mode = 'mobile';
+            test_js_css_load(Selector.mode);
+        })
+        
+        function test_all_load(mode){
+            Selector.loaded.js = Selector.scripts[mode].js.length;
+            Selector.loaded.css = Selector.scripts[mode].css.length;
             Selector.loaded.pages = Selector.PAGES_TO_LOAD;
             assert.equal(Selector.is_system_loaded(), true);
+        }
+        it('is loaded when all desktop css, js and pages are present', function(){
+            test_all_load(Selector.mode);
+        })
+        
+        it('is loaded when all mobile css, js and pages are present', function(){
+            Selector.mode = 'mobile';
+            test_all_load(Selector.mode);
         })
     });
     
@@ -190,6 +267,9 @@ describe('Selector', function() {
             sinon.stub(Selector , 'render_desktop', function (){
                 Selector.mode = 'desktop';
             });
+            
+            this.MOBILE_USER_STRING = "The Wowser, the best Browser! v.2.2 Mobile<'-'< <'-'< ^'-'^ >'-'> >'-'> ^'V'^";
+            this.DESKTOP_USER_STRING = "The Wowser, the best Browser! v.2.2 Desktop<'-'< <'-'< ^'-'^ >'-'> >'-'> ^'V'^";
         })
         
         afterEach(function(){
@@ -203,12 +283,12 @@ describe('Selector', function() {
         })
         
         it('the system loads mobile when mobile is in the user agent string', function(){
-            Selector.init(false, '',"The Wowser, the best Browser! v.2.2 mobile<'-'< <'-'< ^'-'^ >'-'> >'-'> ^'V'^");
+            Selector.init(false, '', this.MOBILE_USER_STRING);
             assert(Selector.mode, 'mobile');
         })
         
         it('the system loads desktop when the screen is wider than 720px and has no "mobile" in the user agent string', function(){
-            Selector.init(false, 721, "The Wowser, the best Browser! v.2.2 destkop<'-'< <'-'< ^'-'^ >'-'> >'-'> ^'V'^");
+            Selector.init(false, 721, this.DESKTOP_USER_STRING);
             assert(Selector.mode, 'desktop');
         })
     });

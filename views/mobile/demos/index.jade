@@ -1,0 +1,36 @@
+.title_bar(id = "home title")
+    h1(id = "demos_title")= constant.page_text.demos.title
+.text_wrapper
+    p.demo_intro.left_align= constant.page_text.demos.introduction
+    
+// Iders IMS website
+- var demo_list = constant.page_text.demos.demos
+- for(var d = 0; d < demo_list.length; d += 1)
+    .demos.section
+        hr.no_margin#demos
+        
+        // Title header
+        .demos.header(id='collapse_demos_#{d}', name="#{d}")
+            .demos.title
+                h3.demos.vertical_title= demo_list[d].name
+                .clear
+                
+                - var links = demo_list[d].links;
+                - for (var l = 0; l < links.length; l += 1)
+                    h4.demos.vertical_title
+                        b= demo_list[d].links[l].link_text
+                        a(href=demo_list[d].links[l].link[0], title=demo_list[d].links[l].link[1]) here
+            - if (demo_list[d].links.length == 1)
+                button.collapser(id='demos_collapse_button_#{d}')
+            - else
+                button.collapser.big(id='demos_collapse_button_#{d}')
+        .clear
+        
+        // Description
+        div(id="collapse_details_demos_#{d}", name="#{d}")
+            p.demo_text= demo_list[d].description
+            //   hr.picture_line
+            .demoPic
+                img.demo_img(src=demo_list[d].image[0], alt=demo_list[d].image[1], id="demo_img_#{d}")
+                    
+

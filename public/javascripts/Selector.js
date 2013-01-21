@@ -2,37 +2,65 @@
 var Selector = {
     MOBILE_DOMAIN: "http://m.jacobfriesen.com",
     NOSCRIPT_DOMAIN: "/no_script",
-    INDEX_PAGE: "index_page_load",
+    INDEX_PAGE: "index",
+    mode: 'desktop',
     
     scripts: {
-        js_location: 'javascripts/desktop/',
-        js: [
-            'min.js'
-            //'constants.js',
-            //'jquery.lightbox_me.min.js',
-            //'jquery.watcher.min.js',
-            //'jquery.canvas_drag0.5.min.js',
-            //'jquery.window_tiles.js',
-            //'jquery.icbm.js',
-            //
-            //'Utility.js',
-            //'System.js',
-            //'Skills.js',
-            //'Experience.js',
-            //'Demos.js',
-            //'Blog.js'
-        ],
         js_loaded: [],
         
-        css_location: '/stylesheets/desktop/',
-        css: [
-            'style_c.css',
-            'experience_c.css',
-            'skills_c.css',
-            'demos_c.css',
-            'window_tiles_c.css',
-            'icbm_c.css'
-        ]
+        desktop: {
+            js_location: 'javascripts/desktop/',
+            js: [
+                'min.js'
+                //'constants.js',
+                //'jquery.lightbox_me.min.js',
+                //'jquery.watcher.min.js',
+                //'jquery.canvas_drag0.5.min.js',
+                //'jquery.window_tiles.js',
+                //'jquery.icbm.js',
+                //
+                //'Utility.js',
+                //'System.js',
+                //'Skills.js',
+                //'Experience.js',
+                //'Demos.js',
+                //'Blog.js'
+            ],
+            
+            css_location: '/stylesheets/desktop/',
+            css: [
+                'style_c.css',
+                'experience_c.css',
+                'skills_c.css',
+                'demos_c.css',
+                'window_tiles_c.css',
+                'icbm_c.css'
+            ]
+        },
+        
+        mobile: {
+            css_location: '/stylesheets/mobile/',
+            css: [
+                'style.css',
+                'experience.css',
+                'skills.css',
+                'demos.css',
+                'blog.css'
+            ],
+            js_location: '/javascripts/mobile/',
+            js: [
+                'min.js'
+                //'constants.js',
+                //'jquery.lightbox_me.min.js',
+                //
+                // 'Menu.js'
+                //'Utility.js',
+                //'System.js',
+                //'Skills.js',
+                //'Experience.js',
+                //'Demos.js'
+            ]
+        }
     },
     
     // tracks what has been loaded so far
@@ -60,14 +88,21 @@ var Selector = {
         return this;
     },
     
-    // For now just goes to mobile website
+    // Same as desktop just different pages are loaded
     render_mobile: function(){
-        window.location = this.MOBILE_DOMAIN;
+        this.mode = 'mobile';
+        
+        //window.location = this.MOBILE_DOMAIN;
+        
+        this.load_css();
+        this.load_js();
+        this.load_pages(window.location);
     },
     
     // Loads specified page or if it can't goes to no script page.
     render_desktop: function(){
-        document.body.style.display = 'none';
+        this.mode = 'desktop';
+        document.body.style.display = 'none';// ensures page load looks smooth
         
         this.load_css();
         this.load_js();
@@ -84,18 +119,23 @@ var Selector = {
     },
     
     is_system_loaded: function(){
-        if(this.loaded.css == this.scripts.css.length &&
-           this.loaded.js == this.scripts.js.length &&
+        if(this.loaded.css == this.scripts[this.mode].css.length &&
+           this.loaded.js == this.scripts[this.mode].js.length &&
            this.loaded.pages == this.PAGES_TO_LOAD)
             return true;
         return false;
     },
     
+    get_mode_string: function(){
+        return '{"mode": "'+this.mode+'"}';
+    },
+    
     // Uses AJAX to load a script into an object for later execution
     load_js: function(){
         var parent = this;
-        for (var s = 0; s < this.scripts.js.length; s += 1){
-            this.ajax_load(this.scripts.js_location + this.scripts.js[s], null, function(response){
+        
+        for (var s = 0; s < this.scripts[this.mode].js.length; s += 1){
+            this.ajax_load('GET', this.scripts[this.mode].js_location + this.scripts[this.mode].js[s], null, function(response){
                 parent.scripts.js_loaded.push(response);
                 parent.loaded.js += 1;
             });
@@ -103,11 +143,11 @@ var Selector = {
     },
     
     load_css: function (){
-        for (var c = 0; c < this.scripts.css.length; c += 1){
+        for (var c = 0; c < this.scripts[this.mode].css.length; c += 1){
             var stylesheet = document.createElement("link");
             stylesheet.rel = "stylesheet";
             stylesheet.type = "text/css";
-            stylesheet.href = this.scripts.css_location + this.scripts.css[c];
+            stylesheet.href = this.scripts[this.mode].css_location + this.scripts[this.mode].css[c];
             document.head.appendChild(stylesheet);
             
             this.loaded.css += 1;
@@ -118,9 +158,9 @@ var Selector = {
     load_pages: function(address){
         var parent = this;
         
-        if (!parent.ajax_load(this.INDEX_PAGE, document.body, function(response){
+        if (!parent.ajax_load('POST', this.INDEX_PAGE, document.body, function(response){
             parent.loaded.pages += 1;
-        })){
+        }, this.get_mode_string())){
             window.location(NOSCRIPT_DOMAIN);
         }
         
@@ -135,7 +175,7 @@ var Selector = {
             path = 'home';
         }
             
-        if (!this.ajax_load(page + "_page_load", null, function(response){
+        if (!this.ajax_load('POST', page, null, function(response){
             var div = document.createElement('div');
             div.id = path.replace('/','').replace('#','') + "_cache";
             div.style.display = 'none';
@@ -143,14 +183,16 @@ var Selector = {
             document.body.appendChild(div);
             
             parent.loaded.pages += 1;
-        })){
+        }, this.get_mode_string())){
             window.location(NOSCRIPT_DOMAIN);
         }
     },
     
     // Loads the given contents of the page into the given element and then calls the callback, with the
-    // retrieved data. This uses a GET request.
-    ajax_load: function (page, element, callback){
+    // retrieved data. mode is either POST or GET (the routes accept no other verbs), to_send sends specified
+    // data if in post mode (must be a string).
+    // NOTE: all to_send content is assumed to be JSON
+    ajax_load: function (mode, page, element, callback, to_send){
         // Gets an asynchronous requester if it can be found
         function get_XMLHttpRequest(){
             if (window.XMLHttpRequest)
@@ -183,9 +225,10 @@ var Selector = {
         if (requester == null)
             return false;
         else{
-            requester.open("GET", page, true);
+            requester.open(mode, page, true);
+            requester.setRequestHeader("Content-Type", "application/json");
             requester.onreadystatechange = handler;
-            requester.send();
+            requester.send(to_send);
         }
         
         return true;

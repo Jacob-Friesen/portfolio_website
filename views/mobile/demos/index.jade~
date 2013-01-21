@@ -1,0 +1,6 @@
+.title_bar(id = "home title")
+        h1=You has reached demos!!
+    .main_picture
+        img.main_image(id="main_image", src="images/jacob_s.jpg", alt="Jacob Friesen")
+    .text_wrapper
+        p Hello, I'm Jacob Friesen a Computer Science Honours Co-op student from the University of Manitoba. Currently I'm in a work term. I specialize in scripting languages and web development.

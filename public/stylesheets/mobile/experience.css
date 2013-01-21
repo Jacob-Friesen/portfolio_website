@@ -1,0 +1,49 @@
+div.experience.section {
+  margin-bottom: 10px;
+  width: 95%;
+}
+div.experience.job {
+  margin: 0;
+}
+div.experience.job_summary_info {
+  padding: 10px 0 0 8px;
+  display: inline-block;
+  width: 98%;
+}
+div.experience.job_summary_info h3.vertical_title {
+  display: block;
+  margin-bottom: 5px;
+}
+div.experience.job_summary_info h3.vertical_title:last_child {
+  margin-bottom: 0;
+}
+div.experience.job_summary_info .experience.job_titles {
+  display: inline-block;
+}
+div.experience.job_summary_info button.collapser {
+  float: right;
+  margin: -10px 10px 0 0;
+}
+ul.experience.job_main_points {
+  margin: 5px 0 10px 0;
+  width: 86%;
+  list-style-type: square;
+}
+ul.experience.job_main_points li {
+  margin-bottom: 10px;
+  background-color: #fff;
+}
+ul.experience.job_main_points li span {
+  color: #000;
+}
+div.experience.section {
+  margin-left: auto;
+  margin-right: auto;
+}
+hr.clear.experience {
+  width: 95%;
+  margin-left: 2.5%;
+}
+.job_seperator {
+  height: 7px;
+}
