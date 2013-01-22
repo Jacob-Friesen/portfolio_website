@@ -4,8 +4,11 @@ var start_system = function (){
     // Tries to load the sent in value if loaded via URL. Otherwise checks for a hash and loads using that
     var page = window.location.href.split('/#').pop();
     if (page == window.location.href)
-       page = $(".to_load")[0].id;
-       
+       page = page.split('/').pop();
+     
+    // Default page is home so when empty set page to that
+    page = (page === '') ? 'home' : page;
+    
     system.init_with(page);
     
     return true; 
@@ -63,7 +66,7 @@ var system = {
         if(button) button.className = "text_change_selected";
     },
     
-    page_init: function(page){    
+    page_init: function(page){
         // update the main color bar that provides page context
         this.COLR_BAR.attr('id', page);
         
@@ -73,13 +76,23 @@ var system = {
         utility.change_text.change_size_by(utility.change_text.current_scale);
         
         this.handle_float();
+        
+        // load page into cache
+        Selector.add_cache(page, $('#main_box')[0].innerHTML);
     },
     
     //Shows a temporary loading message then replaces the page when the page has loaded
     load_page: function(page, data, callback){
         this.NEW_PAGE[0].innerHTML = "<center>Loading...<center>";
         
-        this.NEW_PAGE.load('/' + page, data, callback);
+        // check if page is in cache, if it is load it instead of doing an AJAX request
+        var cached = $('#' + page + '_cache');
+        if (cached[0] == null)
+            this.NEW_PAGE.load('/' + page + Selector.mode_to_get(), null, callback);
+        else{
+            $('#main_box')[0].innerHTML = cached[0].innerHTML;
+            callback();
+        }
     },
   
     // Just clears up image of myself

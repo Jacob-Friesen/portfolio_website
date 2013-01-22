@@ -1,6 +1,5 @@
 // Pre jQuery load (for speed reasons), object is accessible so it can be used later to change interfaces
 var Selector = {
-    MOBILE_DOMAIN: "http://m.jacobfriesen.com",
     NOSCRIPT_DOMAIN: "/no_script",
     INDEX_PAGE: "index",
     mode: 'desktop',
@@ -53,12 +52,12 @@ var Selector = {
                 //'constants.js',
                 //'jquery.lightbox_me.min.js',
                 //
-                // 'Menu.js'
+                //'Menu.js',
                 //'Utility.js',
-                //'System.js',
                 //'Skills.js',
                 //'Experience.js',
-                //'Demos.js'
+                //'Demos.js',
+                //'System.js'
             ]
         }
     },
@@ -92,7 +91,12 @@ var Selector = {
     render_mobile: function(){
         this.mode = 'mobile';
         
-        //window.location = this.MOBILE_DOMAIN;
+        // Add meta for mobile devices
+        var meta = document.createElement("meta");
+            meta.name = "viewport";
+            meta.id = "viewport";
+            meta.content = "width=device-width, initial-scale=1.0";
+            document.head.appendChild(meta);
         
         this.load_css();
         this.load_js();
@@ -126,8 +130,24 @@ var Selector = {
         return false;
     },
     
-    get_mode_string: function(){
-        return '{"mode": "'+this.mode+'"}';
+    // Adds a invisible div named page_name with innerHTML of page data directly to the body if the div does
+    // not already exist. Returns if a cache was created or not.
+    add_cache: function(page_name, page_data){
+        var id_to_find = page_name.replace('/','').replace('#','') + "_cache";
+        
+        if (document.getElementById(id_to_find) === null){
+            var div = document.createElement('div');
+                div.id = id_to_find;
+                div.style.display = 'none';
+                div.innerHTML = page_data;
+            document.body.appendChild(div);
+            return true;
+        }
+        return false;
+    },
+    
+    mode_to_get: function(){
+        return '?mode=' + this.mode;
     },
     
     // Uses AJAX to load a script into an object for later execution
@@ -158,9 +178,9 @@ var Selector = {
     load_pages: function(address){
         var parent = this;
         
-        if (!parent.ajax_load('POST', this.INDEX_PAGE, document.body, function(response){
+        if (!parent.ajax_load('GET', this.INDEX_PAGE + this.mode_to_get(), document.body, function(response){
             parent.loaded.pages += 1;
-        }, this.get_mode_string())){
+        })){
             window.location(NOSCRIPT_DOMAIN);
         }
         
@@ -175,15 +195,10 @@ var Selector = {
             path = 'home';
         }
             
-        if (!this.ajax_load('POST', page, null, function(response){
-            var div = document.createElement('div');
-            div.id = path.replace('/','').replace('#','') + "_cache";
-            div.style.display = 'none';
-            div.innerHTML = response
-            document.body.appendChild(div);
-            
+        if (!this.ajax_load('GET', page + this.mode_to_get(), null, function(response){
+            parent.add_cache(path, response);
             parent.loaded.pages += 1;
-        }, this.get_mode_string())){
+        })){
             window.location(NOSCRIPT_DOMAIN);
         }
     },

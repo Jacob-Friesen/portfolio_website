@@ -107,7 +107,7 @@ var utility = {
                 if (!this.collapsers || !this.collapsers.sort) return false;
                 
                 // I assume they are the same length for this algorithm to work
-                if (this.triggers.length != this.collapsers.length) throw('triggers must be the same length as collapsers');
+                // if (this.triggers.length != this.collapsers.length) throw('triggers must be the same length as collapsers');
                 
                 var parent = this;
                 var sorter = function(a, b){

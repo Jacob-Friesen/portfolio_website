@@ -25,7 +25,7 @@ var menu = {
         }
     },
     
-    // Using the sent in link or page if no link was provided loads the page. 
+    // Using the sent in link ,or page if no link was provided, loads the page.
     open_link: function(page){
         system.load_page(page, {}, $.proxy(this.new_page, this, page));
     },

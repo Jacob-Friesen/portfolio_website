@@ -78,11 +78,9 @@
 				var cached = $('#' + this.item_id + '_cache');
 				if (cached[0] == null)
 					$.ajax({
-						type: 'POST',// See routes
-						url: this.item_id,
+						type: 'GET',// See routes
+						url: this.item_id + Selector.mode_to_get(),
 						context: this,
-						data: Selector.get_mode_string(),
-						contentType: 'application/json',
 						
 						// Displays object in parent then resizes the parent
 						success: this.render_child
@@ -95,7 +93,7 @@
 			render_child: function(file_str, is_cached){
 				// Cache element if not already cached
 				if (is_cached != true)
-					$(document.body).append($('<div id="' + this.item_id + '_cache" style="display: none">' + file_str +'</div>'));
+					Selector.add_cache(this.item_id, file_str);
 				
 				// Display object must unhide it (hidden when in cache)
 				this.into[0].innerHTML = file_str;
