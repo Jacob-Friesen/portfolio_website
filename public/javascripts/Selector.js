@@ -12,7 +12,6 @@ var Selector = {
             js: [
                 'min.js'
                 //'constants.js',
-                //'jquery.lightbox_me.min.js',
                 //'jquery.watcher.min.js',
                 //'jquery.canvas_drag0.5.min.js',
                 //'jquery.window_tiles.js',
@@ -49,9 +48,6 @@ var Selector = {
             js_location: '/javascripts/mobile/',
             js: [
                 'min.js'
-                //'constants.js',
-                //'jquery.lightbox_me.min.js',
-                //
                 //'Menu.js',
                 //'Utility.js',
                 //'Skills.js',
@@ -155,7 +151,7 @@ var Selector = {
         var parent = this;
         
         for (var s = 0; s < this.scripts[this.mode].js.length; s += 1){
-            this.ajax_load('GET', this.scripts[this.mode].js_location + this.scripts[this.mode].js[s], null, function(response){
+            this.ajax_load('GET', this.scripts[this.mode].js_location + this.scripts[this.mode].js[s], function(response){
                 parent.scripts.js_loaded.push(response);
                 parent.loaded.js += 1;
             });
@@ -178,7 +174,8 @@ var Selector = {
     load_pages: function(address){
         var parent = this;
         
-        if (!parent.ajax_load('GET', this.INDEX_PAGE + this.mode_to_get(), document.body, function(response){
+        if (!parent.ajax_load('GET', this.INDEX_PAGE + this.mode_to_get(), function(response){
+            parent.add_to_body(response)
             parent.loaded.pages += 1;
         })){
             window.location(NOSCRIPT_DOMAIN);
@@ -195,7 +192,7 @@ var Selector = {
             path = 'home';
         }
             
-        if (!this.ajax_load('GET', page + this.mode_to_get(), null, function(response){
+        if (!this.ajax_load('GET', page + this.mode_to_get(), function(response){
             parent.add_cache(path, response);
             parent.loaded.pages += 1;
         })){
@@ -203,11 +200,17 @@ var Selector = {
         }
     },
     
-    // Loads the given contents of the page into the given element and then calls the callback, with the
-    // retrieved data. mode is either POST or GET (the routes accept no other verbs), to_send sends specified
-    // data if in post mode (must be a string).
+    add_to_body: function(text){
+        if (typeof document.body.innerHTML === 'undefined')
+            document.body.innerHTML = '';
+        document.body.innerHTML += text;
+    },
+    
+    // Loads the given contents of the page  and then calls the callback, with the retrieved data. mode is
+    // either POST or GET (the routes accept no other verbs), to_send sends specified data if in post mode
+    // (must be a string).
     // NOTE: all to_send content is assumed to be JSON
-    ajax_load: function (mode, page, element, callback, to_send){
+    ajax_load: function (mode, page, callback, to_send){
         // Gets an asynchronous requester if it can be found
         function get_XMLHttpRequest(){
             if (window.XMLHttpRequest)
@@ -221,15 +224,10 @@ var Selector = {
             }
         }
         
-        // On complete load page into the element then call the callback with the retreived data
+        // On complete call the callback with the retreived data
         function handler() {
             if (requester.readyState == 4) {
                 if (requester.status == 200) {
-                    if (element != null){
-                        if (typeof element.innerHTML === 'undefined' || element.innerHTML === '')
-                            element.innerHTML = '';
-                        element.innerHTML += requester.responseText;
-                    }
                     if (callback != null)
                         callback(requester.responseText);
                 }

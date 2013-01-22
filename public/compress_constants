@@ -1,0 +1,1 @@
+java -jar ../js_compiler/compiler.jar --js=constants.js --js_output_file=constants.min.js

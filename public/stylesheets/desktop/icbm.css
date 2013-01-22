@@ -6,7 +6,6 @@ a {
 /*This top class can be considered the "body" of the menu*/
 div.icon_based_menu {
 	position: relative;
-	
 	background-color: white;
 	
 	/*text*/
@@ -45,17 +44,6 @@ div.icon_based_menu {
 			div.icbm_object div{
 				background-color: white;
 			}
-		
-			div.icbm_object h2 {
-				position: relative;
-				background-color: transparent;
-				
-				text-align: center;
-				font-weight: 100;
-				font-family: Arial;
-				font-size: 0.6em;
-				color: black;
-			}
 			
 			img.icbm_image {
 				border-radius: 5px;
@@ -64,4 +52,16 @@ div.icon_based_menu {
 				
 				width: 120px;
 				height: 100px;
+			}
+			
+			div.icbm_object h2 {
+				position: relative;
+				background-color: transparent;
+				margin-left: 15px;
+				
+				text-align: center;
+				font-weight: 100;
+				font-family: Arial;
+				font-size: 0.6em;
+				color: black;
 			}

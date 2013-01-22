@@ -19,7 +19,7 @@ describe('Selector', function() {
     describe('#ajax_load()', function() {
         it('should not load when null is sent', function(done) {
             var loaded = false;
-            Selector.ajax_load(null, null, null, function(){
+            Selector.ajax_load(null, null, function(){
                 assert.equal(1, 2);// cause a failure
             });
             
@@ -29,21 +29,16 @@ describe('Selector', function() {
         })
         
         it('should load a valid file via GET', function(done) {
-            Selector.ajax_load('GET', '/stylesheets/mocha.css', null, function(){
+            Selector.ajax_load('GET', '/stylesheets/mocha.css', function(){
                 done();
             });
         })
         
         it('should load a valid file via POST', null)
         
-        it('should load the contents of a valid file into an element and return the contents in the callback', function(done){
-            var to_add_to = $('<div id="to_add_to"/>');
-            $(document.body).append(to_add_to);
-            
-            Selector.ajax_load('GET', '/stylesheets/mocha.css', to_add_to, function(response){
-                assert.equal(to_add_to.innerHTML, response);
-                
-                $("#to_add_to").remove();
+        it('should load the contents of a valid file and return the contents in the callback', function(done){
+            Selector.ajax_load('GET', '/stylesheets/mocha.css', function(response){
+                assert.equal(response.length > 0, true);
                 done();
             });
         })
@@ -68,25 +63,29 @@ describe('Selector', function() {
             Selector.loaded.pages = 0;
             
             // no ajax just call the data
-            sinon.stub(Selector , 'ajax_load', function (mode, page, element, callback) {
+            sinon.stub(Selector , 'ajax_load', function (mode, page, callback) {
                 callback('test');
                 return true;
             });
+            
+            // cannot update the innerHTML of the body, causes mocha to crash
+            sinon.stub(Selector , 'add_to_body', function (text) { return true });
             
             // So the correct locations are retrieved
             Selector.INDEX_PAGE = "/" + Selector.INDEX_PAGE;
             Selector.address = {
                 pathname: undefined,
                 toString: function(){
-                    'http://localhost:3000/'
+                    return 'http://localhost:3000/';
                 }
             }
         })
         
         afterEach(function(){
             Selector.ajax_load.restore();
+            Selector.add_to_body.restore();
         })
-
+        
         it('the correct number of pages should be loaded and counted', function(){
             Selector.load_pages(Selector.address);
             assert.equal(Selector.loaded.pages, 2);
@@ -150,7 +149,7 @@ describe('Selector', function() {
             // no ajax just call the data
             this.JS_TEST_VAL = 'test';
             
-            sinon.stub(Selector , 'ajax_load', function (mode, page, element, callback) {
+            sinon.stub(Selector , 'ajax_load', function (mode, page, callback) {
                 callback(this.JS_TEST_VAL);
                 return true;
             });

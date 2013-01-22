@@ -1,2 +1,2 @@
-java -jar ../../../js_compiler/compiler.jar --js=jquery.lightbox_me.min.js --js=Demos.js --js=Experience.js --js=Skills.js --js=Utility.js --js=Menu.js --js=XSystem.js --js=../../constants.js --js_output_file=min.js
+java -jar ../../../js_compiler/compiler.jar --js=jquery.lightbox_me.min.js --js=Demos.js --js=Experience.js --js=Skills.js --js=Utility.js --js=Menu.js --js=System.js --js=../../constants.js --js_output_file=min.js
 cat min.js | gzip > min.js.gz

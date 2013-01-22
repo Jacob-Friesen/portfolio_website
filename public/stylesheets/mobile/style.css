@@ -30,13 +30,13 @@ div.menu_container {
 }
 div.menu_container div {
   margin: 0 auto;
-  width: 98%;
+  width: 331px;
   padding: 0;
 }
 div.menu_container div div.menu_box {
   display: inline-block;
   padding: 5px 5px 2px 5px;
-  width: 16.8%;
+  width: 55px;
 }
 div.menu_container div div.menu_box div.menu_icon {
   border: solid 1px #000;

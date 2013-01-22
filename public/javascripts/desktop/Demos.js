@@ -28,8 +28,11 @@ demos_ns = (function () {
          */
 		
         resize_img: function(image){
-			var large_image = $("<img/>").attr('src', image.src.replace('_s','')).attr('id', image.id + "_clone").attr('class', 'viewImage');
-			large_image.lightbox_me({destroyOnClose: true, centered: true, overlaySpeed: 0, lightboxSpeed: 300});//not going to chain that would get ugly
+			var large_image = $("<img/>").attr('src', image.src.replace('_s','')).attr('id', image.id + "_clone");
+			large_image.lightbox_me({
+				destroyOnClose: true,
+				centered: true
+			});
 			large_image.click(function(){ $(this).trigger('close'); });
 		},
         
