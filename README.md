@@ -1,7 +1,7 @@
 Portfolio Website
 =================
 
-My new integrated mobile desktop portfolio website (under development). The prototype can be found [here](http://jacobfriesen.xen.prgmr.com:9002). This is the culmination of my attempts at making an interface with no comprimises: 
+My integrated interface portfolio website, which is the 5th major revision of my website. This site is [here](http://jacobfriesen.com). This is the culmination of my attempts at making an interface with no comprimises: 
  
  * Single domain with no unecessary scripts/loads for any interface (A problem with most media query based adaptations)
  * Full AJAX page loads (~250ms)
@@ -30,12 +30,14 @@ Still need to add Selenium GUI tests and convert a little bit of the Jasmine tes
  
 Interfaces Supported
 ====================
-More to come soon.
+These are the browsers I tested for, the site probably works in other browsers but I don't want to speculate.
 
  * Desktop
     * Firefox
     * Chrome
     * Opera
+    * IE 9
+    * IE 8 (no script interface only)
  * Mobile
     * Android
         * 2.2 Default Browser
@@ -44,6 +46,8 @@ More to come soon.
         * Dolphin
         * Firefox [Partial]
         * Opera [Partial]
+    * iOS
+        * Safari for iOS 4, 5 and 6
 
 Future
 ======
