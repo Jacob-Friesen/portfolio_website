@@ -3,6 +3,8 @@ var start_system = function (){
     
     // Tries to load the sent in value if loaded via URL. Otherwise checks for a hash and loads using that
     var page = window.location.href.split('/#').pop();
+    page = page.replace('#top','');
+    
     if (page == window.location.href)
        page = page.split('/').pop();
      

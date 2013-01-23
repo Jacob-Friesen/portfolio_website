@@ -7,13 +7,23 @@ var Selector = {
     scripts: {
         js_loaded: [],
         
+        // Common scripts could be put on layout page but then it would be hard to check once there loaded in
+        // a general way. Also, this negates a lot of browser imcompatabilities like ignoring defers (Opera) in
+        // scripts in the head.
+        common: {
+            js_location: '',
+            js: [
+                '/javascripts/jquery.min.js',
+                '/javascripts/jquery.lightbox_me.min.js',
+                '/constants.min.js'// No JS location due to this
+            ]
+        },
+        
         desktop: {
-            js_location: 'javascripts/desktop/',
+            js_location: '/javascripts/desktop/',
             js: [
                 'min.js'
-                //'constants.js',
                 //'jquery.watcher.min.js',
-                //'jquery.canvas_drag0.5.min.js',
                 //'jquery.window_tiles.js',
                 //'jquery.icbm.js',
                 //
@@ -47,13 +57,13 @@ var Selector = {
             ],
             js_location: '/javascripts/mobile/',
             js: [
-                'min.js'
-                //'Menu.js',
-                //'Utility.js',
-                //'Skills.js',
-                //'Experience.js',
-                //'Demos.js',
-                //'System.js'
+                //'min.js'
+                'Menu.js',
+                'Utility.js',
+                'Skills.js',
+                'Experience.js',
+                'Demos.js',
+                'System.js'
             ]
         }
     },
@@ -71,7 +81,6 @@ var Selector = {
         var MOBILE_WIDTH = 720;
         var MOBILE_STRING = "mobile";
         
-        // pre
         if (typeof mocha !== "undefined" && dont_run)
             return this;
         
@@ -92,7 +101,7 @@ var Selector = {
             meta.name = "viewport";
             meta.id = "viewport";
             meta.content = "width=device-width, initial-scale=1.0";
-            document.head.appendChild(meta);
+        document.head.appendChild(meta);
         
         this.load_css();
         this.load_js();
@@ -102,6 +111,7 @@ var Selector = {
     // Loads specified page or if it can't goes to no script page.
     render_desktop: function(){
         this.mode = 'desktop';
+        
         document.body.style.display = 'none';// ensures page load looks smooth
         
         this.load_css();
@@ -113,16 +123,24 @@ var Selector = {
     start_system: function(){
         document.body.style.display = 'block';
         
-        for (var i = 0; i < this.scripts.js_loaded.length; i += 1)
-            eval(this.scripts.js_loaded[i]);
+        // Run each AJAX loaded script
+        for (var i = 0; i < this.scripts.js_loaded.length; i += 1){
+            var script = document.createElement('script');
+                script.text = this.scripts.js_loaded[i];
+                script.id = 'script_injection_' + i;
+            document.head.appendChild(script);
+        }
+        
         start_system();
     },
     
     is_system_loaded: function(){
-        if(this.loaded.css == this.scripts[this.mode].css.length &&
-           this.loaded.js == this.scripts[this.mode].js.length &&
-           this.loaded.pages == this.PAGES_TO_LOAD)
-            return true;
+        if (this.loaded.css == this.scripts[this.mode].css.length &&
+            this.loaded.js == this.scripts[this.mode].js.length + this.scripts.common.js.length &&
+            this.loaded.pages == this.PAGES_TO_LOAD){
+                //debugger
+                return true;
+            }
         return false;
     },
     
@@ -146,24 +164,36 @@ var Selector = {
         return '?mode=' + this.mode;
     },
     
-    // Uses AJAX to load a script into an object for later execution
+    // Uses AJAX to load interface common and current interface scripts into an object for later execution
     load_js: function(){
         var parent = this;
         
-        for (var s = 0; s < this.scripts[this.mode].js.length; s += 1){
-            this.ajax_load('GET', this.scripts[this.mode].js_location + this.scripts[this.mode].js[s], function(response){
-                parent.scripts.js_loaded.push(response);
+        // Preinitialize loaded array so scripts can be inserted into the array in the order this.scripts describes
+        this.scripts.js_loaded = new Array(this.scripts.common.js.length + this.scripts[this.mode].js.length);
+        
+        // Get script at from and place it in order position to be executed
+        var load_script = function(from, order) {
+            this.ajax_load('GET', from, function(response){
+                parent.scripts.js_loaded[order] = response;
                 parent.loaded.js += 1;
             });
         }
+        
+        var mode_length = this.scripts.common.js.length;
+        for (var s = 0; s < mode_length; s += 1)
+            load_script.call(this, this.scripts.common.js_location + this.scripts.common.js[s], s);
+            
+        // notice var was not reset
+        for (;s < this.scripts[this.mode].js.length + mode_length; s += 1)
+            load_script.call(this, this.scripts[this.mode].js_location + this.scripts[this.mode].js[s - mode_length], s);
     },
     
     load_css: function (){
         for (var c = 0; c < this.scripts[this.mode].css.length; c += 1){
             var stylesheet = document.createElement("link");
-            stylesheet.rel = "stylesheet";
-            stylesheet.type = "text/css";
-            stylesheet.href = this.scripts[this.mode].css_location + this.scripts[this.mode].css[c];
+                stylesheet.rel = "stylesheet";
+                stylesheet.type = "text/css";
+                stylesheet.href = this.scripts[this.mode].css_location + this.scripts[this.mode].css[c];
             document.head.appendChild(stylesheet);
             
             this.loaded.css += 1;
@@ -175,14 +205,14 @@ var Selector = {
         var parent = this;
         
         if (!parent.ajax_load('GET', this.INDEX_PAGE + this.mode_to_get(), function(response){
-            parent.add_to_body(response)
+            parent.add_to_body(response);
             parent.loaded.pages += 1;
         })){
             window.location(NOSCRIPT_DOMAIN);
         }
         
         // OPTIMIZATION: Preload needed page into cache
-        var page = (address + "").replace('#','');
+        var page = (address + "").split('#')[0];// Dealing with extra # stuff on the end of links (like #top)
         var path = address.pathname;
         if (typeof address.pathname === 'undefined'){
             path = page = '/home';

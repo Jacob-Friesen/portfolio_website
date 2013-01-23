@@ -162,7 +162,7 @@ var utility = {
         // Each of these gets a original_font_size set. Also very inefficient.
         // In the form: selector, default font size
         TO_CHANGE: [
-            ['#body', -1],//some browsers can't reference document.body
+            [document.body, -1],
             ['h1', -1],
             ['h4', -1]
         ],

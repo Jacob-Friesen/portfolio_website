@@ -146,8 +146,11 @@ describe('Selector', function() {
     
     describe('#load_js()', function() {
         beforeEach(function(){
-            // no ajax just call the data
+            // No ajax just call the data
             this.JS_TEST_VAL = 'test';
+            
+            // To add custom data to each simulated AJAX call
+            Selector.test_value = 0;
             
             sinon.stub(Selector , 'ajax_load', function (mode, page, callback) {
                 callback(this.JS_TEST_VAL);
@@ -173,7 +176,7 @@ describe('Selector', function() {
         
         it('the correct amount of desktop js files were loaded and counted', function(done){
             test_js_load(function(){
-                assert.equal(Selector.loaded.js, Selector.scripts.desktop.js.length);
+                assert.equal(Selector.loaded.js, Selector.scripts.desktop.js.length + Selector.scripts.common.js.length);
             }, done)
         })
         
@@ -188,7 +191,7 @@ describe('Selector', function() {
             Selector.mode = 'mobile';
             
             test_js_load(function(){
-                assert.equal(Selector.loaded.js, Selector.scripts.mobile.js.length);
+                assert.equal(Selector.loaded.js, Selector.scripts.mobile.js.length + Selector.scripts.common.js.length);
             }, done)
         })
         
@@ -199,6 +202,49 @@ describe('Selector', function() {
                 for (var i = 0; i < Selector.scripts.mobile.js.length; i++)
                     assert.equal(Selector.scripts.js_loaded[i], this.JS_TEST_VAL);
             }, done)
+        })
+        
+        function test_script_execution_order(done){
+            var MAX_DELAY = 10;// In ms
+            var COMMON_LENGTH = Selector.scripts.common.js.length;
+            var MODE_LENGTH = Selector.scripts[Selector.mode].js.length;
+            
+            // Random timeout to simulate asynchronous file loading page is sent so comparisons can be made later
+            Selector.ajax_load.restore();
+            sinon.stub(Selector , 'ajax_load', function (mode, page, callback) {
+                setTimeout(function(){
+                    callback(page);
+                }, Math.floor(Math.random() * MAX_DELAY))
+            });
+            
+            setTimeout(function() {
+                test_js_load(function(){
+                    // The file names are the test data inserted into loaded the order should be the same as in scripts
+                    for (var s = 0; s < COMMON_LENGTH; s += 1)
+                        assert.equal(Selector.scripts.js_loaded[s].split('/').pop(), Selector.scripts.common.js[s].split('/').pop());
+                        
+                    // notice var was not reset
+                    for (;s < MODE_LENGTH + COMMON_LENGTH; s += 1)
+                        assert.equal(Selector.scripts.js_loaded[s].split('/').pop(), Selector.scripts[Selector.mode].js[s - COMMON_LENGTH].split('/').pop());
+                }, done)
+            }, MAX_DELAY * (MODE_LENGTH + COMMON_LENGTH));//enough time for all random results to finish
+        }
+        
+        var test_name = ' the order of execution for the files is correct';
+        it('(RANDOM TEST 1)' + test_name, function(done){
+            test_script_execution_order(done);
+        })
+        it('(RANDOM TEST 2)' + test_name, function(done){
+            test_script_execution_order(done);
+        })
+        it('(RANDOM TEST 3)' + test_name, function(done){
+            test_script_execution_order(done);
+        })
+        it('(RANDOM TEST 4)' + test_name, function(done){
+            test_script_execution_order(done);
+        })
+        it('(RANDOM TEST 5)' + test_name, function(done){
+            test_script_execution_order(done);
         })
     });
     
@@ -223,6 +269,11 @@ describe('Selector', function() {
             assert.equal(Selector.is_system_loaded(), false);
         })
         
+        it('is not loaded when all common js is present', function(){
+            Selector.loaded.js = Selector.scripts.common.js.length;
+            assert.equal(Selector.is_system_loaded(), false);
+        })
+        
         it('is not loaded when all desktop js is present', function(){
             Selector.loaded.js = Selector.scripts.desktop.js.length;
             assert.equal(Selector.is_system_loaded(), false);
@@ -241,7 +292,7 @@ describe('Selector', function() {
         })
         
         function test_js_css_load(mode){
-            Selector.loaded.js = Selector.scripts[mode].js.length;
+            Selector.loaded.js = Selector.scripts[mode].js.length + Selector.scripts.common.js.length;
             Selector.loaded.css = Selector.scripts[mode].css.length;
             assert.equal(Selector.is_system_loaded(), false);
         }
@@ -255,7 +306,7 @@ describe('Selector', function() {
         })
         
         function test_all_load(mode){
-            Selector.loaded.js = Selector.scripts[mode].js.length;
+            Selector.loaded.js = Selector.scripts[mode].js.length + Selector.scripts.common.js.length;
             Selector.loaded.css = Selector.scripts[mode].css.length;
             Selector.loaded.pages = Selector.PAGES_TO_LOAD;
             assert.equal(Selector.is_system_loaded(), true);

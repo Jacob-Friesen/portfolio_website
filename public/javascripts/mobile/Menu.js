@@ -21,12 +21,15 @@ var menu = {
             var _page = pages[page].toLowerCase();
             if(_page.split('exp').length > 1) _page = "experience";
             
+            _page = _page.split('/').pop();// To deal with when #top appears in the address bar
+            
             $("#" + _page + this.LINK_NAME)[this.EVENT]( $.proxy(this.open_link, this, _page) );
         }
     },
     
     // Using the sent in link ,or page if no link was provided, loads the page.
     open_link: function(page){
+        page = page.split('/').pop();
         system.load_page(page, {}, $.proxy(this.new_page, this, page));
     },
     
@@ -35,8 +38,9 @@ var menu = {
         // Update the address and add a title
         if (window.history.pushState)
             window.history.pushState(this.page_text[page].title + page + " page", this.page_text[page].title, '/' + page);
-        else
+        else{
             window.location.href = window.location.href.split('#')[0] + '#' + page;
+        }
         document.title = this.page_text[page].title;
             
         system.page_init(page);

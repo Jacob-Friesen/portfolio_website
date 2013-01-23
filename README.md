@@ -16,7 +16,6 @@ This is a express app (Node.js based) that mimics page loads via AJAX and histor
 1. A very light page is loaded containing:
  * The inlined (and minified) mobile interface code (Selector.js in source)
  * All meta tags except viewport which is added once the interface type is determined
- * Common JS files across the interfaces
 2. If client is an older IE or is not using JavaScript the no_script interface is loaded
 3. Client is chosen and specific scripts and index page is loaded
 4. Once all scripts and pages have been loaded the system is started for the interface
@@ -39,6 +38,7 @@ More to come soon.
     * Opera
  * Mobile
     * Android
+        * 2.2 Default Browser
         * 4.2 Default Browser (should support 4.1s and 4.0s too)
         * Chrome
         * Dolphin
