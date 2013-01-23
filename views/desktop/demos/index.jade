@@ -31,8 +31,8 @@
 					- if (demo_list[d].links)
 						.downloadLinks
 							p
-								- if (typeof no_script !== "undefined" && no_script == true && demo_list[d].link_text.toLowerCase().split('flash').length > 1)
-									b Enable JavaScript to view Youtube video
+								- if (typeof no_script !== "undefined" && no_script == true && demo_list[d].links.length > 0 && demo_list[d].links[0].link_text.toLowerCase().split('flash').length > 1)
+									b Enable JavaScript or upgrade your browser to view the Youtube video
 								- else
 									- var links = demo_list[d].links;
 									- for (var l = 0; l < links.length; l += 1)

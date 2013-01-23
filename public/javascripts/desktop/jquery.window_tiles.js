@@ -107,9 +107,12 @@
 				// Give parent handler to child so it updates the parent
 				$(this.child).watch('height, width',function(data, i){
 					$(this.parentNode).height($(this).height() + 2);
+					if (navigator.appName.toLowerCase() == 'microsoft internet explorer')
+						$(this.parentNode).height($(this).height() + 15);
+					
 					$(this.parentNode).width($(this).width());
 				});
-				if (navigator.appName == 'Microsoft Internet Explorer')
+				if (navigator.appName.toLowerCase() == 'microsoft internet explorer')
 					this.IE_Listen();
 				
 			   this.adtnl_work(this.child);

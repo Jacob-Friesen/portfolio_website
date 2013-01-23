@@ -13,10 +13,11 @@ html,body {
 }
 
 body{
-	font-family: Calibri, Arial;
+	font-family: Arial;
 	height: 100%;
 	font-size: 2em;
 	color: black;
+	overflow-y: scroll;
 }
 
 body.videoBody {
@@ -392,8 +393,7 @@ div.contact_footer{
 	width: 100%;
 	z-index: 4;
 	text-align: center;
-}img.mainImage
-
+}
 	div.contact_footer p{	
 		margin: 0;
 		font-size: 22px;

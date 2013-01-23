@@ -22,16 +22,12 @@ head
 	
 	//scripts
 	link(rel="shortcut icon", href="http://www.jacobfriesen.com/favicon.ico", style="width:16px;height:16px")
-	link(rel='stylesheet', href='/stylesheets/style_c.css')
-	link(rel='stylesheet', href='/stylesheets/experience_c.css')
-	link(rel='stylesheet', href='/stylesheets/skills_c.css')
-	link(rel='stylesheet', href='/stylesheets/demos_c.css')
-	link(rel='stylesheet', href='/stylesheets/blog_c.css')
-	link(rel='stylesheet', href='/stylesheets/ns_c.css')
-	
-	<!--[if lte IE 7]>
-	link(rel="stylesheet", href="/stylesheets/ns_IE7.css")
-	<![endif]-->
+	link(rel='stylesheet', href='/stylesheets/desktop/style_c.css')
+	link(rel='stylesheet', href='/stylesheets/desktop/experience_c.css')
+	link(rel='stylesheet', href='/stylesheets/desktop/skills_c.css')
+	link(rel='stylesheet', href='/stylesheets/desktop/demos_c.css')
+	link(rel='stylesheet', href='/stylesheets/desktop/blog_c.css')
+	link(rel='stylesheet', href='/stylesheets/desktop/ns_c.css')
 	
 body
 	// Javascript Recommend
@@ -48,6 +44,6 @@ body
 													"<a style='color:white' href=" + "http://www.opera.com/" + ">Opera</a>";
 	
 	.centerInit
-		!=partial("menu_no_script", {layout: false, cur_page: cur_page, id: id})
+		!=partial("menu_no_script", {layout: false, cur_page: "desktop/" + cur_page, id: id})
 		.windowSpace
-			!=partial(cur_page, {layout: false, no_script: true})
+			!=partial("desktop/" + cur_page, {layout: false, no_script: true})
