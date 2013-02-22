@@ -66,7 +66,7 @@ Portfolio.window_details = (function($, Selector, pages, _navigator){
 					}, this));
 					
 					// Set the height and width, give the height a little padding to make sure
-					$(this.parentNode).height(this.height + 45);
+					$(this.parentNode).height(this.height + 60);
 					$(this.parentNode).width($(this).width());
 					
 					// Keep scope and start watching via polling
