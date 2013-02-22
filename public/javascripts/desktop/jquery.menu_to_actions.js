@@ -1,4 +1,4 @@
-(function($, _location){
+(function($){
 	
 	// Given the menu handler attach a mapping between name/images and actions.
 	//
@@ -60,11 +60,11 @@
 				$(this).click(function(e) {
 					parent.all_to_grey();
 
-					//try{
+					try{
 						map_imgs[old_src](this.img);
-					//} catch (e){
-					//	map_imgs['http://'+_location+"/"+old_src](this.img);
-					//}
+					} catch (e){
+						map_imgs['http://'+Portfolio.location+"/"+old_src](this.img);
+					}
 					
 					this.set_gscale(false);
 					this.opened = true;
@@ -91,4 +91,4 @@
 		
 		return this;
 	};
-})(jQuery, Portfolio.location);
+})(jQuery);
