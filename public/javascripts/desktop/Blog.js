@@ -1,5 +1,5 @@
 // UPDATE SOON...
-blog_ns = (function () {
+Portfolio.blog = (function () {
     return {
         init: function (){}
     }

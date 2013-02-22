@@ -1,9 +1,10 @@
 var assert = chai.assert,
     expect = chai.expect,
     should = chai.should();
+    Selector = Portfolio.selector;
 
 // globals that Mocha won't complain about
-mocha.setup({globals: ['toString']});
+mocha.setup({globals: ['toString', 'constructor']});
 
 // resets body so that only the mocha tag is left
 function reset_body(){
@@ -99,9 +100,13 @@ describe('Selector', function() {
     });
     
     describe('#load_css()', function() {
+        beforeEach(function(){
+            Selector.loaded.css = 0;
+        })
+        
         afterEach(function(){
             Selector.loaded.css = 0;
-            Selector.mode = 'desktop';
+            Selector.set_mode('desktop');
             reset_head();
         })
         
@@ -128,7 +133,7 @@ describe('Selector', function() {
         })
         
         it('the correct amount of mobile css files were loaded and counted', function(done){
-            Selector.mode = 'mobile';
+            Selector.set_mode('mobile');
             
             test_css_load(function(){
                 assert.equal(Selector.loaded.css, Selector.scripts.mobile.css.length);
@@ -136,7 +141,7 @@ describe('Selector', function() {
         })
         
         it('the correct amount of mobile css files are in the head', function(done){
-            Selector.mode = 'mobile';
+            Selector.set_mode('mobile');
             
             test_css_load(function(){
                 assert.equal(Selector.scripts.mobile.css.length, $(document.head).children("link:not(link[href$='mocha.css'])").length);
@@ -160,7 +165,7 @@ describe('Selector', function() {
         
         afterEach(function(){
             Selector.loaded.js = 0;
-            Selector.mode = 'desktop'
+            Selector.set_mode('desktop');
             Selector.ajax_load.restore();
         })
         
@@ -188,7 +193,7 @@ describe('Selector', function() {
         })
         
         it('the correct amount of mobile js files were loaded and counted', function(done){
-            Selector.mode = 'mobile';
+            Selector.set_mode('mobile');
             
             test_js_load(function(){
                 assert.equal(Selector.loaded.js, Selector.scripts.mobile.js.length + Selector.scripts.common.js.length);
@@ -196,7 +201,7 @@ describe('Selector', function() {
         })
         
         it('the correct amount of mobile js files were evaled', function(done){
-            Selector.mode = 'mobile';
+            Selector.set_mode('mobile');
             
             test_js_load(function(){
                 for (var i = 0; i < Selector.scripts.mobile.js.length; i++)
@@ -207,7 +212,7 @@ describe('Selector', function() {
         function test_script_execution_order(done){
             var MAX_DELAY = 10;// In ms
             var COMMON_LENGTH = Selector.scripts.common.js.length;
-            var MODE_LENGTH = Selector.scripts[Selector.mode].js.length;
+            var MODE_LENGTH = Selector.scripts[Selector.get_mode()].js.length;
             
             // Random timeout to simulate asynchronous file loading page is sent so comparisons can be made later
             Selector.ajax_load.restore();
@@ -225,7 +230,7 @@ describe('Selector', function() {
                         
                     // notice var was not reset
                     for (;s < MODE_LENGTH + COMMON_LENGTH; s += 1)
-                        assert.equal(Selector.scripts.js_loaded[s].split('/').pop(), Selector.scripts[Selector.mode].js[s - COMMON_LENGTH].split('/').pop());
+                        assert.equal(Selector.scripts.js_loaded[s].split('/').pop(), Selector.scripts[Selector.get_mode()].js[s - COMMON_LENGTH].split('/').pop());
                 }, done)
             }, MAX_DELAY * (MODE_LENGTH + COMMON_LENGTH));//enough time for all random results to finish
         }
@@ -250,7 +255,7 @@ describe('Selector', function() {
     
     describe('#is_system_loaded()', function() {
         afterEach(function(){
-            Selector.mode = 'desktop';
+            Selector.set_mode('desktop');
             Selector.loaded.css = 0;
             Selector.loaded.js = 0;
             Selector.loaded.pages = 0;
@@ -263,7 +268,7 @@ describe('Selector', function() {
         })
         
         it('is not loaded when all mobile css is present', function(){
-            Selector.mode = 'mobile';
+            Selector.set_mode('mobile');
             
             Selector.loaded.css = Selector.scripts.mobile.css.length;
             assert.equal(Selector.is_system_loaded(), false);
@@ -280,7 +285,7 @@ describe('Selector', function() {
         })
         
         it('is not loaded when all mobile js is present', function(){
-            Selector.mode = 'mobile';
+            Selector.set_mode('mobile');
             
             Selector.loaded.js = Selector.scripts.mobile.js.length;
             assert.equal(Selector.is_system_loaded(), false);
@@ -297,12 +302,12 @@ describe('Selector', function() {
             assert.equal(Selector.is_system_loaded(), false);
         }
         it('is not loaded when all desktop css and js are present', function(){
-            test_js_css_load(Selector.mode);
+            test_js_css_load(Selector.get_mode());
         })
         
         it('is not loaded when all mobile css and js are present', function(){
-            Selector.mode = 'mobile';
-            test_js_css_load(Selector.mode);
+            Selector.set_mode('mobile');
+            test_js_css_load(Selector.get_mode());
         })
         
         function test_all_load(mode){
@@ -312,12 +317,12 @@ describe('Selector', function() {
             assert.equal(Selector.is_system_loaded(), true);
         }
         it('is loaded when all desktop css, js and pages are present', function(){
-            test_all_load(Selector.mode);
+            test_all_load(Selector.get_mode());
         })
         
         it('is loaded when all mobile css, js and pages are present', function(){
-            Selector.mode = 'mobile';
-            test_all_load(Selector.mode);
+            Selector.set_mode('mobile');
+            test_all_load(Selector.get_mode());
         })
     });
     
@@ -344,17 +349,17 @@ describe('Selector', function() {
         
         it('the system loads mobile when the screen width is below 720px', function(){
             Selector.init(false, 720,'');
-            assert(Selector.mode, 'mobile');
+            assert(Selector.get_mode(), 'mobile');
         })
         
         it('the system loads mobile when mobile is in the user agent string', function(){
             Selector.init(false, '', this.MOBILE_USER_STRING);
-            assert(Selector.mode, 'mobile');
+            assert(Selector.get_mode(), 'mobile');
         })
         
         it('the system loads desktop when the screen is wider than 720px and has no "mobile" in the user agent string', function(){
             Selector.init(false, 721, this.DESKTOP_USER_STRING);
-            assert(Selector.mode, 'desktop');
+            assert(Selector.get_mode(), 'desktop');
         })
     });
 })

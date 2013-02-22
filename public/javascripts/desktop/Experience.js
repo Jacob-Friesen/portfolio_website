@@ -1,8 +1,5 @@
-exp_ns = (function () {
-    var jobs;
-    
+Portfolio.experience = (function ($, utility) {
     return {
-        
        init: function (){
 	    // get jobs that are visible and have corresponding details
 	    var jobs = $('.job:visible');
@@ -29,4 +26,4 @@ exp_ns = (function () {
 			}).close("all").open(0);
        }
     }
-})();
+})(jQuery, Portfolio.utility);

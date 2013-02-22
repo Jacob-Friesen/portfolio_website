@@ -41,6 +41,11 @@ div.icon_based_menu {
 			margin-top: 15px;
 			background-color: white;
 		}
+			div.icbm_object a{
+				cursor: pointer;
+				cursor: hand;
+			}
+		
 			div.icbm_object div{
 				background-color: white;
 			}

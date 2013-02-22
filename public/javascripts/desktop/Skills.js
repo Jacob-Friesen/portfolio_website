@@ -1,4 +1,4 @@
-var skills_ns = (function skills_ns() {    
+Portfolio.skills = (function ($, c, utility){    
     return {
 		init: function(){
 			
@@ -20,7 +20,7 @@ var skills_ns = (function skills_ns() {
 			});
 			
 			// Make each part of each skill section openable
-			var skill_sections = constant.page_text.skills.skill_types;
+			var skill_sections = c.page_text.skills.skill_types;
 			for (var i = 0; i < skill_sections.length; i++){
 				utility.attach_show_events({
 					triggers: $('button[id^=skills_point_collapse_skill_'+i+']:visible'),
@@ -43,4 +43,4 @@ var skills_ns = (function skills_ns() {
 			main_skills.close("all").open(0);
 		}
     }
-})();
+})(jQuery, Portfolio.constants, Portfolio.utility);

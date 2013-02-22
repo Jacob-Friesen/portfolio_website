@@ -1,10 +1,4 @@
-demos_ns = (function () {
-    var demos = [];// of type Movable eventually
-    var newImage;
-    var newBg;
-    var newClose;
-    var polling = false;
-    
+Portfolio.demos = (function ($, utility) {
     return {
         init: function (){
 			utility.attach_show_events({
@@ -23,10 +17,6 @@ demos_ns = (function () {
 			}).close("all").open(0);
         },
         
-        /**
-         * demoFunc.js
-         */
-		
         resize_img: function(image){
 			var large_image = $("<img/>").attr('src', image.src.replace('_s','')).attr('id', image.id + "_clone");
 			large_image.lightbox_me({
@@ -34,25 +24,6 @@ demos_ns = (function () {
 				centered: true
 			});
 			large_image.click(function(){ $(this).trigger('close'); });
-		},
-        
-        /**
-         * Remove the enlarged image and background from the screen
-         */
-        remove_resize: function (newImage){
-            document.body.removeChild(newImage);
-            document.body.removeChild(newBg);
-            document.body.removeChild(newClose);
-        },
-        
-        /**
-         * Displays flash video in center of screen
-         */
-        display_flash: function (location){
-            if (location == null)
-                window.location = "video.html";
-            else
-                window.location = location;
-        }
+		}
     }
-})();
+})(jQuery, Portfolio.utility);
