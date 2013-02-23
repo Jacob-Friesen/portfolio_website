@@ -310,7 +310,7 @@ Portfolio.constants = (function(){
 						details: [
 							"Worked on Panda the internal web application that manages most of the business including all of the product ordering \
 							coming from all of the online pharmacy sites. Worked in an Agile Kanban environment.",
-							"Used HAML, JavaScript (with lots of JQuery and AJAX), and SCSS to design and update front end interfaces.",
+							"Used HAML, JavaScript (with lots of jQuery and AJAX), and SCSS to design and update front end interfaces.",
 							"The backend was coded with Ruby on Rails connecting to a MYSQL database.",
 							"Additionally, improved a small internal management application with a Twitter Bootstrap interface and a Ruby on Rails backend.",
 							"Most of the code was done in Mac OS X with some basic CLI server admin in CentOS (Linux variant)."
@@ -478,7 +478,8 @@ Portfolio.constants = (function(){
 			
 			blog: {
 				title: "Blog - Jacob Friesen",
-				introduction: "Coming soon..."
+				introduction: "Below is the latest text posting from my coding blog. View my full blog",
+				introduction_link: ["http://epiccode.tumblr.com/","here", "Jacob Friesen's Tumblr Blog"]// link, name, alt
 			}
 		}
 	}

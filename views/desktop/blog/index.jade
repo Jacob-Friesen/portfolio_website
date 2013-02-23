@@ -1,8 +1,15 @@
+- var blog = constant.page_text.blog;
 #blogBox.expBox(name="blogBox")
 	#red.topWrapper
 				
-	// Title
 	#bTitleWrapper.titleWrapper(name="bTitleWrapper)
-		h1 Jacob Friesen's Blog: August 2011
+		h1 Blog
 	#bTextWrapper.textWrapper(name="bTextWrapper")
-		blog coming soon...
+		p= blog.introduction
+			&nbsp;
+			a(href=blog.introduction_link[0], alt=blog.introduction_link[2])= blog.introduction_link[1]
+			.
+		hr
+		
+		h1.blogTitle Loading...
+		.blogPosting

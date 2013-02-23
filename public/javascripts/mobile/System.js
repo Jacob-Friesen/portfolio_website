@@ -16,7 +16,7 @@ Portfolio.start_system = function (){
     return true; 
 };
 
-Portfolio.system = (function($, Selector, utility, menu, constant, skills, experience, demos){
+Portfolio.system = (function($, Selector, utility, menu, constant, skills, experience, demos, blog){
     return {
         SHOW: "<p>▲</p>",
         HIDE: "<p>▼</p>",
@@ -99,6 +99,6 @@ Portfolio.system = (function($, Selector, utility, menu, constant, skills, exper
         experience: experience,
         skills: skills,
         demos: demos,
-        blog: {init:function(){}}
+        blog: blog
     }
-})(jQuery, Portfolio.selector, Portfolio.utility, Portfolio.menu, Portfolio.constants, Portfolio.skills, Portfolio.experience, Portfolio.demos);
+})(jQuery, Portfolio.selector, Portfolio.utility, Portfolio.menu, Portfolio.constants, Portfolio.skills, Portfolio.experience, Portfolio.demos, Portfolio.blog);

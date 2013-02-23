@@ -1,2 +1,2 @@
-java -jar ../../../js_compiler/compiler.jar --js=jquery.watcher.min.js --js=jquery.menu_to_actions.js --js=Skills.js --js=Experience.js --js=Demos.js --js=Blog.js --js=System.js --js=Window_Details.js --js_output_file=min.js
+java -jar ../../../js_compiler/compiler.jar --js=menu_to_actions.js --js=Skills.js --js=Experience.js --js=Demos.js --js=System.js --js=Window_Details.js --js_output_file=min.js
 cat min.js | gzip > min.js.gz

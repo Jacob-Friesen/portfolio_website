@@ -34,21 +34,6 @@ Portfolio.window_details = (function($, Selector, pages, _navigator){
 				this.child = this.into.children(":first")[0];
 				this.child.style.display = "inline";
 				
-				// Resize parent (+2 for making border visible)
-				$(this.into).height($(this.child).height() + 2);
-				$(this.into).width($(this.child).width());
-				
-				// Give parent handler to child so it updates the parent when height is changed
-				$(this.child).watch('height, width',function(data, i){
-					$(this.parentNode).height($(this).height() + 2);
-					if (_navigator.appName.toLowerCase() === 'microsoft internet explorer')
-						$(this.parentNode).height($(this).height() + 15);
-					
-					$(this.parentNode).width($(this).width());
-				});
-				if (_navigator.appName.toLowerCase() === 'microsoft internet explorer')
-					this.IE_Listen();
-				
 				this.adtnl_work(this.child);
 			},
 			

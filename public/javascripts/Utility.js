@@ -142,7 +142,7 @@ Portfolio.utility = (function($){
 			
 			// Each of these gets a original_font_size set. Also very inefficient.
 			// In the form: selector, default font size
-			TO_CHANGE: [
+			to_change: [
 				[document.body, -1],
 				['h1', -1],
 				['h4', -1]
@@ -154,12 +154,37 @@ Portfolio.utility = (function($){
 			
 			// Gets all the above elements current font-size and stores that as the default.
 			init: function(){
-				for (var i = 0; i < this.TO_CHANGE.length; i++){
-					var element = $(this.TO_CHANGE[i][0]).first();
-	
-					if (element[0])
-						this.TO_CHANGE[i][1] = Number(element.css('font-size').replace('px',''));
+				for (var i = 0; i < this.to_change.length; i++)
+					this.register_element(this.to_change[i][0], i);
+			},
+			
+			// Performs initialization code on all sent in elements, same format of TO_CHANGE
+			register_elements: function(elements){
+				for (var i = 0; i < elements.length; i++){
+					var dom_element = $(elements[i]);
+					
+					// Set default size and register
+					if (dom_element[0] && dom_element.length > 1)
+						var font_size = Number(dom_element.first().css('font-size').replace('px',''));
+					else
+						var font_size = Number(dom_element.css('font-size').replace('px',''));
+					this.to_change.push([elements[i], font_size]);
+					this.register_element(elements[i], this.to_change.length - 1);
+					
+					// Make sure newly registered items are in the correct scale
+					dom_element.css('font-size', Number(dom_element.css('font-size').replace('px','')) * this.current_scale);
 				}
+				
+				// Make sure newly registered items are in the correct scale
+				this.change_size_by(this.current_scale);
+			},
+			
+			// Sets an items default pixel width
+			register_element: function(_element, at){
+				var element = $(_element).first();
+	
+				if (element[0])
+					this.to_change[at][1] = Number(element.css('font-size').replace('px',''));
 			},
 			
 			// Multiplies all elements original font size by multiple. The updates the page layout.
@@ -168,9 +193,9 @@ Portfolio.utility = (function($){
 				// Record size so it can be used outside of this object
 				this.current_scale = multiple;
 				
-				for(var i = 0; i < this.TO_CHANGE.length; i++){
-					var element = $(this.TO_CHANGE[i][0]);
-					var def_size = this.TO_CHANGE[i][1];
+				for(var i = 0; i < this.to_change.length; i++){
+					var element = $(this.to_change[i][0]);
+					var def_size = this.to_change[i][1];
 					
 					// Loop through all items if selector retrieves a list
 					if (element[0] && element.length > 1){

@@ -19,8 +19,12 @@ Portfolio.selector = (function(_document) {
                 js: [
                     '/javascripts/jquery.min.js',
                     '/javascripts/jquery.lightbox_me.min.js',
-                    '/javascripts/Utility.js',
-                    '/constants.min.js'// No JS location due to this file
+                    '/javascripts/prettify.min.js',
+                    '/javascripts/Utility.min.js',
+                    '/constants.min.js',
+                    
+                    // identical page view logic
+                    '/javascripts/Blog.min.js'
                 ]
             },
             
@@ -28,25 +32,25 @@ Portfolio.selector = (function(_document) {
                 js_location: '/javascripts/desktop/',
                 js: [
                     'min.js'
-                    //'jquery.watcher.min.js',
-                    //'jquery.menu_to_actions.js',
+                    //'menu_to_actions.js',
                     //
                     //'Skills.js',
                     //'Experience.js',
                     //'Demos.js',
-                    //'Blog.js',
                     //'System.js',
-                    //'Window_Details.js',
+                    //'Window_Details.js'
                 ],
                 
-                css_location: '/stylesheets/desktop/',
+                css_location: '',
                 css: [
-                    'style_c.css',
-                    'experience_c.css',
-                    'skills_c.css',
-                    'demos_c.css',
-                    'window_tiles_c.css',
-                    'icbm_c.css'
+                    '/stylesheets/desktop/style_c.css',
+                    '/stylesheets/desktop/experience_c.css',
+                    '/stylesheets/desktop/skills_c.css',
+                    '/stylesheets/desktop/demos_c.css',
+                    '/stylesheets/desktop/blog_c.css',
+                    '/stylesheets/desktop/window_tiles_c.css',
+                    '/stylesheets/desktop/icbm_c.css',
+                    'http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css'
                 ]
             },
             
@@ -61,13 +65,14 @@ Portfolio.selector = (function(_document) {
                     //'System.js'
                 ],
                 
-                css_location: '/stylesheets/mobile/',
+                css_location: '',
                 css: [
-                    'style.css',
-                    'experience.css',
-                    'skills.css',
-                    'demos.css',
-                    'blog.css'
+                    '/stylesheets/mobile/style.css',
+                    '/stylesheets/mobile/experience.css',
+                    '/stylesheets/mobile/skills.css',
+                    '/stylesheets/mobile/demos.css',
+                    '/stylesheets/mobile/blog.css',
+                    'http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css'
                 ]
             }
         },
@@ -142,7 +147,6 @@ Portfolio.selector = (function(_document) {
             if (this.loaded.css == this.scripts[mode].css.length &&
                 this.loaded.js == this.scripts[mode].js.length + this.scripts.common.js.length &&
                 this.loaded.pages == this.PAGES_TO_LOAD){
-                    //debugger
                     return true;
                 }
             return false;

@@ -1,4 +1,13 @@
+-var blog = constant.page_text.blog;
+
 .title_bar
-    h1(id = "blog_title")= constant.page_text.blog.title
+    h1(id = "blog_title")= blog.title
 .blog.section
-    p= constant.page_text.blog.introduction
+    p= blog.introduction
+        &nbsp;
+        a(href=blog.introduction_link[0], alt=blog.introduction_link[2])= blog.introduction_link[1]
+        .
+    hr
+    
+    h1.blogTitle Loading...
+    .blogPosting

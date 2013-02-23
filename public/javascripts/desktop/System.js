@@ -28,8 +28,14 @@ Portfolio.start_system = function (){
 		menu_image_at: '.icbm_image'
     });
 	
+	//get page address
+	if((window.location + "").split('#').length > 1)
+		var path = (window.location + "").split('#').pop();
+	else
+		var path = window.location.pathname.replace('/','').replace('#','')
+	
 	// Determine window to open now from page address
-	switch(window.location.pathname.replace('/','').replace('#','')) {
+	switch(path) {
 		case "home": 		icbm.set_open(0); break;
 		case "skills": 		icbm.set_open(1); break;
 		case "experience": 	icbm.set_open(2); break;
