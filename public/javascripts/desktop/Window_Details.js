@@ -34,47 +34,11 @@ Portfolio.window_details = (function($, Selector, pages, _navigator){
 				this.child = this.into.children(":first")[0];
 				this.child.style.display = "inline";
 				
-				this.adtnl_work(this.child);
-			},
-			
-			// Sets the child to detect a property change. When detected the child gets its height from
-			// its childrens combined total. Then uses this height to set its parent. This is then a looping
-			// process done every CHECK milleseconds
-			IE_Listen: function(){
-				this.child.onpropertychange = function (){
-					CHECK = 50;
-					
-					//get the real height
-					this.height = 0;
-					$(this).children().each($.proxy(function (i, element){
-						this.height += $(element).height();
-					}, this));
-					
-					// Set the height and width, give the height a little padding to make sure
-					$(this.parentNode).height(this.height + 60);
-					$(this.parentNode).width($(this).width());
-					
-					// Keep scope and start watching via polling
-					var parent = this;
-					setTimeout(function () {
-						parent.fireEvent('onpropertychange', document.createEventObject())
-					}, CHECK);
-				};
-			},
-            
-            
-            // Does extra work that happens with each tile, namely:
-            // 1. Makes sure window container is properly positioned by updating it with its immediate childs width
-            // 2. Runs the exec_after function
-            adtnl_work: function(child){
-                // Adjust horizontal positioning
-                $(child.parentNode.parentNode).width($(child.parentNode).width());
-                
-                // Execute function specified to execute after load
+				// Execute function specified to execute after load
                 if (exec_after === null)
                     throw 'Error: exec_after must be specified';
                 exec_after();
-            }
+			}
         }
     };
 	

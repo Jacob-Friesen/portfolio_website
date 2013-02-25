@@ -1,4 +1,4 @@
-Portfolio.blog = (function ($, utility){
+Portfolio.blog = (function ($, selector, utility){
     return {
         init: function (){
             this.load_post();
@@ -17,8 +17,10 @@ Portfolio.blog = (function ($, utility){
                     this.innerHTML = response.posts[0]['regular-body'];
                 });
                 
-                // Register <code> size changes because the code elements only started to exist now
-                utility.change_text.register_elements(['code']);
+                // Register <code> size changes because the code elements only started to exist now. Only
+                // do this on the mobile version, the desktop version has no text resizing.
+                if (selector.get_mode() === 'mobile')
+                    utility.change_text.register_elements(['code']);
                 
                 parent.prettify_code();
             });
@@ -40,4 +42,4 @@ Portfolio.blog = (function ($, utility){
             if (a) prettyPrint();
         }
     }
-})(jQuery, Portfolio.utility);
+})(jQuery, Portfolio.selector, Portfolio.utility);
