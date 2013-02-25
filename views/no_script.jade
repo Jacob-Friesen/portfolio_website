@@ -28,20 +28,22 @@ head
 	link(rel='stylesheet', href='/stylesheets/desktop/demos_c.css')
 	link(rel='stylesheet', href='/stylesheets/desktop/blog_c.css')
 	link(rel='stylesheet', href='/stylesheets/desktop/ns_c.css')
+	//if lt IE 8
+		link(rel='stylesheet', href='/stylesheets/desktop/ns_IE7_c.css')
 	
 body
 	// Javascript Recommend
 	#enableJSTop.topBarNS
 		center
-			h3#msgJS It is recommended you enable Javascript when viewing this website. <a style="color:white" href="http://www.enable-javascript.com/">how?</a>
+			h3#msgJS It is recommended you enable Javascript when viewing this website: <a href="http://www.enable-javascript.com/">how?</a>
 	
 	// Canvas supported browser Recommend
 	script
-		document.getElementById('msgJS').innerHTML =  "It is recommended you upgrade to a more modern browser when viewing this website. " +
-													"<a style='color:white' href=" + "http://www.microsoft.com/presspass/presskits/internetexplorer/" + ">Internet Explorer 9</a>, " +
-													"<a style='color:white' href=" + "http://www.mozilla.com/en-US/firefox/fx/" + ">Firefox</a>, " +
-													"<a style='color:white' href=" + "http://www.google.com/chrome/" + ">Chrome</a>, " +
-													"<a style='color:white' href=" + "http://www.opera.com/" + ">Opera</a>";
+		document.getElementById('msgJS').innerHTML =  "It is recommended you upgrade to a more modern browser when viewing this website: " +
+			"<a href=" + "http://windows.microsoft.com/en-us/internet-explorer/download-ie" + ">Internet Explorer 9</a>, " +
+			"<a href=" + "http://www.mozilla.org/en-US/firefox/new/" + ">Firefox</a>, " +
+			"<a href=" + "https://www.google.com/intl/en/chrome/browser/" + ">Chrome</a>, " +
+			"<a href=" + "http://www.opera.com/" + ">Opera</a>";
 	
 	.centerInit
 		!=partial("menu_no_script", {layout: false, cur_page: "desktop/" + cur_page, id: id})

@@ -25,7 +25,7 @@
 	hr.underText
 	- var pages = constant.pages;
 	- for (var p = 0; p < pages.length; p++)
-		- var p_lower = pages[p].toLowerCase(); 
-		a(title="Jacob Friesen #{pages[p]}", class=menu_css[p], id="#{p_lower}BoxBtn", href=menu_links[p])
-			.menuTxt= pages[p]
-	.menuBottom
+		- var p_lower = pages[p].toLowerCase();
+		-if (p_lower !== "blog")// Make blog load backend later
+			a(title="Jacob Friesen #{pages[p]}", class=menu_css[p], id="#{p_lower}BoxBtn", href=menu_links[p])
+				.menuTxt= pages[p]

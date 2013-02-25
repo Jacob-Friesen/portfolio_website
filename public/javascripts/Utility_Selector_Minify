@@ -1,2 +1,0 @@
-java -jar ../../js_compiler/compiler.jar --js=Utility.js --js_output_file=Utility.min.js
-java -jar ../../js_compiler/compiler.jar --js=Selector.js --js_output_file=Selector.min.js
