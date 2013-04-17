@@ -1,4 +1,16 @@
+#!/bin/bash
+
+# Minifications
 java -jar ../../js_compiler/compiler.jar --js=Utility.js --js_output_file=Utility.min.js
 java -jar ../../js_compiler/compiler.jar --js=Blog.js --js_output_file=Blog.min.js
 java -jar ../../js_compiler/compiler.jar --js=Selector.js --js_output_file=Selector.min.js
 java -jar ../../js_compiler/compiler.jar --js=prettify.js --js_output_file=prettify.min.js
+
+# Gzip all files so they don't have to be gzipped on the fly when retrieving them
+cat Selector.min.js | gzip > Selector.min.js.gz
+cat Blog.min.js | gzip > Blog.min.js.gz
+cat jquery.lightbox_me.min.js | gzip > jquery.lightbox_me.min.js.gz
+cat jquery.min.js | gzip > jquery.min.js.gz
+cat prettify.min.js | gzip > prettify.min.js.gz
+cat Utility.min.js | gzip > Utility.min.js.gz
+

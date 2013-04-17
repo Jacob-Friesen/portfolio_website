@@ -1,1 +1,5 @@
+#!/bin/bash
 java -jar ../js_compiler/compiler.jar --js=constants.js --js_output_file=constants.min.js
+
+# Gzip constants so it doesn't have to be gzipped on the fly when retrieving it
+cat constants.min.js | gzip > constants.min.js.gz

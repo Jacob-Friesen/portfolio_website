@@ -18,7 +18,7 @@ app.configure(function(){
   //app.use(express.session({ secret: 'your secret here' }));
   app.use(require('stylus').middleware({ src: __dirname + '/public' }));
   app.use(app.router);
-  app.use(express.static(__dirname + '/public'));
+  app.use(express.static(__dirname + '/public', { maxAge: 604800000 }));// 1 week in ms
   
   app.use(express.favicon(__dirname + '/public/images/favicon.ico', { maxAge: 604800000 }));// 1 week in ms
 });

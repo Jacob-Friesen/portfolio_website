@@ -5,7 +5,7 @@ Portfolio.window_details = (function($, Selector, pages, _navigator){
 	var Window = function(item, exec_after, tiles){
         return {
             child: null,
-            item_id: item.id,
+            item_id: $(item).attr('id').split('_').shift(),
             into: $('#' + tiles.PAGE_INTO),
             
             // Given an id and object, retrieves the page and displays the object. After that executes the
@@ -48,11 +48,13 @@ Portfolio.window_details = (function($, Selector, pages, _navigator){
 		
 		// Open menu item caches window initialization so it only has to be done once
 		open_item: function(img, exec_after){
-			if (!this.menu_list[img.src])
-				this.menu_list[img.src] = Window(img, exec_after, this);
-			this.menu_list[img.src].open_obj();
+			var src = $(img).attr('src');
 			
-			var page_name = img.src.split('/').pop().split('_')[0];
+			if (!this.menu_list[src])
+				this.menu_list[src] = Window(img, exec_after, this);
+			this.menu_list[src].open_obj();
+			
+			var page_name = src.split('/').pop().split('_')[0];
 			Portfolio.pages.update_url(page_name);
 			
 			return this;// Chaining

@@ -50,13 +50,17 @@ div.icon_based_menu {
 				background-color: white;
 			}
 			
-			img.icbm_image {
+			img.icbm_image, img.icbm_image_cache {
 				border-radius: 5px;
 				border: 1px solid black;
 				margin-left: 15px;
 				
 				width: 120px;
 				height: 100px;
+			}
+			
+			img.icbm_image_cache {
+			    display: none;
 			}
 			
 			div.icbm_object h2 {

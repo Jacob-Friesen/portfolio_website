@@ -19,15 +19,13 @@ module.exports = function(app){
         res.render('test/index', {layout: 'test/index.jade'});
     });
   
-    // gzipping main js file for all interfaces
-    app.get('/javascripts/desktop/min.js', function (req, res, next) {
-        res.header('Content-Encoding', 'gzip');
-        req.url = req.url + '.gz';
-        next();
-    });
-    app.get('/javascripts/mobile/min.js', function (req, res, next) {
-        res.header('Content-Encoding', 'gzip');
-        req.url = req.url + '.gz';
+    // gzipping main js file for all interfaces if the file is minified
+    app.get(/.js/, function (req, res, next) {    
+        if (req.url.search('min.js') > 0){
+            res.header('Content-Encoding', 'gzip');
+            req.url = req.url + '.gz';
+        }
+        
         next();
     });
 }

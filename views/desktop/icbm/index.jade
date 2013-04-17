@@ -9,3 +9,9 @@
                     div
                         img.icbm_image(src="images/menu_icons/#{pages[p].toLowerCase()}_page_grey.png", id="#{pages[p].toLowerCase()}")
                         h2= pages[p]
+
+#menu_icon_cache
+    - var pages = constant.pages;
+    - for (var p = 0; p < pages.length; p++)
+        img.icbm_image_cache(src="images/menu_icons/#{pages[p].toLowerCase()}_page.png", id="cached_#{pages[p].toLowerCase()}")
+        img.icbm_image_cache(src="images/menu_icons/#{pages[p].toLowerCase()}_page_grey.png", id="cached_#{pages[p].toLowerCase()}_grey")

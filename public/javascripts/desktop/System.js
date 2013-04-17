@@ -50,7 +50,7 @@ Portfolio.pages = (function ($, w, c, skills, exp, demos, blog) {
 	// This is what every window must run
 	function defaults() {
 		$("img").each(function() {
-			if ($(this).attr("class") != 'icbm_image' && $(this)[0].id != 'mainImg' && $(this).attr("class") != 'link'){
+			if ($(this).attr("class").search('icbm_image') == -1 && $(this)[0].id != 'mainImg' && $(this).attr("class") != 'link'){
 				//note the resize listener
 				this.parentNode.addEventListener('mousedown', function (e) {
 				if(e.target.id === 'hMainPicture')

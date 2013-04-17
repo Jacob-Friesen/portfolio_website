@@ -6,6 +6,7 @@
 	// menu_image_at: The dom class that contains an image for a menu item (selector code)
 	$.fn.menu_to_actions = function (options){
 		this.REPLACE = '_grey';// Word to replace on the images src (to make them reload a color one)
+		this.CACHE = 'cached_';
 		this.menu_objects = [];
 		
 		// Merge options with default settings
@@ -22,44 +23,59 @@
 
 			// Each menu object will get colored when moused over and perform the image mapping action when clicked
 			this.each(function(){
+				var _this = this;
 				this.opened = false;
 				this.img = $(this).find(menu_image_at)[0];
 				var old_src = this.img.src.replace('http://'+window.location.hostname+'/','');
 				
 				// Sets gray scale depending upon value sent in
 				this.set_gscale = function (to_grey){
-					var img = $(this.img);
+					var img = $(_this.img);
+					var image_name = img.attr('src').split('/').pop();
 					
 					// Convert the image to its desired color if not already in it
 					if (to_grey){
 						var src = img.attr('src');
-						
-						if(src.search(parent.REPLACE) == -1){
-							var src_parts = src.split('.');
-							img.attr('src', src_parts[0] + parent.REPLACE + '.' + src_parts[1]);
-							
+						if (src.search(parent.REPLACE) == -1){
+							set_from_cache.call(this, parent.REPLACE);
 							this.opened = false;
 						}
 					}
-					else
-						img.attr('src', img.attr('src').replace(parent.REPLACE,''));
+					else {
+						set_from_cache.call(this, '');
+					}
+					
+					function set_from_cache(extra){
+						var cached = $('#' + parent.CACHE + image_name.split('_').shift() + extra).clone();
+							cached[0].style.display = 'inline';
+							cached[0].id = cached[0].id.replace(parent.CACHE, '') + extra;
+						img.replaceWith(cached);
+						this.img = cached;
+					}
 				}
 				
 				// Make image colored
-				$(this).mouseover(function(e) {
-					this.set_gscale(false);
+				$(this).mouseenter(function(e) {
+					_this.set_gscale(false);
 				});
 				
-				// Decolor image if not open
-				$(this).mouseout(function(e) {
-					if (this.opened === false)
-						this.set_gscale(true);
+				// Decolor image if not open. Mouseleave or even mouse out sometimes does not fire if the mouse is moved
+				// fast enough over the menu icons, so use a parent mouseleave as a backup.
+				$(this).parent().mouseleave(function(e) {
+					decolor();
 				});
+				$(this).mouseleave(function(e) {
+					decolor();
+				});
+				function decolor(){
+					if (_this.opened === false)
+						_this.set_gscale(true);
+				}
 				
 				// Make clicked on menu item colored and triggers the corresponding action sending in the image to the action.
 				$(this).click(function(e) {
 					parent.all_to_grey();
-
+					
 					try{
 						map_imgs[old_src](this.img);
 					} catch (e){
