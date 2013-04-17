@@ -46,7 +46,7 @@
 					}
 					
 					function set_from_cache(extra){
-						var cached = $('#' + parent.CACHE + image_name.split('_').shift() + extra).clone();
+						var cached = $('#' + parent.CACHE + image_name.split('_').shift() + extra).clone(true, true);
 							cached[0].style.display = 'inline';
 							cached[0].id = cached[0].id.replace(parent.CACHE, '') + extra;
 						img.replaceWith(cached);
@@ -73,7 +73,9 @@
 				}
 				
 				// Make clicked on menu item colored and triggers the corresponding action sending in the image to the action.
-				$(this).click(function(e) {
+				// Note: Chrome has some kind of problem with click events on parents not getting bubbled events of replaced
+				// children, strangely it only works for mouseup.
+				$(this).mouseup(function(e){
 					parent.all_to_grey();
 					
 					try{
@@ -85,7 +87,7 @@
 					this.set_gscale(false);
 					this.opened = true;
 				});
-				
+
 				// Make sure all dom objects are accessable later
 				parent.menu_objects.push(this);
 			});
@@ -99,7 +101,7 @@
 		
 		// Sets an object to open and then colors it
 		this.set_open = function (index){
-			$(this.menu_objects[index]).click();
+			$(this.menu_objects[index]).mouseup();
 		};
 		
 		// Add all the default items
