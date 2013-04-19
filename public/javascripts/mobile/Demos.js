@@ -1,6 +1,8 @@
-Portfolio.demos = (function($, utility){
+Portfolio.demos = (function($, utility, _window){
     return {
-        init: function(show, hide){
+        init: function(show, hide, navigator){
+            this.change_spacing(navigator);
+            
             utility.attach_show_events({
                 triggers: $('div[id^=collapse_demos_]'),
                 event: "click",
@@ -19,6 +21,30 @@ Portfolio.demos = (function($, utility){
             this.init_images();
         },
         
+        // Due to the use of vertical alignment to a left div, not every browser displays the same. The solution in css may exist but it is a lot more
+        // complicated than browser sniffing in this case.
+        change_spacing: function change_it(navigator){
+            var browsers = ['chrome','opera','firefox'];
+            var user_agent = navigator.userAgent.toLowerCase();
+            
+            // Check orientation to decide the amount to adjust
+            var to = '-5%';
+            if ($(_window).width() > $(_window).height())
+                to = '-3%';
+            
+            // Modify margins if a browser is found only on the demos page
+            if(_.find(browsers, function(browser){ return user_agent.search(browser) !== -1 })){
+                $('.collapser').each(function(){
+                    if (this.id.search('demos') > -1)
+                        this.style.marginTop = to;
+                });
+            }
+            
+            $(_window).resize(function() {
+                change_it(navigator);
+            });
+        },
+        
         init_images: function(){
           // every image pops up "onclick"
             $('img[class="demo_img"]').each(function(){
@@ -33,4 +59,4 @@ Portfolio.demos = (function($, utility){
             });  
         }
     }
-})(jQuery, Portfolio.utility);
+})(jQuery, Portfolio.utility, window);

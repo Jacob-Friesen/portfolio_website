@@ -12,5 +12,6 @@ cat Blog.min.js | gzip > Blog.min.js.gz
 cat jquery.lightbox_me.min.js | gzip > jquery.lightbox_me.min.js.gz
 cat jquery.min.js | gzip > jquery.min.js.gz
 cat prettify.min.js | gzip > prettify.min.js.gz
+cat underscore.min.js | gzip > underscore.min.js.gz
 cat Utility.min.js | gzip > Utility.min.js.gz
 

@@ -16,10 +16,15 @@ Portfolio.start_system = function (){
     return true; 
 };
 
-Portfolio.system = (function($, Selector, utility, menu, constant, skills, experience, demos, blog){
+Portfolio.system = (function($, Selector, utility, menu, constant, skills, experience, demos, blog, navigator){
+    // firefox renders button text way to large, so I must readjust the size
+    var button_class = '';
+    if (navigator.userAgent.toLowerCase().search('firefox') !== -1)
+        button_class = 'firefox_button';
+    
     return {
-        SHOW: "<p>▲</p>",
-        HIDE: "<p>▼</p>",
+        SHOW: '<p class='+button_class+'>▲</p>',
+        HIDE: '<p class='+button_class+'>▼</p>',
         
         NEW_PAGE: null,
         COLR_BAR: null,
@@ -65,7 +70,7 @@ Portfolio.system = (function($, Selector, utility, menu, constant, skills, exper
             // Update the main color bar that provides page context
             this.COLR_BAR.attr('id', page);
             
-            this[page].init(this.SHOW, this.HIDE);
+            this[page].init(this.SHOW, this.HIDE, navigator);
             
             // Make sure text is in the right size on page load
             utility.change_text.change_size_by(utility.change_text.current_scale);
@@ -101,4 +106,5 @@ Portfolio.system = (function($, Selector, utility, menu, constant, skills, exper
         demos: demos,
         blog: blog
     }
-})(jQuery, Portfolio.selector, Portfolio.utility, Portfolio.menu, Portfolio.constants, Portfolio.skills, Portfolio.experience, Portfolio.demos, Portfolio.blog);
+})(jQuery, Portfolio.selector, Portfolio.utility, Portfolio.menu, Portfolio.constants, Portfolio.skills, Portfolio.experience,
+   Portfolio.demos, Portfolio.blog, window.navigator);

@@ -20,6 +20,7 @@ Portfolio.selector = (function(_document) {
                     '/javascripts/jquery.min.js',
                     '/javascripts/jquery.lightbox_me.min.js',
                     '/javascripts/prettify.min.js',
+                    '/javascripts/underscore.min.js',
                     '/javascripts/Utility.min.js',
                     '/constants.min.js',
                     

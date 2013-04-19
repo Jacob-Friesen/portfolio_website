@@ -44,8 +44,8 @@ These are the browsers I tested for, the site probably works in other browsers b
         * 4.2 Default Browser (should support 4.1s and 4.0s too)
         * Chrome
         * Dolphin
-        * Firefox [Partial]
-        * Opera [Partial]
+        * Firefox
+        * Opera
     * iOS
         * Safari for iOS 4, 5 and 6
 
