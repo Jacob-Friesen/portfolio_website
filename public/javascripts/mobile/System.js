@@ -17,9 +17,10 @@ Portfolio.start_system = function (){
 };
 
 Portfolio.system = (function($, Selector, utility, menu, constant, skills, experience, demos, blog, navigator){
-    // firefox renders button text way to large, so I must readjust the size
+    // firefox + safari render button text way to large, so I must readjust the size
     var button_class = '';
-    if (navigator.userAgent.toLowerCase().search('firefox') !== -1)
+    var nav = navigator.userAgent.toLowerCase();
+    if (nav.search('firefox') !== -1 || nav.search('safari') !== -1)
         button_class = 'firefox_button';
     
     return {
