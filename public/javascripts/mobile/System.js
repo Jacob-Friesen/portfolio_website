@@ -20,7 +20,7 @@ Portfolio.system = (function($, Selector, utility, menu, constant, skills, exper
     // firefox + safari render button text way to large, so I must readjust the size
     var button_class = '';
     var nav = navigator.userAgent.toLowerCase();
-    if (nav.search('firefox') !== -1 || nav.search('safari') !== -1)
+    if ((nav.search('firefox') !== -1 || nav.search('safari') !== -1) && nav.search('chrome') === -1)
         button_class = 'firefox_button';
     
     return {
