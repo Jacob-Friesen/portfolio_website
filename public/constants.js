@@ -12,15 +12,14 @@ Portfolio.constants = (function(){
 		page_text: {
 			home: {
 				title: "Jacob Friesen - Web Developer",
-				introduction: "Hello, I'm a Computer Science Honours Co-op student from the University of Manitoba. \
-							   Currently I'm in a school term. My specialties are in scripting languages and web development. \
-							   I will graduate by April 2013. I have worked in Django, Ruby on Rails, Java (JSF), and Node.js \
-							   environments.",
+				introduction: "Hello, I'm a Web Developer who has recently graduated from the University of Manitoba with a Computer Science Honours \
+							   Co-op degree. Currently, I am looking for a full time job. I specialize in JavaScript and client side coding but I\
+					           usually work on the full web stack. I have worked in Ruby on Rails, Django, Java (JSF), Node.js and other environments.",
 				specialty_title: "Specialties",
 				specialties: [
 					"JavaScript",
 					"HTML/CSS",
-					"Full-stack web development"
+					"Full stack web development (Ruby on Rails, Django, etc.)"
 				]
 			},
 			
@@ -31,10 +30,10 @@ Portfolio.constants = (function(){
 						name: "Languages",
 						skills: [
 							{
-								name: "HTML/CSS (6 years)",
+								name: "HTML/CSS (6.5 years)",
 								details: [
-									"12 months over 3 coop work terms, the rest of may experience mainly comes from my spare time.",
-									"Strong Knowlegde of layout intricacies such as vertical positioning of elements without using tables.",
+									"12 months over 3 coop work terms, the rest of my experience mainly comes from my spare time.",
+									"Strong knowlegde of layout intricacies such as vertical positioning of elements without using tables.",
 									"Knowlegde of multiple layout styles and how to make scalable layouts",
 									"3.5 months experience of doing custom mobile layouts. See winnipegjs.com and this website with your phone.",
 									"I know general CSS3 layout techniques like <element>:first-child",
@@ -42,21 +41,21 @@ Portfolio.constants = (function(){
 								]
 							},
 							{
-								name: "JavaScript (3.5 years) ",
+								name: "JavaScript (4 years) ",
 								details: [
 									"12 months over 3 coop work terms, the rest of may experience mainly comes from my spare time.",
-									"Strong knowlegde of advanced core concepts in pure Javascript such as Prototypalism and Closures.",
-									"Have worked in multiple JS libraries including JQuery and ExtJS, even mobile ones like Titanium's library.",
+									"Strong knowlegde of advanced core concepts in pure JavaScript such as prototypalism and closures.",
+									"I have worked with multiple JS libraries including JQuery, ExtJS, Underscore, even mobile ones like Titanium's library.",
 									"I have also developed some small JQuery plugins and pure JS libraries over the years.",
 									"I have spent years dealing with browser incompatability issues including JQuery and pure JavaScript issues, \
 									and have gained a strong knowledge of how the DOM works.",
-									"Worked on backend JavaScript using Node.js for 3 months on this website and the mobile interface for winnipegjs.com"
+									"I have used Node.js for 8 months on this website, the mobile interface for winnipegjs.com, and a school project"
 								]
 							},
 							{
-								name: "Java (3.5 years)",
+								name: "Java (4 years)",
 								details: [
-									"3 years total spent at school working with Java in Desktop projects and Android based devices.",
+									"4 years total spent at school working with Java in Desktop projects and Android based devices.",
 									"4 months of developing server side code for a mid-sized website.",
 									"Knowlegde of OO design and programming in Java including the Model View Controller (MVC) design."
 								]
@@ -71,24 +70,24 @@ Portfolio.constants = (function(){
 								]
 							},
 							{
-								name: "JSON (1 year)",
+								name: "JSON (2 years)",
 								details: [
-									"8 months experience spread over 2 jobs and some experience in university. Additionally I use JSON heavily in the websites I \
-									build in my spare time.",
-									"Have knowlegde of creating well formed JSON and parsing it in multiple languages."
+									"8 months job experience spread over 2 coop jobs with another 8 months school project experience."/
+									"Additionally, I use JSON heavily in the websites I build in my spare time.",
+									"I have knowlegde of creating well formed JSON and parsing it in multiple languages."
 								]
 							},
 							{
-								name: "SQL (1 year)",
+								name: "SQL (1.5 years)",
 								details: [
-								"8 months of work experience and 4 months of school experience.",
-								"Knowledge of good SQL schema design and querying techniques."
+									"8 months of work experience and 8 months of school experience.",
+									"Knowledge of good SQL schema design and querying techniques."
 								]
 							},
 							{
-								name: "Django and Python (8 months)",
+								name: "Django and Python (1 year)",
 								details: [
-									"4 months of school experience and 4 months of work experience at Iders using Django (see experience for more info).",
+									"8 months of school experience and 4 months of work experience at Iders using Django (see experience for more info).",
 									"Knowledge of good Python techniques such as OO and module loading.",
 									"Updated and added components to a Django based website."
 								]
@@ -102,16 +101,16 @@ Portfolio.constants = (function(){
 								]
 							},
 							{
-								name: "C/C++ (8 months)",
+								name: "C/C++ (1 year)",
 								details: [
-									"Programmed C and C++ code for 4 months on low level school based projects.",
-									"See aes for an example of a larger c style program I created."
+									"Programmed C and C++ code for 8 months on low level school based projects.",
+									"See AES in the demos section for an example of a larger C style program I created."
 								]
 							},
 							{
-								name: "Node.js (8 months)",
+								name: "Node.js (1 year)",
 								details: [
-									"Updated my website from a PHP to Node architecture 8 months ago. I continue to update it.",
+									"Updated my website from a PHP to Node architecture over a year ago. I continue to update it.",
 									"Designed a mobile interface for winnipegjs.com which runs on Node that included some backend code.",
 									"Have worked in pure Node and Express.js architectures."
 								]
@@ -151,7 +150,7 @@ Portfolio.constants = (function(){
 								name: "Eclipse (3 years)",
 								details: [
 									"4 months using Eclipse at my first work term and the rest at school",
-									"I used Eclipse mainly for standard Java development, including Android development."
+									"I use Eclipse mainly for standard Java development, including Android development."
 								]
 							},
 							{
@@ -171,7 +170,6 @@ Portfolio.constants = (function(){
 							{
 								name: "Apache Tomcat (4 months)",
 								details: [
-									"Apache Tomcat Web Container (4 months)",
 									"Knowlegde of general Tomcat administration; adding users with different privaleges, installing libraries e.g. \
 									JSF, configuring server wide variables."
 								]
@@ -179,13 +177,14 @@ Portfolio.constants = (function(){
 							{
 								name: "Oracle Glassfish (4 months)",
 								details: [
-									" 4 months of managing the Glassfish server for a mid-sized government website."
+									"4 months of managing the Glassfish server for a mid-sized government website."
 								]
 							},
 							{
 								name: "Other Tool Knowlegde:",
 								details: [
 									"VIM",
+									"Nano",
 									"Basic understanding of setup and management of IBM DB2.",
 									"Basic photo manipulation in Photoshop.",
 									"Intermediate knowledge of Microsoft Office and Open Office."
@@ -205,25 +204,25 @@ Portfolio.constants = (function(){
 								]
 							},
 							{
-								name: "Windows Vista and 7 (4 years)",
+								name: "Windows Vista and 7 (4.5 years)",
 								details: [
-									"3 years of general usage and admin.",
-									"Know some advanced features like setting environment variables."
+									"4.5 years of general usage and admin.",
+									"Know advanced features like setting environment variables."
 								]
 							},
 							{
-								name: "Linux (2.5 years)",
+								name: "Linux (3 years)",
 								details: [
-									"2.5 years of general admin and programming experience mainly in Ubuntu including 4 months \
+									"3 years of general admin and programming experience mainly in Ubuntu including 4 months of \
 									Ubuntu at my Iders work term.",
 									"Some basic CLI experience with Debian and CentOS."
 								]
 							},
 							{
-								name: "Mac OS X (1 year)",
+								name: "Mac OS X (2 years)",
 								details: [
-									"4 months spent programming on Mac OS X at CanadaDrugs.com the rest at school.",
-									"Know how to use CLI for basic admin tasks."
+									"4 months spent programming on Mac OS X at CanadaDrugs.com the rest at school and on side projects.",
+									"Know how to use CLI for most admin tasks."
 								]
 							}
 						]
@@ -232,16 +231,16 @@ Portfolio.constants = (function(){
 						name: "General Skills",
 						skills: [
 							{
-								name: "Web Design (6 years)",
+								name: "Web Design (6.5 years)",
 								details: [
 									"Demonstrated knowlegde of creating simple designs that look good. For example this website design is entirely my own design.",
 									"I Know how to make webpages look good without any images, which improves webpage performance and maintainability."
 								]
 							},
 							{
-								name: "SEO (4 years)",
+								name: "SEO (4.5 years)",
 								details: [
-									"I have done custom SEO for my websites over the years, currently the term 'Jacob Friesen' brings up one of my websites \
+									"I have done custom SEO for my websites over the years, currently the term 'Jacob Friesen' brings up a few of my websites \
 									first in Google.ca. Keep in mind that my name is very common.",
 									"I Know how to add SEO to a page without comprising user content by using techniques like meta descriptions and keyword \
 									injection for alt attributes of page elements.",
@@ -249,49 +248,49 @@ Portfolio.constants = (function(){
 								]
 							},
 							{
-								name: "Object Orientation (3.5 years)",
+								name: "Object Orientation (4 years)",
 								details: [
 									"Demonstrated experience of making clean systems on my work and school terms.",
-									"Know basic object oriented design patterns such as the Model View Controller (MVC) design.",
-									"Have used object orientation in many different programming contexts. This ranges from client side JavaScript \
+									"I know basic object oriented design patterns such as the Model View Controller (MVC) design.",
+									"I have used object orientation in many different programming contexts. This ranges from client side JavaScript \
 									to scripting languages like Ruby to compiled languages like Java.",
-									"Have knowledge of both class based and prototypal inheritance"
+									"I have knowledge of both class based and prototypal inheritance"
 								]
 							},
 							{
-								name: "Scripting (3.5 years)",
+								name: "Scripting (4 years)",
 								details: [
-									"Know how to program in an Object Oriented way and the limitations with scripting.",
-									"Know how to advanced techniques like metaprogramming and reflection.",
-									"Know general variable scoping strategies such as closures and delegates."
+									"I know how to script in an Object Oriented way and I know the benefits and limitations of scripting.",
+									"I know how to use advanced techniques like metaprogramming and reflection.",
+									"I know general variable scoping strategies such as closures and delegates."
 								]
 							},
 							{
-								name: "Testing (2 years)",
+								name: "Testing (2.5 years)",
 								details: [
 									"Everything I work on that is not simple now is fully tested including personal projects.",
 									"I have worked on client side GUI and JavaScript tests, server side tests, desktop application tests and some \
 									low level C testing.",
 									"I know how to use: Selenium (Browser GUI tests), RSpec (Ruby), Test Unit (Ruby), Unittest (Python), JUnit (Java), \
-									Jasmine (JavaScript), and QUnit (JavaScript)."
+									Jasmine (JavaScript), QUnit (JavaScript), and Mocha (JavaScript)."
 								]
 							},
 							{
-								name: "Mobile Web Development (8 months)",
+								name: "Mobile Web Development (1 year)",
 								details: [
-									"8 months of initially creating then updating my websites mobile interface",
+									"1 year of initially creating then updating my websites mobile interface",
 									"Developed the mobile interface for winnipegjs.com",
 									"I Know how to develop and test code for multiple environments like Android, iOS, and Windows Phone.",
-									"I also know about detecting devices via css media queries, and JavaScript techniques."
+									"I also know about detecting devices via css media queries and JavaScript techniques."
 								]
 							},
 							{
 								name: "Other General Skills:",
 								details: [
 									"Basic multi-threaded programming.",
-									"Basic knowledge of theoretical computer science.",
+									"Basic knowledge of theoretical computer science like time complexity.",
 									"Writing raw printer code (ZPL) and executing it on a printer remotely.",
-									"Writing RFID server code (for Motorola one, coded in Python)",
+									"Writing RFID server code (for a Motorola one, coded in Python)",
 									"Working in an Agile environment."
 								]
 							}
@@ -321,12 +320,12 @@ Portfolio.constants = (function(){
 						company: "Iders",
 						date: "August 2011 - December 2011",
 						details: [
-							"Added a new Inventory Location Management system to the current Imformation Management System. This new \
-							system includes 5 different sections which all had different hardware and software environments.",
-							"Used ExtJS, AJAX and some HTML/CSS to design the front end interfaces, with backend code mainly in Python \
-							with some JavaScript (Titanium Studio Libraries) and ZPL.",
-							"Additionally, improved system perfomance in general by a factor of 2 and added a way to save all window placement \
-							state between sessions. (See the demo description)",
+							"Added a new Inventory Location Management system to the current Imformation Management System. This new system includes 5\
+							different sections which all had different hardware and software environments.",
+							"Used ExtJS, AJAX and some HTML/CSS to design the front end interfaces, with backend code mainly in Python with some JavaScript\
+							(Titanium Studio Libraries) and ZPL.",
+							"Additionally, improved system perfomance in an important area by a factor of 2 and added a way to save all window placement \
+							state between sessions. See the demo description of the Iders IMS website.",
 							"All work was done in Ubuntu (Linux variant)."
 						]
 					},
@@ -366,7 +365,8 @@ Portfolio.constants = (function(){
 						description: "In late December 2012 I developed the mobile interface for winnipegjs.com. Using the desktop design as a baseline, I used CSS \
 									  and some some JavaScript to make the interface look good and work well across multiple devices. For detecting misbehaving browsers \
 									  like IE 7 on Windows Phone 7, I used tactics like IE includes and user agent sniffing. Most of the JavaScript was done server side \
-									  (the website is implemented in Node.js) to set and detect cookies so mobile browsers would be able to switch to desktop and vice versa.",
+									  (the website is implemented in Node.js) to set and detect cookies so mobile browsers would be able to switch to desktop and vice \
+									  versa.",
 						image: ["images/winnipegjs_s.png", "Winnipeg JS mobile interface picture"],
 						links: [
 							{
@@ -382,8 +382,8 @@ Portfolio.constants = (function(){
 					{
 						name: "Iders IMS Website",
 						description: "In the Fall coop term of 2011 I worked on the information management website at Iders with some other Web Developers. \
-							The below video is about an additional feature I implemented, that is automatically opening the windows you had open \
-							from last session in your new session. Keep in mind this is a web interface.",
+									  The below video is about an additional feature I implemented, automatically opening the windows you had open \
+									  from last session in your new session. Keep in mind this is a web interface.",
 						image: ["images/IdersIMS2_s.png", "Iders IMS2 Screen Picture"],
 						links: [
 							{
@@ -409,7 +409,7 @@ Portfolio.constants = (function(){
 						name: "Nutrifacts Project",
 						description: "In the Summer school term of 2011 I worked on this project along with 3 other group members. The application uses a \
 									  database of food items with associated nutritional facts in conjuction with a Java based framework of objects to track \
-									  user preferences. These preferences are in the form of ratings which influence along with the filters the suggested \
+									  user preferences. These preferences are in the form of ratings which influence, along with filters, the suggested \
 									  items for each item selected.",
 						image: ["images/nutrifactsMainScreen_s.jpg", "Nutrifacts main screen picture"],
 						links: [
@@ -422,8 +422,7 @@ Portfolio.constants = (function(){
 					{
 						name: "RWRP Website",
 						description: "This is the website I helped design while at my first work term. As the experience section states I worked on all parts \
-									  of the website; design, front end, and back end. I have included a video demoing one of the features I worked on as a \
-							link below.",
+									  of the website; design, front end, and back end. I have included a video demoing one of the features I worked on.",
 						image: ["images/RWRPMain_s.jpg", "RWRP website picture"],
 						links: [
 							{
@@ -434,10 +433,10 @@ Portfolio.constants = (function(){
 					},
 					{
 						name: "Movie Organizer",
-						description: "This is an application that manages a database of movies for a user. The user can create, add or edit any movie. Movies \
-									  have data about their title, director(s), actors, description etc. This project was designed with another student for my \
-									  Human Computer Interaction course. The focus was on user interaction not developing an entire application so the database \
-									  is just an XML file and there may be some small display glitches.",
+						description: "This is an application that manages a database of movies for a user created in a 2011 school term. The user can create, add \
+									 or edit any movie. Movies have data about their title, director(s), actors, description etc. This project was designed with \
+									 another student for my Human Computer Interaction 1 course. The focus was on user interaction not developing an entire application \
+									 so the database is just an XML file and there may be some small display glitches.",
 						image: ["images/movOrgPic_s.jpg", "Jacob Friesen Movie Organizer Picture"],
 						links: [
 							{
