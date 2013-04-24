@@ -120,6 +120,10 @@ Portfolio.selector = (function(_document) {
         
         // Loads specified page or if it can't goes to no script page.
         render_desktop: function(){
+            // IE 8 does not use window.document so I must use a more obtuse mechanism
+            if (!_document.head)
+                _document.head = _document.getElementsByTagName('head')[0];
+            
             mode = 'desktop';
             
             _document.body.style.display = 'none';// ensures page load looks smooth

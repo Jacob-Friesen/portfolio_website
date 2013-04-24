@@ -72,7 +72,7 @@ Portfolio.constants = (function(){
 							{
 								name: "JSON (2 years)",
 								details: [
-									"8 months job experience spread over 2 coop jobs with another 8 months school project experience."/
+									"8 months job experience spread over 2 coop jobs with another 8 months school project experience.",
 									"Additionally, I use JSON heavily in the websites I build in my spare time.",
 									"I have knowlegde of creating well formed JSON and parsing it in multiple languages."
 								]

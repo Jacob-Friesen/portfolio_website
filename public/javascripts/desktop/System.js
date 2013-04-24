@@ -46,18 +46,19 @@ Portfolio.start_system = function (){
 };
 
 // Namespace for all functions executed when a specific page loads
-Portfolio.pages = (function ($, w, c, skills, exp, demos, blog) {
+Portfolio.pages = (function ($, w, c, skills, exp, demos, blog, _document) {
 	// This is what every window must run
 	function defaults() {
 		$("img").each(function() {
 			if ($(this).attr("class").search('icbm_image') == -1 && $(this)[0].id != 'mainImg' && $(this).attr("class") != 'link'){
-				//note the resize listener
-				this.parentNode.addEventListener('mousedown', function (e) {
-				if(e.target.id === 'hMainPicture')
-					demos.resize_img(e.target.childNodes[1]);
-				else
-					demos.resize_img(e.target);
-				},true);
+                // An inefficient listener (although unnoticeable in this instance), but IE 8 has problems when pages are cached as I am doing
+                $(_document).off('mousedown', '#' + this.id);// Caching can result in multiple element copies and I don't want >1 events per object
+				$(_document).on('mousedown', '#' + this.id, function (e) {
+                    if(e.target.id === 'hMainPicture')
+                        demos.resize_img(e.target.childNodes[1]);
+                    else
+                        demos.resize_img(e.target);
+				});
 			}
 		});
 	}
@@ -100,4 +101,4 @@ Portfolio.pages = (function ($, w, c, skills, exp, demos, blog) {
 			w.document.title = c.page_text[page].title;
 		}
     }
-})(jQuery, window, Portfolio.constants, Portfolio.skills, Portfolio.experience, Portfolio.demos, Portfolio.blog);
+})(jQuery, window, Portfolio.constants, Portfolio.skills, Portfolio.experience, Portfolio.demos, Portfolio.blog, window.document);
