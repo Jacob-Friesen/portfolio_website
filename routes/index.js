@@ -16,7 +16,7 @@ module.exports = function(app){
     
     // test page loads
     app.get('/test', function default_render(req, res){
-        res.render('test/index', {layout: 'test/index.jade'});
+        res.render('test/index');
     });
   
     // gzipping main js file for all interfaces if the file is minified
@@ -31,7 +31,7 @@ module.exports = function(app){
 }
 
 function index_render(req, res){
-    res.render(get_location(req) + "index", { title: constant.page_text.home.title, prev_loaded: true });
+    res.render(get_location(req) + "index", { title: constant.page_text.home.title });
 }
 
 function render_get_page(req, res){
@@ -53,7 +53,7 @@ function render_get_page(req, res){
     if (get_location(req) === '')
         path = 'index';
     
-    res.render(path, { title: title, prev_loaded: (get_location(req) === '') ? false : true});
+    res.render(path, { title: title});
 }
 
 function render_no_script(req, res){

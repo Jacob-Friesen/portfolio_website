@@ -5,8 +5,10 @@ var PORT = process.argv[2];
  */
 
 global.constant = require('./public/constants.js');
+var http = require('http');
 var express = require('express');
-var app = module.exports = express.createServer();
+var app = module.exports = express();
+var server = http.createServer(app);
 
 // Configuration
 app.configure(function(){
@@ -36,6 +38,6 @@ app.configure('production', function(){
 require('./routes')(app);
 //require('./routes/mobile')(app);
 
-app.listen(PORT, function(){
-  console.log("JacobFriesen.com listening on port %d in %s mode", app.address().port, app.settings.env);
+server.listen(PORT, function(){
+  console.log("JacobFriesen.com listening on port %d in %s mode", server.address().port, app.settings.env);
 });
