@@ -66,7 +66,10 @@ function render_no_script(req, res){
         id = req.query.id;
     }
     
-    res.render("no_script", { title: constant.page_text.home.title, layout: false, cur_page: cur_page, id: id});
+    // Retrieve contents of the page to load then insert it into the loading page
+    res.render('desktop/' + cur_page, { title: constant.page_text.home.title, cur_page: cur_page, id: id, no_script: true}, function(err, html){
+        res.render('menu_no_script', { title: constant.page_text.home.title, cur_page: cur_page, id: id, page: html});
+    });
 }
 
 //Gets the location from determining the type of client, if no type can be found the top level location is used

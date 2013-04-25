@@ -4,7 +4,7 @@
 		h1 Home
 	#hMainPicture.mainPicture
 		- var home_src = "images/Jacob_s.jpg"
-		- if (typeof no_script !== "undefined" && no_script == true)
+		- if (typeof no_script !== "undefined" && no_script)
 			home_src = "images/Jacob.jpg"
 		img#mainImg.mainImage(src=home_src, alt="Jacob Friesen")
 	#hTextWrapper.textWrapper
