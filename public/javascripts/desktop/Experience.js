@@ -12,8 +12,6 @@ Portfolio.experience = (function ($, utility) {
 					i--;// compensate for new length
 				}
 			}
-			
-			console.log(jobs);
 		
 			utility.attach_show_events({
 				triggers: jobs,
