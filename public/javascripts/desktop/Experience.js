@@ -22,7 +22,6 @@ Portfolio.experience = (function ($, utility) {
 				delay: false,
 				on_show: function(trigger, collapser){
 					$(collapser).show();
-					console.log($(trigger).parent());
 					$(trigger).parent().attr('class', OPEN_CLASS);
 					$('#job' + trigger.id[trigger.id.length - 1] + "Clps")[0].innerHTML = utility.SHOW;
 				},
