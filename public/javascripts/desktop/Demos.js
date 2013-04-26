@@ -1,4 +1,7 @@
 Portfolio.demos = (function ($, utility) {
+	var OPEN_CLASS = 'demoPaneOpen';
+	var CLOSE_CLASS = 'demoPane';
+	
     return {
         init: function (){
 			utility.attach_show_events({
@@ -8,10 +11,12 @@ Portfolio.demos = (function ($, utility) {
 			delay: false,
 			on_show: function(trigger, collapser){
 				$(collapser).show();
+				$(trigger).parent().attr('class', OPEN_CLASS);
 				$('#demo' + trigger.id[trigger.id.length - 1] + "Clps")[0].innerHTML = utility.SHOW;
 			},
 			on_hide: function(trigger, collapser){
 				$(collapser).hide();
+				$(trigger).parent().attr('class', CLOSE_CLASS);
 				$('#demo' + trigger.id[trigger.id.length - 1] + "Clps")[0].innerHTML = utility.HIDE;
 			}
 			}).close("all").open(0);

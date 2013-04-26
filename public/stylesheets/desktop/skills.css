@@ -2,7 +2,12 @@
 	margin-top: 0
 }
 
-div.skills, div.skillsClps {
+#skillBox div.topWrapper {
+	cursor: pointer;
+	cursor: hand;
+}
+
+div.skills, div.skillsOpen, div.skillsClps {
 	margin-top: 17px;
 	border: 1px solid darkGrey;
 	border-radius: 7px;
@@ -10,7 +15,13 @@ div.skills, div.skillsClps {
 	text-align: top;
 }
 
-div.skills:first-child, div.skillsClps:first-child {
+div.skills{
+	border-radius: 7px 7px 0 0;
+	border-bottom-width: 0;
+}
+
+
+div.skills:first-child, div.skillsOpen:first-child, div.skillsClps:first-child {
 	margin-top: 4px;
 }
 
@@ -23,6 +34,11 @@ li.expandSkillType {
 	border: 1px solid white;
 	border-radius: 3px;
 }
+
+	div.skillTypeTitle{
+		cursor: pointer;
+		cursor: hand;
+	}
 
 button.collapseTextT {
 	border: 1px solid grey;

@@ -8,10 +8,11 @@
 		// demo
 		- var demo_list = constant.page_text.demos.demos
 		- for(var d = 0; d < demo_list.length; d += 1)
-			.demoPane(id="demo_#{d}")
-				#changeGreen.topWrapper
-					h3.title= demo_list[d].name
-					button.collapseText(id="demo#{d}Clps")-
+			.demoPane
+				.demoTitle(id="demo_#{d}")
+					#changeGreen.topWrapper
+						h3.title= demo_list[d].name
+						button.collapseText(id="demo#{d}Clps")-
 							
 				// downloads
 				div(id="demolinks_#{d}")

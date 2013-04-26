@@ -18,8 +18,9 @@
 						- var skills = skill_sections[i].skills;
 						- for (var j = 0; j < skills.length; j++)
 							li.expandSkillType
-								b= skills[j].name
-								button.collapseTextT(id="skills_point_collapse_skill_#{i}_#{j}")+
+								div.skillTypeTitle(id="skills_point_collapse_skill_#{i}_#{j}")
+									b= skills[j].name
+									button.collapseTextT
 								div(id="collapse_point_points_skill_#{i}_#{j}")
 								
 									// skill details

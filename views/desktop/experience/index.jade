@@ -3,18 +3,16 @@
 	#hTitleWrapper.titleWrapper(name="hTitleWrapper")
 		h1 Experience
 	#hTextWrapper.textWrapper(name="hTextWrapper")
-		
-		// job
 		- var jobs = constant.page_text.experience.jobs;
 		- for (var i = 0; i < jobs.length; i++)
-			.job(id = "job#{i}")
-				#changeOrange.topWrapper
-					h3.title= jobs[i].date
-					- if (jobs[i].details)
-						button.collapseText(id="job#{i}Clps")-
-					h3.title_r= jobs[i].company
+			.job
+				.jobTitle(id = "job#{i}")
+					#changeOrange.topWrapper
+						h3.title= jobs[i].date
+						- if (jobs[i].details)
+							button.collapseText(id="job#{i}Clps")-
+						h3.title_r= jobs[i].company
 				-  if (jobs[i].details)
-				
 					// name and details
 					.jobText(id="job#{i}jobText")
 						p.jobName

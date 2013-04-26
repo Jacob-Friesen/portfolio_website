@@ -7,14 +7,19 @@ a{
 	text-decoration: underline;
 }
 
-div.demoPane, div.demoPaneClps {
+div.demoPane, div.demoPaneOpen, div.demoPaneClps {
 	border: 1px solid darkGrey;
 	margin-top: 15px;
 	border-radius:7px;
 	box-shadow: 5px 5px 3px rgba(0,0,0,.5);
 }
 
-div.demoPane:first-child, div.demoPaneClps:first-child {
+div.demoPane{
+	border-radius: 7px 7px 0 0;
+	border-bottom-width: 0;
+}
+
+div.demoPane:first-child, div.demoPaneOpen:first-child, div.demoPaneClps:first-child {
 	margin-top: 5px;
 }
 
@@ -22,10 +27,9 @@ div.demoPaneClps {
 	border-radius:7px 7px 0 0;
 }
 
-h3.demoTitle {
-	margin-top: 5px;
-	margin-bottom: 10px;
-	margin-left: 15px;
+div.demoTitle {
+	cursor: pointer;
+	cursor: hand;
 }
 
 div.demoMain{
@@ -43,6 +47,9 @@ div.demoMain{
 		}
 	
 div.demoPic {
+	cursor: pointer;
+	cursor: hand;	
+	
 	margin: -5px 15px 10px 0;
 	width: 30%;
 	display: inline-block;
