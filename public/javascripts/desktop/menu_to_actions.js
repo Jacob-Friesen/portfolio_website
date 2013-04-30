@@ -1,16 +1,19 @@
-(function($){
+(function($, page_names){
 	
 	// Given the menu handler attach a mapping between name/images and actions.
 	//
-	// map_imgs: Image url to action mappings
-	// menu_image_at: The dom class that contains an image for a menu item (selector code)
+	// after_opening: Function executes after any page is opened.
+	// map_imgs: Image url to action mappings.
+	// menu_image_at: The dom class that contains an image for a menu item.
 	$.fn.menu_to_actions = function (options){
+		var main = this;
 		this.REPLACE = '_grey';// Word to replace on the images src (to make them reload a color one)
 		this.CACHE = 'cached_';
 		this.menu_objects = [];
 		
 		// Merge options with default settings
 		this.settings = {
+			after_opening: null,
 			map_imgs : {},
 			menu_image_at: null
 	    };
@@ -18,11 +21,11 @@
 	        $.extend(this.settings, options);
 		
 		// Assigns each menu item 
-		this.add_menu_items = function (map_imgs, menu_image_at){
+		this.add_menu_items = function (map_imgs, menu_image_at, after_opening){
 			var parent = this;
 
 			// Each menu object will get colored when moused over and perform the image mapping action when clicked
-			this.each(function(){
+			this.each(function(element_index){
 				var _this = this;
 				this.opened = false;
 				this.img = $(this).find(menu_image_at)[0];
@@ -59,8 +62,8 @@
 					_this.set_gscale(false);
 				});
 				
-				// Decolor image if not open. Mouseleave or even mouse out sometimes does not fire if the mouse is moved
-				// fast enough over the menu icons, so use a parent mouseleave as a backup.
+				// Decolor image if not open. Mouseleave or even mouse out sometimes does not fire if the mouse is moved fast enough over the menu
+				// icons, so use a parent mouseleave as a backup.
 				$(this).parent().mouseleave(function(e) {
 					decolor();
 				});
@@ -72,10 +75,12 @@
 						_this.set_gscale(true);
 				}
 				
-				// Make clicked on menu item colored and triggers the corresponding action sending in the image to the action.
-				// Note: Chrome has some kind of problem with click events on parents not getting bubbled events of replaced
-				// children, strangely it only works for mouseup.
-				$(this).mouseup(function(e){
+				// Make clicked on menu item colored and triggers the corresponding action sending in the image to the action. Finally, call the after
+				// opening callback with the page name.
+				// Note: Chrome has some kind of problem with click events on parents not getting bubbled events of replaced children, strangely it
+				// only works for mouseup.
+				$(this).mouseup(function(){ this.open(); });
+				this.open = function(index){
 					parent.all_to_grey();
 					
 					try{
@@ -86,7 +91,11 @@
 					
 					this.set_gscale(false);
 					this.opened = true;
-				});
+					
+					index = (!index) ? element_index : index;
+					var send = (index >= page_names.length) ? '' : page_names[index].toLowerCase();
+					after_opening(send);
+				};
 
 				// Make sure all dom objects are accessable later
 				parent.menu_objects.push(this);
@@ -99,14 +108,16 @@
 				this.menu_objects[i].set_gscale(true);
 		};
 		
-		// Sets an object to open and then colors it
+		// Sets an object to open and then colors it. Passes in a the sent in index.
 		this.set_open = function (index){
-			$(this.menu_objects[index]).mouseup();
+			var original = index;
+			index = (index >= page_names.length) ? 0 : index;
+			$(main.menu_objects[index])[0].open(original);
 		};
 		
 		// Add all the default items
-		this.add_menu_items(this.settings.map_imgs, this.settings.menu_image_at);
+		this.add_menu_items(this.settings.map_imgs, this.settings.menu_image_at, this.settings.after_opening);
 		
 		return this;
 	};
-})(jQuery);
+})(jQuery, Portfolio.constants.pages);

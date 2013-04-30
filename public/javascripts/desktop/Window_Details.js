@@ -8,8 +8,8 @@ Portfolio.window_details = (function($, Selector, pages, _navigator){
             item_id: $(item).attr('id').split('_').shift(),
             into: $('#' + tiles.PAGE_INTO),
             
-            // Given an id and object, retrieves the page and displays the object. After that executes the
-			// exec_after function. First checks if page is in cache and if not loads the page.
+            // Given an id and object, retrieves the page and displays the object. After that executes the exec_after function. First checks if page
+			// is in cache and if not loads the page.
             open_obj: function(){
 				var cached = $('#' + this.item_id + '_cache');
 				if (cached[0] == null)
@@ -55,7 +55,6 @@ Portfolio.window_details = (function($, Selector, pages, _navigator){
 			this.menu_list[src].open_obj();
 			
 			var page_name = src.split('/').pop().split('_')[0];
-			Portfolio.pages.update_url(page_name);
 			
 			return this;// Chaining
 		}
