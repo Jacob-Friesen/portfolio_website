@@ -35,13 +35,13 @@ Portfolio.selector = (function(_document) {
                 js_location: '/javascripts/desktop/',
                 js: [
                     'min.js'
-                    //'menu_to_actions.js',
-                    //
-                    //'Skills.js',
-                    //'Experience.js',
-                    //'Demos.js',
-                    //'System.js',
-                    //'Window_Details.js'
+                    ////'menu_to_actions.js',
+                    ////
+                    ////'Skills.js',
+                    ////'Experience.js',
+                    ////'Demos.js',
+                    ////'System.js',
+                    ////'Window_Details.js'
                 ],
                 
                 css_location: '',

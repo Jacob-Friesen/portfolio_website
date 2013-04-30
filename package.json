@@ -1,6 +1,6 @@
 {
     "name": "Jacobs-Portfolio-Website"
-  , "version": "1.6.3"
+  , "version": "1.7"
   , "private": true
   , "dependencies": {
       "express": ">=2.5.8"

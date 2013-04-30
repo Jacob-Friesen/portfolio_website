@@ -12,13 +12,14 @@ Portfolio.window_details = (function($, Selector, pages, _navigator){
 			// is in cache and if not loads the page.
             open_obj: function(){
 				var cached = $('#' + this.item_id + '_cache');
-				if (cached[0] == null)
+				if (cached[0] == null){
 					$.ajax({
 						type: 'GET',
 						url: this.item_id + Selector.mode_to_get(),
 						context: this,
 						success: this.render_page
 					});
+				}
 				else
 					this.render_page(cached[0].innerHTML, true);
             },

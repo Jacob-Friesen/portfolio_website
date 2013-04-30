@@ -18,13 +18,13 @@ Portfolio.start_system = (function (w, $, page_history, pages, tiles, _location)
 		var page = State.url.split('/').pop();
 		
 		if (page_history.is_forward(page))
-			var page = open_window(page_history.go_forward());
+			var to_page = page_history.go_forward();
 		else if (page_history.is_backward(page)) {
-			var page = page_history.go_back(page);
+			var to_page = page_history.go_back(page);
 			going_back = page_history.is_first();
 		}
 		
-		if (page) open_window(page);
+		if (typeof to_page !== 'undefined') open_window(to_page);
 	});
 	
 	// Adds the page to history and updates the url if the user isn't going back through their history. Also, the url of the page is not updated on
