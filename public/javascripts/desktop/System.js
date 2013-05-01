@@ -17,12 +17,11 @@ Portfolio.start_system = (function (w, $, page_history, pages, tiles, _location)
 		var State = History.getState();
 		var page = State.url.split('/').pop();
 		
-		if (page_history.is_forward(page))
-			var to_page = page_history.go_forward();
-		else if (page_history.is_backward(page)) {
+		if (page_history.is_backward(page)) {
 			var to_page = page_history.go_back(page);
 			going_back = page_history.is_first();
-		}
+		} else if (page_history.is_forward(page))
+			var to_page = page_history.go_forward();
 		
 		if (typeof to_page !== 'undefined') open_window(to_page);
 	});

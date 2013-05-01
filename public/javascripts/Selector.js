@@ -22,7 +22,7 @@ Portfolio.selector = (function(_document) {
                     '/javascripts/jquery.history.min.js',
                     '/javascripts/prettify.min.js',
                     '/javascripts/underscore.min.js',
-                    '/javascripts/History.min.js',
+                    '/javascripts/History.js',
                     '/javascripts/Utility.min.js',
                     '/constants.min.js',
                     
@@ -34,14 +34,14 @@ Portfolio.selector = (function(_document) {
             desktop: {
                 js_location: '/javascripts/desktop/',
                 js: [
-                    'min.js'
-                    ////'menu_to_actions.js',
-                    ////
-                    ////'Skills.js',
-                    ////'Experience.js',
-                    ////'Demos.js',
-                    ////'System.js',
-                    ////'Window_Details.js'
+                    //'min.js'
+                    'menu_to_actions.js',
+                    
+                    'Skills.js',
+                    'Experience.js',
+                    'Demos.js',
+                    'System.js',
+                    'Window_Details.js'
                 ],
                 
                 css_location: '',
@@ -229,9 +229,8 @@ Portfolio.selector = (function(_document) {
             // OPTIMIZATION: Preload needed page into cache
             var page = (address + "").split('#')[0];// Dealing with extra # stuff on the end of links (like #top)
             var path = address.pathname;
-            if (typeof address.pathname === 'undefined'){
+            if (typeof address.pathname === 'undefined')
                 path = page = '/home';
-            }
             else if (address.pathname === '/'){
                 page += 'home';
                 path = 'home';
