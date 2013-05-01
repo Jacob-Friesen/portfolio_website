@@ -1,42 +1,13 @@
 Portfolio.location = window.location.hostname;
 
 // Loads up the desktop system using the address bar to load the correct page. Also, sets up address state logging so forward and backs can be handled
-Portfolio.start_system = (function (w, $, page_history, pages, tiles, _location){
-	var first_run = true;
-	var going_back = false;
-	
+Portfolio.start_system = (function (w, $, history_tracking, page_history, pages, tiles, _location){
 	// Some variables are only set at the start of system loading
 	function reload_variables(){
+		history_tracking = Portfolio.history_tracking;
 		page_history = Portfolio.page_history;
 		pages = Portfolio.pages;
 		tiles = Portfolio.window_details;
-	}
-	
-	// Whenever the address bar state changes update the application history if the user went back or forward through their history
-	History.Adapter.bind(w, 'statechange', function(){
-		var State = History.getState();
-		var page = State.url.split('/').pop();
-		
-		if (page_history.is_backward(page)) {
-			var to_page = page_history.go_back(page);
-			going_back = page_history.is_first();
-		} else if (page_history.is_forward(page))
-			var to_page = page_history.go_forward();
-		
-		if (typeof to_page !== 'undefined') open_window(to_page);
-	});
-	
-	// Adds the page to history and updates the url if the user isn't going back through their history. Also, the url of the page is not updated on
-	// the first page opening
-	function after_page_loads(page_name){
-		if (!going_back){
-			page_history.add(page_name);
-			if (!first_run)
-				pages.update_url(page_name);
-			first_run = false;
-		}
-		else
-			going_back = false;
 	}
 	
 	// Determine window to open now from page address
@@ -77,10 +48,12 @@ Portfolio.start_system = (function (w, $, page_history, pages, tiles, _location)
 		map_imgs['http://'+_location+map_srcs[4]] =  function (img) {tiles.open_item(img, pages.init_blog)};
 	
 		var icon_menu = $('.icbm_object').menu_to_actions({
-			after_opening: function(page_name){ after_page_loads(page_name); },
+			after_opening: function(page_name){ history_tracking.after_page_loads(page_name); },
 			map_imgs: map_imgs,
 			menu_image_at: '.icbm_image'
 		});
+		
+		history_tracking.init(pages, open_window);
 		
 		// Get page address and open the window using that address
 		if((w.location + "").split('#').length > 1)
@@ -89,7 +62,7 @@ Portfolio.start_system = (function (w, $, page_history, pages, tiles, _location)
 			var path = w.location.pathname.replace('/','').replace('#','');
 		open_window(path, icon_menu.set_open);
 	}
-})(window, jQuery, Portfolio.page_history, Portfolio.pages, Portfolio.window_details, Portfolio.location);
+})(window, jQuery, Portfolio.history_tracking, Portfolio.page_history, Portfolio.pages, Portfolio.window_details, Portfolio.location);
 
 // Namespace for all functions executed when a specific page loads
 Portfolio.pages = (function ($, w, c, skills, exp, demos, blog, _document) {

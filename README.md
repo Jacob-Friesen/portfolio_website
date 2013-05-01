@@ -5,13 +5,13 @@ My integrated interface portfolio website, which is the 5th major revision of my
  
  * Single domain with no unecessary scripts/loads for any interface (A problem with most media query based adaptations)
  * Full AJAX page loads (~200ms)
- * Bookmarkable pages and revisitable pages
+ * Bookmarkable pages and revisitable pages (browser back and forward buttons still work)
  * Manual caching to ensure pages load instantly after they are opened once on the site
  * A unified object oriented approach for all the JS
 
 Architecture
 =====================               
-This is a express app (Node.js based) that mimics page loads via AJAX and history.pushState (HTML5), falling back to hash loading on older browsers. Currently it supports Phone and Desktop/Laptop interfaces.
+This is an express app (Node.js based) that mimics page loads via AJAX and history.pushState (HTML5), falling back to hash loading on older browsers. Currently it supports Phone and Desktop/Laptop interfaces.
 
 1. A very light page is loaded containing:
  * The inlined (and minified) mobile interface code (Selector.js in source)

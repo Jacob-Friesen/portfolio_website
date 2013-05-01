@@ -7,9 +7,6 @@ Portfolio.start_system = function (){
     
     if (page == window.location.href)
        page = page.split('/').pop();
-     
-    // Default page is home so when empty set page to that
-    page = (page === '') ? 'home' : page;
     
     Portfolio.system.init_with(page);
     
@@ -67,7 +64,7 @@ Portfolio.system = (function($, Selector, utility, menu, constant, skills, exper
         },
         
         // Does any necessary operations for a page once its loaded
-        page_init: function(page){
+        page_init: function(page){            
             // Update the main color bar that provides page context
             this.COLR_BAR.attr('id', page);
             

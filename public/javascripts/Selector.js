@@ -22,11 +22,12 @@ Portfolio.selector = (function(_document) {
                     '/javascripts/jquery.history.min.js',
                     '/javascripts/prettify.min.js',
                     '/javascripts/underscore.min.js',
-                    '/javascripts/History.min.js',
                     '/javascripts/Utility.min.js',
                     '/constants.min.js',
                     
                     // identical page view logic
+                    '/javascripts/History.min.js',
+                    '/javascripts/History_Tracking.min.js',
                     '/javascripts/Blog.min.js'
                 ]
             },
@@ -34,14 +35,14 @@ Portfolio.selector = (function(_document) {
             desktop: {
                 js_location: '/javascripts/desktop/',
                 js: [
-                    //'min.js'
-                    'menu_to_actions.js',
-                    
-                    'Skills.js',
-                    'Experience.js',
-                    'Demos.js',
-                    'System.js',
-                    'Window_Details.js'
+                    'min.js'
+                    //'menu_to_actions.js',
+                    //
+                    //'Skills.js',
+                    //'Experience.js',
+                    //'Demos.js',
+                    //'System.js',
+                    //'Window_Details.js'
                 ],
                 
                 css_location: '',
