@@ -22,7 +22,7 @@ Portfolio.selector = (function(_document) {
                     '/javascripts/jquery.history.min.js',
                     '/javascripts/prettify.min.js',
                     '/javascripts/underscore.min.js',
-                    '/javascripts/History.js',
+                    '/javascripts/History.min.js',
                     '/javascripts/Utility.min.js',
                     '/constants.min.js',
                     
