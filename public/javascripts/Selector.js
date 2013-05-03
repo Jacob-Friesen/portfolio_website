@@ -26,7 +26,6 @@ Portfolio.selector = (function(_document) {
                     '/constants.min.js',
                     
                     // identical page view logic
-                    '/javascripts/History.min.js',
                     '/javascripts/History_Tracking.min.js',
                     '/javascripts/Blog.min.js'
                 ]

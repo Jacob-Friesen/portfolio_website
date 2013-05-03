@@ -2,7 +2,6 @@
 
 # Minifications
 java -jar ../../js_compiler/compiler.jar --js=Utility.js --js_output_file=Utility.min.js
-java -jar ../../js_compiler/compiler.jar --js=History.js --js_output_file=History.min.js
 java -jar ../../js_compiler/compiler.jar --js=History_Tracking.js --js_output_file=History_Tracking.min.js
 java -jar ../../js_compiler/compiler.jar --js=Blog.js --js_output_file=Blog.min.js
 java -jar ../../js_compiler/compiler.jar --js=Selector.js --js_output_file=Selector.min.js
@@ -15,7 +14,6 @@ cat jquery.lightbox_me.min.js | gzip > jquery.lightbox_me.min.js.gz
 cat jquery.min.js | gzip > jquery.min.js.gz
 cat prettify.min.js | gzip > prettify.min.js.gz
 cat underscore.min.js | gzip > underscore.min.js.gz
-cat History.min.js | gzip > History.min.js.gz
 cat History_Tracking.min.js | gzip > History_Tracking.min.js.gz
 cat Utility.min.js | gzip > Utility.min.js.gz
 cat jquery.history.min.js | gzip > jquery.history.min.js.gz

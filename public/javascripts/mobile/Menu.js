@@ -1,5 +1,5 @@
 // Maintains menu state, such as opening and closing
-Portfolio.menu = (function($, Selector, _document, _location, history_tracking, History){
+Portfolio.menu = (function($, Selector, _document, _location, history_tracking){
     return {
         EVENT: "mouseenter",
         LINK_NAME: "_link",
@@ -44,12 +44,13 @@ Portfolio.menu = (function($, Selector, _document, _location, history_tracking, 
             var original = page;
             page = page.split('/').pop();
             page = (page === '') ? 'home' : page;
-
-            this.loader[0].innerHTML = "<center>Loading...<center>";
             
             // cache old page
-            if (this.cur_page)
+            if (this.cur_page && this.cur_page !== page)
                 Selector.add_cache(this.cur_page, this.placed[0].innerHTML);
+            this.cur_page = page;
+            
+            this.loader[0].innerHTML = "<center>Loading...<center>";
             
             // check if page is in cache, if it is load it instead of doing an AJAX request
             var cached = $('#' + page + '_cache');
@@ -59,14 +60,7 @@ Portfolio.menu = (function($, Selector, _document, _location, history_tracking, 
                 this.placed[0].innerHTML = cached[0].innerHTML;
                 this.page_initializer(page);
             }
-            
             this.history_tracking.after_page_loads(original);
-        },
-        
-        update_url: function(page){
-            var original = page;
-            page = (page === '') ? 'home' : page;
-            History.pushState(this.page_text[page].title + page + " page", this.page_text[page].title, '/' + original);
         }
     }
-})(jQuery, Portfolio.selector, window.document, window.location.href, Portfolio.history_tracking, window.History);
+})(jQuery, Portfolio.selector, window.document, window.location.href, Portfolio.history_tracking);

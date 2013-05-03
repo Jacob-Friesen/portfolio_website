@@ -108,13 +108,6 @@ Portfolio.pages = (function ($, w, c, skills, exp, demos, blog, _document) {
         init_blog: function() {
             defaults();  
             blog.init();
-        },
-		
-		// Updates url bar with current page using pushstate (older browsers handled by History.js)
-		update_url: function(page) {
-			var original = page;
-			page = (page === '') ? 'home' : page;
-			w.History.pushState(c.page_text[page].title + page + " page", c.page_text[page].title, '/' + original);
-		}
+        }
     }
 })(jQuery, window, Portfolio.constants, Portfolio.skills, Portfolio.experience, Portfolio.demos, Portfolio.blog, window.document);
