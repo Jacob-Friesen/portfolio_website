@@ -1,10 +1,10 @@
-Portfolio.experience = (function($, utility){
+Portfolio.experience = (function($, utility){    
     return {
         init: function(show, hide){
             utility.attach_show_events({
-                triggers: $('div[id^=exp_collapse_job_]').not(":hidden"),
+                triggers: $('#main_box').find('div[id^=exp_collapse_job_]'),
                 event: "click",
-                collapsers: $('ul[id^=collapse_points_]').not(":hidden"),
+                collapsers: $('#main_box').find('ul[id^=collapse_points_]'),
                 delay: false,
                 on_show: function(trigger, collapser){
                     $(collapser).show();

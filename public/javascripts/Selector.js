@@ -89,7 +89,7 @@ Portfolio.selector = (function(_document) {
         PAGES_TO_LOAD: 2,
         
         // Takes the user agent with the screen width to render the appropriate interface
-        init: function(dont_run, width, user_string){
+        init: function(dont_run, width, user_string) {
             var MOBILE_WIDTH = 720;
             var MOBILE_STRING = "mobile";
             
@@ -99,13 +99,13 @@ Portfolio.selector = (function(_document) {
             if (user_string.search(MOBILE_STRING) > 0 || width <= MOBILE_WIDTH)
                 this.render_mobile();
             else
-                this.render_desktop();
+                this.render_mobile();
                 
             return this;
         },
         
         // Same as desktop just different pages are loaded
-        render_mobile: function(){
+        render_mobile: function() {
             mode = 'mobile';
             
             // Add meta for mobile devices
@@ -121,7 +121,7 @@ Portfolio.selector = (function(_document) {
         },
         
         // Loads specified page or if it can't goes to no script page.
-        render_desktop: function(){
+        render_desktop: function() {
             // IE 8 does not use window.document so I must use a more obtuse mechanism
             if (!_document.head)
                 _document.head = _document.getElementsByTagName('head')[0];
@@ -136,11 +136,11 @@ Portfolio.selector = (function(_document) {
         },
         
         // starts up the system loading the required scripts
-        start_system: function(){
+        start_system: function() {
             _document.body.style.display = 'block';
             
             // Run each AJAX loaded script
-            for (var i = 0; i < this.scripts.js_loaded.length; i += 1){
+            for (var i = 0; i < this.scripts.js_loaded.length; i += 1) {
                 var script = _document.createElement('script');
                     script.text = this.scripts.js_loaded[i];
                     script.id = 'script_injection_' + i;
@@ -150,10 +150,10 @@ Portfolio.selector = (function(_document) {
             Portfolio.start_system();
         },
         
-        is_system_loaded: function(){
+        is_system_loaded: function() {
             if (this.loaded.css == this.scripts[mode].css.length &&
                 this.loaded.js == this.scripts[mode].js.length + this.scripts.common.js.length &&
-                this.loaded.pages == this.PAGES_TO_LOAD){
+                this.loaded.pages == this.PAGES_TO_LOAD) {
                     return true;
                 }
             return false;
@@ -161,10 +161,10 @@ Portfolio.selector = (function(_document) {
         
         // Adds a invisible div named page_name with innerHTML of page data directly to the body if the div does
         // not already exist. Returns if a cache was created or not.
-        add_cache: function(page_name, page_data){
+        add_cache: function(page_name, page_data) {
             var id_to_find = page_name.replace('/','').replace('#','') + "_cache";
             
-            if (_document.getElementById(id_to_find) === null){
+            if (_document.getElementById(id_to_find) === null) {
                 var div = _document.createElement('div');
                     div.id = id_to_find;
                     div.style.display = 'none';
@@ -175,12 +175,12 @@ Portfolio.selector = (function(_document) {
             return false;
         },
         
-        mode_to_get: function(){
+        mode_to_get: function() {
             return '?mode=' + mode;
         },
         
         // Uses AJAX to load interface common and current interface scripts into an object for later execution
-        load_js: function(){
+        load_js: function() {
             var parent = this;
             
             // Preinitialize loaded array so scripts can be inserted into the array in the order this.scripts describes
@@ -188,7 +188,7 @@ Portfolio.selector = (function(_document) {
             
             // Get script at from and place it in order position to be executed
             var load_script = function(from, order) {
-                this.ajax_load('GET', from, function(response){
+                this.ajax_load('GET', from, function(response) {
                     parent.scripts.js_loaded[order] = response;
                     parent.loaded.js += 1;
                 });
@@ -203,8 +203,8 @@ Portfolio.selector = (function(_document) {
                 load_script.call(this, this.scripts[mode].js_location + this.scripts[mode].js[s - mode_length], s);
         },
         
-        load_css: function (){
-            for (var c = 0; c < this.scripts[mode].css.length; c += 1){
+        load_css: function () {
+            for (var c = 0; c < this.scripts[mode].css.length; c += 1) {
                 var stylesheet = _document.createElement("link");
                     stylesheet.rel = "stylesheet";
                     stylesheet.type = "text/css";
@@ -216,13 +216,13 @@ Portfolio.selector = (function(_document) {
         },
         
         // Loads the index and specified address, no callbacks this just starts the calls
-        load_pages: function(address){
+        load_pages: function(address) {
             var parent = this;
             
-            if (!parent.ajax_load('GET', INDEX_PAGE + this.mode_to_get(), function(response){
+            if (!parent.ajax_load('GET', INDEX_PAGE + this.mode_to_get(), function(response) {
                 parent.add_to_body(response);
                 parent.loaded.pages += 1;
-            })){
+            })) {
                 window.location(NOSCRIPT_DOMAIN);
             }
             
@@ -231,20 +231,20 @@ Portfolio.selector = (function(_document) {
             var path = address.pathname;
             if (typeof address.pathname === 'undefined')
                 path = page = '/home';
-            else if (address.pathname === '/'){
+            else if (address.pathname === '/') {
                 page += 'home';
                 path = 'home';
             }
                 
-            if (!this.ajax_load('GET', page + this.mode_to_get(), function(response){
+            if (!this.ajax_load('GET', page + this.mode_to_get(), function(response) {
                 parent.add_cache(path, response);
                 parent.loaded.pages += 1;
-            })){
+            })) {
                 window.location(NOSCRIPT_DOMAIN);
             }
         },
         
-        add_to_body: function(text){
+        add_to_body: function(text) {
             if (typeof _document.body.innerHTML === 'undefined')
                 _document.body.innerHTML = '';
             _document.body.innerHTML += text;
@@ -254,9 +254,9 @@ Portfolio.selector = (function(_document) {
         // either POST or GET (the routes accept no other verbs), to_send sends specified data if in post mode
         // (must be a string).
         // NOTE: all to_send content is assumed to be JSON
-        ajax_load: function (in_mode, page, callback, to_send){
+        ajax_load: function (in_mode, page, callback, to_send) {
             // Gets an asynchronous requester if it can be found
-            function get_XMLHttpRequest(){
+            function get_XMLHttpRequest() {
                 if (window.XMLHttpRequest)
                     return new window.XMLHttpRequest;
                 else {
@@ -281,7 +281,7 @@ Portfolio.selector = (function(_document) {
             var requester = get_XMLHttpRequest();
             if (requester == null)
                 return false;
-            else{
+            else {
                 requester.open(in_mode, page, true);
                 requester.setRequestHeader("Content-Type", "application/json");
                 requester.onreadystatechange = handler;
@@ -292,7 +292,7 @@ Portfolio.selector = (function(_document) {
         },
         
         // NOTE: set will do more once I add a mobile version to desktop mode
-        set_mode: function (new_mode){
+        set_mode: function (new_mode) {
             mode = new_mode;
         },
         get_mode: function (){ return mode; }
@@ -300,7 +300,7 @@ Portfolio.selector = (function(_document) {
 })(window.document).init(true, screen.width, navigator.userAgent.toLowerCase());
 
 // Event loop to check when everything is loaded, once loaded evaluate the js and start the system
-(function loaded(){
+(function loaded() {
     if (Portfolio.selector.is_system_loaded() && typeof mocha === "undefined")
         Portfolio.selector.start_system();
     else
