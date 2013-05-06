@@ -99,7 +99,7 @@ Portfolio.selector = (function(_document) {
             if (user_string.search(MOBILE_STRING) > 0 || width <= MOBILE_WIDTH)
                 this.render_mobile();
             else
-                this.render_mobile();
+                this.render_desktop();
                 
             return this;
         },

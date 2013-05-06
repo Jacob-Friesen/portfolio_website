@@ -56,8 +56,8 @@ Portfolio.start_system = (function (w, $, history_tracking, page_history, pages,
 		history_tracking.init(pages, open_window);
 		
 		// Get page address and open the window using that address
-		if((w.location + "").split('#').length > 1)
-			var path = (w.location + "").split('#').pop();
+		if(!w.history.pushState)
+			var path = (w.location + "").split("#./").pop().split('?')[0];
 		else
 			var path = w.location.pathname.replace('/','').replace('#','');
 		open_window(path, icon_menu.set_open);
