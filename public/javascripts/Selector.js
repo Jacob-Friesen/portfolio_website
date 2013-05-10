@@ -61,11 +61,11 @@ Portfolio.selector = (function(_document) {
                 js_location: '/javascripts/mobile/',
                 js: [
                     'min.js'
-                    //'Skills.js',
-                    //'Experience.js',
-                    //'Demos.js',
-                    //'Menu.js',
-                    //'System.js'
+                    // 'Skills.js',
+                    // 'Experience.js',
+                    // 'Demos.js',
+                    // 'Menu.js',
+                    // 'System.js'
                 ],
                 
                 css_location: '',
