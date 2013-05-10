@@ -54,19 +54,22 @@ Portfolio.demos = (function($, utility, _window){
                 // When clicked the larger version of the element is created then lightboxed. Close it when clicked.
                 $(this).click(function(){
                     var large_image = $("<img/>").attr('src', this.src.replace('_s','')).attr('id', this.id + "_clone");
+                    var spinner = new Spinner({speed: 3}).spin(this.parentNode);
 
                     // Resize the image if it is too large for the screen
                     large_image.load(function () {
                         var proportion = $(window).width()/large_image[0].width;//jQuery width() does not work here
                         if (proportion < 1)
                             large_image[0].width = $(window).width();
-                    });
 
-                    large_image.lightbox_me({
-                        destroyOnClose: true,
-                        centered: true
+                        large_image.lightbox_me({
+                            destroyOnClose: true,
+                            centered: true
+                        });
+                        large_image.click(function(){ $(this).trigger('close'); });
+
+                        spinner.spin();
                     });
-                    large_image.click(function(){ $(this).trigger('close'); });
                 });
             });  
         }

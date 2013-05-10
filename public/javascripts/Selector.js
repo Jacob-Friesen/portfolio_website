@@ -18,7 +18,7 @@ Portfolio.selector = (function(_document) {
                 js_location: '',
                 js: [
                     '/javascripts/jquery.min.js',
-                    '/javascripts/jquery.lightbox_me.min.js',
+                    '/javascripts/jquery.lightbox_me.js',
                     '/javascripts/jquery.history.min.js',
                     '/javascripts/prettify.min.js',
                     '/javascripts/underscore.min.js',
@@ -65,7 +65,8 @@ Portfolio.selector = (function(_document) {
                     // 'Experience.js',
                     // 'Demos.js',
                     // 'Menu.js',
-                    // 'System.js'
+                    // 'System.js',
+                    // 'spin.js'
                 ],
                 
                 css_location: '',

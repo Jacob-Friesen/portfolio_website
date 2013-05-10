@@ -27,3 +27,10 @@ div.demos.section p.demo_text {
   margin-top: 5px;
   background-color: #fff;
 }
+div.demos.section img.demo_img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #000;
+  border-radius: 7px;
+}

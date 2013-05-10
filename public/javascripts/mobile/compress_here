@@ -1,5 +1,5 @@
 #!/bin/bash
-java -jar ../../../js_compiler/compiler.jar --js=Demos.js --js=Experience.js --js=Skills.js --js=Menu.js --js=System.js --js_output_file=min.js
+java -jar ../../../js_compiler/compiler.jar --js=Demos.js --js=Experience.js --js=Skills.js --js=Menu.js --js=System.js --js=spin.min.js --js_output_file=min.js
 
 # Gzip min so it doesn't have to be gzipped on the fly when retrieving it
 cat min.js | gzip > min.js.gz
