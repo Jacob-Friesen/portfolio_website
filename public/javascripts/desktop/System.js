@@ -1,7 +1,7 @@
 Portfolio.location = window.location.hostname;
 
 // Loads up the desktop system using the address bar to load the correct page. Also, sets up address state logging so forward and backs can be handled
-Portfolio.start_system = (function (w, $, history_tracking, page_history, pages, tiles, _location){
+Portfolio.start_system = (function (w, $, history_tracking, page_history, pages, tiles, _location, localInstall){
 	// Some variables are only set at the start of system loading
 	function reload_variables(){
 		history_tracking = Portfolio.history_tracking;
@@ -61,8 +61,10 @@ Portfolio.start_system = (function (w, $, history_tracking, page_history, pages,
 		else
 			var path = w.location.pathname.replace('/','').replace('#','');
 		open_window(path, icon_menu.set_open);
+
+		localInstall();
 	}
-})(window, jQuery, Portfolio.history_tracking, Portfolio.page_history, Portfolio.pages, Portfolio.window_details, Portfolio.location);
+})(window, jQuery, Portfolio.history_tracking, Portfolio.page_history, Portfolio.pages, Portfolio.window_details, Portfolio.location, Portfolio.localInstall);
 
 // Namespace for all functions executed when a specific page loads
 Portfolio.pages = (function ($, w, c, skills, exp, demos, blog, _document) {

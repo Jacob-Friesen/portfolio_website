@@ -6,6 +6,7 @@ java -jar ../../js_compiler/compiler.jar --js=History_Tracking.js --js_output_fi
 java -jar ../../js_compiler/compiler.jar --js=Blog.js --js_output_file=Blog.min.js
 java -jar ../../js_compiler/compiler.jar --js=Selector.js --js_output_file=Selector.min.js
 java -jar ../../js_compiler/compiler.jar --js=prettify.js --js_output_file=prettify.min.js
+java -jar ../../js_compiler/compiler.jar --js=local_install.js --js_output_file=local_install.min.js
 
 # Gzip all files so they don't have to be gzipped on the fly when retrieving them
 cat Selector.min.js | gzip > Selector.min.js.gz
@@ -17,3 +18,4 @@ cat underscore.min.js | gzip > underscore.min.js.gz
 cat History_Tracking.min.js | gzip > History_Tracking.min.js.gz
 cat Utility.min.js | gzip > Utility.min.js.gz
 cat jquery.history.min.js | gzip > jquery.history.min.js.gz
+cat local_install.min.js | gzip > local_install.min.js.gz

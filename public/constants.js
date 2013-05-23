@@ -35,7 +35,7 @@ Portfolio.constants = (function(){
 									"12 months over 3 coop work terms, the rest of my experience mainly comes from my spare time.",
 									"Strong knowlegde of layout intricacies such as vertical positioning of elements without using tables.",
 									"Knowlegde of multiple layout styles and how to make scalable layouts",
-									"3.5 months experience of doing custom mobile layouts. See winnipegjs.com and this website with your phone.",
+									"8 months experience of doing custom mobile layouts. See winnipegjs.com and this website with your phone.",
 									"I know general CSS3 layout techniques like <element>:first-child",
 									"I have also spent a few months working with HAML, Jade, SCSS, and Stylus."
 								]
@@ -376,6 +376,20 @@ Portfolio.constants = (function(){
 							{
 								link_text: 'Source: ',
 								link: ["https://github.com/yagudaev/winnipegjs", "Winnipeg JS website source code"]
+							}
+						]
+					},
+					{
+						name: "The Unsafe Minifier",
+						description: "For my Machine Learning class in my final school term I worked on an AI based minification scheme intended to compliment \
+									 normal minification. It parses a series of JavaScript files and finds all function calls, expressions, and declarations. \
+									 Then the unsafe minifier writes all the data back. Next that data is used to train a set of nueral networks (five by default) \
+									 which are used to minify files sent into application. This project was primarily done in Node.js.",
+						image: ["images/unsafe_minifier_s.png", "Picture showing the Unsafe Minifier's Potential Savings"],
+						links: [
+							{
+								link_text: "Source: ",
+								link: ["https://github.com/Jacob-Friesen/unsafe_minifier","Unsafe Minifier's Source Code"]
 							}
 						]
 					},

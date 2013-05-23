@@ -27,7 +27,8 @@ Portfolio.selector = (function(_document) {
                     
                     // identical page view logic
                     '/javascripts/History_Tracking.min.js',
-                    '/javascripts/Blog.min.js'
+                    '/javascripts/Blog.min.js',
+                    '/javascripts/local_install.min.js'
                 ]
             },
             

@@ -9,6 +9,7 @@ Portfolio.start_system = function (){
        page = page.split('/').pop();
     
     Portfolio.system.init_with(page);
+    Portfolio.localInstall();
     
     return true; 
 };

@@ -47,6 +47,10 @@ a {
 	text-decoration: underline;
 }
 
+div.window{
+	margin-bottom: 24px;
+}
+
 /*
 *Boxes
 */
@@ -160,10 +164,36 @@ div.contact_footer{
 	width: 100%;
 	z-index: 4;
 	text-align: center;
+	padding-bottom: 7px;
+	margin-top: 10px;
 }
-	div.contact_footer p{	
-		margin: 0;
+	div.contact_footer p{
 		font-size: 22px;
+		display: inline;
+		margin-bottom: 10px;
+	}
+
+	button.install_local{
+		cursor: pointer;
+		cursor: hand;
+
+	    display: inline;
+
+	    width: 150px;
+	    margin: 7px 0 0 10px;
+	    padding: 5px;
+
+	    color: black;
+	    font-size: 18px;
+	    font-weight: bold;
+	    background: none;
+	    background-color: white;
+	    border: 1px solid black;
+	    border-radius: 7px;
+	}
+
+	button.install_local:hover{
+		background-color: lightGrey;
 	}
 
 a.email{
@@ -213,11 +243,11 @@ div.contact_right{
 	background-color: #E9D5B2;
 }
 
-#brown, #skill_1, #skill_2, #skill_3, #skill_4, .brown{
+#brown, #skill_1, #skill_2, #skill_3, #skill_4, .brown, div.changeBrown{
 	background-color: #C4B891;
 }
 
-#skill_1:hover, #skill_2:hover, #skill_3:hover , #skill_4:hover {
+#skill_1:hover, #skill_2:hover, #skill_3:hover, #skill_4:hover, div.changeBrown:hover {
 	background-color: #DEDFC2;
 }
 

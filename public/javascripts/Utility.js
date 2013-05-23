@@ -182,7 +182,7 @@ Portfolio.utility = (function($){
 			// Sets an items default pixel width
 			register_element: function(_element, at){
 				var element = $(_element).first();
-	
+
 				if (element[0])
 					this.to_change[at][1] = Number(element.css('font-size').replace('px',''));
 			},

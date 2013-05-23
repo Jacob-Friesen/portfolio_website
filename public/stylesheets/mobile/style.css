@@ -17,6 +17,22 @@ code {
   word-wrap: break-word;
   font-size: 10px;
 }
+center#social_media {
+  margin: 3px 0 0 3px;
+}
+center#social_media button.install_local {
+  display: block;
+  width: 150px;
+  margin: 0 auto;
+  padding: 5px;
+  color: #000;
+  font-size: 18px;
+  font-weight: bold;
+  background: none;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 7px;
+}
 div.page_state {
   width: 98%;
   height: 8px;

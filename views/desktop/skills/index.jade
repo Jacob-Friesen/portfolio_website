@@ -8,7 +8,7 @@
 		- var skill_sections = constant.page_text.skills.skill_types;
 		- for (var i = 0; i < skill_sections.length; i++)
 			.skills
-				.topWrapper.brown(id="skills_collapse_skill_#{i}")
+				.topWrapper.changeBrown(id="skills_collapse_skill_#{i}")
 					h3.title= skill_sections[i].name
 					button.collapseText(id="skills_collapse_button_#{i}")-
 				.skillText(id="collapse_points_skill#{i}")
