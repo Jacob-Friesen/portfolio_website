@@ -40,7 +40,7 @@ Portfolio.localInstall = (function($, mozApps, _location, userAgent, mode){
     }
 
     return function(){
-        if (mozApps || mozApps.install){
+        if (mozApps && mozApps.install){
             var request = mozApps.checkInstalled(settings.manifest);
                 request.onsuccess = function() {
                     if (!request.result) installButton();
