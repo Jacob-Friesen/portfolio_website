@@ -4,9 +4,11 @@
     h1(id = "blog_title")= blog.title
 .blog.section
     p= blog.introduction
-        &nbsp;
-        a(href=blog.introduction_link[0], alt=blog.introduction_link[2])= blog.introduction_link[1]
-        .
+            &nbsp;
+            a(href=blog.links[0][0], alt=blog.links[0][2])=blog.links[0][1]
+            span &nbsp;and&nbsp;
+            a(href=blog.links[1][0], alt=blog.links[1][2])=blog.links[1][1]
+            .
     hr
     
     h1.blogTitle Loading...

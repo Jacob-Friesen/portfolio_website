@@ -8,7 +8,7 @@ Portfolio.blog = (function ($, selector, utility){
         load_post: function(){
             var parent = this;
             
-            $.getJSON('http://epiccode.tumblr.com/api/read/json?callback=?', {}, function(response) {
+            $.getJSON('http://obscurejavascript.tumblr.com/api/read/json?callback=?', {}, function(response) {
                 // Update regular dom elements and the cached ones
                 $('.blogTitle').each(function(){
                     this.innerHTML = response.posts[0]['regular-title'];
