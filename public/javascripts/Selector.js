@@ -17,6 +17,7 @@ Portfolio.selector = (function(_document) {
             common: {
                 js_location: '',
                 js: [
+                    '/javascripts/angular.min.js',
                     '/javascripts/jquery.min.js',
                     '/javascripts/jquery.lightbox_me.js',
                     '/javascripts/jquery.history.min.js',
@@ -36,13 +37,14 @@ Portfolio.selector = (function(_document) {
                 js_location: '/javascripts/desktop/',
                 js: [
                     'min.js'
-                    //'menu_to_actions.js',
-                    //
-                    //'Skills.js',
-                    //'Experience.js',
-                    //'Demos.js',
-                    //'System.js',
-                    //'Window_Details.js'
+                    // 'angular_test.js',
+                    // 'menu_to_actions.js',
+                    
+                    // 'Skills.js',
+                    // 'Experience.js',
+                    // 'Demos.js',
+                    // 'System.js',
+                    // 'Window_Details.js'
                 ],
                 
                 css_location: '',

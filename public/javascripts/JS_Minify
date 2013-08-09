@@ -19,3 +19,4 @@ cat History_Tracking.min.js | gzip > History_Tracking.min.js.gz
 cat Utility.min.js | gzip > Utility.min.js.gz
 cat jquery.history.min.js | gzip > jquery.history.min.js.gz
 cat local_install.min.js | gzip > local_install.min.js.gz
+cat angular.min.js | gzip > angular.min.js.gz

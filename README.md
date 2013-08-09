@@ -1,6 +1,8 @@
 Portfolio Website
 =================
 
+** Note: This is the angular branch, so it is using many experimental features. It may break in most non modern browsers**
+
 My integrated interface portfolio website, which is the 5th major revision of my website. This site is [here](http://jacobfriesen.com). This is the culmination of my attempts at making an interface with no comprimises: 
  
  * Single domain with no unecessary scripts/loads for any interface (A problem with most media query based adaptations)
