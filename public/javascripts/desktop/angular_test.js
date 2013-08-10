@@ -4,8 +4,13 @@ Portfolio.runAngular = function(){
     angular.bootstrap(document);
 }
 
+// Controllers
+
 Portfolio.Hello = ['$scope', function($scope) {
     $scope.name = 'World';
 }];
 
-Portfolio.HelloModule = angular.module('Hello', []);
+var Portfolio2 = angular.module('Portfolio2', []);
+ 
+// register a new service
+Portfolio2.value('appName', 'Portfolio2');
