@@ -64,7 +64,7 @@ Portfolio.start_system = (function (w, $, history_tracking, page_history, pages,
 
 		localInstall();
 
-		Portfolio.runAngular();
+		//Portfolio.runAngular();
 	}
 })(window, jQuery, Portfolio.history_tracking, Portfolio.page_history, Portfolio.pages, Portfolio.window_details, Portfolio.location, Portfolio.localInstall);
 

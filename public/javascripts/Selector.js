@@ -142,7 +142,7 @@ Portfolio.selector = (function(_document) {
         // starts up the system loading the required scripts
         start_system: function() {
             _document.body.style.display = 'block';
-            
+
             // Run each AJAX loaded script
             for (var i = 0; i < this.scripts.js_loaded.length; i += 1) {
                 var script = _document.createElement('script');
