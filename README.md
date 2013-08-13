@@ -24,11 +24,19 @@ This is an express app (Node.js based) that mimics page loads via AJAX and histo
 
 Testing
 =======
-Still need to add Selenium GUI tests and convert a little bit of the Jasmine testing, but here is the main testing setup:
+Uses Karma for all tests. All test configurations are stored in config.
 
- * Base: Mocha.js
- * Assertions: Chai.js
- * Stubs and Such: Sinon.js
+**To run all tests:** make test-all or make test-a
+
+**Unit Tests:** Covers all lower level code, especially controllers.
+
+ * **Run them once:** make test or make test-u or make test-unit
+ * **Run them with every code change:** make test-w or make test-u-w or make test-unit-watch
+
+**End to End Tests:** Tests the client interface without using client side JavaScript.
+
+ * **Run them once:** make test-e or make test-end-to-end
+ * **Run them with every code change:** make test-e-w or make test-end-to-end-watch
  
 Interfaces Supported
 ====================

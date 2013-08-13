@@ -1,8 +1,10 @@
+var shared = require('./karma-shared.conf');
+
+// Integration test configuration
 module.exports = function(config){
+    shared(config);
+
     config.set({
-
-        basePath: '../',
-
         // IGNORE THE "Please use `frameworks = ["ng-scenario"];` instead."
         // The tests on start up will fail, but the subsequent tests will succeed when on version 1.1.5
         files: [
@@ -11,12 +13,6 @@ module.exports = function(config){
 
             'test/e2e/*.js'
         ],
-
-        autoWatch: true,
-
-        browsers: ['PhantomJS'],
-
-        singleRun: false,
 
         proxies: {
           '/': 'http://localhost:3000/'
