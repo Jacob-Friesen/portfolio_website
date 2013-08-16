@@ -25,8 +25,11 @@ Portfolio.selector = (function(_document) {
                     '/javascripts/underscore.min.js',
                     '/javascripts/Utility.min.js',
                     '/constants.min.js',
+
+                    // angular
+                    '/javascripts/app.js',
                     
-                    // identical page view logic
+                    // identical page view logic for mobile and desktop it
                     '/javascripts/History_Tracking.min.js',
                     '/javascripts/Blog.min.js',
                     '/javascripts/local_install.min.js'
@@ -36,15 +39,15 @@ Portfolio.selector = (function(_document) {
             desktop: {
                 js_location: '/javascripts/desktop/',
                 js: [
-                    'min.js'
-                    // 'angular_test.js',
-                    // 'menu_to_actions.js',
+                    //'min.js'
+                    'angular_test.js',
+                    'menu_to_actions.js',
                     
-                    // 'Skills.js',
-                    // 'Experience.js',
-                    // 'Demos.js',
-                    // 'System.js',
-                    // 'Window_Details.js'
+                    'Skills.js',
+                    'Experience.js',
+                    'Demos.js',
+                    'System.js',
+                    'Window_Details.js'
                 ],
                 
                 css_location: '',
@@ -90,7 +93,7 @@ Portfolio.selector = (function(_document) {
             js: 0,
             css: 0
         },
-        PAGES_TO_LOAD: 2,
+        PAGES_TO_LOAD: 0,
         
         // Takes the user agent with the screen width to render the appropriate interface
         init: function(dont_run, width, user_string) {
@@ -132,17 +135,13 @@ Portfolio.selector = (function(_document) {
             
             mode = 'desktop';
             
-            _document.body.style.display = 'none';// ensures page load looks smooth
-            
             this.load_css();
             this.load_js();
-            this.load_pages(window.location);
+            //this.load_pages(window.location);
         },
         
         // starts up the system loading the required scripts
         start_system: function() {
-            _document.body.style.display = 'block';
-
             // Run each AJAX loaded script
             for (var i = 0; i < this.scripts.js_loaded.length; i += 1) {
                 var script = _document.createElement('script');
@@ -151,7 +150,8 @@ Portfolio.selector = (function(_document) {
                 _document.head.appendChild(script);
             }
             
-            Portfolio.start_system();
+            //Portfolio.runAngular();
+            //Portfolio.start_system();
         },
         
         is_system_loaded: function() {

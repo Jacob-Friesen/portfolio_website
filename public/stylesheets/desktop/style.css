@@ -66,7 +66,7 @@ div.mainBox, div.expBox{
   width: 700px;
   background-color: white;
   border-radius: 7px;
-  display: none;/*orig screen in popped up via javascript*/
+  display: inline;/*orig screen in popped up via javascript*/
 }
 
 div.enableJS{

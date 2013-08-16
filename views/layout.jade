@@ -1,5 +1,5 @@
 !!! strict
-html(ng-app='')
+html(ng-app='Portfolio2')
     head
         // Preload checks: noscript - mobile - IE
         noscript
@@ -37,3 +37,5 @@ html(ng-app='')
         //     this;c.ajax_load("GET","index"+this.mode_to_get(),function(a){c.add_to_body(a);c.loaded.pages+=1})||window.location("/no_script");var b=(a+"").split("#")[0],d=a.pathname;"undefined"===typeof a.pathname?d=b="/home":"/"===a.pathname&&(b+="home",d="home");this.ajax_load("GET",b+this.mode_to_get(),function(a){c.add_cache(d,a);c.loaded.pages=c.loaded.pages+1})||window.location("/no_script")},add_to_body:function(a){"undefined"===typeof b.body.innerHTML&&(b.body.innerHTML="");b.body.innerHTML+=a},ajax_load:function(a,
         //     b,e,d){var f=function(){if(window.XMLHttpRequest)return new window.XMLHttpRequest;try{return new ActiveXObject("MSXML2.XMLHTTP")}catch(a){return null}}();if(null==f)return!1;f.open(a,b,!0);f.setRequestHeader("Content-Type","application/json");f.onreadystatechange=function(){4==f.readyState&&200==f.status&&null!=e&&e(f.responseText)};f.send(d);return!0},set_mode:function(a){e=a},get_mode:function(){return e}}}(window.document).init(!0,screen.width,navigator.userAgent.toLowerCase());
         //     (function loaded(){Portfolio.selector.is_system_loaded()&&"undefined"===typeof mocha?Portfolio.selector.start_system():setTimeout(loaded,50)})();
+
+        block content
