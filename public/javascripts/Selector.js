@@ -28,6 +28,8 @@ Portfolio.selector = (function(_document) {
 
                     // angular
                     '/javascripts/app.js',
+                    '/javascripts/directives.js',
+                    '/javascripts/controllers.js',
                     
                     // identical page view logic for mobile and desktop it
                     '/javascripts/History_Tracking.min.js',
@@ -40,7 +42,6 @@ Portfolio.selector = (function(_document) {
                 js_location: '/javascripts/desktop/',
                 js: [
                     //'min.js'
-                    'angular_test.js',
                     'menu_to_actions.js',
                     
                     'Skills.js',

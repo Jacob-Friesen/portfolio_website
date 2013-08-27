@@ -1,8 +1,7 @@
 var assert = chai.assert;
 
+// Just to ensuring testing works, will be removed as app is further developed
 describe('HelloController', function(){
-    //initialise module
-
     var test;
     beforeEach(inject(function($rootScope, $controller){
         test = {};

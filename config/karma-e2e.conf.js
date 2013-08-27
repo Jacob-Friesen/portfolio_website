@@ -12,6 +12,8 @@ module.exports = function(config){
             'test/lib/angular/angular-scenario.js',// Must be 1.0.7 for now, see above
             ANGULAR_SCENARIO_ADAPTER,
 
+            'test/lib/lodash/lodash.js',
+
             'test/e2e/*.js'
         ],
 

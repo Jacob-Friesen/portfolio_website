@@ -13,9 +13,14 @@ module.exports = function(config){
 
             // Testing add ons
             'test/lib/chai/chai.js',
+            'test/lib/sinon/sinon.js',
+            'test/lib/lodash/lodash.js',
 
             // Custom files
-            'public/javascripts/desktop/angular_test.js',
+            'public/constants.js',
+            'public/javascripts/app.js',
+            'public/javascripts/controllers.js',
+            'public/javascripts/directives.js',
 
             'test/unit/*test.js'
         ],
