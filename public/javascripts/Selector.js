@@ -59,7 +59,7 @@ Portfolio.selector = (function(_document) {
                     '/stylesheets/desktop/demos_c.css',
                     '/stylesheets/desktop/blog_c.css',
                     '/stylesheets/desktop/window_tiles_c.css',
-                    '/stylesheets/desktop/icbm.css',
+                    '/stylesheets/desktop/icbm_c.css',
                     'http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css'
                 ]
             },

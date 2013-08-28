@@ -21,8 +21,8 @@ Portfolio.menuImages = new Portfolio.MenuImages();
 Portfolio.app.directive('menuImage', function($interpolate, $compile){
     var template = "<a class='menuLink' href='{{page.toLowerCase()}}'>" + 
                         "<div class='{{page.toLowerCase()}}-button'>" +
-                            "<h2>{{page}}</h2>" +
                         "</div>" +
+                        "<h2>{{page}}</h2>"
                     "</a>";
 
     var oldSetBackground = function(page, backgrounder, toggle){

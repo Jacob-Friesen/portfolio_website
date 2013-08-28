@@ -82,10 +82,17 @@ div.icon_based_menu {
 /*
  * Image colour changing, not exactly DRY but a lot simple than the equivalent JS (lots of work making it smooth in JS)
  */
-a.menuLink div h2 {
-	background-color: transparent;
-	color: black;
+.menu_button {
+	padding: 15px 0 0 15px;
 }
+
+	a.menuLink h2 {
+		background-color: transparent;
+		color: black;
+		font-family: Arial;
+    	font-size: 0.6em;
+    	font-weight: normal;
+	}
 
 div.home-button, div.home-button-selected,
 div.skills-button, div.skills-button-selected,
@@ -96,7 +103,8 @@ div.blog-button, div.blog-button-selected {
 	border-radius: 5px;
 	width: 120px;
 	height: 100px;
-	background-color:red;
+	background-repeat: no-repeat;
+	background-size: 120px 100px;
 }
 
 div.home-button {

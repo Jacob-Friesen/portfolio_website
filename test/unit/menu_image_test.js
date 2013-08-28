@@ -30,7 +30,7 @@ describe('MenuImageDirective', function() {
         });
 
         element = checkElement(element, 'a', 'href');
-        element = checkElement(element, 'div', 'class');
+        checkElement(element, 'div', 'class');
         element = element.find('h2');
         assert.equal(element.length, 1);
         assert.isTrue(element.html().indexOf(page) > -1);

@@ -3,7 +3,7 @@ div(ng-controller='Portfolio.MainMenu')
         .icbm_main_objects
             h2 Jacob Friesen - Web Developer
             div(ng-repeat='page in pages')
-                div(id='{{page.toLowerCase()}}_button')
+                div.menu_button(id='{{page.toLowerCase()}}_button')
                     menu-image
 
     #menu_icon_cache
