@@ -19,8 +19,9 @@ module.exports = function(config){
             // Custom files
             'public/constants.js',
             'public/javascripts/app.js',
-            'public/javascripts/controllers.js',
             'public/javascripts/directives.js',
+            'public/javascripts/services.js',
+            'public/javascripts/controllers.js',
 
             'test/unit/*test.js'
         ],

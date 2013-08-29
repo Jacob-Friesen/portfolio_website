@@ -1,8 +1,10 @@
 describe('Menu', function(){
     function checkPageColoured(checkPage){
+        var currentLocation = window.location.host;
+
         ['home', 'skills', 'experience', 'demos', 'blog'].forEach(function(page){
             var extra = (page !== checkPage) ? '_grey' : '',
-                url = 'url(http://localhost:9876/images/menu_icons/'+page+'_page'+extra+'.png)'
+                url = 'url(http://'+currentLocation+'/images/menu_icons/'+page+'_page'+extra+'.png)';
             expect(element('#' + page + '_button > a > div').css('background-image')).toBe(url);
         });
     }

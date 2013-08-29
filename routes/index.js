@@ -31,10 +31,6 @@ module.exports = function(app){
     });
 }
 
-// function render_angular_page_full_load(req, res){
-
-// }
-
 function render_angular_page(req, res){
     var title = req.url.split('/')[1].replace(KEYWORD, '');
 

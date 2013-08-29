@@ -29,6 +29,7 @@ Portfolio.selector = (function(_document) {
                     // angular
                     '/javascripts/app.js',
                     '/javascripts/directives.js',
+                    '/javascripts/services.js',
                     '/javascripts/controllers.js',
                     
                     // identical page view logic for mobile and desktop it
