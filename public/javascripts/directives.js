@@ -62,3 +62,40 @@ Portfolio.app.directive('menuImage', function($interpolate, $compile){
         }
     };
 });
+
+Portfolio.jobOpenables = [];
+Portfolio.jobOpenables.closeAllExcept = function(except){
+    _.each(this, function(callback, index){
+        if (index !== except) {console.log(index), callback("medium", true)};
+    });
+}
+
+Portfolio.app.directive('openableJob', function($interpolate, $compile){
+    // just returning a link function
+    return function(scope, element, attrs){
+        var parent = $(element).parent(),
+            jobText = parent.find('.jobText'),
+            collapseText = parent.find('.collapseText');
+
+        if (attrs.openableJob !== "0") toggleOpen();
+
+        $(element).click(function(){
+            if (jobText.is(":hidden"))
+                Portfolio.jobOpenables.closeAllExcept(+attrs.openableJob);
+            toggleOpen("medium");
+        });
+
+        Portfolio.jobOpenables.push(toggleOpen);
+
+        function toggleOpen(speed, setClosed){
+            if (setClosed){
+                collapseText.html("+");
+                jobText.hide(speed);
+            }
+            else{
+                collapseText.html( (jobText.is(":visible")) ? "+" : "-");
+                jobText.toggle(speed);
+            }
+        }
+    };
+});

@@ -22,8 +22,12 @@ Portfolio.Skills = ['pageLoad', function(pageLoad) {
     pageLoad.load();
 }];
 
-Portfolio.Experience = ['pageLoad', function(pageLoad) {
+Portfolio.Experience = ['pageLoad', '$scope', function(pageLoad, scope) {
     pageLoad.load();
+
+    scope.toggleJobOpen = function(){
+        console.log('toggling');
+    }
 }];
 
 Portfolio.Demos = ['pageLoad', function(pageLoad) {

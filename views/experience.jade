@@ -1,4 +1,4 @@
-#expBox.expBox(name="expBox")
+#expBox.expBox(name="expBox", ng-controller="Portfolio.Experience")
 	#orange.topWrapper
 	#hTitleWrapper.titleWrapper(name="hTitleWrapper")
 		h1 Experience
@@ -6,15 +6,15 @@
 		- var jobs = constant.page_text.experience.jobs;
 		- for (var i = 0; i < jobs.length; i++)
 			.job
-				.jobTitle(id = "job#{i}")
+				.jobTitle(openable-job="#{i}")
 					#changeOrange.topWrapper
 						h3.title= jobs[i].date
 						- if (jobs[i].details)
-							button.collapseText(id="job#{i}Clps")-
+							button.collapseText -
 						h3.title_r= jobs[i].company
 				-  if (jobs[i].details)
 					// name and details
-					.jobText(id="job#{i}jobText")
+					.jobText
 						p.jobName
 							b= jobs[i].position
 						- var details = jobs[i].details;
