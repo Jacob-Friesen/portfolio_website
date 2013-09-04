@@ -15,6 +15,7 @@ module.exports = function(config){
             'test/lib/chai/chai.js',
             'test/lib/sinon/sinon.js',
             'test/lib/lodash/lodash.js',
+            'public/javascripts/jquery.min.js',
 
             // Custom files
             'public/constants.js',

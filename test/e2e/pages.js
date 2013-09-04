@@ -58,4 +58,18 @@ describe('Pages', function(){
             clickAndExpect(2, 2);
         });
     });
+
+    describe('blog', function(){
+        it('should load a blog post', function(){
+            browser().navigateTo('/blog');
+            sleep(1.5);
+
+            expect(element('.blogTitle').html()).not().toBe("Loading...");
+            expect(element('.blogPosting').html()).not().toBe("");
+        });
+
+        it('should color the blog post', function(){
+            expect(element('.prettyprinted').html()).not().toBe("");
+        });
+    });
 });
