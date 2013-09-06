@@ -18,7 +18,7 @@ Portfolio.MenuImages = function(){
 };
 Portfolio.menuImages = new Portfolio.MenuImages();
 
-Portfolio.app.directive('menuImage', function($interpolate, $compile){
+Portfolio.app.directive('menuImage', function($interpolate){
     var template = "<a class='menuLink' href='{{page.toLowerCase()}}'>" + 
                         "<div class='{{page.toLowerCase()}}-button'>" +
                         "</div>" +
@@ -66,11 +66,11 @@ Portfolio.app.directive('menuImage', function($interpolate, $compile){
 Portfolio.jobOpenables = [];
 Portfolio.jobOpenables.closeAllExcept = function(except){
     _.each(this, function(callback, index){
-        if (index !== except) {console.log(index), callback("medium", true)};
+        if (index !== except) {console.log(index), callback('medium', true)};
     });
 }
 
-Portfolio.app.directive('openableJob', function($interpolate, $compile){
+Portfolio.app.directive('openableJob', function(){
     // just returning a link function
     return function(scope, element, attrs){
         var parent = $(element).parent(),
@@ -97,5 +97,20 @@ Portfolio.app.directive('openableJob', function($interpolate, $compile){
                 jobText.toggle(speed);
             }
         }
+    };
+});
+
+Portfolio.app.directive('imgClickable', function(){
+    return function(scope, element, attrs){
+        $(element).click(function(e){
+            var image = $(e.target);
+
+            var large_image = $('<img/>').attr('src', $(image).attr('src').replace('_s','')).attr('id', $(image).attr('id') + '_clone');
+            large_image.lightbox_me({
+                destroyOnClose: true,
+                centered: true
+            });
+            large_image.click(function(){ $(this).trigger('close'); });
+        });
     };
 });

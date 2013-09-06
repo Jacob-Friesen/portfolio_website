@@ -72,4 +72,32 @@ describe('Pages', function(){
             expect(element('.prettyprinted').html()).not().toBe("");
         });
     });
+
+    describe('demos', function(){
+        function testOn(index, lrgUrl){
+            var demoImg = element('#demoImg'+index),
+                parent = element('.demoPic:has(#demoImg'+index+')');
+
+            expect(parent).not().toBe('');
+            demoImg.click();
+            sleep(0.3);
+            expect(parent).not().toBe('');
+
+            var popped = element('#demoImg'+index+'_clone');
+            expect(popped.attr('src')).toBe(lrgUrl);
+            popped.click();
+            sleep(0.3);
+            expect(popped).not().toBeDefined();
+            expect(parent).not().toBe('');
+        }
+
+        it('should have clickable images', function(){
+            browser().navigateTo('/demos');
+            sleep(1.5);
+
+            testOn(0, 'images/winnipegjs.png');
+            testOn(1, 'images/unsafe_minifier.png');
+            testOn(2, 'images/IdersIMS2.png');
+        });
+    });
 });
