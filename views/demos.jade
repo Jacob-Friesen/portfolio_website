@@ -9,14 +9,12 @@
         - var demo_list = constant.page_text.demos.demos
         - for(var d = 0; d < demo_list.length; d += 1)
             .demoPane
-                .demoTitle(id="demo_#{d}")
+                .demoTitle(openable="#{d}")
                     #changeGreen.topWrapper
                         h3.title= demo_list[d].name
-                        button.collapseText(id="demo#{d}Clps")-
+                        button.collapseText#openableIcon -
                             
-                // downloads
-                div(id="demolinks_#{d}")
-                    // description
+                div#openable
                     div(id="demo#{d}Downloads")
                         .demoMain
                             - var style = "";

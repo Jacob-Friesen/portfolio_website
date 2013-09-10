@@ -6,15 +6,15 @@
 		- var jobs = constant.page_text.experience.jobs;
 		- for (var i = 0; i < jobs.length; i++)
 			.job
-				.jobTitle(openable-job="#{i}")
+				.jobTitle(openable="#{i}")
 					#changeOrange.topWrapper
 						h3.title= jobs[i].date
 						- if (jobs[i].details)
-							button.collapseText -
+							button.collapseText#openableIcon -
 						h3.title_r= jobs[i].company
 				-  if (jobs[i].details)
 					// name and details
-					.jobText
+					#openable.jobText
 						p.jobName
 							b= jobs[i].position
 						- var details = jobs[i].details;

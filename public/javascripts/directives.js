@@ -63,38 +63,38 @@ Portfolio.app.directive('menuImage', function($interpolate){
     };
 });
 
-Portfolio.jobOpenables = [];
-Portfolio.jobOpenables.closeAllExcept = function(except){
+Portfolio.openables = [];
+Portfolio.openables.closeAllExcept = function(except){
     _.each(this, function(callback, index){
         if (index !== except) {console.log(index), callback('medium', true)};
     });
 }
 
-Portfolio.app.directive('openableJob', function(){
+Portfolio.app.directive('openable', function(){
     // just returning a link function
     return function(scope, element, attrs){
         var parent = $(element).parent(),
-            jobText = parent.find('.jobText'),
-            collapseText = parent.find('.collapseText');
+            hidable = parent.find('#openable'),
+            collapseText = parent.find('#openableIcon');
 
-        if (attrs.openableJob !== "0") toggleOpen();
+        if (attrs.openable !== "0") toggleOpen();
 
         $(element).click(function(){
-            if (jobText.is(":hidden"))
-                Portfolio.jobOpenables.closeAllExcept(+attrs.openableJob);
+            if (hidable.is(":hidden"))
+                Portfolio.openables.closeAllExcept(+attrs.openable);
             toggleOpen("medium");
         });
 
-        Portfolio.jobOpenables.push(toggleOpen);
+        Portfolio.openables.push(toggleOpen);
 
         function toggleOpen(speed, setClosed){
             if (setClosed){
                 collapseText.html("+");
-                jobText.hide(speed);
+                hidable.hide(speed);
             }
             else{
-                collapseText.html( (jobText.is(":visible")) ? "+" : "-");
-                jobText.toggle(speed);
+                collapseText.html( (hidable.is(":visible")) ? "+" : "-");
+                hidable.toggle(speed);
             }
         }
     };

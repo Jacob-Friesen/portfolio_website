@@ -1,4 +1,21 @@
 describe('Pages', function(){
+    function checkOpen(checking){
+        for (var i = 0; i <= 2; i += 1) {
+            var val = (i === checking) ? '-' : '+';
+            expect(element('#openableIcon:eq('+i+')').html()).toBe(val);
+
+            var val = (i === checking) ? 'block' : 'none';
+            expect(element('#openable:eq('+i+')').css("display")).toBe(val);
+        }
+    }
+
+    function clickAndExpect(click, expectValue){
+        element('#openableIcon:eq('+click+')').click();
+        sleep(0.4);
+
+        checkOpen(expectValue);
+    }
+
     describe('home', function(){
         it('should set the home image to the high res version after load', function(){
             browser().navigateTo('/');
@@ -12,23 +29,6 @@ describe('Pages', function(){
     });
 
     describe('experience', function(){
-        function checkOpen(checking){
-            for (var i = 0; i <= 2; i += 1) {
-                var val = (i === checking) ? '-' : '+';
-                expect(element('.collapseText:eq('+i+')').html()).toBe(val);
-
-                var val = (i === checking) ? 'block' : 'none';
-                expect(element('.jobText:eq('+i+')').css("display")).toBe(val);
-            }
-        }
-
-        function clickAndExpect(click, expectValue){
-            element('.collapseText:eq('+click+')').click();
-            sleep(0.4);
-
-            checkOpen(expectValue);
-        }
-
         it('should start with the first job opened', function(){
             browser().navigateTo('/experience');
             sleep(0.5);
@@ -98,6 +98,28 @@ describe('Pages', function(){
             testOn(0, 'images/winnipegjs.png');
             testOn(1, 'images/unsafe_minifier.png');
             testOn(2, 'images/IdersIMS2.png');
+        });
+
+        // This is using the same directive as in experience so less tests are needed
+        it('should start with the first demo opened', function(){
+            browser().navigateTo('/demos');
+            sleep(0.5);
+
+            expect(browser().location().url()).toBe('/demos');
+
+            checkOpen(0);
+        });
+
+        it('should close that demos when clicked on', function(){
+            clickAndExpect(0, -1);
+        });
+
+        it('should open that demos when clicked on again', function(){
+            clickAndExpect(0, 0);
+        });
+
+        it('should open the second demos when clicked on and close the first', function(){
+            clickAndExpect(1, 1);
         });
     });
 });
