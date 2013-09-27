@@ -7,7 +7,7 @@
         - for (var i = 0; i < jobs.length; i++)
             .job
                 .jobTitle(openable="#{i}", section='exp', hide='exp-hide#{i}', icon='exp-icon#{i}')
-                    #changeOrange.topWrapper(id='exp-wrapper#{i}')
+                    .topWrapper.changeOrange(id='exp-wrapper#{i}')
                         h3.title= jobs[i].date
                         - if (jobs[i].details)
                             button.collapseText(id='exp-icon#{i}') -

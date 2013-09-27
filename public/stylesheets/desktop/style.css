@@ -242,11 +242,11 @@ div.contact_right{
 	background-color: #D2F7D2;
 }
 
-#orange, #changeOrange{
+#orange, .changeOrange{
 	background-color: #E5AB47;
 }
 
-#changeOrange:hover {
+.changeOrange:hover {
 	background-color: #E9D5B2;
 }
 
