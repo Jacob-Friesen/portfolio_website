@@ -38,6 +38,12 @@ describe('Pages', function(){
             checkOpen('exp-icon', 'exp-hide', 0, 0);
         });
 
+        it('should not close any jobs when a non closable job is clicked', function(){
+            element('#exp-wrapper4').click();
+            sleep(0.4);
+            checkOpen('exp-icon', 'exp-hide', 0, 0);
+        });
+
         it('should close that job when clicked on', function(){
             clickAndExpect('exp-icon', 'exp-hide', 0, -1);
         });

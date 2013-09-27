@@ -94,7 +94,7 @@ Portfolio.app.directive('openable', function(){
         if (attrs.openable !== "0") toggleOpen();
 
         $(element).click(function(){
-            if (hidable.hidden)
+            if (hidable.hidden && hidable.length > 0)
                 openables[attrs.section].closeAllExcept(+attrs.openable);
             toggleOpen("medium");
         });
