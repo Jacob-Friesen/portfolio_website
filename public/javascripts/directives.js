@@ -63,40 +63,59 @@ Portfolio.app.directive('menuImage', function($interpolate){
     };
 });
 
-Portfolio.openables = [];
-Portfolio.openables.closeAllExcept = function(except){
-    _.each(this, function(callback, index){
-        if (index !== except) {console.log(index), callback('medium', true)};
-    });
-}
 
+Portfolio.OpenableArray = function(){
+    var internalArray = [];
+    internalArray.closeAllExcept = function(except){
+        _.each(this, function(callback, index){
+            if (index !== except) {callback('medium', true)};
+        });
+    }
+
+    return internalArray;
+};
+
+// Makes an object solely openable within a set of openable objects
+// =: the item number under the parent to open when this item is clicked
+// section: the set of openable objects this object is in
+// icon: The id of the icon to toggle between +/- on opening and closing
+// hide: The item to hide upon click this element 
 Portfolio.app.directive('openable', function(){
+    var openables = {};
+
     // just returning a link function
     return function(scope, element, attrs){
         var parent = $(element).parent(),
-            hidable = parent.find('#openable'),
-            collapseText = parent.find('#openableIcon');
+            hidable = parent.find('#' + attrs.hide),
+            collapseText = parent.find('#' + attrs.icon);
+
+        hidable.hidden = false;
 
         if (attrs.openable !== "0") toggleOpen();
 
         $(element).click(function(){
-            if (hidable.is(":hidden"))
-                Portfolio.openables.closeAllExcept(+attrs.openable);
+            if (hidable.hidden)
+                openables[attrs.section].closeAllExcept(+attrs.openable);
             toggleOpen("medium");
         });
 
-        Portfolio.openables.push(toggleOpen);
+        if (openables[attrs.section] === undefined)
+            openables[attrs.section] = new Portfolio.OpenableArray();
+        openables[attrs.section].push(toggleOpen);
 
         function toggleOpen(speed, setClosed){
             if (setClosed){
                 collapseText.html("+");
                 hidable.hide(speed);
+                hidable.hidden = true;
             }
             else{
-                collapseText.html( (hidable.is(":visible")) ? "+" : "-");
+                if (collapseText.length > 0)
+                    collapseText.html( (hidable.hidden) ? "-" : "+");
                 hidable.toggle(speed);
+                hidable.hidden = !hidable.hidden;
             }
-        }
+        };
     };
 });
 

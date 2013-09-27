@@ -1,30 +1,30 @@
 #skillBox.expBox(name="skillBox")
-	#brown.topWrapper
-	#hTitleWrapper.titleWrapper
-		h1 Skills
-	#hTextWrapper.textWrapper
-		
-		// skill section
-		- var skill_sections = constant.page_text.skills.skill_types;
-		- for (var i = 0; i < skill_sections.length; i++)
-			.skills
-				.topWrapper.changeBrown(id="skills_collapse_skill_#{i}")
-					h3.title= skill_sections[i].name
-					button.collapseText(id="skills_collapse_button_#{i}")-
-				.skillText(id="collapse_points_skill#{i}")
-					ul.jobDesc
-						
-						// skill
-						- var skills = skill_sections[i].skills;
-						- for (var j = 0; j < skills.length; j++)
-							li.expandSkillType
-								div.skillTypeTitle(id="skills_point_collapse_skill_#{i}_#{j}")
-									b= skills[j].name
-									button.collapseTextT
-								div(id="collapse_point_points_skill_#{i}_#{j}")
-								
-									// skill details
-									ul
-										- var details = skills[j].details;
-										- for (var k = 0; k < details.length; k++)
-											li= details[k]
+    #brown.topWrapper
+    #hTitleWrapper.titleWrapper
+        h1 Skills
+    #hTextWrapper.textWrapper
+        
+        // skill section
+        - var skill_sections = constant.page_text.skills.skill_types;
+        - for (var i = 0; i < skill_sections.length; i++)
+            .skills
+                .topWrapper.changeBrown(openable="#{i}", section='outerSkills', hide='skills-hide#{i}', icon='skills-icon#{i}')
+                    h3.title= skill_sections[i].name
+                    button.collapseText(id='skills-icon#{i}') -
+                .skillText(id='skills-hide#{i}')
+                    ul.jobDesc
+                        
+                        // skill
+                        - var skills = skill_sections[i].skills;
+                        - for (var j = 0; j < skills.length; j++)
+                            li.expandSkillType
+                                div.skillTypeTitle(openable="#{j}", section='innerSkills#{i}', hide='skills-hide#{i}-#{j}', icon='skills-icon#{i}-#{j}')
+                                    b= skills[j].name
+                                    button.collapseTextT(id='skills-icon#{i}-#{j}') -
+                                div(id='skills-hide#{i}-#{j}')
+                                
+                                    // skill details
+                                    ul
+                                        - var details = skills[j].details;
+                                        - for (var k = 0; k < details.length; k++)
+                                            li= details[k]
