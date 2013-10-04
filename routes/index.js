@@ -9,9 +9,9 @@ module.exports = function(app){
     // Angular
     ['/home', '/skills', '/experience', '/demos', '/blog'].forEach(function (url){
         app.get(url, index_render);
-        app.get(url+KEYWORD, render_angular_page);
+        app.get(url + KEYWORD, render_angular_page);
     });
-    
+
     // No javascript pages
     app.get('/no_script', render_no_script);
     
@@ -32,9 +32,8 @@ module.exports = function(app){
 }
 
 function render_angular_page(req, res){
-    var title = req.url.split('/')[1].replace(KEYWORD, '');
-
-    res.render(title + FILE_TYPE, {title: title});
+    var title = req.url.split('/')[1].split('?')[0].replace(KEYWORD, '');
+    res.render(req.query.type + '/' + title + FILE_TYPE, {title: title});
 }
 
 function index_render(req, res){

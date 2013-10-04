@@ -3,11 +3,14 @@ Portfolio = {};
 // Pre jQuery load (for speed reasons), object is accessible so it can be used later to change interfaces
 // NOTE: no dependencies 
 Portfolio.selector = (function(_document) {
-    var NOSCRIPT_DOMAIN = "/no_script";
-    var INDEX_PAGE = "index";
-    var mode = 'desktop';
+    var NOSCRIPT_DOMAIN = "/no_script",
+        INDEX_PAGE = "index",
+        PAGE_LOCATION_ID = 'main-page',
+        mode = 'desktop';
     
     return {
+        PAGE_LOCATION_ID: PAGE_LOCATION_ID,
+
         scripts: {
             js_loaded: [],
             
@@ -139,7 +142,7 @@ Portfolio.selector = (function(_document) {
             
             this.load_css();
             this.load_js();
-            //this.load_pages(window.location);
+            this.load_pages(window.location);
         },
         
         // starts up the system loading the required scripts
@@ -226,25 +229,7 @@ Portfolio.selector = (function(_document) {
             var parent = this;
             
             if (!parent.ajax_load('GET', INDEX_PAGE + this.mode_to_get(), function(response) {
-                parent.add_to_body(response);
-                parent.loaded.pages += 1;
-            })) {
-                window.location(NOSCRIPT_DOMAIN);
-            }
-            
-            // OPTIMIZATION: Preload needed page into cache
-            var page = (address + "").split('#')[0];// Dealing with extra # stuff on the end of links (like #top)
-            var path = address.pathname;
-            if (typeof address.pathname === 'undefined')
-                path = page = '/home';
-            else if (address.pathname === '/') {
-                page += 'home';
-                path = 'home';
-            }
-                
-            if (!this.ajax_load('GET', page + this.mode_to_get(), function(response) {
-                parent.add_cache(path, response);
-                parent.loaded.pages += 1;
+                document.getElementById(PAGE_LOCATION_ID).innerHTML = response;
             })) {
                 window.location(NOSCRIPT_DOMAIN);
             }

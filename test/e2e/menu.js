@@ -35,8 +35,8 @@ describe('Menu', function(){
         sleep(0.5);
 
         ['home', 'skills', 'experience', 'demos', 'blog'].forEach(function(page){
-            element('#' + page + '_button > a').click();
-            sleep(0.2);
+            element('#' + page + '_button > a > div').click();
+            sleep(0.3);
 
             expect(browser().location().url()).toBe('/' + page);
             checkPageColoured(page);

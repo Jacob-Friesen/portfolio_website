@@ -12,8 +12,6 @@ center.top_info
 //How to load the correct page on entry
 .to_load(id = "#{constant.to_load}")
 
-////
-// main box
 .menu_container(id = "menu_box")
     div
         - var pages = constant.pages
@@ -23,10 +21,11 @@ center.top_info
                 .menu_icon(id = "#{page_id}")
                 center
                     span.main= pages[i].replace('Experience', 'Exp.')
+
 .page_state(id = "home")
 
 .main_box(id = "main_box")
-////
+    div(ng-view='')
 
 center#social_media
     <a href="http://www.linkedin.com/home"><img src="images/linkedin.png"/></a>

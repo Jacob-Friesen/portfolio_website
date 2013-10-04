@@ -10,16 +10,16 @@ Portfolio.app.config(['$routeProvider', '$locationProvider', function($routeProv
     $locationProvider.html5Mode(true);
 
     // KEYWORD must be equal to keyword in server routes
-    var KEYWORD = '_angular';
+    var KEYWORD = '_angular?type=' + ((Portfolio.selector !== undefined) ? Portfolio.selector.get_mode() : '');
     (function routeIt(location, options){
         $routeProvider.when(location, options);
         return routeIt;
     })
-    ('/home',       {templateUrl: 'home'+KEYWORD,       controller: Portfolio.Home})
-    ('/skills',     {templateUrl: 'skills'+KEYWORD,     controller: Portfolio.Skills})
-    ('/experience', {templateUrl: 'experience'+KEYWORD, controller: Portfolio.Experience})
-    ('/demos',      {templateUrl: 'demos'+KEYWORD,      controller: Portfolio.Demos})
-    ('/blog',       {templateUrl: 'blog'+KEYWORD,       controller: Portfolio.Blog});
+    ('/home',       {templateUrl: 'home' + KEYWORD,       controller: Portfolio.Home})
+    ('/skills',     {templateUrl: 'skills' + KEYWORD,     controller: Portfolio.Skills})
+    ('/experience', {templateUrl: 'experience' + KEYWORD, controller: Portfolio.Experience})
+    ('/demos',      {templateUrl: 'demos' + KEYWORD,      controller: Portfolio.Demos})
+    ('/blog',       {templateUrl: 'blog' + KEYWORD,       controller: Portfolio.Blog});
 
     $routeProvider.otherwise({redirectTo: '/home'});
 }]);

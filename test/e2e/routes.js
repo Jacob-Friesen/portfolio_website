@@ -57,7 +57,7 @@ describe('routes', function(){
 
     it('should get the correct pages when clicking through each part of the menu', function(){
         ['home', 'skills', 'experience', 'demos', 'blog'].forEach(function(page){
-            element('#' + page + '_button > a').click();
+            element('#' + page + '_button > a > div').click();
             sleep(0.2);
 
             if (page !== 'blog')
