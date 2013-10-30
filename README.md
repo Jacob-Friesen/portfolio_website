@@ -37,6 +37,7 @@ Uses Karma for all tests. All test configurations are stored in config.
 
  * **Run them once:** make test-e or make test-end-to-end
  * **Run them with every code change:** make test-e-w or make test-end-to-end-watch
+ * The only way to test mobile currently is to change this.render_desktop(); to this.render_mobile();
  
 Interfaces Supported
 ====================
