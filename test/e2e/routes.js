@@ -1,7 +1,7 @@
 describe('routes', function(){
     function blogTest(){
         expect(browser().location().url()).toBe('/blog');
-        expect(element('#bTitleWrapper').text()).toBe('Blog');
+        expect(element('#bTitleWrapper').text()).toContain('Blog');
     }
 
     function refreshAndCheck(page){
@@ -12,10 +12,13 @@ describe('routes', function(){
     function checkPage(page){
         expect(browser().location().url()).toBe(page);
 
-        var title = page.substring(1);
-            title = title.charAt(0).toUpperCase() + title.slice(1);
+        if (page !== '/home'){
+            var title = page.substring(1);
+                title = title.charAt(0).toUpperCase() + title.slice(1);
+        } else
+            var title = 'Jacob Friesen - Web Developer'
 
-        expect(element('#hTitleWrapper').text()).toBe(title);
+        expect(element('#hTitleWrapper').text()).toContain(title);
     }
 
     function refresh(to){
