@@ -87,7 +87,11 @@ Portfolio.app.directive('openable', function(){
     return function(scope, element, attrs){
         var parent = $(element).parent(),
             hidable = parent.find('#' + attrs.hide),
-            collapseText = parent.find('#' + attrs.icon);
+            collapseText = parent.find('#' + attrs.icon),
+            icons = ['+', '-'];
+
+        if (attrs.iconShapes)
+            icons = [attrs.iconShapes[0], attrs.iconShapes[1]] 
 
         hidable.hidden = false;
 
@@ -105,13 +109,13 @@ Portfolio.app.directive('openable', function(){
 
         function toggleOpen(speed, setClosed){
             if (setClosed){
-                collapseText.html("+");
+                collapseText.html(icons[0]);
                 hidable.hide(speed);
                 hidable.hidden = true;
             }
             else{
                 if (collapseText.length > 0)
-                    collapseText.html( (hidable.hidden) ? "-" : "+");
+                    collapseText.html(icons[+hidable.hidden]);
                 hidable.toggle(speed);
                 hidable.hidden = !hidable.hidden;
             }

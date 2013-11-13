@@ -1,7 +1,7 @@
 describe('Pages', function(){
-    function checkOpen(iconTemplateId, hidableTemplateId, checking){
+    function checkOpen(iconTemplateId, hidableTemplateId, checking, icons){
         for (var i = 0; i <= 2; i += 1) {
-            var val = (i === checking) ? '-' : '+';
+            var val = icons[+(i === checking)];
             expect(element('#' + iconTemplateId + i).html()).toBe(val);
 
             var val = (i === checking) ? 'block' : 'none';
@@ -9,12 +9,14 @@ describe('Pages', function(){
         }
     }
 
-    function clickAndExpect(iconTemplateId, hidableTemplateId, append, expectValue){
+    function clickAndExpect(iconTemplateId, hidableTemplateId, append, expectValue, icons){
         element('#' + iconTemplateId + append).click();
         sleep(0.4);
 
-        checkOpen(iconTemplateId, hidableTemplateId, expectValue);
+        checkOpen(iconTemplateId, hidableTemplateId, expectValue, icons);
     }
+
+    var icons = ['+', '-'];//['▼', '▲'];//mobile
 
     describe('home', function(){
         it('should set the home image to the high res version after load', function(){
@@ -35,33 +37,33 @@ describe('Pages', function(){
 
             expect(browser().location().url()).toBe('/experience');
 
-            checkOpen('exp-icon', 'exp-hide', 0, 0);
+            checkOpen('exp-icon', 'exp-hide', 0, icons);
         });
 
         it('should not close any jobs when a non closable job is clicked', function(){
             element('#exp-wrapper4').click();
             sleep(0.4);
-            checkOpen('exp-icon', 'exp-hide', 0, 0);
+            checkOpen('exp-icon', 'exp-hide', 0, icons);
         });
 
         it('should close that job when clicked on', function(){
-            clickAndExpect('exp-icon', 'exp-hide', 0, -1);
+            clickAndExpect('exp-icon', 'exp-hide', 0, -1, icons);
         });
 
         it('should open that job when clicked on again', function(){
-            clickAndExpect('exp-icon', 'exp-hide', 0, 0);
+            clickAndExpect('exp-icon', 'exp-hide', 0, 0, icons);
         });
 
         it('should open the second job when clicked on and close the first', function(){
-            clickAndExpect('exp-icon', 'exp-hide', 1, 1);
+            clickAndExpect('exp-icon', 'exp-hide', 1, 1, icons);
         });
 
         it('should close the second job when clicked on again', function(){
-            clickAndExpect('exp-icon', 'exp-hide', 1, -1);
+            clickAndExpect('exp-icon', 'exp-hide', 1, -1, icons);
         });
 
         it('should open the third job when clicked on', function(){
-            clickAndExpect('exp-icon', 'exp-hide', 2, 2);
+            clickAndExpect('exp-icon', 'exp-hide', 2, 2, icons);
         });
     });
 
@@ -113,19 +115,19 @@ describe('Pages', function(){
 
             expect(browser().location().url()).toBe('/demos');
 
-            checkOpen('demo-icon', 'demo-hide', 0, 0);
+            checkOpen('demo-icon', 'demo-hide', 0, icons);
         });
 
         it('should close that demos when clicked on', function(){
-            clickAndExpect('demo-icon', 'demo-hide', 0, -1);
+            clickAndExpect('demo-icon', 'demo-hide', 0, -1, icons);
         });
 
         it('should open that demos when clicked on again', function(){
-            clickAndExpect('demo-icon', 'demo-hide', 0, 0);
+            clickAndExpect('demo-icon', 'demo-hide', 0, 0, icons);
         });
 
         it('should open the second demos when clicked on and close the first', function(){
-            clickAndExpect('demo-icon', 'demo-hide', 1, 1);
+            clickAndExpect('demo-icon', 'demo-hide', 1, 1, icons);
         });
     });
 
@@ -136,33 +138,33 @@ describe('Pages', function(){
 
             expect(browser().location().url()).toBe('/skills');
 
-            checkOpen('skills-icon', 'skills-hide', 0, 0);
-            checkOpen('skills-icon0-', 'skills-hide0-', 0, 0);
+            checkOpen('skills-icon', 'skills-hide', 0, icons);
+            checkOpen('skills-icon0-', 'skills-hide0-', 0, icons);
         });
 
         it('should open a new sub skill when clicked on', function(){
-            clickAndExpect('skills-icon0-', 'skills-hide0-', 1, 1);
+            clickAndExpect('skills-icon0-', 'skills-hide0-', 1, 1, icons);
         });
 
         it('should be able to close that close that subskill', function(){
-            clickAndExpect('skills-icon0-', 'skills-hide0-', 1, -1);
+            clickAndExpect('skills-icon0-', 'skills-hide0-', 1, -1, icons);
         });
 
         it('should open a new skill section with the first subskill opened', function(){
-            clickAndExpect('skills-icon', 'skills-hide', 1, 1);
-            checkOpen('skills-icon1-', 'skills-hide1-', 0, 0);
+            clickAndExpect('skills-icon', 'skills-hide', 1, 1, icons);
+            checkOpen('skills-icon1-', 'skills-hide1-', 0, icons);
         });
 
         it('should open a new sub skill when clicked on', function(){
-            clickAndExpect('skills-icon1-', 'skills-hide1-', 1, 1);
+            clickAndExpect('skills-icon1-', 'skills-hide1-', 1, 1, icons);
         });
 
         it('should be able to close that close that subskill', function(){
-            clickAndExpect('skills-icon1-', 'skills-hide1-', 1, -1);
+            clickAndExpect('skills-icon1-', 'skills-hide1-', 1, -1, icons);
         });
 
         it('should be able to close the current skill section', function(){
-            clickAndExpect('skills-icon', 'skills-hide', 1, -1);
+            clickAndExpect('skills-icon', 'skills-hide', 1, -1, icons);
         });
     });
 });
