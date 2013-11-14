@@ -10,7 +10,7 @@
         hr.no_margin#demos
         
         // Title header
-        .demos.header(id='collapse_demos_#{d}', name="#{d}")
+        .demos.header(openable="#{d}", section='demos', hide='demo-hide#{d}', icon='demo-icon#{d}', icon-shapes='▼▲')
             .demos.title
                 h3.demos.vertical_title= demo_list[d].name
                 .clear
@@ -21,16 +21,15 @@
                         b= demo_list[d].links[l].link_text
                         a(href=demo_list[d].links[l].link[0], title=demo_list[d].links[l].link[1]) here
             - if (demo_list[d].links.length == 1)
-                button.collapser(id='demos_collapse_button_#{d}')
+                button.collapser(id='demo-icon#{d}') ▲
             - else
-                button.collapser.big(id='demos_collapse_button_#{d}')
+                button.collapser.big(id='demo-icon#{d}') ▲
         .clear
         
         // Description
-        div(id="collapse_details_demos_#{d}", name="#{d}")
+        div(id='demo-hide#{d}')
             p.demo_text= demo_list[d].description
-            //   hr.picture_line
             .demoPic
-                img.demo_img(src=demo_list[d].image[0], alt=demo_list[d].image[1], id="demo_img_#{d}")
+                img.demo_img(img-clickable id="demoImg#{d}", src=demo_list[d].image[0], alt=demo_list[d].image[1])
                     
 
