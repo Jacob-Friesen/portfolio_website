@@ -16,7 +16,8 @@ describe('Pages', function(){
         checkOpen(iconTemplateId, hidableTemplateId, expectValue, icons);
     }
 
-    var icons = ['+', '-'];//['▼', '▲'];//mobile
+    var icons = ['+', '-'];
+    //var icons = ['▼', '▲'];//mobile
 
     describe('home', function(){
         it('should set the home image to the high res version after load', function(){
