@@ -94,6 +94,7 @@ button.collapser {
   height: 34px;
   margin-top: 10px;
   float: right;
+  font-size: 2em;
   border: 0;
   background: none;
   background-color: transparent;
@@ -101,7 +102,7 @@ button.collapser {
 button.collapser p {
   display: inline;
   margin-top: 0;
-  font-size: 2.75em;
+  font-size: 4em;
 }
 button.small {
   height: 40px;

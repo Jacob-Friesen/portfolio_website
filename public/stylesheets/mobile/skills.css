@@ -4,7 +4,7 @@ div.skills.skill {
 }
 div.skills.header button.skills.collapser,
 div.skills.skill button.skills.collapser {
-  margin-top: 4px;
+  margin-top: 10px;
 }
 div.skills.header h3.skills.vertical_title,
 div.skills.skill h3.skills.vertical_title {
@@ -19,7 +19,7 @@ div.skills.section ul.skill_list {
   list-style-type: none;
 }
 div.skills.section ul.skill_list button.collapser {
-  margin-top: 6px;
+  margin-top: 12px;
 }
 div.skills.section hr.clear.skills {
   width: 95%;
