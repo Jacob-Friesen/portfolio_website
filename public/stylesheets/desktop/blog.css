@@ -13,4 +13,7 @@ div.expBox div.textWrapper{
     
     div.expBox div.textWrapper pre{
         font-size: 14px;
+        background: none;
+        border-radius: 0;
+        border-left: 1px solid black;
     }

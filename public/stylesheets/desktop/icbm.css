@@ -16,8 +16,8 @@ div.icon_based_menu {
 	margin: 0 auto;
 	width: 700px;
 	border: 1px solid black;
-	border-radius:  0 0 7px 7px;
-	box-shadow: 3px 10px 10px rgba(0,0,0,.5);
+	border-radius:  6px;
+	box-shadow: 3px 3px 3px rgba(0,0,0,.5);
 }
 	div.icbm_main_objects{
 		position: relative;

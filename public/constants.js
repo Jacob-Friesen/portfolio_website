@@ -12,9 +12,10 @@ Portfolio.constants = (function(){
         page_text: {
             home: {
                 title: "Jacob Friesen - Web Developer",
-                introduction: "Hello, I'm a Web Developer who has recently graduated from the University of Manitoba with a Computer Science Honours \
-                               Co-op degree. Currently, I am looking for a full time job. I specialize in JavaScript and client side coding, but I\
-                               usually work on the full web stack. I have worked in Node.js, Ruby on Rails, Django, Java, and other environments.",
+                introduction: "Hello, I'm a Web Developer who has recently graduated from the University of Manitoba with a Computer Science Honours" +
+                              " Co-op degree. Currently, I work at Siftlogic, designing and developing their new UI. I specialize in JavaScript and" +
+                              " client side coding, but I usually work on the full web stack. I have worked in Node.js, Ruby on Rails, Django, Java," + 
+                              " and other environments.",
                 specialty_title: "Specialties",
                 specialties: [
                     "JavaScript",
@@ -538,7 +539,7 @@ Portfolio.constants = (function(){
             
             blog: {
                 title: "Blog - Jacob Friesen",
-                introduction: "Below is the latest text posting from my main coding blog. View my full blogs",
+                introduction: "Below is the latest text posting from my main coding blog. View my full blog",
                 links: [
                     ["http://obscurejavascript.tumblr.com/","here", "Jacob Friesen's Obscure JavaScript Tumblr Blog"],// link, name, alt
                     ["http://epiccode.tumblr.com/","here", "Jacob Friesen's General Tumblr Blog"]
