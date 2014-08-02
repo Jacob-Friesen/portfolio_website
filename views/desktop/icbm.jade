@@ -1,0 +1,13 @@
+div(ng-controller='Portfolio.MainMenu')
+    #icon_based_menu.icon_based_menu
+        .icbm_main_objects
+            h2 Jacob Friesen - Web Developer
+            div(ng-repeat='page in pages')
+                div.menu_button(id='{{page.toLowerCase()}}_button')
+                    menu-image
+
+    #menu_icon_cache
+        - var pages = constant.pages;
+        - for (var p = 0; p < pages.length; p++)
+            img.icbm_image_cache(src='images/menu_icons/#{pages[p].toLowerCase()}_page.png', id='cached_#{pages[p].toLowerCase()}')
+            img.icbm_image_cache(src='images/menu_icons/#{pages[p].toLowerCase()}_page_grey.png', id='cached_#{pages[p].toLowerCase()}_grey')

@@ -1,0 +1,40 @@
+#demoBox.expBox(name="demoBox")
+    #green.topWrapper
+    #hTitleWrapper.titleWrapper(name="hTitleWrapper")
+        h1 Demos
+    #hTextWrapper.textWrapper(name="hTextWrapper")
+        p= constant.page_text.demos.introduction
+        
+        // demo
+        - var demo_list = constant.page_text.demos.demos
+        - for(var d = 0; d < demo_list.length; d += 1)
+            .demoPane
+                .demoTitle(openable="#{d}", section='demos', hide='demo-hide#{d}', icon='demo-icon#{d}')
+                    #changeGreen.topWrapper
+                        h3.title= demo_list[d].name
+                        button.collapseText(id='demo-icon#{d}') -
+                            
+                div(id='demo-hide#{d}')
+                    div(id="demo#{d}Downloads")
+                        .demoMain
+                            - var style = "";
+                            - if(!demo_list[d].image)
+                                style = "width: 100%";
+                            
+                            .demoText(style=style)
+                                p= demo_list[d].description
+                            - if(demo_list[d].image)
+                                .demoPic
+                                    img.demoImg(img-clickable id="demoImg#{d}", src=demo_list[d].image[0], alt=demo_list[d].image[1])
+                
+                    - if (demo_list[d].links)
+                        .downloadLinks
+                            p
+                                - if (typeof no_script !== "undefined" && no_script == true && demo_list[d].links.length > 0 && demo_list[d].links[0].link_text.toLowerCase().split('flash').length > 1)
+                                    b Enable JavaScript or upgrade your browser to view the Youtube video
+                                - else
+                                    - var links = demo_list[d].links;
+                                    - for (var l = 0; l < links.length; l += 1)
+                                        b= links[l].link_text
+                                        a.jsLink(href=links[l].link[0], title=links[l].link[1]) here
+                                        a.nonJSLink(href=links[l].link[0], title=links[l].link[1]) here

@@ -1,27 +1,27 @@
-.title_bar
+#hTitleWrapper.title_bar
     h1(id = "skills_title")= constant.page_text.skills.title
 - var skill_sections = constant.page_text.skills.skill_types;
 - for (var i = 0; i < skill_sections.length; i++)
     .skills.section
         hr#skills.clear.skills
         
-        .skills.header(id='skills_collapse_skill_#{i}', name="#{i}")
+        .skills.header(openable="#{i}", section='outerSkills', hide='skills-hide#{i}', icon='skills-icon#{i}', icon-shapes='▼▲')
             h3.skills.vertical_title= skill_sections[i].name
-            button.skills.collapser(id='skills_collapse_button_#{i}')
+            button.skills.collapser(id='skills-icon#{i}') ▲
             .clear
             
         .skills.skill
-            ul.skill_list(id="collapse_points_skill_#{i}", name="#{i}")
+            ul.skill_list(id='skills-hide#{i}')
                 - var skills = skill_sections[i].skills;
                 - for (var j = 0; j < skills.length; j++)
                 
                     hr#skills.clear.skills_wide
-                    li(id='skills_point_collapse_skill_#{i}_#{j}', name="#{j}")
+                    li(openable="#{j}", section='innerSkills#{i}', hide='skills-hide#{i}-#{j}', icon='skills-icon#{i}-#{j}', icon-shapes='▼▲')
                         p.skill_name.no_margin.no_padding#skills_border_color(class = "_#{j}_")= skills[j].name
-                        button.collapser(id='skills_collapse_button_#{i}_#{j}')
+                        button.collapser(id='skills-icon#{i}-#{j}') ▲
                         .clear
                         
-                        ul.skills.skill_details(id='collapse_point_points_skill_#{i}_#{j}', name="#{j}")
+                        ul.skills.skill_details(id='skills-hide#{i}-#{j}')
                             - var details = skills[j].details;
                             - for (var k = 0; k < details.length; k++)
                                 li= details[k]

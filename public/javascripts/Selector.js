@@ -3,11 +3,14 @@ Portfolio = {};
 // Pre jQuery load (for speed reasons), object is accessible so it can be used later to change interfaces
 // NOTE: no dependencies 
 Portfolio.selector = (function(_document) {
-    var NOSCRIPT_DOMAIN = "/no_script";
-    var INDEX_PAGE = "index";
-    var mode = 'desktop';
+    var NOSCRIPT_DOMAIN = "/no_script",
+        INDEX_PAGE = "index",
+        PAGE_LOCATION_ID = 'main-page',
+        mode = 'desktop';
     
     return {
+        PAGE_LOCATION_ID: PAGE_LOCATION_ID,
+
         scripts: {
             js_loaded: [],
             
@@ -17,6 +20,7 @@ Portfolio.selector = (function(_document) {
             common: {
                 js_location: '',
                 js: [
+                    '/javascripts/angular.min.js',
                     '/javascripts/jquery.min.js',
                     '/javascripts/jquery.lightbox_me.js',
                     '/javascripts/jquery.history.min.js',
@@ -24,8 +28,14 @@ Portfolio.selector = (function(_document) {
                     '/javascripts/underscore.min.js',
                     '/javascripts/Utility.min.js',
                     '/constants.min.js',
+
+                    // angular
+                    '/javascripts/app.js',
+                    '/javascripts/directives.js',
+                    '/javascripts/services.js',
+                    '/javascripts/controllers.js',
                     
-                    // identical page view logic
+                    // identical page view logic for mobile and desktop it
                     '/javascripts/History_Tracking.min.js',
                     '/javascripts/Blog.min.js',
                     '/javascripts/local_install.min.js'
@@ -35,14 +45,14 @@ Portfolio.selector = (function(_document) {
             desktop: {
                 js_location: '/javascripts/desktop/',
                 js: [
-                    'min.js'
-                    //'menu_to_actions.js',
-                    //
-                    //'Skills.js',
-                    //'Experience.js',
-                    //'Demos.js',
-                    //'System.js',
-                    //'Window_Details.js'
+                    //'min.js'
+                    'menu_to_actions.js',
+                    
+                    'Skills.js',
+                    'Experience.js',
+                    'Demos.js',
+                    'System.js',
+                    'Window_Details.js'
                 ],
                 
                 css_location: '',
@@ -53,7 +63,7 @@ Portfolio.selector = (function(_document) {
                     '/stylesheets/desktop/demos_c.css',
                     '/stylesheets/desktop/blog_c.css',
                     '/stylesheets/desktop/window_tiles_c.css',
-                    '/stylesheets/desktop/icbm.css',
+                    '/stylesheets/desktop/icbm_c.css',
                     'http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css'
                 ]
             },
@@ -88,7 +98,7 @@ Portfolio.selector = (function(_document) {
             js: 0,
             css: 0
         },
-        PAGES_TO_LOAD: 2,
+        PAGES_TO_LOAD: 0,
         
         // Takes the user agent with the screen width to render the appropriate interface
         init: function(dont_run, width, user_string) {
@@ -130,8 +140,6 @@ Portfolio.selector = (function(_document) {
             
             mode = 'desktop';
             
-            _document.body.style.display = 'none';// ensures page load looks smooth
-            
             this.load_css();
             this.load_js();
             this.load_pages(window.location);
@@ -139,8 +147,6 @@ Portfolio.selector = (function(_document) {
         
         // starts up the system loading the required scripts
         start_system: function() {
-            _document.body.style.display = 'block';
-            
             // Run each AJAX loaded script
             for (var i = 0; i < this.scripts.js_loaded.length; i += 1) {
                 var script = _document.createElement('script');
@@ -149,7 +155,8 @@ Portfolio.selector = (function(_document) {
                 _document.head.appendChild(script);
             }
             
-            Portfolio.start_system();
+            //Portfolio.runAngular();
+            //Portfolio.start_system();
         },
         
         is_system_loaded: function() {
@@ -222,25 +229,7 @@ Portfolio.selector = (function(_document) {
             var parent = this;
             
             if (!parent.ajax_load('GET', INDEX_PAGE + this.mode_to_get(), function(response) {
-                parent.add_to_body(response);
-                parent.loaded.pages += 1;
-            })) {
-                window.location(NOSCRIPT_DOMAIN);
-            }
-            
-            // OPTIMIZATION: Preload needed page into cache
-            var page = (address + "").split('#')[0];// Dealing with extra # stuff on the end of links (like #top)
-            var path = address.pathname;
-            if (typeof address.pathname === 'undefined')
-                path = page = '/home';
-            else if (address.pathname === '/') {
-                page += 'home';
-                path = 'home';
-            }
-                
-            if (!this.ajax_load('GET', page + this.mode_to_get(), function(response) {
-                parent.add_cache(path, response);
-                parent.loaded.pages += 1;
+                document.getElementById(PAGE_LOCATION_ID).innerHTML = response;
             })) {
                 window.location(NOSCRIPT_DOMAIN);
             }

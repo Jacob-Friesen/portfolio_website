@@ -1,9 +1,10 @@
-include icbm/index
+include icbm
 
 // page content gets loaded into here
 #page    
     .window_container
         #window.window
+            div(ng-view='')
     
 // external sites
 .contact_right

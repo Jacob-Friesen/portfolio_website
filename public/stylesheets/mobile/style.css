@@ -17,10 +17,10 @@ code {
   word-wrap: break-word;
   font-size: 10px;
 }
-center#social_media {
+center#social-media {
   margin: 3px 0 0 3px;
 }
-center#social_media button.install_local {
+center#social-media button.install_local {
   display: block;
   width: 150px;
   margin: 0 auto;
@@ -33,38 +33,42 @@ center#social_media button.install_local {
   border: 1px solid #000;
   border-radius: 7px;
 }
-div.page_state {
+div.page-state {
   width: 98%;
   height: 8px;
 }
-div.main_box,
-div.menu_container {
+div.main-box,
+div.menu-container {
   width: 99%;
   background-color: #fff;
   border: 1px solid #000;
   border-radius: 0 0 15px 15px;
 }
-div.menu_container {
+div.menu-container {
   border-radius: 15px 15px 0 0;
   width: 99%;
 }
-div.menu_container div {
+div.menu-container div {
   margin: 0 auto;
   width: 305px;
   padding: 0;
 }
-div.menu_container div div.menu_box {
+div.menu-container div div.menu-box {
   display: inline-block;
   padding: 5px 5px 2px 5px;
   width: 50px;
 }
-div.menu_container div div.menu_box div.menu_icon {
+div.menu-container div div.menu-box a {
+  text-decoration: none;
+  color: #000;
+}
+div.menu-container div div.menu-box a div.menu-icon {
   border: solid 1px #000;
   border-radius: 12px;
   height: 45px;
   width: 100%;
 }
-div.menu_container div div.menu_box div.menu_icon:first-child {
+div.menu-container div div.menu-box a div.menu_icon:first-child {
   margin-left: 2px;
 }
 div.title_bar {
@@ -90,6 +94,7 @@ button.collapser {
   height: 34px;
   margin-top: 10px;
   float: right;
+  font-size: 2em;
   border: 0;
   background: none;
   background-color: transparent;
@@ -97,17 +102,17 @@ button.collapser {
 button.collapser p {
   display: inline;
   margin-top: 0;
-  font-size: 2.75em;
+  font-size: 4em;
 }
 button.small {
   height: 40px;
   width: 40px;
   font-size: 50px;
 }
-center.top_info {
+center.top-info {
   color: #fff;
 }
-center.top_info span a {
+center.top-info span a {
   color: #fff;
 }
 center img {
@@ -130,7 +135,7 @@ div.main_picture {
   width: 90%;
   height: 175px;
 }
-img.main_image {
+img.mainImage {
   border-radius: 7px;
   width: 100%;
   height: 100%;
@@ -155,7 +160,7 @@ ul.specialties {
 ul.specialties ul.specialties li:first-child {
   margin: 10px 0;
 }
-div.page_options {
+div.page-options {
   background-color: #fff;
   border-top: 1px solid #000;
   border-left: 1px solid #000;
@@ -164,24 +169,24 @@ div.page_options {
   right: 0;
   position: fixed;
 }
-div.page_options div.to_top {
+div.page-options div.to-top {
   display: inline-block;
   padding: 16px 9px 16px 9px;
   border-right: 1px solid #000;
   font: 15px Helvetica, "Lucida Grande", Arial, sans-serif;
 }
-div.page_options div.page_options_inner {
+div.page-options div.page-options-inner {
   display: inline-block;
   padding: 2px 2px 0px 3px;
 }
-div.page_options div.page_options_inner span.text_change {
+div.page-options div.page-options-inner span.text-change {
   font-weight: bold;
   font: 15px Helvetica, "Lucida Grande", Arial, sans-serif;
   margin-top: 10px;
   display: inline-block;
 }
-div.page_options div.page_options_inner button.text_change,
-div.page_options div.page_options_inner button.text_change_selected {
+div.page-options div.page-options-inner button.text-change,
+div.page-options div.page-options-inner button.text-change_selected {
   display: inline-block;
   margin: 5px 4px 7px 4px;
   padding: 7px;
@@ -191,12 +196,12 @@ div.page_options div.page_options_inner button.text_change_selected {
   background-color: #fff;
   font: 15px Helvetica, "Lucida Grande", Arial, sans-serif;
 }
-div.page_options div.page_options_inner button.text_change_selected {
+div.page-options div.page-options-inner button.text-change-selected {
   border: 2px solid #000;
   font-weight: bold;
   background-color: lightBlue;
 }
-div.safety_space {
+div.safety-space {
   height: 65px;
 }
 #home {
@@ -249,9 +254,9 @@ span.main {
 }
 div.main_picture,
 div.text_wrapper,
-div.main_box,
-div.menu_container,
-div.page_state,
+div.main-box,
+div.menu-container,
+div.page-state,
 div.skills.section,
 div.demos.section,
 div.blog.section,
@@ -263,7 +268,7 @@ div.menu_icon {
 .no_margin {
   margin: 0;
 }
-.no_padding {
+.no-padding {
   padding: 0;
 }
 .left_align {
@@ -273,7 +278,7 @@ div.menu_icon {
 .float_right {
   float: right;
 }
-.no_display {
+.no-display {
   display: none;
 }
 button.collapser p.firefox_button {

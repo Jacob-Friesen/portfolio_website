@@ -18,7 +18,6 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(express.cookieParser());
-  //app.use(express.session({ secret: 'your secret here' }));
   app.use(require('stylus').middleware({ src: __dirname + '/public' }));
   app.use(app.router);
   app.use(express.static(__dirname + '/public', { maxAge: 86400000 }));// 1 day in ms
@@ -37,7 +36,6 @@ app.configure('production', function(){
 
 // Routes
 require('./routes')(app);
-//require('./routes/mobile')(app);
 
 server.listen(PORT, function(){
   console.log("JacobFriesen.com listening on port %d in %s mode", server.address().port, app.settings.env);

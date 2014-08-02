@@ -1,34 +1,31 @@
 //Used to for proper inits
-p.no_display
-h1.no_display
-h4.no_display
+p.no-display
+h1.no-display
+h4.no-display
 
 #top
 
 // contact
-center.top_info
+center.top-info
     span <a href="mailto:jacob@jacobfriesen.com">jacob@jacobfriesen</a>, <a href="https://github.com/Jacob-Friesen/portfolio_website">source</a>
 
-//How to load the correct page on entry
-.to_load(id = "#{constant.to_load}")
-
-////
-// main box
-.menu_container(id = "menu_box")
+.menu-container
     div
         - var pages = constant.pages
         - for (var i = 0; i < pages.length; i++)
             - page_id = pages[i].toLowerCase();
-            div(class = "menu_box", id = "#{page_id}_link")
-                .menu_icon(id = "#{page_id}")
-                center
-                    span.main= pages[i].replace('Experience', 'Exp.')
-.page_state(id = "home")
+                div.menu-box(id='#{page_id}_button')
+                    a(href='/#{page_id}')
+                        .menu-icon(id = "#{page_id}")
+                        center
+                            span.main= pages[i].replace('Experience', 'Exp.')
 
-.main_box(id = "main_box")
-////
+.page-state(id="{{getCurrentPage()}}")
 
-center#social_media
+.main-box
+    div(ng-view='')
+
+center#social-media
     <a href="http://www.linkedin.com/home"><img src="images/linkedin.png"/></a>
     <a href="https://twitter.com/Jacob_Friesen"><img src="images/twitter.png"/></a>
     <a href="https://github.com/Jacob-Friesen"><img src="images/github.png"/></a>
@@ -37,14 +34,14 @@ center
     cite Jacob Friesen 2012, <a href="downloads/Jacob_Friesen_Resume.pdf">Resume</a> (<a href="downloads/Jacob_Friesen_Resume.html">HTML</a>), <a href="MIT_License.txt">MIT Lic</a>.
 
 //bottom spacing so options bar never blocks a selection
-#safety_space.safety_space
+#safety-space.safety-space
 
 // change page options bar, may have to use fixed positioning due to http://caniuse.com/css-fixed
-#page_options.page_options.no_padding
-    .to_top
-        a.to_top(href="#top") Top
-    .page_options_inner
-        span.text_change Text:
-        button.text_change#small_text_change Small
-        button.text_change#normal_text_change Normal
-        button.text_change#large_text_change Large
+// #page-options.page-options.no-padding
+//     .to-top
+//         a.to-top(href="#top") Top
+//     .page-options-inner
+//         span.text-change Text:
+//         button.text-change#small-text-change Small
+//         button.text-change#normal-text-change Normal
+//         button.text-change#large-text-change Large

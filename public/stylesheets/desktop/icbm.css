@@ -16,8 +16,8 @@ div.icon_based_menu {
 	margin: 0 auto;
 	width: 700px;
 	border: 1px solid black;
-	border-radius:  0 0 7px 7px;
-	box-shadow: 3px 10px 10px rgba(0,0,0,.5);
+	border-radius:  6px;
+	box-shadow: 3px 3px 3px rgba(0,0,0,.5);
 }
 	div.icbm_main_objects{
 		position: relative;
@@ -32,10 +32,13 @@ div.icon_based_menu {
 			text-align: center;
 			color: white;
 		}
+
+		.icbm_main_objects div{
+			display: inline-block;
+		}
 	
 		div.icbm_object{
 			position: relative;
-			display: inline-block;
 			
 			height: 125px;
 			margin-top: 15px;
@@ -74,3 +77,72 @@ div.icon_based_menu {
 				font-size: 0.6em;
 				color: black;
 			}
+
+
+/*
+ * Image colour changing, not exactly DRY but a lot simple than the equivalent JS (lots of work making it smooth in JS)
+ */
+.menu_button {
+	padding: 15px 0 0 15px;
+}
+
+	a.menuLink h2 {
+		background-color: transparent;
+		color: black;
+		font-family: Arial;
+    	font-size: 0.6em;
+    	font-weight: normal;
+	}
+
+div.home-button, div.home-button-selected,
+div.skills-button, div.skills-button-selected,
+div.experience-button, div.experience-button-selected,
+div.demos-button, div.demos-button-selected,
+div.blog-button, div.blog-button-selected {
+	border: 1px solid black;
+	border-radius: 5px;
+	width: 120px;
+	height: 100px;
+	background-repeat: no-repeat;
+	background-size: 120px 100px;
+}
+
+div.home-button {
+	background-image: url('../../images/menu_icons/home_page_grey.png');
+}
+
+div.home-button:hover, div.home-button-selected {
+	background-image: url('../../images/menu_icons/home_page.png');
+}
+
+div.skills-button {
+	background-image: url('../../images/menu_icons/skills_page_grey.png');
+}
+
+div.skills-button:hover, div.skills-button-selected {
+	background-image: url('../../images/menu_icons/skills_page.png');
+}
+
+div.experience-button {
+	background-image: url('../../images/menu_icons/experience_page_grey.png');
+}
+
+div.experience-button:hover, div.experience-button-selected {
+	background-image: url('../../images/menu_icons/experience_page.png');
+}
+
+div.demos-button {
+	background-image: url('../../images/menu_icons/demos_page_grey.png');
+}
+
+div.demos-button:hover, div.demos-button-selected {
+	background-image: url('../../images/menu_icons/demos_page.png');
+}
+
+div.blog-button {
+	background-image: url('../../images/menu_icons/blog_page_grey.png');
+}
+
+div.blog-button:hover, div.blog-button-selected {
+	background-image: url('../../images/menu_icons/blog_page.png');
+}

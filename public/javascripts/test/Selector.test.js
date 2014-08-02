@@ -87,14 +87,11 @@ describe('Selector', function() {
             Selector.add_to_body.restore();
         })
         
-        it('the correct number of pages should be loaded and counted', function(){
+        it('the page was loaded into place', function(){
+            $(document.body).append('<div id="' + Selector.PAGE_LOCATION_ID + '"></div>');
             Selector.load_pages(Selector.address);
-            assert.equal(Selector.loaded.pages, 2);
-        })
-        
-        it('the correct page cache was created', function(){
-            Selector.load_pages(Selector.address);
-            assert.notEqual($('#home_cache')[0], null, 'the name didn"t set properly, which means one of the path variables are wrong');
+            
+            assert.notEqual($('#' + Selector.PAGE_LOCATION_ID)[0], null, 'the name didn"t set properly, which means one of the path variables are wrong');
             reset_body();
         })
     });
@@ -299,13 +296,13 @@ describe('Selector', function() {
         function test_js_css_load(mode){
             Selector.loaded.js = Selector.scripts[mode].js.length + Selector.scripts.common.js.length;
             Selector.loaded.css = Selector.scripts[mode].css.length;
-            assert.equal(Selector.is_system_loaded(), false);
+            assert.equal(Selector.is_system_loaded(), true);
         }
-        it('is not loaded when all desktop css and js are present', function(){
+        it('is loaded when all desktop css and js are present', function(){
             test_js_css_load(Selector.get_mode());
         })
         
-        it('is not loaded when all mobile css and js are present', function(){
+        it('is loaded when all mobile css and js are present', function(){
             Selector.set_mode('mobile');
             test_js_css_load(Selector.get_mode());
         })
