@@ -1,6 +1,9 @@
+<!-- CSS is inline because this file must be standalone -->
 <html>
     <head>
         <title>Jacob Friesen Web Developer Resume</title>
+        <meta name="viewport" content="width=device-width">
+
         <style>
             body{
                 font-family: helvetica, verdana, arial;
@@ -23,6 +26,10 @@
 
             span.grey{
                 color: grey;
+            }
+
+            div.page-eqaulizer{
+                height: 0;
             }
 
             table.skills{
@@ -91,18 +98,52 @@
                 div.area div.right-shift ul{
                     margin-top: 5px;
                 }
+
+            br.mobile-br{
+                display: none;
+            }
+
+            .mobile-erase{
+                display: inline;
+            }
+
+            .desktop-erase{
+                display: none;
+            }
+
+            @media only screen and (max-device-width: 720px) {
+                div.area ul{
+                    padding-left: 20px;
+                }
+
+                div.area div.right-shift{
+                    margin-left: 0;
+                }
+
+                br.mobile-br{
+                    display: block;
+                }
+
+                .mobile-erase{
+                    display: none;
+                }
+
+                .desktop-erase{
+                    display: inline;
+                }
+            }
         </style>
     </head>
 
     <body>
         <center class="header">
-            <h1>Jacob Friesen - Web Developer</h1>
+            <h1>Jacob Friesen <br class="mobile-br"/><span class="mobile-erase">-</span> Web Developer</h1>
 
             <p>
-                • E-MAIL JACOB@JACOBFRIESEN.COM • WEBSITE <a href="http://jacobfriesen.com">JACOBFRIESEN.COM</a>
+                &#149; E-MAIL JACOB@JACOBFRIESEN.COM <br class="mobile-br"/>&#149; WEBSITE <a href="http://jacobfriesen.com">JACOBFRIESEN.COM</a>
             </p>
             <p>
-                58 HERITAGE BLVD • WINNIPEG, MANITOBA R2Y OP2 • PHONE (204) 475 - 3674
+                950 LAVERS CIRCLE <br class="mobile-br"/> &#149; DELRAY BEACH, FLORIDA 33444  <br class="mobile-br"/> &#149; PHONE <a class="desktop-erase" href="tel:15615426990">1-561-542-6990</a><span class="mobile-erase">1-561-542-6990</span>
             </p>
         </center>
 
@@ -114,8 +155,7 @@
                     Bachelor of Computer Science (Honours) student, graduated in May 2013.
                 </li>
                 <li>
-                    One year of on the job Web Development experience complemented with over six years of
-developing websites in my spare time.
+                    Two years of on the job Web Development experience complemented with over seven years of developing websites in my spare time.
                 </li>
                 <li>
                     Deep understanding of JavaScript with experience in client side, server side and phone
@@ -128,7 +168,6 @@ environments.
             <h2>TECHNICAL SKILLS</h2>
             <hr/>
             <div class="right-shift">
-                
 
                 <h3>Programming</h3>
                 <table class="skills">
@@ -139,49 +178,58 @@ environments.
                         <td>JavaScript</td><td>4+</td><td>Expert</td>
                     </tr>
                     <tr class='sub-skill'>
-                        <td>&nbsp;• pure</td><td>4+</td><td>Expert</td>
+                        <td>&nbsp;&#149; pure</td><td>4+</td><td>Expert</td>
                     </tr>
                     <tr class='sub-skill'>
-                        <td>&nbsp;• jQuery</td><td>2+</td><td>Advanced</td>
+                        <td>&nbsp;&#149; Angular</td><td>1+</td><td>Intermediate</td>
                     </tr>
                     <tr class='sub-skill'>
-                        <td>&nbsp;• Ext JS</td><td>4 months+</td><td>Intermediate</td>
+                        <td>&nbsp;&#149; Underscore/Lodash</td><td>1+</td><td>Advanced</td>
                     </tr>
                     <tr class='sub-skill'>
-                        <td>&nbsp;• Underscore (and Lodash)</td><td>4 months+</td><td>Advanced</td>
+                        <td>&nbsp;&#149; jQuery</td><td>2+</td><td>Advanced</td>
                     </tr>
                     <tr class='sub-skill'>
-                        <td>&nbsp;• Titanium</td><td>4 months+</td><td>Intermediate</td>
+                        <td>&nbsp;&#149; Jasmine</td><td>1+</td><td>Intermediate</td>
                     </tr>
                     <tr class='sub-skill'>
-                        <td>&nbsp;• Jasmine</td><td>4 months+</td><td>Intermediate</td>
+                        <td>&nbsp;&#149; Mocha</td><td>1+</td><td>Intermediate</td>
                     </tr>
                     <tr class='sub-skill'>
-                        <td>&nbsp;• Mocha</td><td>4 months+</td><td>Intermediate</td>
+                        <td>&nbsp;&#149; Ext JS</td><td>4 mo+</td><td>Intermediate</td>
+                    </tr>
+                    <tr class='sub-skill'>
+                        <td>&nbsp;&#149; Titanium</td><td>4 mo+</td><td>Intermediate</td>
+                    </tr>
+                    <tr class='sub-skill'>
+                        <td>&nbsp;&#149; Backbone</td><td>2 mo</td><td>Basic</td>
                     </tr>
                     <tr>
-                        <td>HTML</td><td>6+</td><td>Advanced</td>
+                        <td>HTML</td><td>7+</td><td>Advanced</td>
                     </tr>
                     <tr class='sub-skill'>
-                        <td>&nbsp;• HTML 5</td><td>2+</td><td>Intermediate</td>
+                        <td>&nbsp;&#149; HTML 5</td><td>3+</td><td>Intermediate</td>
                     </tr>
                     <tr class='sub-skill'>
-                        <td>&nbsp;• HAML</td><td>4 months+</td><td>Intermediate</td>
+                        <td>&nbsp;&#149; HAML</td><td>4 mo+</td><td>Intermediate</td>
                     </tr>
                     <tr class='sub-skill'>
-                        <td>&nbsp;• Jade</td><td>1+</td><td>Intermediate</td>
+                        <td>&nbsp;&#149; Jade</td><td>1+</td><td>Intermediate</td>
                     </tr>
                     <tr>
-                        <td>CSS (including CSS3)</td><td>6+</td><td>Advanced</td>
+                        <td>CSS</td><td>7+</td><td>Advanced</td>
                     </tr>
                     <tr class='sub-skill'>
-                        <td>&nbsp;• CSS3</td><td>1+</td><td>Intermediate</td>
+                        <td>&nbsp;&#149; CSS3</td><td>2+</td><td>Intermediate</td>
+                    </tr>
+                    <tr class='sub-skill'>
+                        <td>&nbsp;&#149; Twitter Bootstrap</td><td>4 mo+</td><td>Basic</td>
                     </tr>
                     <tr>
-                        <td>Node.js</td><td>1+</td><td>Intermediate</td>
+                        <td>Node.js</td><td>2+</td><td>Intermediate</td>
                     </tr>
                     <tr>
-                        <td>JSON</td><td>3+</td><td>Advanced</td>
+                        <td>JSON</td><td>4+</td><td>Advanced</td>
                     </tr>
                     <tr>
                         <td>XML</td><td>2+</td><td>Advanced</td>
@@ -201,9 +249,14 @@ environments.
                     <tr>
                         <td>SQL</td><td>1.5+</td><td>Intermediate</td>
                     </tr>
+                    <tr>
+                        <td>.Net</td><td>2 mo</td><td>Basic</td>
+                    </tr>
+                    <tr>
+                        <td>PHP</td><td>1+</td><td>Intermediate</td>
+                    </tr>
                 </table>
                 
-
                 <h3>Back End</h3>
                 <table class="skills">
                     <thead>
@@ -213,26 +266,27 @@ environments.
                         <td>Apache HTTP Server</td><td>2+</td><td>Intermediate</td>
                     </tr>
                     <tr>
-                        <td>Git</td><td>1+</td><td>Intermediate</td>
+                        <td>Git</td><td>2+</td><td>Intermediate</td>
                     </tr>
                     <tr>
                         <td>MySQL</td><td>1+</td><td>Intermediate</td>
                     </tr>
                     <tr>
-                        <td>PostgreSQL</td><td>4 months+</td><td>Basic</td>
+                        <td>PostgreSQL</td><td>4 mo+</td><td>Basic</td>
                     </tr>
                     <tr>
-                        <td>IBM DB2</td><td>8 months+</td><td>Basic</td>
+                        <td>IBM DB2</td><td>8 mo+</td><td>Basic</td>
                     </tr>
                 </table>
 
+                <div class="page-eqaulizer"></div>
                 <h3>Environment</h3>
                 <table class="skills">
                     <thead>
                         <td>Skill</td><td>Years</td><td>Level</td>
                     </thead>
                     <tr>
-                        <td>Linux Admin</td><td>3+</td><td>Advanced</td>
+                        <td>Linux Admin</td><td>4+</td><td>Advanced</td>
                     </tr>
                     <tr>
                         <td>Mac OS X Admin</td><td>2+</td><td>Intermediate</td>
@@ -244,7 +298,7 @@ environments.
                         <td>Android</td><td>1+</td><td>Intermediate</td>
                     </tr>
                     <tr>
-                        <td>iPhone</td><td>4 months+</td><td>Basic</td>
+                        <td>iPhone</td><td>4 mo+</td><td>Basic</td>
                     </tr>
                 </table>
             </div>
@@ -256,7 +310,7 @@ environments.
             <div class="right-shift">
 
                 <p class="exp-title">
-                    <b>2013 August – Current <span class="grey">Software Engineer</span></b>, 
+                    <b>2013 August - Current <span class="grey">Software Engineer</span></b>, 
                     <a href="http://siftlogic.com">SiftLogic</a>
                 </p>
                 <p class='exp-description'>
@@ -269,11 +323,16 @@ environments.
                     <li>
                         Developing UI structure, automation, testing and other essential aspects for the new single page UI.
                     </li>
+                    <li>
+                    	The new UI is using Angular.js, unit tested with Jasmine.js and Sinon.js, and end-to-end tested using Protractor.js which runs on Selenium. I have setup a Selenium Grid to test across multiple browsers and operating system
+                    </li>
+					<li>
+						Developing HTTP and FTP API connection libraries for users who prefer CLI interfaces in .Net, PHP, and Node.js
+					</li>
                 </ul>
-
                 
                 <p class="exp-title">
-                    <b>2012 May – August <span class="grey">Co-op Work Term 3 Web Developer</span></b>, 
+                    <b>2012 May - August <span class="grey">Co-op Work Term 3 Web Developer</span></b>, 
                     <a href="http://canadadrugs.com">CanadaDrugs.com</a>
                 </p>
                 <p class='exp-description'>
@@ -295,56 +354,39 @@ on Rails backend.
                 </ul>
 
                 <p class="exp-title">
-                    <b>2011 August – December <span class="grey">Co-op Work Term 2 Web Developer</span></b>, 
+                    <b>2011 August - December <span class="grey">Co-op Work Term 2 Web Developer</span></b>, 
                     <a href="http://www.iders.ca">Iders</a>
                 </p>
                 <p class='exp-description'>
-                    Defined the Inventory Location Management (ILM) system architecture and user experience
-of the Iders Information Management (IMS) website.
+                    Defined the Inventory Location Management (ILM) system architecture and user experience of the Iders Information Management (IMS) website.
                 </p>
                 <ul>
                     <li>
                         Designed the front end (client side) with Javascript (ExtJS library) and HTML/CSS.
                     </li>
                     <li>
-                        Implemented the back end server code using Django with a PostgreSQL database.
-Coded multiple types of devices including an Android phone and Zebra printer to
-provide and extract data from the ILM system.
+                        Implemented the back end server code using Django with a PostgreSQL database. Coded multiple types of devices including an Android phone and Zebra printer to provide and extract data from the ILM system.
                     </li>
                     <li>
-                        Improved efficiency of page loading and GUI function in addition to adding some
-extra features to the core IMS website.
+                        Improved efficiency of page loading and GUI function in addition to adding some extra features to the core IMS website.
                     </li>
                 </ul>
 
                 <p class="exp-title">
-                    <b>2011 January – April <span class="grey">Co-op Work Term 1 Web Developer</span></b>, 
+                    <b>2011 January - April <span class="grey">Co-op Work Term 1 Web Developer</span></b>, 
                     <a href="http://www.agr.gc.ca/index_e.php">Agriculture and Agri-Foods Canada</a>
                 </p>
                 <p class='exp-description'>
-                    Redesigned and managed the back end (server side) of all the Rural Water Resources
-Planner website's tools using Java.
+                    Redesigned and managed the back end (server side) of all the Rural Water Resources Planner website's tools using Java.
                 </p>
                 <ul>
                     <li>
-                        Redesigned and managed the front end (client side) of the website using a mix of
-JSF, HTML/CSS, and JavaScript. Client side development mainly involved designing
-graphical user interfaces for the website's tools.
+                        Redesigned and managed the front end (client side) of the website using a mix of JSF, HTML/CSS, and JavaScript. Client side development mainly involved designing graphical user interfaces for the website's tools.
                     </li>
                     <li>
-                        Participated in defining user experience, page designs, software architecture and
-other web application essentials for the whole website.
+                        Participated in defining user experience, page designs, software architecture and other web application essentials for the whole website.
                     </li>
                 </ul>
-
-                <p class="exp-title">
-                    <b>2010 May – August <span class="grey">Crew Member, Wendy's</span></b>
-                </p>
-                
-
-        <p class="exp-title">
-                    <b>2009 June – August <span class="grey">Landscaper, Little Buds Tree Farm</span></b>
-                </p>
             </div>
         </div>
 
@@ -366,7 +408,7 @@ other web application essentials for the whole website.
                 </ul>
 
                 <p class="exp-title">
-                    <b>2004 September – 2008 June Westwood Collegiate, MB</b>
+                    <b>2004 September - 2008 June Westwood Collegiate, MB</b>
                 </p>
 
             </div>
@@ -377,6 +419,24 @@ other web application essentials for the whole website.
             <hr/>
             <div class="right-shift">
                 
+				<p class="exp-title">
+                    <b>2014 July - Now <span class="grey">Sergeant at Arms</span></b>
+                </p>
+                <p class="exp-description">
+                    <b>Toastmasters, Delray Beach, MB</b>
+                </p>
+                <ul>
+                    <li>
+                        Every meeting I start the meeting and introduce the toastmaster.
+                    </li>
+                    <li>
+                        Ensure that the meeting room is booked and materials like evaluation sheets are available.
+                    </li>
+                    <li>
+                        Participate in decision making meetings with other club officers.
+                    </li>
+                </ul>
+
                 <p class="exp-title">
                     <b>2009 Winter <span class="grey">Donation Assistant, Five Days for the Homeless</span></b>
                 </p>
@@ -393,7 +453,7 @@ other web application essentials for the whole website.
                 </ul>
 
                 <p class="exp-title">
-                    <b>2007 – 2008 <span class="grey">Council Member, Student Council</span></b>
+                    <b>2007 - 2008 <span class="grey">Council Member, Student Council</span></b>
                 </p>
                 <p class="exp-description">
                     <b>Westwood Collegiate, MB</b>
@@ -419,7 +479,7 @@ for events.
             <hr/>
             <p>
                 In my spare time I work on <a href="https://github.com/Jacob-Friesen">web projects</a>, applying new technologies and ways of coding to
-help solve the problems I encounter. Currently I am in the Winnipeg.js group.
+help solve the problems I encounter.
             </p>
         </div>
 

@@ -31,7 +31,7 @@ Portfolio.constants = (function(){
                         name: "Languages",
                         skills: [
                             {
-                                name: "HTML/CSS (6.5 years)",
+                                name: "HTML/CSS (7.5 years)",
                                 details: [
                                     "12 months over 3 coop work terms, the rest of my experience mainly comes from side projects.",
                                     "Strong knowledge of layout intricacies such as vertical positioning of elements without using tables.",
@@ -42,7 +42,7 @@ Portfolio.constants = (function(){
                                 ]
                             },
                             {
-                                name: "JavaScript (4.5 years) ",
+                                name: "JavaScript (5 years) ",
                                 details: [
                                     "12 months over 3 coop work terms, the rest of may experience mainly comes from my spare time.",
                                     "Strong knowledge of advanced core concepts in pure JavaScript such as prototypalism and closures.",
@@ -347,6 +347,17 @@ Portfolio.constants = (function(){
             experience: {
                 title: "Experience - Jacob Friesen",
                 jobs: [
+                    {
+                        position: "Software Engineer",
+                        company: "Siftlogic",
+                        date: "August 2013 - Now",
+                        details: [
+                            "Adding new features to the old UI using JavaScript with Backbone.js and Twitter Bootstrap.",
+                            "Developing UI structure, automation, testing and other essential aspects for the new single page UI using a bunch of tools like Grunt, Bower, Yeoman and so on.",
+                            "The new UI is using Angular.js, unit tested with Jasmine.js and Sinon.js, and end-to-end tested using Protractor.js which runs on Selenium. I have setup a Selenium Grid to test across multiple browsers and operating systems.",
+                            "Developing HTTP and FTP API connection libraries for users who prefer CLI interfaces in .Net, PHP, and Node.js"
+                        ]
+                    },
                     {
                         position: "Web Developer",
                         company: "CanadaDrugs.com",
