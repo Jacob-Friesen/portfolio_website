@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Minifications
+echo "Compressing shared javascript..."
+#find . ! -path "*/test/*" -type f -name "*.min.js" ! -name "jquery.min.js" -delete
+
+find . -name '*.min.js' ! -name "jquery.min.js"  ! -name "underscore.min.js" ! -name "jquery.history.min.js" ! -name "angular.min.js" -delete
+find . -name '*.min.js.gz' -delete
+java -jar ../../compilers/compiler.jar  -o '.js$:.min.js' *.js
+# Why is there no exclude option in YUI?!
+find . -name '*.min.min.js' ! -name "jquery.min.js" -delete
+
+# Gzip all files so they don't have to be gzipped on the fly when retrieving them
+echo "Gzipping shared javascript..."
+cat Selector.min.js | gzip > Selector.min.js.gz
+cat Blog.min.js | gzip > Blog.min.js.gz
+cat jquery.lightbox_me.min.js | gzip > jquery.lightbox_me.min.js.gz
+cat jquery.min.js | gzip > jquery.min.js.gz
+cat prettify.min.js | gzip > prettify.min.js.gz
+cat underscore.min.js | gzip > underscore.min.js.gz
+cat History_Tracking.min.js | gzip > History_Tracking.min.js.gz
+cat Utility.min.js | gzip > Utility.min.js.gz
+cat jquery.history.min.js | gzip > jquery.history.min.js.gz
+cat local_install.min.js | gzip > local_install.min.js.gz
+cat angular.min.js | gzip > angular.min.js.gz
+cat controllers.min.js | gzip > controllers.min.js.gz

@@ -1,0 +1,9 @@
+#!/bin/bash
+echo "Compressing mobile js..."
+rm -f min.js
+rm -f min.js.gz
+java -jar ../../../compilers/compiler.jar -o 'min.js' *.js
+
+# Gzip min so it doesn't have to be gzipped on the fly when retrieving it
+echo "Gzipping mobile js..."
+cat min.js | gzip > min.js.gz

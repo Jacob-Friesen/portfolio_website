@@ -24,3 +24,27 @@ test-a:
 test-all: test-a
 
 .PHONY: test test-w test-e test-e-w test-a
+
+# Compilation
+
+compile-js:
+	cd public && ./compress_constants
+	cd public/javascripts && ./minify
+	cd public/javascripts/desktop && ./minify
+	cd public/javascripts/mobile && ./minify
+compile-javascript: compile-js
+
+compile-css:
+	cd public/stylesheets && ./minify
+	cd public/stylesheets/desktop && ./minify
+	cd public/stylesheets/mobile && ./minify
+
+compile-layout:
+	cd views && ./minify
+
+compile-a: compile-js compile-css compile-layout
+compile-all: compile-a
+
+# compile-index
+
+.PHONY: compile-js compile-javascript compile-css compile-layout compile-a compile-all

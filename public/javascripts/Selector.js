@@ -45,14 +45,14 @@ Portfolio.selector = (function(_document) {
             desktop: {
                 js_location: '/javascripts/desktop/',
                 js: [
-                    //'min.js'
-                    'menu_to_actions.js',
+                    'min.js'
+                    // 'menu_to_actions.js',
                     
-                    'Skills.js',
-                    'Experience.js',
-                    'Demos.js',
-                    'System.js',
-                    'Window_Details.js'
+                    // 'Skills.js',
+                    // 'Experience.js',
+                    // 'Demos.js',
+                    // 'System.js',
+                    // 'Window_Details.js'
                 ],
                 
                 css_location: '',
@@ -64,7 +64,7 @@ Portfolio.selector = (function(_document) {
                     '/stylesheets/desktop/blog_c.css',
                     '/stylesheets/desktop/window_tiles_c.css',
                     '/stylesheets/desktop/icbm_c.css',
-                    'http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css'
+                    '/stylesheets/prettify_c.css'
                 ]
             },
             
@@ -82,12 +82,12 @@ Portfolio.selector = (function(_document) {
                 
                 css_location: '',
                 css: [
-                    '/stylesheets/mobile/style.css',
-                    '/stylesheets/mobile/experience.css',
-                    '/stylesheets/mobile/skills.css',
-                    '/stylesheets/mobile/demos.css',
-                    '/stylesheets/mobile/blog.css',
-                    'http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css'
+                    '/stylesheets/mobile/style_c.css',
+                    '/stylesheets/mobile/experience_c.css',
+                    '/stylesheets/mobile/skills_c.css',
+                    '/stylesheets/mobile/demos_c.css',
+                    '/stylesheets/mobile/blog_c.css',
+                    '/stylesheets/prettify_c'
                 ]
             }
         },
