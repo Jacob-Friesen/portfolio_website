@@ -30,8 +30,6 @@ test-all: test-a
 compile-js:
 	cd public && ./compress_constants
 	cd public/javascripts && ./minify
-	cd public/javascripts/desktop && ./minify
-	cd public/javascripts/mobile && ./minify
 compile-javascript: compile-js
 
 compile-css:

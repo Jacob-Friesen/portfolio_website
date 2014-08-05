@@ -23,4 +23,7 @@ cat Utility.min.js | gzip > Utility.min.js.gz
 cat jquery.history.min.js | gzip > jquery.history.min.js.gz
 cat local_install.min.js | gzip > local_install.min.js.gz
 cat angular.min.js | gzip > angular.min.js.gz
+cat app.min.js | gzip > app.min.js.gz
 cat controllers.min.js | gzip > controllers.min.js.gz
+cat directives.min.js | gzip > directives.min.js.gz
+cat services.min.js | gzip > services.min.js.gz
