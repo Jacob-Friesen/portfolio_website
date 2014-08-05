@@ -1,7 +1,7 @@
 #!/bin/bash
+./clean_constants
+
 echo "Compiling constants.js..."
-rm -f constants.min.js
-rm -f constants.min.js.gz
 java -jar ../compilers/compiler.jar -o 'constants.min.js' constants.js
 
 # Gzip constants so it doesn't have to be gzipped on the fly when retrieving it

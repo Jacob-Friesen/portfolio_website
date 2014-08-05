@@ -1,4 +1,5 @@
 #!/bin/bash
+./clean
+
 echo "Compressing mobile css..."
-find . -name '*_c.css' -delete
 java -jar ../../../compilers/compiler.jar  -o '.css$:_c.css' *.css

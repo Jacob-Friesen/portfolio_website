@@ -23,3 +23,9 @@ Portfolio.app.config(['$routeProvider', '$locationProvider', function($routeProv
 
     $routeProvider.otherwise({redirectTo: '/home'});
 }]);
+
+Portfolio.app.run(['$rootScope', '$window', function($rootScope, $window) {
+    $rootScope.getCurrentPage = function(){
+        return $window.location.href.split('/').pop();
+    }
+}]);

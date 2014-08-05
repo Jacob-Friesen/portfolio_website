@@ -25,6 +25,24 @@ test-all: test-a
 
 .PHONY: test test-w test-e test-e-w test-a
 
+# Cleaning
+
+clean-js:
+	cd public && ./clean_constants
+	cd public/javascripts && ./clean
+clean-javascript: compile-js
+
+clean-css:
+	cd public/stylesheets && ./clean
+	cd public/stylesheets/desktop && ./clean
+	cd public/stylesheets/mobile && ./clean
+
+clean-a: clean-js clean-css
+clean-all: clean-a
+clean: clean-all
+
+.PHONY: clean-js clean-javascript clean-css clean-a clean-all clean
+
 # Compilation
 
 compile-js:
@@ -42,7 +60,8 @@ compile-layout:
 
 compile-a: compile-js compile-css compile-layout
 compile-all: compile-a
+compile: compile-all
 
 # compile-index
 
-.PHONY: compile-js compile-javascript compile-css compile-layout compile-a compile-all
+.PHONY: compile-js compile-javascript compile-css compile-layout compile-a compile-all compile

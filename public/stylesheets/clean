@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "Cleaning generic css..."
+find . -name '*_c.css' -delete

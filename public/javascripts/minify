@@ -1,11 +1,10 @@
 #!/bin/bash
+./clean
 
 # Minifications
 echo "Compressing shared javascript..."
 #find . ! -path "*/test/*" -type f -name "*.min.js" ! -name "jquery.min.js" -delete
 
-find . -name '*.min.js' ! -name "jquery.min.js"  ! -name "underscore.min.js" ! -name "jquery.history.min.js" ! -name "angular.min.js" -delete
-find . -name '*.min.js.gz' -delete
 java -jar ../../compilers/compiler.jar  -o '.js$:.min.js' *.js
 # Why is there no exclude option in YUI?!
 find . -name '*.min.min.js' ! -name "jquery.min.js" -delete
