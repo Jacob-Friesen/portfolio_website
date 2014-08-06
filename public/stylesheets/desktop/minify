@@ -1,0 +1,5 @@
+#!/bin/bash
+./clean
+
+echo "Compressing desktop css..."
+java -jar ../../../compilers/compiler.jar  -o '.css$:_c.css' *.css

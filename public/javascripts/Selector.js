@@ -30,12 +30,12 @@ Portfolio.selector = (function(_document) {
                     '/constants.min.js',
 
                     // angular
-                    '/javascripts/app.js',
-                    '/javascripts/directives.js',
-                    '/javascripts/services.js',
-                    '/javascripts/controllers.js',
+                    '/javascripts/app.min.js',
+                    '/javascripts/directives.min.js',
+                    '/javascripts/services.min.js',
+                    '/javascripts/controllers.min.js',
                     
-                    // identical page view logic for mobile and desktop it
+                    // identical page view logic for mobile and desktop
                     '/javascripts/History_Tracking.min.js',
                     '/javascripts/Blog.min.js',
                     '/javascripts/local_install.min.js'
@@ -44,16 +44,7 @@ Portfolio.selector = (function(_document) {
             
             desktop: {
                 js_location: '/javascripts/desktop/',
-                js: [
-                    //'min.js'
-                    'menu_to_actions.js',
-                    
-                    'Skills.js',
-                    'Experience.js',
-                    'Demos.js',
-                    'System.js',
-                    'Window_Details.js'
-                ],
+                js: [],
                 
                 css_location: '',
                 css: [
@@ -64,30 +55,22 @@ Portfolio.selector = (function(_document) {
                     '/stylesheets/desktop/blog_c.css',
                     '/stylesheets/desktop/window_tiles_c.css',
                     '/stylesheets/desktop/icbm_c.css',
-                    'http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css'
+                    '/stylesheets/prettify_c.css'
                 ]
             },
             
             mobile: {
                 js_location: '/javascripts/mobile/',
-                js: [
-                    'min.js'
-                    // 'Skills.js',
-                    // 'Experience.js',
-                    // 'Demos.js',
-                    // 'Menu.js',
-                    // 'System.js',
-                    // 'spin.js'
-                ],
+                js: [],
                 
                 css_location: '',
                 css: [
-                    '/stylesheets/mobile/style.css',
-                    '/stylesheets/mobile/experience.css',
-                    '/stylesheets/mobile/skills.css',
-                    '/stylesheets/mobile/demos.css',
-                    '/stylesheets/mobile/blog.css',
-                    'http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css'
+                    '/stylesheets/mobile/style_c.css',
+                    '/stylesheets/mobile/experience_c.css',
+                    '/stylesheets/mobile/skills_c.css',
+                    '/stylesheets/mobile/demos_c.css',
+                    '/stylesheets/mobile/blog_c.css',
+                    '/stylesheets/prettify_c'
                 ]
             }
         },

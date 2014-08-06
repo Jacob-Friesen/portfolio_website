@@ -6,7 +6,7 @@ Portfolio.runAngular = function(){
 
 // Set up the routes in HTML 5 mode (so hash tags are only used if necessary) 
 Portfolio.app = angular.module('Portfolio2', []);
-Portfolio.app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider, $rootScope) {
+Portfolio.app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
 
     // KEYWORD must be equal to keyword in server routes
@@ -24,16 +24,8 @@ Portfolio.app.config(['$routeProvider', '$locationProvider', function($routeProv
     $routeProvider.otherwise({redirectTo: '/home'});
 }]);
 
-Portfolio.app.run(function($rootScope, $window) {
+Portfolio.app.run(['$rootScope', '$window', function($rootScope, $window) {
     $rootScope.getCurrentPage = function(){
         return $window.location.href.split('/').pop();
     }
-
-    $rootScope.alert = function(msg){
-        alert(msg);
-    }
-
-    $rootScope.log = function(msg){
-        console.log(msg);
-    }
-});
+}]);

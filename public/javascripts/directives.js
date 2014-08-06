@@ -18,7 +18,7 @@ Portfolio.MenuImages = function(){
 };
 Portfolio.menuImages = new Portfolio.MenuImages();
 
-Portfolio.app.directive('menuImage', function($interpolate){
+Portfolio.app.directive('menuImage', ['$interpolate', function($interpolate){
     var template = "<a class='menuLink' href='{{page.toLowerCase()}}'>" + 
                         "<div class='{{page.toLowerCase()}}-button'>" +
                         "</div>" +
@@ -61,7 +61,7 @@ Portfolio.app.directive('menuImage', function($interpolate){
             });
         }
     };
-});
+}]);
 
 
 Portfolio.OpenableArray = function(){

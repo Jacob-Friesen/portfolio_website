@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "Cleaning desktop css..."
+find . -name '*_c.css' -delete
