@@ -12,14 +12,12 @@ Portfolio.constants = (function(){
         page_text: {
             home: {
                 title: "Jacob Friesen - Web Developer",
-                introduction: "Hello, I'm a Web Developer who has recently graduated from the University of Manitoba with a Computer Science Honours" +
-                              " Co-op degree. Currently, I work at Siftlogic, designing and developing their new UI. I specialize in JavaScript and" +
-                              " client side coding, but I usually work on the full web stack. I have worked in Node.js, Ruby on Rails, Django, Java," + 
-                              " and other environments.",
+                introduction: "I'm a Software Engineer who works at Siftlogic, currently designing and developing their new UI. I specialize in JavaScript and client side coding, but I usually work on the full web stack. I have worked in Node.js, Ruby on Rails, Django, Java (JSF) and many other environments.",
                 specialty_title: "Specialties",
                 specialties: [
-                    "JavaScript",
-                    "HTML/CSS",
+                    "JavaScript - client side, server side (Node.js), and mobile",
+                    "HTML/CSS (and similar technologies such as HAML)",
+                    "Unix environments (e.g. Linux, Mac OS X)",
                     "Full stack web development (Ruby on Rails, Django, etc.)"
                 ]
             },
@@ -33,26 +31,25 @@ Portfolio.constants = (function(){
                             {
                                 name: "HTML/CSS (7.5 years)",
                                 details: [
-                                    "12 months over 3 coop work terms, the rest of my experience mainly comes from side projects.",
+                                    "2 years of on the job experience, the rest of my experience mainly comes from side projects.",
                                     "Strong knowledge of layout intricacies such as vertical positioning of elements without using tables.",
-                                    "knowledge of multiple layout styles and how to make scalable layouts",
-                                    "8 months experience of doing custom mobile layouts. See winnipegjs.com and this website with your phone.",
-                                    "I know general CSS3 layout techniques like <element>:first-child",
-                                    "I have also spent a few months working with HAML, Jade, SCSS, and Stylus."
+                                    "Knowledge of multiple layout styles and how to make scalable layouts",
+                                    "8 months experience of doing custom mobile layouts.",
+                                    "I know CSS3 layout techniques like <element>:first-child.",
+                                    "I have also spent a few months working with HTML Preprocessors like HAML, Jade, SCSS, and Stylus."
                                 ]
                             },
                             {
                                 name: "JavaScript (5 years) ",
                                 details: [
-                                    "12 months over 3 coop work terms, the rest of may experience mainly comes from my spare time.",
-                                    "Strong knowledge of advanced core concepts in pure JavaScript such as prototypalism and closures.",
+                                    "2 years of on the job experience, the rest of may experience mainly comes from my spare time.",
+                                    "Strong knowledge of advanced concepts in pure JavaScript such as prototypalism and functional programming.",
                                     "I have worked with multiple JS libraries including JQuery, Ext JS, Underscore, even mobile transpilers like Titanium's library.",
-                                    "I know how to write well tested JavaScript having written tests in the Jasmine, Mocha, and QUnit libraries.",
+                                    "I know how to write well tested JavaScript, having written tests in the Jasmine, Mocha, and QUnit libraries.",
                                     "I have also developed some small JQuery plugins and pure JS libraries over the years.",
                                     "I have spent years dealing with browser incompatibility issues including JQuery and pure JavaScript issues, \
                                     and have gained a strong knowledge of how the DOM works.",
-                                    "I have used Node.js for over a year on this website, the mobile interface for winnipegjs.com, and a school project \
-                                    (unsafe_minifier) which I continue to work on."
+                                    "I have used Node.js for over 2 years on this website, at work and on side projects"
                                 ]
                             },
                             {
@@ -111,13 +108,14 @@ Portfolio.constants = (function(){
                                 ]
                             },
                             {
-                                name: "Node.js (1 year)",
+                                name: "Node.js (2 years)",
                                 details: [
                                     "Know how to set up node projects and how to work with NPM",
-                                    "Updated my website from a PHP to Node architecture over a year ago. I continue to update it.",
+                                    "I work with node prediocally when updating and architecting the build and testing processes for SiftLogic's UI",
+                                    "Updated my website from a PHP to Node architecture over 2 years ago. I continue to update it.",
                                     "Designed a mobile interface for winnipegjs.com which runs on Node that included some backend code.",
                                     "Implemented a larger project for Machine Learning. I currently am improving this on Github (the Unsafe Minifier).",
-                                    "Have worked in pure Node and Express.js architectures."
+                                    "I Have worked in pure Node.js and with Express.js architectures."
                                 ]
                             },
                             {
@@ -246,7 +244,7 @@ Portfolio.constants = (function(){
                                 details: [
                                     "3 years of general admin and programming experience mainly in Ubuntu including 4 months of \
                                     Ubuntu at my Iders work term.",
-                                    "Have some basic CLI experience with Debian and CentOS."
+                                    "Have some basic CLI experience with Debian and CentOS (This website runs on a Debian instance)."
                                 ]
                             },
                             {
@@ -278,32 +276,33 @@ Portfolio.constants = (function(){
                             {
                                 name: "Web Design (6.5 years)",
                                 details: [
-                                    "Demonstrated knowledge of creating simple designs that look good. For example this website design is entirely my own design.",
-                                    "I Know how to make webpages look good without any images, which improves webpage performance and maintainability."
+                                    "From either a loose set of mockups or nothing I have designed 2 interfaces for SiftLogic.",
+                                    "Demonstrated knowledge of creating simple designs that look good.",
+                                    "I Know how to make webpages look good with very little external resources like images, which improves webpage performance and maintainability."
                                 ]
                             },
                             {
                                 name: "SEO (4.5 years)",
                                 details: [
                                     "I have done custom SEO for my websites over the years, currently the term 'Jacob Friesen' brings up a few of my websites \
-                                    first in Google.ca. Keep in mind that my name is very common.",
+                                    first in Google.com. Keep in mind that my name is very common.",
                                     "I Know how to add SEO to a page without comprising user content by using techniques like meta descriptions and keyword \
                                     injection for alt attributes of page elements.",
                                     "I have a basic knowledge of how most search engines rank pages like how most rank backlinks highly."
                                 ]
                             },
                             {
-                                name: "Object Orientation (4 years)",
+                                name: "Object Orientation (5 years)",
                                 details: [
-                                    "Demonstrated experience of making clean systems on my work and school terms.",
-                                    "I know basic object oriented design patterns such as the Model View Controller (MVC) design.",
+                                    "Demonstrated experience of making clean systems throughout my work and university experience.",
+                                    "I know object oriented design patterns such as the Model View Controller (MVC) design.",
                                     "I have used object orientation in many different programming contexts. This ranges from Prototypal JavaScript \
                                     to more traditional OO scripting languages like Ruby to compiled languages like Java.",
                                     "I have knowledge of both class based and prototypal inheritance."
                                 ]
                             },
                             {
-                                name: "Scripting (4 years)",
+                                name: "Scripting (4.5 years)",
                                 details: [
                                     "I know how to script in an Object Oriented way and I know the benefits and limitations of scripting.",
                                     "I know how to use advanced techniques like metaprogramming and reflection.",
@@ -311,7 +310,7 @@ Portfolio.constants = (function(){
                                 ]
                             },
                             {
-                                name: "Testing (2.5 years)",
+                                name: "Testing (4 years)",
                                 details: [
                                     "Everything I work on that is not simple now is fully tested including personal projects.",
                                     "I have worked on client side GUI and JavaScript tests, server side tests, desktop application tests and some \
@@ -321,9 +320,9 @@ Portfolio.constants = (function(){
                                 ]
                             },
                             {
-                                name: "Mobile Web Development (1 year)",
+                                name: "Mobile Web Development (2 years)",
                                 details: [
-                                    "1 year of initially creating then updating my portfolio website's mobile interface.",
+                                    "2 years of initially creating then updating my portfolio website's mobile interface.",
                                     "Developed the mobile interface for winnipegjs.com.",
                                     "I Know how to develop and test code for multiple environments like Android, iOS, and Windows Phone.",
                                     "I also know about detecting devices via css media queries and JavaScript techniques."
@@ -413,13 +412,13 @@ Portfolio.constants = (function(){
             
             demos: {
                 title: "Demos - Jacob Friesen",
-                introduction: "These are samples of school and work term programs I built. More examples are on my Github. Due to the legal or \
+                introduction: "These are samples projects I have built. More examples are on my Github. Due to the legal or \
                                practical nature of some of these demos, not all components of them are downloadable/viewable. Click on an image \
                                to see a larger version.",
                 demos: [
                     {
                         name: "Winnipeg JS Mobile Interface",
-                        description: "In late December 2012 I developed the mobile interface for winnipegjs.com. Using the desktop design as a baseline, I used CSS \
+                        description: "In late December 2012, I developed the mobile interface for winnipegjs.com. Using the desktop design as a baseline, I used CSS \
                                       and some some JavaScript to make the interface look good and work well across multiple devices. For detecting misbehaving browsers \
                                       like IE 7 on Windows Phone 7, I used tactics like IE includes and user agent sniffing. Most of the JavaScript was done server side \
                                       (the website is implemented in Node.js) to set and detect cookies so mobile browsers would be able to switch to desktop and vice \
