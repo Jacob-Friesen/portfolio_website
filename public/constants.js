@@ -12,13 +12,13 @@ Portfolio.constants = (function(){
         page_text: {
             home: {
                 title: "Jacob Friesen - Web Developer",
-                introduction: "I'm a Software Engineer who works at Siftlogic, currently designing and developing their new UI. I specialize in JavaScript and client side coding, but I usually work on the full web stack. I have worked in Node.js, Ruby on Rails, Django, Java (JSF) and many other environments.",
+                introduction: "I'm a Software Engineer who works at VeriAS, currently designing and developing their new UI. I specialize in JavaScript and client side coding, but I sometimes work in and have experience on the full web stack. I have worked in Node.js, Ruby on Rails, Django, Java (JSF) and many other environments.",
                 specialty_title: "Specialties",
                 specialties: [
                     "JavaScript - client side, server side (Node.js), and mobile",
-                    "HTML/CSS (and similar technologies such as HAML)",
+                    "HTML/CSS (and similar technologies such as CSS Preprocessors)",
                     "Unix environments (e.g. Linux, Mac OS X)",
-                    "Full stack web development (Ruby on Rails, Django, etc.)"
+                    "Full stack web development (Ruby on Rails, Express, etc.)"
                 ]
             },
             
@@ -348,13 +348,23 @@ Portfolio.constants = (function(){
                 jobs: [
                     {
                         position: "Software Engineer",
-                        company: "Siftlogic",
-                        date: "August 2013 - Now",
+                        company: "VeriAS LLC",
+                        date: "October 2014 - Current",
                         details: [
-                            "Adding new features to the old UI using JavaScript with Backbone.js and Twitter Bootstrap.",
-                            "Developing UI structure, automation, testing and other essential aspects for the new single page UI using a bunch of tools like Grunt, Bower, Yeoman and so on.",
-                            "The new UI is using Angular.js, unit tested with Jasmine.js and Sinon.js, and end-to-end tested using Protractor.js which runs on Selenium. I have setup a Selenium Grid to test across multiple browsers and operating systems.",
-                            "Developing HTTP and FTP API connection libraries for users who prefer CLI interfaces in .Net, PHP, and Node.js"
+                            "I am working on the new interface for VeriAS and providing back end development.",
+                            "Developing the single page UI structure, automation, testing and other essential aspects. Using the JavaScript MVC library Angular.js.",
+                            "Developing essential additions to the main Erlang backend that does all the data processing for the company."
+                        ]
+                    },
+                    {
+                        position: "Software Engineer",
+                        company: "Siftlogic LLC",
+                        date: "August 2013 - October 2014",
+                        details: [
+                            "Implemented a new front end for Siftlogic's customers reducing development time by at least half and improving user experience to the point that there customers no longer called in with instructions on how to do an operation.",
+                            "Developed UI structure, automation, testing and other essential aspects for the new single page UI.",
+                            "The new UI is using Angular.js, unit tested with Jasmine.js and Sinon.js, and end-to-end tested using Protractor.js which runs on Selenium. I have created a Selenium Grid to test across multiple browsers and operating systems.",
+                            "Developing HTTP and FTP API connection libraries for users who prefer CLI interfaces in .Net, PHP, and Node.js."
                         ]
                     },
                     {
@@ -362,12 +372,10 @@ Portfolio.constants = (function(){
                         company: "CanadaDrugs.com",
                         date: "May 2012 - August 2012",
                         details: [
-                            "Worked on Panda the internal web application that manages most of the business including all of the product ordering \
-                            coming from all of the online pharmacy sites. Worked in an Agile Kanban environment.",
-                            "Used HAML, JavaScript (with lots of jQuery and AJAX), and SCSS to design and update front end interfaces.",
-                            "The backend was coded with Ruby on Rails connecting to a MYSQL database.",
-                            "Additionally, improved a small internal management application with a Twitter Bootstrap interface and a Ruby on Rails backend.",
-                            "Most of the code was done in Mac OS X with some basic CLI server admin in CentOS (Linux variant)."
+                            "Improved Panda, the internal web application. Panda managed the business from all of the pharmacy sites. Worked in an Agile Environment.",
+                            "Using HTML, SCSS (CSS preprocessor), and jQuery, I designed and updated many front end interfaces.",
+                            "Implemented server code in Ruby on Rails which connected to a MySQL database.",
+                            "Improved a small HR application which had a Twitter Bootstrap interface and a Ruby on Rails backend."
                         ]
                     },
                     {
