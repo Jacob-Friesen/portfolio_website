@@ -15,11 +15,11 @@ Portfolio.app.config(['$routeProvider', '$locationProvider', function($routeProv
         $routeProvider.when(location, options);
         return routeIt;
     })
-    ('/home',       {templateUrl: 'home' + KEYWORD,       controller: Portfolio.Home})
-    ('/skills',     {templateUrl: 'skills' + KEYWORD,     controller: Portfolio.Skills})
-    ('/experience', {templateUrl: 'experience' + KEYWORD, controller: Portfolio.Experience})
-    ('/demos',      {templateUrl: 'demos' + KEYWORD,      controller: Portfolio.Demos})
-    ('/blog',       {templateUrl: 'blog' + KEYWORD,       controller: Portfolio.Blog});
+    ('/home',       {templateUrl: 'home' + KEYWORD,       controller: 'HomeCtrl'})
+    ('/skills',     {templateUrl: 'skills' + KEYWORD,     controller: 'SkillsCtrl'})
+    ('/experience', {templateUrl: 'experience' + KEYWORD, controller: 'ExperienceCtrl'})
+    ('/demos',      {templateUrl: 'demos' + KEYWORD,      controller: 'DemosCtrl'})
+    ('/blog',       {templateUrl: 'blog' + KEYWORD,       controller: 'BlogCtrl'});
 
     $routeProvider.otherwise({redirectTo: '/home'});
 }]);

@@ -1,20 +1,24 @@
 var assert = chai.assert,
     stub = sinon.stub;
 
-describe('BlogController', function(){
+describe('Blog Controller', function(){
     var test;
-    beforeEach(inject(function($rootScope, $controller){
-        test = {};
+    beforeEach(function(){
+        module('Portfolio2');
 
-        test.getJSON = stub(jQuery, 'getJSON');
+        inject(function($rootScope, $controller){
+            test = {};
 
-        test.scope = {};
-        test.controller = $controller('Portfolio.Blog', {
-            pageLoad: {
-                load: function(){}
-            }
+            test.getJSON = stub(jQuery, 'getJSON');
+
+            test.scope = {};
+            test.controller = $controller('BlogCtrl', {
+                pageLoad: {
+                    load: function(){}
+                }
+            });
         });
-    }));
+    });
 
     it('should get json at the BLOG LOCATION', function(){
         assert.isTrue(test.getJSON.calledOnce);

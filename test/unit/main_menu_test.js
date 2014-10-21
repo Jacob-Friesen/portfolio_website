@@ -1,15 +1,20 @@
 var assert = chai.assert;
 
-describe('MainMenuController', function(){
-    var test;
-    beforeEach(inject(function($rootScope, $controller){
-        test = {};
+describe('Main Menu Controller', function(){
 
-        test.scope = {};
-        test.controller = $controller('Portfolio.MainMenu', {
-            $scope: test.scope
+    var test;
+    beforeEach(function(){ 
+        module('Portfolio2');
+
+        inject(function($rootScope, $controller){
+            test = {};
+
+            test.scope = {};
+            test.controller = $controller('MainMenuCtrl', {
+                $scope: test.scope
+            });
         });
-    }));
+    });
 
     it('should set a pages array with at least one string to the scope', function(){
         assert.isTrue(test.scope.pages.length > 0);
