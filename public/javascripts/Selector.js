@@ -81,7 +81,7 @@ Portfolio.selector = (function(_document) {
             js: 0,
             css: 0
         },
-        PAGES_TO_LOAD: 0,
+        PAGES_TO_LOAD: 1,
         
         // Takes the user agent with the screen width to render the appropriate interface
         init: function(dont_run, width, user_string) {
@@ -213,8 +213,10 @@ Portfolio.selector = (function(_document) {
             
             if (!parent.ajax_load('GET', INDEX_PAGE + this.mode_to_get(), function(response) {
                 document.getElementById(PAGE_LOCATION_ID).innerHTML = response;
+                parent.loaded.pages += 1;
             })) {
                 window.location(NOSCRIPT_DOMAIN);
+                parent.loaded.pages += 1;
             }
         },
         
