@@ -9,6 +9,6 @@ describe('portfolio-website App', function() {
 
   it('should display message saying app works', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('portfolio-website works!');
+    expect(page.getParagraphText()).toEqual('Portfolio Website!');
   });
 });

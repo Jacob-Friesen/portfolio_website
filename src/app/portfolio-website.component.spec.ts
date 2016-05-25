@@ -17,6 +17,6 @@ describe('App: PortfolioWebsite', () => {
 
   it('should have as title \'portfolio-website works!\'',
       inject([PortfolioWebsiteAppComponent], (app: PortfolioWebsiteAppComponent) => {
-    expect(app.title).toEqual('portfolio-website works!');
+    expect(app.title).toEqual('Portfolio Website!');
   }));
 });

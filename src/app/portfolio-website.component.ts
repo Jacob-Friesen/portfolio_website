@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['portfolio-website.component.css']
 })
 export class PortfolioWebsiteAppComponent {
-  title = 'portfolio-website works!';
+  title = 'Portfolio Website!';
 }
