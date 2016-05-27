@@ -1,0 +1,120 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+h1 {
+  color: black;
+  font-size: 20px;
+  margin: 0;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+hr {
+  background-color: #dadada;
+  border: medium none;
+  height: 1px;
+}
+.selected {
+  cursor: default;
+  color: #fff;
+}
+html,
+body {
+  background-color: white;
+  font-family: helvetica, arial;
+  margin: 0;
+  padding: 0;
+}
+html .header,
+body .header {
+  background-color: #fff;
+  box-shadow: 0 2px 2px #888;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+html .header .main-title,
+body .header .main-title,
+html .header .menu,
+body .header .menu,
+html .header .menu-item,
+body .header .menu-item {
+  display: inline-block;
+}
+html .header .main-title,
+body .header .main-title {
+  line-height: 47px;
+  padding: 0 15px;
+}
+html .header .main-title:hover,
+body .header .main-title:hover {
+  color: #005686;
+  transition: all 0.5s ease-out;
+}
+html .header .menu,
+body .header .menu {
+  font-size: 16px;
+  line-height: 20px;
+  border-left: solid 1px #888;
+}
+html .header .menu .menu-item,
+body .header .menu .menu-item {
+  background-color: #fff;
+  border-right: solid 1px #888;
+  color: #333;
+  padding: 15px;
+  text-decoration: none;
+}
+html .header .menu .menu-item .fa,
+body .header .menu .menu-item .fa {
+  margin-right: 5px;
+}
+html .header .menu .menu-item:hover,
+body .header .menu .menu-item:hover,
+html .header .menu .menu-item.selected,
+body .header .menu .menu-item.selected {
+  background-color: #bfe8ff;
+  transition: all 0.3s ease-out;
+}
+html .page,
+body .page {
+  border-left: 1px solid #333;
+  margin: 70px auto 0 auto;
+  padding: 15px;
+  width: 850px;
+  z-index: 0;
+}
+.row {
+  width: 100%;
+  white-space: nowrap;
+}
+.col-md-6,
+.col-md-12 {
+  white-space: normal;
+  display: inline-block;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.col-md-12 {
+  width: 100%;
+}
+.col-md-6 {
+  width: 50%;
+}
+@media (max-width: 849px) {
+  body .page {
+    width: 100%;
+  }
+  .col-md-6,
+  .col-md-12 {
+    display: block;
+    width: 100%;
+  }
+}

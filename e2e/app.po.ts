@@ -9,7 +9,7 @@ export class TopSection {
 }
 
 export class Page {
-  title = element(by.id('title'))
+  title = element(by.id('title'));
   menuId = null;
 
   /**

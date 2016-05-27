@@ -21,7 +21,7 @@ describe('portfolio-website App', function() {
 
   it('should show the home page upon navigating there', () => {
     home.navigateTo();
-    expect(home.title.getText()).toEqual('home works!');
+    expect(home.title.getText()).toEqual('Home');
   });
 
   it('should show the experience page upon navigating there', () => {
