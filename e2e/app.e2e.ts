@@ -14,7 +14,7 @@ describe('portfolio-website App', function() {
   it('should display message saying app works', () => {
     page.navigateTo();
     expect(page.getParagraphText()).toEqual('Portfolio Website!');
-    browser.sleep(100);// Better strategy for this later...
+    browser.sleep(100); // Better strategy for this later...
   });
 
   // Better seperated tests once the site is actually built.
