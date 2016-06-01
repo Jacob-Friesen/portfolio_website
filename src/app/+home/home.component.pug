@@ -1,0 +1,50 @@
+mixin link(part, links)
+  if Array.isArray(part)
+    a(href= links[part[0]].address)= links[part[0]].name
+  else
+    span= part + " "
+
+mixin linkText(point, links)
+  each part in point
+     +link(part, links)
+
+.page.home
+  h1#title Home
+
+  .row
+    .col-md-6.content
+      img.profile-image(src='../images/jacob.jpg', title='Picture Of Jacob Friesen Software Developer')
+    
+    .col-md-6.content
+      .contact.email-contact
+        b Email:&nbsp;
+        span= general.email
+      hr
+      .contact
+        i.fa.fa-github
+        b Github: 
+        a(href=links.github.address)=links.github.username
+      .contact
+        i.fa.fa-twitter
+        b Twitter:
+        a(href=links.twitter.address)=links.twitter.name
+      .contact
+        i.fa.fa-tumblr
+        b Tumblr: 
+        a(href=links.blog.address)=links.blog.name
+      .contact
+        i.fa.fa-linkedin
+        b LinkedIn: 
+        a(href=links.linkedin.address)=links.linkedin.name
+      hr
+
+      p=summary.main
+
+      h4.summary-title Specialties
+      ul
+        each point in summary.points
+          if Array.isArray(point)
+            li
+              +linkText(point, links)
+          else
+            li= point

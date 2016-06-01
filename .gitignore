@@ -33,3 +33,4 @@ Thumbs.db
 *_c.css
 *.min.js
 *.js.gz
+*component.html
