@@ -1,34 +1,40 @@
 html {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 *,
 *:before,
 *:after {
-  box-sizing: inherit; }
+  box-sizing: inherit;
+}
 
 h1 {
   color: black;
   font-size: 20px;
-  margin: 0; }
+  margin: 0;
+}
 
 ul {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 hr {
   background-color: #dadada;
   border: medium none;
-  height: 1px; }
-
+  height: 1px;
+}
 .selected {
   cursor: default;
-  color: #fff; }
+  color: #fff;
+}
 
 body {
   background-color: white;
   font-family: helvetica, arial;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 .header {
   background-color: #fff;
@@ -36,61 +42,86 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1000; }
-  .header .main-title,
-  .header .menu,
-  .header .menu-item {
-    display: inline-block; }
-  .header .main-title {
+  z-index: 1000;
+
+  .main-title,
+  .menu,
+  .menu-item {
+    display: inline-block;
+  }
+
+  .main-title {
     line-height: 47px;
-    padding: 0 15px; }
-    .header .main-title:hover {
+    padding: 0 15px;
+
+    &:hover {
       color: #005686;
-      transition: all 0.5s ease-out; }
-  .header .menu {
+      transition: all 0.5s ease-out;
+    }
+  }
+
+  .menu {
     font-size: 16px;
     line-height: 20px;
-    border-left: solid 1px #888; }
-    .header .menu .menu-item {
+    border-left: solid 1px #888;
+
+    .menu-item {
       background-color: #fff;
       border-right: solid 1px #888;
       color: #333;
       padding: 15px;
-      text-decoration: none; }
-      .header .menu .menu-item:hover, .header .menu .menu-item.selected {
+      text-decoration: none;
+
+      &:hover,
+      &.selected {
         background-color: #bfe8ff;
-        transition: all 0.3s ease-out; }
-      .header .menu .menu-item .fa {
-        margin-right: 5px; }
+        transition: all 0.3s ease-out;
+      }
+
+      .fa {
+        margin-right: 5px;
+      }
+    }
+  }
+}
 
 .page {
   border-left: 1px solid #333;
   margin: 70px auto 0 auto;
   padding: 15px;
   width: 850px;
-  z-index: 0; }
+  z-index: 0;
+}
 
 .row {
   width: 100%;
-  white-space: nowrap; }
+  white-space: nowrap;
+}
 
 .col-md-6,
 .col-md-12 {
   white-space: normal;
   display: inline-block;
   padding-left: 15px;
-  padding-right: 15px; }
+  padding-right: 15px;
+}
 
 .col-md-12 {
-  width: 100%; }
+  width: 100%;
+}
 
 .col-md-6 {
-  width: 50%; }
+  width: 50%;
+}
 
 @media (max-width: 849px) {
   .page {
-    width: 100%; }
+    width: 100%;
+  }
+
   .col-md-6,
   .col-md-12 {
     display: block;
-    width: 100%; } }
+    width: 100%;
+  }
+}

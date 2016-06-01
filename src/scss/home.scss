@@ -1,0 +1,52 @@
+.home {
+  .content {
+    padding: 10px 10px 5px 10px;
+    vertical-align: top;
+  }
+
+  ul {
+    padding-left: 15px;
+  }
+
+  .contact {
+    padding-bottom: 3px;
+
+    .fa {
+      width: 20px;
+    }
+
+    b {
+      display: inline-block;
+      width: 75px;
+    }
+  }
+
+  .email-contact {
+    padding-bottom: 0;
+
+    b {
+      width: auto;
+    }
+  }
+
+  .summary-title {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  .profile-image {
+    box-shadow: inset 1px 1px 1px #ddd;
+    border-radius: 6px;
+    height: 100%;
+    width: 100%;
+  }
+
+  .detailed-description {
+    padding-top: 0;
+    padding-bottom: 0;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
