@@ -37,3 +37,19 @@ export class HomePage extends Page {
 export class ExperiencePage extends Page {
   menuId = 'experience-menu-item';
 }
+
+export class SkillsPage extends Page {
+  menuId = 'skills-menu-item';
+}
+
+export class DemosPage extends Page {
+  menuId = 'demos-menu-item';
+}
+
+export class BlogPage extends Page {
+  menuId = 'blog-menu-item';
+}
+
+export class ResumePage extends Page {
+  menuId = 'resume-menu-item';
+}

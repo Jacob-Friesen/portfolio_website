@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { HomeComponent } from './+home';
 import { Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
 import { ExperienceComponent } from './+experience';
+import { SkillsComponent } from './+skills';
+import { DemosComponent } from './+demos';
+import { BlogComponent } from './+blog';
+import { ResumeComponent } from './+resume';
 
 @Component({
   moduleId: module.id,
@@ -13,7 +17,11 @@ import { ExperienceComponent } from './+experience';
 })
 @Routes([
   {path: '/home', component: HomeComponent},
-  {path: '/experience', component: ExperienceComponent}
+  {path: '/experience', component: ExperienceComponent},
+  {path: '/skills', component: SkillsComponent},
+  {path: '/demos', component: DemosComponent},
+  {path: '/blog', component: BlogComponent},
+  {path: '/resume', component: ResumeComponent}
 ])
 export class PortfolioWebsiteAppComponent {
   title = 'Portfolio Website!';
