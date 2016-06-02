@@ -2,16 +2,28 @@ h1 {{ title }}
 
 ul
   li
-    a#home-menu-item([routerLink]="['/home']") Home
+    a#home-menu-item([routerLink]="['/home']")
+      i.fa.fa-home
+      span Home
   li
-    a#experience-menu-item([routerLink]="['/experience']") Experience
+    a#experience-menu-item([routerLink]="['/experience']") 
+      i.fa.fa-briefcase
+      span Experience
   li
-    a#skills-menu-item([routerLink]="['/skills']") Skills
+    a#skills-menu-item([routerLink]="['/skills']")
+      i.fa.fa-star
+      span Skills
   li
-    a#demos-menu-item([routerLink]="['/demos']") Demos
+    a#demos-menu-item([routerLink]="['/demos']") 
+      i.fa.fa-code
+      span Code
   li
-    a#blog-menu-item([routerLink]="['/blog']") Blog
+    a#blog-menu-item([routerLink]="['/blog']")
+      i.fa.fa-comment
+      span Blog
   li
-    a#resume-menu-item([routerLink]="['/resume']") Resume
+    a#resume-menu-item([routerLink]="['/resume']")
+      i.fa.fa-file-text
+      span Resume
 
 router-outlet
