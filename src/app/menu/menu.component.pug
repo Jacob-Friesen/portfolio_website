@@ -1,0 +1,8 @@
+ul.menu
+  li.menu-item(*ngFor='let item of items')
+    a([id]='item.id', [routerLink]='item.route')
+      i([class]='item.iconClass')
+      span {{ item.title }}
+
+-// Menu Items will appear below
+router-outlet

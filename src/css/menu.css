@@ -1,0 +1,10 @@
+.menu {
+  margin: auto;
+  width: 850px;
+  list-style-type: none; }
+  .menu .menu-item {
+    display: inline-block;
+    font-size: 20px;
+    margin-right: 10px; }
+    .menu .menu-item .fa {
+      padding-right: 5px; }

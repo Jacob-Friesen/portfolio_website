@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HomeComponent } from './+home';
+import { MenuComponent } from './menu';
 import { Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
 import { ExperienceComponent } from './+experience';
 import { SkillsComponent } from './+skills';
@@ -12,7 +13,7 @@ import { ResumeComponent } from './+resume';
   selector: 'portfolio-website-app',
   templateUrl: 'portfolio-website.component.html',
   styleUrls: ['portfolio-website.component.css'],
-  directives: [ROUTER_DIRECTIVES],
+  directives: [ROUTER_DIRECTIVES, MenuComponent],
   providers: [ROUTER_PROVIDERS]
 })
 @Routes([
