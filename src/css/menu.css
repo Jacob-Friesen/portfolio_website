@@ -1,10 +1,135 @@
 .menu {
   margin: auto;
-  width: 850px;
-  list-style-type: none; }
+  list-style-type: none;
+  padding-top: 15px;
+  background-color: #efefef;
+  height: 53px; }
   .menu .menu-item {
     display: inline-block;
-    font-size: 20px;
-    margin-right: 10px; }
+    font-size: 20px; }
+    .menu .menu-item .menu-link {
+      color: black;
+      padding: 15px;
+      text-decoration: none; }
+      .menu .menu-item .menu-link.home-menu-item {
+        animation: 0.3s ease-out 0s home-hover-fadeout; }
+      .menu .menu-item .menu-link.router-link-active.home-menu-item, .menu .menu-item .menu-link.router-link-active.home-menu-item:hover {
+        background-color: #add8e6;
+        animation: none; }
+      .menu .menu-item .menu-link.home-menu-item:hover {
+        background-color: #add8e6;
+        animation: 0.3s ease-in 0s home-hover-fadein; }
+      .menu .menu-item .menu-link.experience-menu-item {
+        animation: 0.3s ease-out 0s experience-hover-fadeout; }
+      .menu .menu-item .menu-link.router-link-active.experience-menu-item, .menu .menu-item .menu-link.router-link-active.experience-menu-item:hover {
+        background-color: #e5ab47;
+        animation: none; }
+      .menu .menu-item .menu-link.experience-menu-item:hover {
+        background-color: #e5ab47;
+        animation: 0.3s ease-in 0s experience-hover-fadein; }
+      .menu .menu-item .menu-link.skills-menu-item {
+        animation: 0.3s ease-out 0s skills-hover-fadeout; }
+      .menu .menu-item .menu-link.router-link-active.skills-menu-item, .menu .menu-item .menu-link.router-link-active.skills-menu-item:hover {
+        background-color: #c4b891;
+        animation: none; }
+      .menu .menu-item .menu-link.skills-menu-item:hover {
+        background-color: #c4b891;
+        animation: 0.3s ease-in 0s skills-hover-fadein; }
+      .menu .menu-item .menu-link.demos-menu-item {
+        animation: 0.3s ease-out 0s demos-hover-fadeout; }
+      .menu .menu-item .menu-link.router-link-active.demos-menu-item, .menu .menu-item .menu-link.router-link-active.demos-menu-item:hover {
+        background-color: #98d398;
+        animation: none; }
+      .menu .menu-item .menu-link.demos-menu-item:hover {
+        background-color: #98d398;
+        animation: 0.3s ease-in 0s demos-hover-fadein; }
+      .menu .menu-item .menu-link.blog-menu-item {
+        animation: 0.3s ease-out 0s blog-hover-fadeout; }
+      .menu .menu-item .menu-link.router-link-active.blog-menu-item, .menu .menu-item .menu-link.router-link-active.blog-menu-item:hover {
+        background-color: #a05b5b;
+        animation: none; }
+      .menu .menu-item .menu-link.blog-menu-item:hover {
+        background-color: #a05b5b;
+        animation: 0.3s ease-in 0s blog-hover-fadein; }
+      .menu .menu-item .menu-link.resume-menu-item {
+        animation: 0.3s ease-out 0s resume-hover-fadeout; }
+      .menu .menu-item .menu-link.router-link-active.resume-menu-item, .menu .menu-item .menu-link.router-link-active.resume-menu-item:hover {
+        background-color: #dedede;
+        animation: none; }
+      .menu .menu-item .menu-link.resume-menu-item:hover {
+        background-color: #dedede;
+        animation: 0.3s ease-in 0s resume-hover-fadein; }
     .menu .menu-item .fa {
       padding-right: 5px; }
+
+@keyframes home-hover-fadein {
+  from {
+    background-color: transparent; }
+  to {
+    background-color: #add8e6; } }
+
+@keyframes experience-hover-fadein {
+  from {
+    background-color: transparent; }
+  to {
+    background-color: #e5ab47; } }
+
+@keyframes skills-hover-fadein {
+  from {
+    background-color: transparent; }
+  to {
+    background-color: #c4b891; } }
+
+@keyframes demos-hover-fadein {
+  from {
+    background-color: transparent; }
+  to {
+    background-color: #98d398; } }
+
+@keyframes blog-hover-fadein {
+  from {
+    background-color: transparent; }
+  to {
+    background-color: #a05b5b; } }
+
+@keyframes resume-hover-fadein {
+  from {
+    background-color: transparent; }
+  to {
+    background-color: #dedede; } }
+
+@keyframes home-hover-fadeout {
+  from {
+    background-color: #add8e6; }
+  to {
+    background-color: transparent; } }
+
+@keyframes experience-hover-fadeout {
+  from {
+    background-color: #e5ab47; }
+  to {
+    background-color: transparent; } }
+
+@keyframes skills-hover-fadeout {
+  from {
+    background-color: #c4b891; }
+  to {
+    background-color: transparent; } }
+
+@keyframes demos-hover-fadeout {
+  from {
+    background-color: #98d398; }
+  to {
+    background-color: transparent; } }
+
+@keyframes blog-hover-fadeout {
+  from {
+    background-color: #a05b5b; }
+  to {
+    background-color: transparent; } }
+
+@keyframes resume-hover-fadeout {
+  from {
+    background-color: #dedede; }
+  to {
+    background-color: transparent; } }

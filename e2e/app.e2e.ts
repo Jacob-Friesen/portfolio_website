@@ -19,9 +19,8 @@ describe('portfolio-website App', function() {
     resume = new ResumePage();
   });
 
-  it('should display message saying app works', () => {
+  it('should get the page', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Portfolio Website!');
     browser.sleep(100); // Better strategy for this later...
   });
 
@@ -30,7 +29,7 @@ describe('portfolio-website App', function() {
   describe('navigation', function() {
     it('should show the home page', () => {
       home.navigateTo();
-      expect(home.title.getText()).toEqual('Home');
+      expect(home.profileImage.isDisplayed()).toEqual(true);
     });
 
     it('should show the experience page', () => {

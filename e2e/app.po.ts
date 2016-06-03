@@ -32,6 +32,7 @@ export class Page {
 
 export class HomePage extends Page {
   menuId = 'home-menu-item';
+  profileImage = element(by.id('profile-image'));
 }
 
 export class ExperiencePage extends Page {
