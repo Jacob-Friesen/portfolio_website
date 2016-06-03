@@ -6,7 +6,8 @@
   height: 53px; }
   .menu .menu-item {
     display: inline-block;
-    font-size: 20px; }
+    font-size: 20px;
+    visibility: hidden; }
     .menu .menu-item .menu-link {
       color: black;
       padding: 15px;
@@ -61,6 +62,9 @@
         animation: 0.3s ease-in 0s resume-hover-fadein; }
     .menu .menu-item .fa {
       padding-right: 5px; }
+
+.initial-load-complete .menu .menu-item {
+  visibility: visible; }
 
 @keyframes home-hover-fadein {
   from {

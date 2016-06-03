@@ -21,6 +21,8 @@ $resume-color: #dedede;
     display: inline-block;
     font-size: 20px;
 
+    visibility: hidden;// This is to prevent animations from rendering on page load
+
     .menu-link {
       color: black;
       padding: $menu-margin;
@@ -114,6 +116,12 @@ $resume-color: #dedede;
     .fa {
       padding-right: 5px;
     }
+  }
+}
+
+.initial-load-complete {
+  .menu .menu-item {
+    visibility: visible;
   }
 }
 

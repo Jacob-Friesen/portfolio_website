@@ -9,7 +9,7 @@ import { ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
   directives: [ROUTER_DIRECTIVES],
   providers: [ROUTER_PROVIDERS]
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent {
   items: Array<any>;
 
   constructor() {
@@ -25,7 +25,4 @@ export class MenuComponent implements OnInit {
       { title: 'Resume', route: '/resume', id: `resume${menuAppend}`, iconClass: `${iconPrefix}file-text` }
     ];
   }
-
-  ngOnInit() {}
-
 }
