@@ -131,13 +131,18 @@ body {
 // Small screens
 
 @media (max-width: 849px) {
-  .page-wrapper {
-    width: 100%;
-  }
-
   .col-md-6,
   .col-md-12 {
     display: block;
     width: 100%;
+  }
+
+  .page-wrapper {
+    border-radius: 0;
+    width: 100%;
+  }
+
+  .page {
+    padding-top: 60px;
   }
 }

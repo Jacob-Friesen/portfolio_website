@@ -21,7 +21,6 @@ describe('portfolio-website App', function() {
 
   it('should get the page', () => {
     page.navigateTo();
-    browser.sleep(100); // Better strategy for this later...
   });
 
   // Better seperated tests once the site is actually built.

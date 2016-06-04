@@ -22,7 +22,9 @@ import { ResumeComponent } from './+resume';
   {path: '/skills', component: SkillsComponent},
   {path: '/demos', component: DemosComponent},
   {path: '/blog', component: BlogComponent},
-  {path: '/resume', component: ResumeComponent}
+  {path: '/resume', component: ResumeComponent},
+  {path: '*', component: HomeComponent},
+  {path: '', component: HomeComponent}
 ])
 export class PortfolioWebsiteAppComponent implements OnInit {
   title = 'Portfolio Website!';

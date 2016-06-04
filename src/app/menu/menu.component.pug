@@ -1,9 +1,26 @@
 .page-wrapper
   ul.menu
-    li.menu-item(*ngFor='let item of items')
-      a(class='menu-link {{ item.id }}', [id]='item.id', [routerLink]='item.route')
-        i([class]='item.iconClass')
-        span {{ item.title }}
+    .open-menu-wrapper
+      button(class='open-menu', (click)="toggleMenu($event)")
+        h1 
+          .fa.fa-bars
+          span Menu
+    div(*ngIf='menuOpen')
+      li.menu-item(*ngFor='let item of items')
+        a(
+          class='menu-link \
+                {{ item.id }} \
+                {{ isMobile ? "mobile-menu-link" : "" }} \
+                {{ (getHash() === "" || getHash() === "/") ? "router-link-active2" : "" }}',
+          [id]='item.id',
+          [routerLink]='item.route',
+          (click)='isMobile ? closeMenu($event) : ""'
+        )
+          i([class]='item.iconClass')
+          span {{ item.title }}
+      button.close-menu((click)="closeMenu($event)")
+        h1 
+          span Close Menu
 
   -// Menu Items will appear below
   router-outlet

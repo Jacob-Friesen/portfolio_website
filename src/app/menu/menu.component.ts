@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
+import { ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router';
 
 @Component({
   moduleId: module.id,
@@ -11,6 +11,8 @@ import { ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
 })
 export class MenuComponent {
   items: Array<any>;
+  menuOpen: Boolean;
+  isMobile: Boolean;
 
   constructor() {
     var iconPrefix = 'fa fa-';
@@ -24,5 +26,35 @@ export class MenuComponent {
       { title: 'Blog', route: '/blog', id: `blog${menuAppend}`, iconClass: `${iconPrefix}comment` },
       { title: 'Resume', route: '/resume', id: `resume${menuAppend}`, iconClass: `${iconPrefix}file-text` }
     ];
+
+    this.initializeMobile();
+  }
+
+  initializeMobile() {
+    this.isMobile = this.getWindowSize().width < 651;
+    this.menuOpen = !this.isMobile;
+  }
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  closeMenu() {
+    this.menuOpen = false;
+  }
+
+  openMenu() {
+    this.menuOpen = true;
+  }
+
+  getHash() {
+    return window.location.pathname;
+  }
+
+  getWindowSize() {
+    return {
+      height: window.innerHeight,
+      width: window.innerWidth
+    };
   }
 }
