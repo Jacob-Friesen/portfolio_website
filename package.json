@@ -1,6 +1,6 @@
 {
   "name": "portfolio-website",
-  "version": "0.0.0",
+  "version": "0.5.0",
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
@@ -49,6 +49,7 @@
     "ts-node": "^0.5.5",
     "tslint": "^3.6.0",
     "typescript": "^1.8.10",
-    "typings": "^0.8.1"
+    "typings": "^0.8.1",
+    "jacob-friesens-resume": "1.0.0"
   }
 }
