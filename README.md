@@ -7,8 +7,7 @@ Install
 =======
 An installer script will be added later when things are finalized. For now:
 
-    npm install -g angular-cli
-    npm install
+    bash install.bash
 
 OS X only:
 
