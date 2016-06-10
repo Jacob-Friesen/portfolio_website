@@ -1,7 +1,9 @@
 // Most of the resume styling is valid it just needs to fit in the website properly.
 .page.resume {
+  $resume-top-space: 40px;
+
   margin-top: 0;
-  padding: 0 25px 15px 25px;
+  padding: $resume-top-space 25px 15px 25px;
   position: relative;
 
   .download {
@@ -13,7 +15,7 @@
     text-decoration: none;
 
     position: absolute;
-    top: 0;
+    top: $resume-top-space + 14px;
     right: 0;
     z-index: 2;
 

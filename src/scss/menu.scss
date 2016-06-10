@@ -13,11 +13,13 @@ $resume-color: #dedede;
 
 
 .menu {
+  background: rgba(239, 239, 239, 0.75);
   border-bottom: $menu-border;
   margin: auto;
   list-style-type: none;
-  background-color: #efefef;
-  z-index: 1;
+  position: fixed;
+  width: 850px;
+  z-index: 3;
 
   .menu-item {
     display: inline-block;
