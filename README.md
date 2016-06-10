@@ -7,7 +7,7 @@ Install
 =======
 An installer script will be added later when things are finalized. For now:
 
-    bash bin/install.bash
+    bash bin/install.bash# --no-npm-install to skip any NPM dependency installations
 
 OS X only:
 

@@ -7,11 +7,14 @@ RESUME_CSS_TO="${BASIS}src/scss/resume.scss"
 JSON_TO="${BASIS}src/jacob.json"
 
 echo "This assumes the Node.js and other basics are installed"
-
-# npm install -g angular-cli
-# npm install
-
 echo
+
+if [ "${1}" == "--no-npm-install" ]; then
+  echo "Refreshing NPM packages..."
+  npm install -g angular-cli
+  npm install
+fi
+
 echo "File copies..."
 cp "${BASIS}node_modules/jacob-friesens-resume/jacob.json" "${JSON_TO}.tmp"
 cp "${BASIS}node_modules/jacob-friesens-resume/resume_body.pug" "${RESUME_BODY_TO}.tmp"
