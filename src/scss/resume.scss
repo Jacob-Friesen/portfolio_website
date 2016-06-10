@@ -1,0 +1,192 @@
+.resume-body {
+    font-family: helvetica, verdana, arial;
+    max-width: 800px;
+    margin: auto;// margin 0 8% for PDF
+}
+   
+.resume-body,
+.resume-body td {         
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.resume-body h1 {
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: normal;
+}
+
+.resume-body h2 {
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: normal;
+}
+
+.resume-body h3 {
+    font-size: 18px;
+}
+
+.resume-body hr {
+    height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.resume-body li {
+    margin-top: 5px;
+}
+
+.resume-body ul {
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.resume-body .sub-section {
+    font-weight: normal;
+}
+
+.resume-body .page-eqaulizer {
+    height: 0;
+}
+
+.resume-body table.skills {
+    border: 0;
+    border-spacing: 0;
+    width: 100%;
+}
+
+    .resume-body table.skills thead {
+        font-weight: bold;
+    }
+
+    .resume-body table.skills tbody tr:nth-child(odd) {
+        background-color: #f9f9f9;
+    }
+
+    .resume-body table.skills tr.sub-skill {
+        font-style: italic;
+    }
+
+    .resume-body table.skills tr td:first-child {
+        padding: 3px;
+    }
+
+    .resume-body table.skills tr td:first-child {
+        width: 50%;
+    }
+
+    .resume-body table.skills tr td:nth-child(2) {
+        width: 25%;
+    }
+
+.resume-body center.header{
+    margin-top: 40px;/* pdf replace */
+    margin-bottom: 20px;/* pdf replace */
+}
+
+    .resume-body center.header h1 {
+        margin: 10px 0 5px 0;
+    }
+
+    .resume-body center.header p {
+        margin: 0 0 3px 0;
+        padding: 0;
+    }
+
+.resume-body .area {
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+    .resume-body .area h2 {
+        margin: 0;
+        padding: 0;
+    }
+
+    .resume-body .area p {
+        margin-top: 10px;
+    }
+
+    .resume-body .area .right-shift {
+        margin-left: 60px;
+    }
+
+    .resume-body .area .right-shift h3 {
+        margin: 20px 0 10px 0;
+        padding: 0;
+    }
+
+    .resume-body .area .right-shift h3:first-child {
+        margin-top: 5;
+    }
+
+    .resume-body .area .right-shift .exp-title {
+        margin: 20px 0 0 0;
+    }
+
+    .resume-body .area .right-shift .exp-title:first-child {
+        margin: 10px 0 0 0;
+    }
+
+    .resume-body .area .right-shift .exp-description {
+        margin: 7px 0 0 0;
+        padding: 0;
+    }
+
+    .resume-body .area .right-shift ul {
+        margin-top: 5px;
+    }
+
+.resume-body .area.volunteering .right-shift .exp-description {
+    margin: 5px 0 0 0;
+    padding: 0;
+}
+
+.resume-body br.mobile-br{
+    display: none;
+}
+
+.resume-body .mobile-erase{
+    display: inline;
+}
+
+.resume-body .desktop-erase{
+    display: none;
+}
+
+.resume-body .no-top-margin {
+    margin-top: 0;
+}
+
+.resume-body .onlywkhtml2 {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+@media only screen and (max-device-width: 720px) {
+    .resume-body {
+        max-width: none;
+        margin: 0 7.5%;
+        width: 84%;
+    }
+
+    .resume-body .area ul{
+        padding-left: 20px;
+    }
+
+    .resume-body .area .right-shift{
+        margin-left: 0;
+    }
+
+    .resume-body br.mobile-br{
+        display: block;
+    }
+
+    .resume-body .mobile-erase{
+        display: none;
+    }
+
+    .resume-body .desktop-erase{
+        display: inline;
+    }
+}

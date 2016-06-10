@@ -1,0 +1,19 @@
+// Most of the resume styling is valid it just needs to fit in the website properly.
+.page.resume {
+  padding: 0 25px 15px 25px;
+
+  .resume-holder {
+    border: 0;
+    width: 100%;
+  }
+
+  .header {
+    box-shadow: none;
+    position: relative;
+  }
+
+  ul {
+    margin-top: 10px;
+    margin-left: 40px;
+  }
+}

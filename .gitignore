@@ -33,5 +33,9 @@ Thumbs.db
 *_c.css
 *.min.js
 *.js.gz
+*.tmp
 *component.html
+src/css
 src/jacob.json
+# Resume generation
+*resume-body*

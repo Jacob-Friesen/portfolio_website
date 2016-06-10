@@ -38,7 +38,8 @@ describe('Component: Menu', () => {
   }));
 
   describe('initialize Menu', function() {
-    it('should set to non mobile and open the menu when in desktop', inject([MenuComponent], (component: MenuComponent) => {
+    it('should set to non mobile and open the menu when in desktop',
+    inject([MenuComponent], (component: MenuComponent) => {
       spyOn(component, 'getWindowSize').and.returnValue({ width: 651, height: 500 });
 
       component.initializeMobile();
@@ -47,7 +48,8 @@ describe('Component: Menu', () => {
       expect(component.menuOpen).toEqual(true);
     }));
 
-    it('should set to non mobile and open the menu when in desktop', inject([MenuComponent], (component: MenuComponent) => {
+    it('should set to non mobile and open the menu when in desktop',
+     inject([MenuComponent], (component: MenuComponent) => {
       spyOn(component, 'getWindowSize').and.returnValue({ width: 650, height: 500 });
 
       component.initializeMobile();
@@ -96,4 +98,3 @@ describe('Component: Menu', () => {
 })
 class MenuComponentTestController {
 }
-

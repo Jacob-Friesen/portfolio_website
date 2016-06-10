@@ -53,7 +53,9 @@ describe('portfolio-website App', function() {
 
     it('should show the resume page', () => {
       resume.navigateTo();
-      expect(resume.title.getText()).toEqual('resume works!');
+      resume.title.getText().then((contents) => {
+        expect(contents.replace(/\n/g, ' ')).toEqual('Jacob Friesen - Front End Developer');
+      });
     });
   });
 });

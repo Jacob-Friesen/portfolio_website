@@ -22,7 +22,7 @@ export class Page {
       throw('The inherited page must specify a menuId');
     }
     element(by.id(this.menuId)).click();
-    browser.sleep(100);// Add a better page load later.
+    browser.sleep(100); // Add a better page load later.
 
     return this;
   }
@@ -53,4 +53,6 @@ export class BlogPage extends Page {
 
 export class ResumePage extends Page {
   menuId = 'resume-menu-item';
+
+  title = element(by.css('.resume-body .header h1'));
 }
