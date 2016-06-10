@@ -7,7 +7,7 @@ Install
 =======
 An installer script will be added later when things are finalized. For now:
 
-    bash install.bash
+    bash bin/install.bash
 
 OS X only:
 
