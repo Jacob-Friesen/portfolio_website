@@ -112,6 +112,7 @@ body {
     width: 100%; }
   .page-wrapper {
     border-radius: 0;
+    margin-bottom: 0;
     width: 100%; }
   .page {
     padding-top: 60px; } }
