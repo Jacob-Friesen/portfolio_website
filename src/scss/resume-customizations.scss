@@ -3,7 +3,7 @@
   $resume-top-space: 40px;
 
   margin-top: 0;
-  padding: $resume-top-space 25px 15px 25px;
+  padding: $resume-top-space 40px 15px 40px;
   position: relative;
 
   .download {
@@ -51,5 +51,21 @@
   ul {
     margin-top: 10px;
     margin-left: 40px;
+  }
+}
+
+@media (max-width: 650px) {
+  .page.resume {
+    padding-left: 0;
+    padding-right: 0;
+
+    ul {
+      margin-top: 10px;
+      margin-left: 10px;
+    }
+
+    .download {
+      top: 45px;
+    }
   }
 }

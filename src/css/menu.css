@@ -165,6 +165,7 @@
 
 @media (max-width: 650px) {
   .menu {
+    background: rgba(239, 239, 239, 0.95);
     border-bottom: none;
     box-shadow: 0 2px 10px #999;
     position: fixed;

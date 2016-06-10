@@ -221,6 +221,7 @@ $resume-color: #dedede;
 @media (max-width: 650px) {
   .menu {
     $mobile-menu-border: 1px solid #bbb;
+    background: rgba(239, 239, 239, 0.95);
 
     border-bottom: none;
     box-shadow: $main-box-shadow;
