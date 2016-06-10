@@ -1,6 +1,38 @@
 // Most of the resume styling is valid it just needs to fit in the website properly.
 .page.resume {
+  margin-top: 0;
   padding: 0 25px 15px 25px;
+  position: relative;
+
+  .download {
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    border-radius: 0 0 0 3px;
+    color: white;
+    padding: 9px 18px;
+    text-decoration: none;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+
+    &:hover,
+    &:active {
+      background-color: #449d44;
+      border-color: #398439;
+    }
+
+    .fa {
+      margin-right: 5px;
+    }
+  }
+
+  // Make sure that the Download button is in front of the resume
+  .resume-body {
+    position: relative;
+    z-index: 1;
+  }
 
   .resume-holder {
     border: 0;
@@ -9,6 +41,8 @@
 
   .header {
     box-shadow: none;
+    margin-top: 0;
+    padding-top: 40px;
     position: relative;
   }
 

@@ -5,17 +5,20 @@ RESUME_BODY_TO="${BASIS}src/app/+resume/resume-body.pug"
 # Sending it as scss avoids it getting potentially overridden which could lead to weird errors (CSS is valid SCSS)
 RESUME_CSS_TO="${BASIS}src/scss/resume.scss"
 JSON_TO="${BASIS}src/jacob.json"
+DOWNLOADS="${BASIS}/src/downloads/"
 
 echo "This assumes the Node.js and other basics are installed"
 echo
 
-if [ "${1}" == "--no-npm-install" ]; then
+if [ "${1}" != "--no-npm-install" ]; then
   echo "Refreshing NPM packages..."
   npm install -g angular-cli
   npm install
 fi
 
 echo "File copies..."
+mkdir -p "${DOWNLOADS}"
+cp "${BASIS}node_modules/jacob-friesens-resume/Jacob_Friesen_Resume.pdf" "${DOWNLOADS}Jacob_Friesen_Resume.pdf"
 cp "${BASIS}node_modules/jacob-friesens-resume/jacob.json" "${JSON_TO}.tmp"
 cp "${BASIS}node_modules/jacob-friesens-resume/resume_body.pug" "${RESUME_BODY_TO}.tmp"
 cp "${BASIS}node_modules/jacob-friesens-resume/style.css" "${RESUME_CSS_TO}"
