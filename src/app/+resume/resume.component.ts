@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,10 +7,12 @@ import { Router } from '@angular/router';
   templateUrl: 'resume.component.html',
   styleUrls: ['resume.component.css']
 })
-export class ResumeComponent implements OnInit {
+export class ResumeComponent {
   constructor(private router: Router) {}
 
-  ngOnInit() {
+  // Not optimal, but there is no good solution with rc1 for $window like mocking.
+  setWindowLocation(url: string) {
+    window.location.href = url;
   }
 
   /**
@@ -18,9 +20,9 @@ export class ResumeComponent implements OnInit {
    * 
    * @param {string} path The partial or full URL to go to. e.g.2 '/home' e.g.1 'http://jacobfriesen.com'
    */
-  navigateParent(path) {
+  navigateParent(path: string) {
     if (path[0] !== '/') {
-      window.location = path;
+      this.setWindowLocation(path);
     } else {
       this.router.navigateByUrl(path);
     }
