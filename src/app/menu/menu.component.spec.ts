@@ -7,14 +7,25 @@ import {
   inject,
 } from '@angular/core/testing';
 import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
-import { Component } from '@angular/core';
+import { Component, ApplicationRef, provide } from '@angular/core';
+import { ROUTER_FAKE_PROVIDERS } from '@angular/router/testing';
+import { APP_BASE_HREF } from '@angular/common';
 import { By } from '@angular/platform-browser';
 import { MenuComponent } from './menu.component';
 
 describe('Component: Menu', () => {
   let builder: TestComponentBuilder;
 
-  beforeEachProviders(() => [MenuComponent]);
+  beforeEachProviders(() => [
+    provide(ApplicationRef, {useValue: {
+      // A completely empty MockApplicationRef will not work, so a custom one is created below.
+      componentTypes: [MenuComponentTestController],
+      registerDisposeListener: function() {}
+    }}),
+    ROUTER_FAKE_PROVIDERS,
+    provide(APP_BASE_HREF, {useValue: '/'}),
+    MenuComponent
+  ]);
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
     builder = tcb;
   }));
@@ -96,5 +107,4 @@ describe('Component: Menu', () => {
   `,
   directives: [MenuComponent]
 })
-class MenuComponentTestController {
-}
+class MenuComponentTestController {}
