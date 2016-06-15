@@ -48,6 +48,7 @@ export class DemosPage extends Page {
 }
 
 export class BlogPage extends Page {
+  title = element(by.id('post-title'));
   menuId = 'blog-menu-item';
 }
 

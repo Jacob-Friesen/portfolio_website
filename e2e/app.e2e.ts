@@ -46,9 +46,9 @@ describe('portfolio-website App', function() {
       expect(demos.title.getText()).toEqual('demos works!');
     });
 
-    it('should show the blog page', () => {
+    it('should show the loaded blog page', () => {
       blog.navigateTo();
-      expect(blog.title.getText()).toEqual('blog works!');
+      expect(blog.title.getText()).not.toEqual('');
     });
 
     it('should show the resume page', () => {
