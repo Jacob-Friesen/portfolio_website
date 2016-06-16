@@ -15,5 +15,19 @@
     border: none;
     border-left: 1px solid lightGrey;
     padding-left: 15px;
+    overflow: scroll;
+  }
+}
+
+@media (max-width: 650px) {
+  .blog {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 45px;
+  }
+
+  // Make sure long links do not extend the page width.
+  a {
+    word-break: break-all;
   }
 }
