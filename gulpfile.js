@@ -30,6 +30,9 @@ gulp.task('pug', () =>
     .pipe(data(function(file) {
       return JSON.parse(fs.readFileSync('./src/jacob.json'));
     }))
+    .pipe(data(function(file) {
+      return JSON.parse(fs.readFileSync('./src/demos.json'));
+    }))
     .pipe(pug({
       pretty: true
     }))

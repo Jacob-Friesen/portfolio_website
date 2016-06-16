@@ -44,6 +44,7 @@ export class SkillsPage extends Page {
 }
 
 export class DemosPage extends Page {
+  summary = element(by.id('summary'));
   menuId = 'demos-menu-item';
 }
 

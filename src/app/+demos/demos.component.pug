@@ -1,2 +1,30 @@
-.page
-  p#title demos works!
+.page.demos
+  p#summary 
+    span These are projects I have built across the years. More examples are on my 
+    a(href=links.github.address)= links.github.name
+    span . Finally, due to the legal or practical nature of some of these demos, not all components of them are downloadable/viewable.
+
+  each demo in demos
+    .demo
+      h3
+        span= demo.title
+        span &nbsp;(
+        span= demo.startDate
+        if demo.endDate
+          span &nbsp;-&nbsp;
+          span= demo.endDate
+        span )
+
+      .row
+        .col-md-6
+          p= demo.description
+        .col-md-6
+          img(src='images/' + demo.image)
+
+      hr
+
+      .links
+        strong Links:
+        each link in demo.links
+          .link
+            a(href=link.address)= link.name

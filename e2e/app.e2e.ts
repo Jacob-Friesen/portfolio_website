@@ -43,7 +43,7 @@ describe('portfolio-website App', function() {
 
     it('should show the demos page', () => {
       demos.navigateTo();
-      expect(demos.title.getText()).toEqual('demos works!');
+      expect(demos.summary.getText()).not.toEqual('');
     });
 
     it('should show the loaded blog page', () => {
