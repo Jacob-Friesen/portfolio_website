@@ -13,7 +13,7 @@ export class BlogComponent implements OnInit {
   postTitle: string;
   postBody: string;
 
-  constructor (private blogRemote: BlogRemoteService) {}
+  constructor (public blogRemote: BlogRemoteService) {}
 
   ngOnInit() {
     this.postTitle = 'Loading Blog...';
@@ -26,7 +26,7 @@ export class BlogComponent implements OnInit {
    * now.
    */
   getBlogPost() {
-    this.blogRemote.getPosts()
+    this.blogRemote.getPost()
                    .subscribe(this.loadPost.bind(this),
                      error => console.log('ERROR:', error)
                    );
