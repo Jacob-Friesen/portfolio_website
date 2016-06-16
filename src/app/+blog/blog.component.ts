@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogRemoteService } from '../blog-remote.service';
+import * as _ from 'lodash';
 
 @Component({
   moduleId: module.id,
@@ -41,6 +42,21 @@ export class BlogComponent implements OnInit {
   loadPost(post) {
     this.postTitle = post['regular-title'];
     this.postBody = post['regular-body'];
+
+    // The defer will cause the pretty print to execute after all libraries like angular do synchronous operations.
+    _.defer(this.setupPrettyPrint);
   }
 
+  /**
+   * Pretty print only applies on pre elements with '.prettyprint'. Since the blog should not have to compensate for
+   * this website, then this website will have to auto add the classes to all pre tags. Then apply the pretty print.
+   */
+  setupPrettyPrint() {
+    _.forEach(document.getElementsByTagName('pre'), function(pre) {
+      pre.className += ' prettyprint';
+    });
+
+    // <object>['<name>'] Bypasses the TypeScript property checker.
+    window['PR'].prettyPrint();
+  }
 }

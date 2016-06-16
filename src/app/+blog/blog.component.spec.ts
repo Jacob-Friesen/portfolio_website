@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
 import { BlogRemoteService } from '../blog-remote.service';
 import { By } from '@angular/platform-browser';
 import { BlogComponent } from './blog.component';
-import { JSONP_PROVIDERS, RequestOptions } from '@angular/http';
+import { JSONP_PROVIDERS } from '@angular/http';
 import * as _ from 'lodash';
 
 describe('Component: Blog', () => {
@@ -61,6 +61,11 @@ describe('Component: Blog', () => {
   });
 
   describe('loadPost', function() {
+    beforeEach(inject([BlogComponent], (component: BlogComponent) => {
+      spyOn(_, 'defer').and.callFake((callback) => callback());
+      spyOn(component, 'setupPrettyPrint');
+    }));
+
     it('should set the postTitle and postBody based on the corresponding data in the sent in post',
     inject([BlogComponent], (component: BlogComponent) => {
       component.loadPost({
@@ -70,6 +75,13 @@ describe('Component: Blog', () => {
 
       expect(component.postTitle).toEqual('A title');
       expect(component.postBody).toEqual('Some body content');
+    }));
+
+    it('should setup pretty printing',
+    inject([BlogComponent], (component: BlogComponent) => {
+      component.loadPost({});
+
+      expect(component.setupPrettyPrint).toHaveBeenCalledWith();
     }));
   });
 });
@@ -83,4 +95,3 @@ describe('Component: Blog', () => {
 })
 class BlogComponentTestController {
 }
-
