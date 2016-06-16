@@ -1,6 +1,6 @@
 .page.blog
   h2#post-title.post-title {{ postTitle }}
-  p.post-body([innerHTML]='postBody')
+  p.post-body([innerHTML]='postBody', *ngIf='postBody')
 
   hr
 
