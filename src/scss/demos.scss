@@ -12,15 +12,34 @@
 
     border: $demo-border;
     border-radius: 6px;
-    margin-bottom: 20px;
+    box-shadow: 0 0 5px #ddd;
+    margin-bottom: $side-margin;
 
-    .demo-title {
-      font-weight: normal;
-      margin: $side-margin;
+    .demo-header {
+      cursor: pointer;
+      padding: $side-margin $side-margin $side-margin ($side-margin - 5);
+      position: relative;
+      margin: 0;
+
+      .title {
+        margin: 0 0 0 30px;
+      }
 
       .date {
         color: #999;
         padding-left: 5px;
+      }
+
+      .expander {
+        background-color: transparent;
+        cursor: pointer;
+        border: none;
+        font-size: 14px;
+        outline-width: 0;
+
+        position: absolute;
+        top: $side-margin;
+        left: ($side-margin - 5);
       }
     }
 

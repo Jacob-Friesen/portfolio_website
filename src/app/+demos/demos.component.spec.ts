@@ -10,11 +10,12 @@ import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testin
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { DemosComponent } from './demos.component';
+import { CollapseManagerService } from '../collapse-manager.service';
 
 describe('Component: Demos', () => {
   let builder: TestComponentBuilder;
 
-  beforeEachProviders(() => [DemosComponent]);
+  beforeEachProviders(() => [CollapseManagerService, DemosComponent]);
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
     builder = tcb;
   }));
