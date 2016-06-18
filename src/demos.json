@@ -5,6 +5,7 @@
       "startDate": "March 2013",
       "description": "For my Machine Learning class in my final school term I worked on an AI based minification scheme intended to compliment normal minification. It parses a series of JavaScript files and finds all function calls, expressions, and declarations. Then the unsafe minifier writes all the data back. Next that data is used to train a set of nueral networks (five by default) which are used to minify files sent into application. I continue to work on this on Github. This project was primarily done in Node.js.",
       "image": "unsafe_minifier.png",
+      "imageLarge": "unsafe_minifier.large.png",
       "links": [
         {
           "name": "source",
@@ -17,6 +18,7 @@
       "startDate": "December 2012",
       "description": "In late December 2012, I developed the mobile interface for winnipegjs.com. Using the desktop design as a baseline, I used CSS and some some JavaScript to make the interface look good and work well across multiple devices. For detecting misbehaving browsers like IE 7 on Windows Phone 7, I used tactics like IE includes and user agent sniffing. Most of the JavaScript was done server side (the website is implemented in Node.js) to set and detect cookies so mobile browsers would be able to switch to desktop and vice versa.",
       "image": "winnipegjs.png",
+      "imageLarge": "winnipegjs.large.png",
       "links": [
         {
           "name": "source",
@@ -29,6 +31,7 @@
       "startDate": "October 2012",
       "description": "In Cryptography in the fall school term of 2012 I implemented AES in C++. The implementation is large enough to include some complexity and demonstrates my ability to code in a C environment. Since the code closely follows the AES specification the implementation was done in a bottom up C style rather than a top down C++ style. See the README for instructions.",
       "image": "aes.png",
+      "imageLarge": "aes.large.png",
       "links": [
         {
           "name": "Github Source",
@@ -42,6 +45,7 @@
       "endDate": "December 2011",
       "description": "In the Fall coop term of 2011 I worked on the information management website at Iders with some other Web Developers. The below video is about an additional feature I implemented, automatically opening the windows you had open from last session in your new session. Keep in mind this is a web interface.",
       "image": "IdersIMS2.png",
+      "imageLarge": "IdersIMS2.large.png",
       "links": [
         {
           "name": "Video (Youtube)",
@@ -54,6 +58,7 @@
       "startDate": "July 2011",
       "description": "I worked on this project along with 3 other group members. It is implemented in Java. The application uses a database of food items with associated nutritional facts in conjunction with a Java based framework of objects to track user preferences. These preferences are in the form of ratings which influence, along with filters, the suggested items for each item selected.",
       "image": "nutrifactsMainScreen.jpg",
+      "imageLarge": "nutrifactsMainScreen.large.jpg",
       "links": [
         {
           "name": "Java Source Code (Zipped)",
@@ -66,6 +71,7 @@
       "startDate": "July 2011",
       "description": "This is an application that manages a database of movies for a user created in a 2011 school term. The user can create, add or edit any movie. Movies have data about their title, director(s), actors, description etc. This project was designed with another student for my Human Computer Interaction 1 course. The focus was on user interaction not developing an entire application so the database is just an XML file and there may be some small display glitches.",
       "image": "movOrgPic.jpg",
+      "imageLarge": "movOrgPic.large.jpg",
       "links": [
         {
           "name": "C# Source Code (Zipped)",
@@ -79,6 +85,7 @@
       "endDate": "April 2011",
       "description": "This is the first website I worked on professionally. It was made at my first work term. As the experience section states I worked on all parts of the website; design, front end, and back end. I have included a video demoing one of the features I worked on.",
       "image": "RWRPMain.jpg",
+      "imageLarge": "RWRPMain.large.jpg",
       "links": [
         {
           "name": "Video (Youtube)",
@@ -91,6 +98,7 @@
       "startDate": "October 2010",
       "description": "This program schedules patients into a hospital. They are scheduled based on thier condition severity and when the available resources to treat them are ready. There are 2 types of resources: doctors and the rooms the patient is operated in. If two patients have the same condition the first one that requests treatment is treated first. This project was done for my Object Orientation (Comp 2150) course.",
       "image": "schedulingHsptl.jpg",
+      "imageLarge": "schedulingHsptl.large.jpg",
       "links": [
         {
           "name": "Java Source Code (Zipped)",
@@ -103,6 +111,7 @@
       "startDate": "October 2010",
       "description": "This is a GUI application that manages various contacts a person could have. The contact info includes variables like phone numbers which is read from an XML file. Using this application you can add, delete or edit any entry clicked on in the list display. This was done as part of an assignment I had in my current Human Computer Interaction course.",
       "image": "contactList.jpg",
+      "imageLarge": "contactList.large.jpg",
       "links": [
         {
           "name": "C# Source Code (Zipped)",

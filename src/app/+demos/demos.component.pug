@@ -1,27 +1,24 @@
 .page.demos
-  p#summary 
+  p#summary.summary
     span These are projects I have built across the years. More examples are on my 
     a(href=links.github.address)= links.github.name
     span . Finally, due to the legal or practical nature of some of these demos, not all components of them are downloadable/viewable.
 
   each demo in demos
     .demo
-      h3
+      h3.demo-title
         span= demo.title
-        span &nbsp;(
-        span= demo.startDate
-        if demo.endDate
-          span &nbsp;-&nbsp;
-          span= demo.endDate
-        span )
+        span.date
+          span.date= demo.startDate
+          if demo.endDate
+            span &nbsp;-&nbsp;
+            span= demo.endDate
 
       .row
-        .col-md-6
+        .col-md-6.left
           p= demo.description
-        .col-md-6
-          img(src='images/' + demo.image)
-
-      hr
+        .col-md-6.right
+          img.picture(src='images/' + demo.image)
 
       .links
         strong Links:
