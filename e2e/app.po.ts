@@ -45,7 +45,20 @@ export class SkillsPage extends Page {
 
 export class DemosPage extends Page {
   summary = element(by.id('summary'));
+  currentDescription = element(by.id('demo-description'));
+  demoHeaders = element.all(by.css('.demo-header'));
+
   menuId = 'demos-menu-item';
+
+  /**
+   * Open the demo at the specified index.
+   *
+   * @param {number} index The demo to open. Starts at 0.
+   */
+  toggleDemoAt(index) {
+    this.demoHeaders.get(index).click();
+    browser.sleep(300); // Wait for it to expand
+  }
 }
 
 export class BlogPage extends Page {

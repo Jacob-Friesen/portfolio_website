@@ -21,7 +21,7 @@
       .demo-body(*ngIf=index + ' === collapseManager.openIndex')
         .row
           .col-md-6.left
-            p= demo.description
+            p#demo-description= demo.description
           .col-md-6.right
             img.picture(src='images/' + demo.image)
 

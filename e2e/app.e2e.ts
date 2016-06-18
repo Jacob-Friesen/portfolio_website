@@ -25,7 +25,7 @@ describe('portfolio-website App', function() {
 
   // Better seperated tests once the site is actually built.
 
-  describe('navigation', function() {
+  describe('pages', function() {
     it('should show the home page', () => {
       home.navigateTo();
       expect(home.profileImage.isDisplayed()).toEqual(true);
@@ -41,9 +41,32 @@ describe('portfolio-website App', function() {
       expect(skills.title.getText()).toEqual('skills works!');
     });
 
-    it('should show the demos page', () => {
-      demos.navigateTo();
-      expect(demos.summary.getText()).not.toEqual('');
+    describe('demos', () => {
+      var FIRST_DEMO_TEXT = 'For my Machine Learning class';
+
+      it('should show the demos page', () => {
+        demos.navigateTo();
+        expect(demos.summary.getText()).not.toEqual('');
+      });
+
+      it('should start with the first demo as expanded', () => {
+        expect(demos.currentDescription.getText()).toContain(FIRST_DEMO_TEXT);
+      });
+
+      it('should show the 3rd demo when it is expanded', () => {
+        demos.toggleDemoAt(2);
+        expect(demos.currentDescription.getText()).toContain('In Cryptography in the fall school term');
+      });
+
+      it('should be able to expand the first demo again', () => {
+        demos.toggleDemoAt(0);
+        expect(demos.currentDescription.getText()).toContain(FIRST_DEMO_TEXT);
+      });
+
+      it('should be able to collapse the first demo when it is clicked on again', () => {
+        demos.toggleDemoAt(0);
+        expect(demos.currentDescription.isPresent()).toBe(false);
+      });
     });
 
     it('should show the loaded blog page', () => {
