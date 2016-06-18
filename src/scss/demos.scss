@@ -1,5 +1,7 @@
 .demos {
   $demo-border: 1px solid #ddd;
+  padding-left: 25px;
+  padding-right: 25px;
 
   .summary {
     padding-bottom: 10px;
@@ -10,7 +12,7 @@
 
     border: $demo-border;
     border-radius: 6px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 
     .demo-title {
       font-weight: normal;
