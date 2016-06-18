@@ -15,7 +15,7 @@
     border: none;
     border-left: 1px solid lightGrey;
     padding-left: 15px;
-    overflow: scroll;
+    overflow: auto;
   }
 }
 
@@ -24,6 +24,10 @@
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 45px;
+
+    .prettyprint { 
+      overflow: scroll;
+    }
   }
 
   // Make sure long links do not extend the page width.
