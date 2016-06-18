@@ -15,6 +15,11 @@
     box-shadow: 0 0 5px #ddd;
     margin-bottom: $side-margin;
 
+    // Make it expand and collapse gradually (See .expanded too). Generalize this later for other sections.
+    // This was a pretty ingenious solution: http://stackoverflow.com/a/8331169
+    max-height: 70px;
+    overflow: hidden;
+
     .demo-header {
       cursor: pointer;
       padding: $side-margin $side-margin $side-margin ($side-margin - 5);
@@ -67,6 +72,8 @@
     }
 
     .picture {
+      animation: 0.45s ease-in 0s opacity-fadein;
+
       border: $demo-border;
       border-radius: 6px;
       width: 100%;
@@ -87,9 +94,15 @@
         padding-left: 5px;
       }
     }
-  }
 
-  .demo:last-child {
-    margin-bottom: 10px;
+    &:last-child {
+      margin-bottom: 10px;
+    }
+
+    &.expanded {
+      // The card contents can never exceed this height otherwise the animation will stop expanding at a certian point.
+      max-height: 600px;
+      transition: max-height 0.3s ease-in;
+    }
   }
 }

@@ -5,7 +5,7 @@
     span . Finally, due to the legal or practical nature of some of these demos, not all components of them are downloadable/viewable.
 
   each demo, index in demos
-    .demo
+    .demo([class.expanded]=index + ' === collapseManager.openIndex')
       .demo-header((click)='collapseManager.toggle('+index+')')
         button.expander
           i.fa.fa-chevron-up(*ngIf=index + ' === collapseManager.openIndex')
@@ -18,7 +18,7 @@
               span &nbsp;-&nbsp;
               span= demo.endDate
 
-      .div(*ngIf=index + ' === collapseManager.openIndex')
+      .demo-body(*ngIf=index + ' === collapseManager.openIndex')
         .row
           .col-md-6.left
             p= demo.description
