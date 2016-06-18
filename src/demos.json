@@ -14,7 +14,7 @@
       ]
     },
     {
-      "title": "Winnipeg JS Mobile Interface",
+      "title": "Winnipeg JS Mobile",
       "startDate": "December 2012",
       "description": "In late December 2012, I developed the mobile interface for winnipegjs.com. Using the desktop design as a baseline, I used CSS and some some JavaScript to make the interface look good and work well across multiple devices. For detecting misbehaving browsers like IE 7 on Windows Phone 7, I used tactics like IE includes and user agent sniffing. Most of the JavaScript was done server side (the website is implemented in Node.js) to set and detect cookies so mobile browsers would be able to switch to desktop and vice versa.",
       "image": "winnipegjs.png",
@@ -40,10 +40,10 @@
       ]
     },
     {
-      "title": "Iders Information Management System",
+      "title": "Iders IMS",
       "startDate": "August 2011",
       "endDate": "December 2011",
-      "description": "In the Fall coop term of 2011 I worked on the information management website at Iders with some other Web Developers. The below video is about an additional feature I implemented, automatically opening the windows you had open from last session in your new session. Keep in mind this is a web interface.",
+      "description": "In the Fall coop term of 2011 I worked on the Information Management System (IMS) website at Iders with some other Web Developers. The below video is about an additional feature I implemented, automatically opening the windows you had open from last session in your new session. Keep in mind this is a web interface.",
       "image": "IdersIMS2.png",
       "imageLarge": "IdersIMS2.large.png",
       "links": [
