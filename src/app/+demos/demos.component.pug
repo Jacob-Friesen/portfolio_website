@@ -23,7 +23,7 @@
           .col-md-6.left
             p#demo-description= demo.description
           .col-md-6.right
-            lightbox([image]='"images/' + demo.image + '"')
+            lightbox(id='lightbox-' + index, [image]='"images/' + demo.image + '"')
 
         .links
           strong Links:

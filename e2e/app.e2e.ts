@@ -42,11 +42,22 @@ describe('portfolio-website App', function() {
     });
 
     describe('demos', () => {
-      var FIRST_DEMO_TEXT = 'For my Machine Learning class';
+      var FIRST_DEMO_TEXT = 'For my Machine Learning class',
+          THIRD_DEMO_TEXT = 'In Cryptography in the fall school term';
 
       it('should show the demos page', () => {
         demos.navigateTo();
         expect(demos.summary.getText()).not.toEqual('');
+      });
+
+      it('should show a lightbox for the first items image', function() {
+        demos.openLightboxAt(0);
+        expect(demos.modalImage.isDisplayed()).toBe(true);
+      });
+
+      it('should be able to close that lightbox', function() {
+        demos.closeLightbox();
+        expect(demos.modalImage.isDisplayed()).toBe(false);
       });
 
       it('should start with the first demo as expanded', () => {
@@ -55,7 +66,7 @@ describe('portfolio-website App', function() {
 
       it('should show the 3rd demo when it is expanded', () => {
         demos.toggleDemoAt(2);
-        expect(demos.currentDescription.getText()).toContain('In Cryptography in the fall school term');
+        expect(demos.currentDescription.getText()).toContain(THIRD_DEMO_TEXT);
       });
 
       it('should be able to expand the first demo again', () => {

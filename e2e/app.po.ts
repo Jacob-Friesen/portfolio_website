@@ -47,6 +47,8 @@ export class DemosPage extends Page {
   summary = element(by.id('summary'));
   currentDescription = element(by.id('demo-description'));
   demoHeaders = element.all(by.css('.demo-header'));
+  modalImage = element(by.id('modal-image'));
+  modalClose = element(by.css('.tingle-modal__close'));
 
   menuId = 'demos-menu-item';
 
@@ -57,7 +59,30 @@ export class DemosPage extends Page {
    */
   toggleDemoAt(index) {
     this.demoHeaders.get(index).click();
-    browser.sleep(300); // Wait for it to expand
+    // Wait for it to expand
+    browser.sleep(300);
+  }
+
+  /**
+   * Open the lightbox at the specified index.
+   *
+   * @param {number} index The lightbox to open. Starts at 0.
+   */
+  openLightboxAt(index) {
+    element(by.id('lightbox-' + index)).element(by.tagName('img')).click();
+    // Wait for the animations to complete
+    browser.sleep(300);
+  }
+
+  /**
+   * Close the currently open lightbox.
+   *
+   * @param {number} index The lightbox to open. Starts at 0.
+   */
+  closeLightbox() {
+    this.modalClose.click();
+    // Wait for the animations to complete
+    browser.sleep(300);
   }
 }
 
