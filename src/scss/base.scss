@@ -59,6 +59,9 @@ body {
 }
 
 .image-lightbox {
+  // Some mobile browsers are not fully covered with 100% (possibly browser bugs).
+  height: 101%;
+
   .tingle-modal-box {
     background-color: transparent;
     transform: none;
