@@ -42,8 +42,8 @@ describe('portfolio-website App', function() {
     });
 
     describe('demos', () => {
-      var FIRST_DEMO_TEXT = 'For my Machine Learning class',
-          THIRD_DEMO_TEXT = 'In Cryptography in the fall school term';
+      var FIRST_DEMO_TEXT = 'This application provide a few simple tools and targeted information for Catholics',
+          THIRD_DEMO_TEXT = 'This is the prototype interface I designed for a project at work';
 
       it('should show the demos page', () => {
         demos.navigateTo();

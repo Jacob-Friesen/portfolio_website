@@ -1,6 +1,40 @@
 {
   "demos": [
     {
+      "title": "Jubileo Mobile App",
+      "startDate": "May 2016",
+      "description": "I Worked with another person who provided content, store listing and non technical aspects. This application provide a few simple tools and targeted information for Catholics for the 2016 Jubilee. It is a Hybrid application built in Ionic and has to support file storage, audio playback, audio recording and data persistence.",
+      "image": "jubileo.png",
+      "imageLarge": "jubileo.large.png",
+      "links": [
+        {
+          "name": "Google Play Store",
+          "address": "https://play.google.com/store/apps/details?id=com.jubileo"
+        }
+      ]
+    },
+    {
+      "title": "Vida Sobria Mobile App",
+      "startDate": "October 2015",
+      "description": "I Worked with another person who provided content, store listing and non technical aspects. The application helps individuals manage their sobriety via a few simple tools and targeted information. It is a Hybrid application built in Ionic and has to support file storage, audio playback, audio recording and data persistence.",
+      "image": "vidaSobria.png",
+      "imageLarge": "vidaSobria.large.png",
+      "links": [
+        {
+          "name": "Google Play Store",
+          "address": "https://play.google.com/store/apps/details?id=com.vidasobria"
+        }
+      ]
+    },
+    {
+      "title": "VeriAs Prototype Interface",
+      "startDate": "September 2015",
+      "description": "This is the prototype interface I designed for a project at work. The final product is changing quite a bit including the interface (which I cannot show until it is released). Though this snapshot gives a good idea of my current design abilities. It is a single page website implemented using Angular (1.5) with testing, building and so on implemented using Node.js with Gulp.js.",
+      "image": "prototypeVerias.png",
+      "imageLarge": "prototypeVerias.large.png",
+      "links": []
+    },
+    {
       "title": "The Unsafe Minifier",
       "startDate": "March 2013",
       "description": "For my Machine Learning class in my final school term I worked on an AI based minification scheme intended to compliment normal minification. It parses a series of JavaScript files and finds all function calls, expressions, and declarations. Then the unsafe minifier writes all the data back. Next that data is used to train a set of nueral networks (five by default) which are used to minify files sent into application. I continue to work on this on Github. This project was primarily done in Node.js.",
@@ -8,7 +42,7 @@
       "imageLarge": "unsafe_minifier.large.png",
       "links": [
         {
-          "name": "source",
+          "name": "Github Source",
           "address": "https://github.com/Jacob-Friesen/unsafe_minifier"
         }
       ]
@@ -21,7 +55,7 @@
       "imageLarge": "winnipegjs.large.png",
       "links": [
         {
-          "name": "source",
+          "name": "Github Source",
           "address": "https://github.com/yagudaev/winnipegjs"
         }
       ]

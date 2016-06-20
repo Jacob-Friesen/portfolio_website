@@ -30,3 +30,5 @@
           each link in demo.links
             .link
               a(href=link.address)= link.name
+          if demo.links.length === 0
+            span &nbsp;(None)

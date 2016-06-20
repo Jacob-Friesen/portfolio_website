@@ -71,7 +71,7 @@ export class DemosPage extends Page {
   openLightboxAt(index) {
     element(by.id('lightbox-' + index)).element(by.tagName('img')).click();
     // Wait for the animations to complete
-    browser.sleep(300);
+    browser.sleep(500);
   }
 
   /**
