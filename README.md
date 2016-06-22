@@ -31,8 +31,13 @@ For the various watchers:
 
 Deployment
 ==========
+Build everything into a `dist` production folder:
 
     gulp build
+
+If there is not a custom server, use the Node.js one in dist:
+
+    node dist/customServer.js 5000
 
 Testing
 =======

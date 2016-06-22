@@ -12,6 +12,7 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     Transform = require('stream').Transform,
     tslint = require('gulp-tslint'),
+    UglifyJS = require('uglify-js'),
     uglifycss = require('gulp-uglifycss'),
     useref = require('gulp-useref');
 
@@ -70,10 +71,10 @@ var PRODUCTION = 'dist';
 var minifyFilesStream = function() {
   var minifyFiles = new Transform({objectMode: true});
   minifyFiles._transform = function(file, __, callback) {
-    // var result =  UglifyJS.minify(file.contents.toString(), {
-    //   fromString: true
-    // });
-    // file.contents = new Buffer(result.code);
+    var result =  UglifyJS.minify(file.contents.toString(), {
+      fromString: true
+    });
+    file.contents = new Buffer(result.code);
     callback(null, file);
   };
 
@@ -106,12 +107,11 @@ gulp.task('move-server', () =>
 );
 
 gulp.task('move-tingle', () =>
-  gulp.src('src/app/tingle/tingle.min.js').pipe(gulp.dest(PRODUCTION + '/app/tingle'))
+  gulp.src('src/app/tingle/tingle.min.js').pipe(gulp.dest(PRODUCTION + '/app'))
 );
 
 gulp.task('optimize', () =>
   gulp.src(PRODUCTION + '/index.html')
-      // .pipe(rename('index.min.html'))
       .pipe(useref({}, minifyIndividualFiles))
       .pipe(gulpif('*.css', uglifycss()))// Minify the CSS found with uglifycss (no optimization needed, ~100ms)
       .pipe(gulp.dest(PRODUCTION))
@@ -120,7 +120,8 @@ gulp.task('optimize', () =>
 gulp.task('build', (done) =>
   runSequence(
     'angular-cli-build',
-    ['move-server', 'move-tingle', 'optimize'],
+    'move-tingle',
+    ['move-server', 'optimize'],
     done
   )
 );

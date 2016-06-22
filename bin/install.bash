@@ -24,8 +24,7 @@ cp "${BASIS}node_modules/jacob-friesens-resume/Jacob_Friesen_Resume.pdf" "${DOWN
 cp "${BASIS}node_modules/jacob-friesens-resume/jacob.json" "${JSON_TO}.tmp"
 cp "${BASIS}node_modules/jacob-friesens-resume/resume_body.pug" "${RESUME_BODY_TO}.tmp"
 cp "${BASIS}node_modules/jacob-friesens-resume/style.css" "${RESUME_CSS_TO}"
-echo "Copying ${BASIS}customServer.js ${BASIS}dist/server.js"
-cp "${BASIS}customServer.js" "${BASIS}dist/server.js"
+cp "${BASIS}node_modules/tingle.js/dist/tingle.min.js" "${BASIS}src/app/tingle.min.js"
 
 echo "Resume Extraction..."
 node bin/resumeExtraction.js "${RESUME_BODY_TO}.tmp" "${RESUME_BODY_TO}" "${JSON_TO}.tmp" "${JSON_TO}"
