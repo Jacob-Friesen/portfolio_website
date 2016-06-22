@@ -32,15 +32,7 @@ For the various watchers:
 Deployment
 ==========
 
-To build in a somewhat compressed way (Angular CLI still has a way to go on this):
-
-   ng build -prod
-   # Tingle is not getting properly copied by Angular CLI
-   cp src/app/tingle/tingle.min.js dist/app/tingle/tingle.min.js
-
-Then copy the custom server if there is no external one on a server:
-
-   cp customServer.js dist/server.js
+    gulp build
 
 Testing
 =======

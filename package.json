@@ -53,6 +53,7 @@
     "karma-jasmine": "^0.3.8",
     "protractor": "^3.3.0",
     "replacestream": "4.0.0",
+    "run-sequence": "1.2.1",
     "serve-static": "1.10.3",
     "ts-node": "^0.5.5",
     "tslint": "^3.6.0",

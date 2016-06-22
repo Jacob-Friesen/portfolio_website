@@ -5,8 +5,10 @@ var fs = require('fs');
 var gulp = require('gulp'),
     gulpif = require('gulp-if'),
     data = require('gulp-data'),
+    exec = require('child_process').exec,
     pug = require('gulp-pug'),
     rename = require('gulp-rename'),
+    runSequence = require('run-sequence'),
     sass = require('gulp-sass'),
     Transform = require('stream').Transform,
     tslint = require('gulp-tslint'),
@@ -63,6 +65,8 @@ gulp.task('watch-lint', () => gulp.watch(JS_FILES, ['tslint']) );
 
 // TRIFORCE!! (JS, CSS And HTML Specific)
 
+var PRODUCTION = 'dist';
+
 var minifyFilesStream = function() {
   var minifyFiles = new Transform({objectMode: true});
   minifyFiles._transform = function(file, __, callback) {
@@ -86,10 +90,37 @@ var minifyIndividualFiles = function() {
   return gulpif(fileNeedsMinification, minifyFilesStream());
 };
 
-gulp.task('build', () =>
-  gulp.src('dist/index.html')
+gulp.task('angular-cli-build', function(done) {
+  exec('ng build -prod', function(err, stdout) {
+    if (err) {
+      throw(err);
+    }
+
+    console.log(stdout);
+    done();
+  });
+});
+
+gulp.task('move-server', () =>
+  gulp.src('customServer.js').pipe(gulp.dest(PRODUCTION))
+);
+
+gulp.task('move-tingle', () =>
+  gulp.src('src/app/tingle/tingle.min.js').pipe(gulp.dest(PRODUCTION + '/app/tingle'))
+);
+
+gulp.task('optimize', () =>
+  gulp.src(PRODUCTION + '/index.html')
       // .pipe(rename('index.min.html'))
       .pipe(useref({}, minifyIndividualFiles))
       .pipe(gulpif('*.css', uglifycss()))// Minify the CSS found with uglifycss (no optimization needed, ~100ms)
-      .pipe(gulp.dest('dist'))
+      .pipe(gulp.dest(PRODUCTION))
+);
+
+gulp.task('build', (done) =>
+  runSequence(
+    'angular-cli-build',
+    ['move-server', 'move-tingle', 'optimize'],
+    done
+  )
 );
