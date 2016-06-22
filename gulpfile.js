@@ -2,12 +2,16 @@
 
 var fs = require('fs');
 
-var gulp = require('gulp');
-var data = require('gulp-data');
-var pug = require('gulp-pug');
-var rename = require('gulp-rename');
-var sass = require('gulp-sass');
-var tslint = require('gulp-tslint');
+var gulp = require('gulp'),
+    gulpif = require('gulp-if'),
+    data = require('gulp-data'),
+    pug = require('gulp-pug'),
+    rename = require('gulp-rename'),
+    sass = require('gulp-sass'),
+    Transform = require('stream').Transform,
+    tslint = require('gulp-tslint'),
+    uglifycss = require('gulp-uglifycss'),
+    useref = require('gulp-useref');
 
 // CSS Specific
 
@@ -58,3 +62,34 @@ gulp.task('tslint', () =>
 gulp.task('watch-lint', () => gulp.watch(JS_FILES, ['tslint']) );
 
 // TRIFORCE!! (JS, CSS And HTML Specific)
+
+var minifyFilesStream = function() {
+  var minifyFiles = new Transform({objectMode: true});
+  minifyFiles._transform = function(file, __, callback) {
+    // var result =  UglifyJS.minify(file.contents.toString(), {
+    //   fromString: true
+    // });
+    // file.contents = new Buffer(result.code);
+    callback(null, file);
+  };
+
+  return minifyFiles;
+};
+
+var fileNeedsMinification = function(file) {
+  return file.path.indexOf('.js') > -1 && file.path.indexOf('.min') < 0;
+  // console.log('file', file.path)
+  // return false;// Used for development until I develop a faster way to minify
+};
+
+var minifyIndividualFiles = function() {
+  return gulpif(fileNeedsMinification, minifyFilesStream());
+};
+
+gulp.task('build', () =>
+  gulp.src('dist/index.html')
+      // .pipe(rename('index.min.html'))
+      .pipe(useref({}, minifyIndividualFiles))
+      .pipe(gulpif('*.css', uglifycss()))// Minify the CSS found with uglifycss (no optimization needed, ~100ms)
+      .pipe(gulp.dest('dist'))
+);
