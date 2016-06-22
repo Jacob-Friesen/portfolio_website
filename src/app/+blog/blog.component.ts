@@ -6,7 +6,6 @@ import * as _ from 'lodash';
   moduleId: module.id,
   selector: 'app-blog',
   templateUrl: 'blog.component.html',
-  styleUrls: ['blog.component.css'],
   providers: [BlogRemoteService]
 })
 export class BlogComponent implements OnInit {

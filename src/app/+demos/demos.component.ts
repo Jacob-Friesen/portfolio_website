@@ -6,7 +6,6 @@ import { LightboxComponent } from '../lightbox';
   moduleId: module.id,
   selector: 'app-demos',
   templateUrl: 'demos.component.html',
-  styleUrls: ['demos.component.css'],
   directives: [LightboxComponent],
   providers: [CollapseManagerService]
 })

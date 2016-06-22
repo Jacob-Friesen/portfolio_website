@@ -12,7 +12,6 @@ import { ResumeComponent } from './+resume';
   moduleId: module.id,
   selector: 'portfolio-website-app',
   templateUrl: 'portfolio-website.component.html',
-  styleUrls: ['portfolio-website.component.css'],
   directives: [ROUTER_DIRECTIVES, MenuComponent],
   providers: [ROUTER_PROVIDERS]
 })

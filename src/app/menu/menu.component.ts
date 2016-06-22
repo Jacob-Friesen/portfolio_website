@@ -5,7 +5,6 @@ import { ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Router } from '@angular/router';
   moduleId: module.id,
   selector: 'app-menu',
   templateUrl: 'menu.component.html',
-  styleUrls: ['menu.component.css'],
   directives: [ROUTER_DIRECTIVES],
   providers: [ROUTER_PROVIDERS]
 })

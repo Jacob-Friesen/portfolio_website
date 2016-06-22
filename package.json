@@ -38,10 +38,13 @@
     "ember-cli-inject-live-reload": "^1.4.0",
     "gulp": "3.9.1",
     "gulp-data": "1.2.1",
+    "gulp-if": "2.0.1",
     "gulp-pug": "3.0.3",
     "gulp-rename": "1.2.2",
     "gulp-sass": "2.3.1",
     "gulp-tslint": "5.0.0",
+    "gulp-uglifycss": "1.0.6",
+    "gulp-useref": "3.1.0",
     "jacob-friesens-resume": "1.1.1",
     "jasmine-core": "^2.4.1",
     "jasmine-spec-reporter": "^2.4.0",
@@ -50,10 +53,12 @@
     "karma-jasmine": "^0.3.8",
     "protractor": "^3.3.0",
     "replacestream": "4.0.0",
+    "run-sequence": "1.2.1",
     "serve-static": "1.10.3",
     "ts-node": "^0.5.5",
     "tslint": "^3.6.0",
     "typescript": "^1.8.10",
-    "typings": "^0.8.1"
+    "typings": "^0.8.1",
+    "uglify-js": "2.6.3"
   }
 }
