@@ -4,8 +4,7 @@ import { Component } from '@angular/core';
   moduleId: module.id,
   selector: 'lightbox',
   inputs: ['image'],
-  templateUrl: 'lightbox.component.html',
-  styleUrls: ['lightbox.component.css']
+  templateUrl: 'lightbox.component.html'
 })
 export class LightboxComponent {
 
