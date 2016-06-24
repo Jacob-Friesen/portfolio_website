@@ -1,12 +1,12 @@
-.page.demos
+.page.demos.cards
   p#summary.summary
     span These are projects I have built across the years. More examples are on my 
     a(href=links.github.address)= links.github.name
     span . Finally, due to the legal or practical nature of some of these demos, not all components of them are downloadable/viewable.
 
   each demo, index in demos
-    .demo([class.expanded]=index + ' === collapseManager.openIndex')
-      .demo-header((click)='collapseManager.toggle('+index+')')
+    .card([class.expanded]=index + ' === collapseManager.openIndex')
+      .card-header((click)='collapseManager.toggle('+index+')')
         button.expander
           i.fa.fa-chevron-up(*ngIf=index + ' === collapseManager.openIndex')
           i.fa.fa-chevron-down(*ngIf=index + ' !== collapseManager.openIndex')
@@ -18,7 +18,7 @@
               span &nbsp;-&nbsp;
               span= demo.endDate
 
-      .demo-body(*ngIf=index + ' === collapseManager.openIndex')
+      .card-body(*ngIf=index + ' === collapseManager.openIndex')
         .row
           .col-md-6.left
             p#demo-description= demo.description
