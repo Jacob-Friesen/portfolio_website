@@ -6,7 +6,11 @@
           i.fa.fa-chevron-up(*ngIf=index + ' === collapseManager.openIndex')
           i.fa.fa-chevron-down(*ngIf=index + ' !== collapseManager.openIndex')
         h3.title
-          a.employer(href=links[experience.link].address)= links[experience.link].name
+          a.employer(
+            href=links[experience.link].address,
+            (click)='$event.stopPropagation()',
+            target='_blank'
+          )= links[experience.link].name
           span= ' ' + experience.shortTitle
           span.dates
             span.date= experience.startDate
