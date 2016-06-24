@@ -31,9 +31,29 @@ describe('portfolio-website App', function() {
       expect(home.profileImage.isDisplayed()).toEqual(true);
     });
 
-    it('should show the experience page', () => {
-      experience.navigateTo();
-      expect(experience.title.getText()).toEqual('experience works!');
+    describe('experience', function() {
+      var FIRST_EXPERIENCE_TEXT = 'I design and develop interfaces across multiple products (including architecture).',
+          THIRD_EXPERIENCE_TEXT = 'Added a new Inventory Location Management system';
+
+      it('should start with the first experience as expanded', () => {
+        experience.navigateTo();
+        expect(experience.currentDescription.getText()).toContain(FIRST_EXPERIENCE_TEXT);
+      });
+
+      it('should show the 3rd experience when it is expanded', () => {
+        experience.toggleCardAt(2);
+        expect(experience.currentDescription.getText()).toContain(THIRD_EXPERIENCE_TEXT);
+      });
+
+      it('should be able to expand the first experience again', () => {
+        experience.toggleCardAt(0);
+        expect(experience.currentDescription.getText()).toContain(FIRST_EXPERIENCE_TEXT);
+      });
+
+      it('should be able to collapse the first experience when it is clicked on again', () => {
+        experience.toggleCardAt(0);
+        expect(experience.currentDescription.isPresent()).toBe(false);
+      });
     });
 
     it('should show the skills page', () => {
@@ -65,17 +85,17 @@ describe('portfolio-website App', function() {
       });
 
       it('should show the 3rd demo when it is expanded', () => {
-        demos.toggleDemoAt(2);
+        demos.toggleCardAt(2);
         expect(demos.currentDescription.getText()).toContain(THIRD_DEMO_TEXT);
       });
 
       it('should be able to expand the first demo again', () => {
-        demos.toggleDemoAt(0);
+        demos.toggleCardAt(0);
         expect(demos.currentDescription.getText()).toContain(FIRST_DEMO_TEXT);
       });
 
       it('should be able to collapse the first demo when it is clicked on again', () => {
-        demos.toggleDemoAt(0);
+        demos.toggleCardAt(0);
         expect(demos.currentDescription.isPresent()).toBe(false);
       });
     });
