@@ -45,6 +45,14 @@ body {
   .like-link:hover {
     color: #000099; }
 
+.picture {
+  animation: 0.45s ease-in 0s opacity-fadein;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  height: 100%; }
+
 .image-lightbox {
   height: 101%; }
   .image-lightbox .tingle-modal-box {

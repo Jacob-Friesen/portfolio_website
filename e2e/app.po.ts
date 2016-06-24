@@ -35,7 +35,26 @@ export class HomePage extends Page {
   profileImage = element(by.id('profile-image'));
 }
 
-export class ExperiencePage extends Page {
+export class CollapsiblePage extends Page {
+  currentDescription = element(by.id('card-description'));
+  headers = element.all(by.css('.card-header'));
+  modalImage = element(by.id('modal-image'));
+  modalClose = element(by.css('.tingle-modal__close'));
+
+  /**
+   * Open the card at the specified index.
+   *
+   * @param {number} index The card to open. Starts at 0.
+   */
+  toggleCardAt(index) {
+    this.headers.get(index).click();
+    // Wait for it to expand
+    browser.sleep(300);
+  }
+}
+
+export class ExperiencePage extends CollapsiblePage {
+  currentDescription = element(by.id('experience-description'));
   menuId = 'experience-menu-item';
 }
 
@@ -43,25 +62,10 @@ export class SkillsPage extends Page {
   menuId = 'skills-menu-item';
 }
 
-export class DemosPage extends Page {
+export class DemosPage extends CollapsiblePage {
   summary = element(by.id('summary'));
   currentDescription = element(by.id('demo-description'));
-  demoHeaders = element.all(by.css('.demo-header'));
-  modalImage = element(by.id('modal-image'));
-  modalClose = element(by.css('.tingle-modal__close'));
-
   menuId = 'demos-menu-item';
-
-  /**
-   * Open the demo at the specified index.
-   *
-   * @param {number} index The demo to open. Starts at 0.
-   */
-  toggleDemoAt(index) {
-    this.demoHeaders.get(index).click();
-    // Wait for it to expand
-    browser.sleep(300);
-  }
 
   /**
    * Open the lightbox at the specified index.

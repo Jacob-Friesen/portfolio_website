@@ -1,0 +1,46 @@
+.experiences {
+  $experience-margin: 20px;
+  padding-top: 80px;
+
+  .card hr.separator {
+    background-color: #ccc;
+  }
+
+  .card-body {
+    padding: 0 $experience-margin $experience-margin $experience-margin;
+
+    .description {
+      margin: $experience-margin 0 15px 0;
+    }
+
+    .points {
+      padding-left: $experience-margin;
+
+      .point {
+        padding: 0 0 7px 5px;
+      }
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .experiences {
+    padding-top: 60px;
+
+    .employer {
+      display: table-cell;
+    }
+
+    .separator {
+      display: none;
+    }
+
+    .card {
+      max-height: 80px;
+
+      .card-body {
+        padding: 0;
+      }
+    }
+  }
+}
