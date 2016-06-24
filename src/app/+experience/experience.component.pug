@@ -6,8 +6,8 @@
           i.fa.fa-chevron-up(*ngIf=index + ' === collapseManager.openIndex')
           i.fa.fa-chevron-down(*ngIf=index + ' !== collapseManager.openIndex')
         h3.title
-          a(href=links[experience.link].address)= links[experience.link].name
-          span= ' ' + experience.title
+          a.employer(href=links[experience.link].address)= links[experience.link].name
+          span= ' ' + experience.shortTitle
           span.dates
             span.date= experience.startDate
             if experience.endDate
@@ -15,7 +15,7 @@
               span= experience.endDate
       .card-body(*ngIf=index + ' === collapseManager.openIndex')
         hr.separator
-        
+
         p.description#experience-description= experience.description
 
         ul.points

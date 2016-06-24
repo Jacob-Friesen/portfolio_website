@@ -22,3 +22,25 @@
     }
   }
 }
+
+@media (max-width: 650px) {
+  .experiences {
+    padding-top: 60px;
+
+    .employer {
+      display: block;
+    }
+
+    .separator {
+      display: none;
+    }
+
+    .card {
+      max-height: 80px;
+
+      .card-body {
+        padding: 0;
+      }
+    }
+  }
+}
