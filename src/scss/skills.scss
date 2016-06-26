@@ -1,0 +1,76 @@
+.skills {
+  .card-body {
+    padding: 0 20px 5px 20px;
+  }
+
+  .card.expanded {
+    // The card contents can never exceed this height otherwise the animation will stop expanding at a certian point.
+    max-height: 800px;
+  }
+
+  .skillset {
+    $skillset-margin: 10px;
+
+    .card {
+      border: none;
+      box-shadow: none;
+      margin-bottom: $skillset-margin;
+
+      .card-header {
+        padding-top: $skillset-margin;
+        padding-bottom: $skillset-margin;
+
+        .expander {
+          top: auto;
+        }
+      }
+
+      .summary {
+        margin-bottom: 0;
+      }
+
+      .points {
+        margin-top: $skillset-margin + 5;
+      }
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .skills.cards {
+    padding-top: 50px;
+    padding-bottom: 0;
+
+    .card.expanded {
+      // The card contents can never exceed this height otherwise the animation will stop expanding at a certian point.
+      max-height: 1500px;
+    }
+
+    .card-header,
+    .card-body {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .skillset {
+      .card-header {
+        padding-top: 0;
+        border-bottom: none;
+      }
+
+      separator {
+        display: none;
+      }
+
+      .card-body,
+      .card.expanded .card-body {
+        padding: 0;
+        border-bottom: none;
+      }
+
+      .points .title-detail {
+        display: block;
+      }
+    }
+  }
+}

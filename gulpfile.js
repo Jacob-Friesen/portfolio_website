@@ -33,7 +33,7 @@ gulp.task('watch-css', () => gulp.watch(CSS_TEMPLATES, ['scss']) );
 var HTML_TEMPLATES = 'src/app/**/*.pug';
 
 gulp.task('pug', () =>
-   gulp.src('src/app/**/*.pug')
+   gulp.src(HTML_TEMPLATES)
     .pipe(data(function(file) {
       return JSON.parse(fs.readFileSync('./src/jacob.json'));
     }))

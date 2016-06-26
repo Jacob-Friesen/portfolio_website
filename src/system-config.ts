@@ -38,6 +38,7 @@ const barrels: string[] = [
   'app/+resume',
   'app/menu',
   'app/lightbox',
+  'app/+skills/skillset',
   /** @cli-barrel */
 ];
 

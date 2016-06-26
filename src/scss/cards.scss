@@ -1,11 +1,10 @@
+$side-margin: 20px;
+$card-border: 1px solid #ddd;
 .cards {
-  $card-border: 1px solid #ddd;
   padding-left: 25px;
   padding-right: 25px;
 
   .card {
-    $side-margin: 20px;
-
     border: $card-border;
     border-radius: 6px;
     box-shadow: 0 0 5px #ddd;
@@ -15,6 +14,11 @@
     // This was a pretty ingenious solution: http://stackoverflow.com/a/8331169
     max-height: 70px;
     overflow: hidden;
+
+    .dates,
+    .title-detail {
+      color: #999;
+    }
 
     .card-header {
       cursor: pointer;
@@ -26,9 +30,6 @@
         margin: 0 0 0 30px;
       }
 
-      .dates {
-        color: #999;
-      }
       .date {
         padding-left: 5px;
       }
@@ -43,6 +44,16 @@
         position: absolute;
         top: $side-margin;
         left: ($side-margin - 5);
+      }
+    }
+
+    .card-body {
+      .points {
+        padding-left: $side-margin;
+
+        .point {
+          padding: 0 0 7px 5px;
+        }
       }
     }
 
@@ -96,12 +107,24 @@
   }
 }
 
+.cards.no-popout {
+  padding-top: 60px;
+  padding-left: 0;
+  padding-right: 0;
+
+  .card {
+    border: none;
+    box-shadow: none;
+    margin-bottom: 0;
+  }
+}
+
 // tablet
 @media (max-width: 1023px) and (min-width: 765px) {
   .cards {
     .card {
       .picture {
-        margin-top: 20px;
+        margin-top: $side-margin;
         height: 320px;
       }
 
@@ -119,6 +142,8 @@
 @media (max-width: 650px) {
   .cards {
     padding-top: 55px;
+    padding-left: 20px;
+    padding-right: 20px;
 
     .summary {
       margin-bottom: 0;
@@ -139,7 +164,8 @@
           left: 0;
         }
 
-        .dates {
+        .dates,
+        .title-detail {
           display: block;
         }
         .date {
@@ -169,6 +195,39 @@
       &.expanded {
         max-height: 800px;
       }
+    }
+
+    .card:last-child .card-header {
+      border-bottom: none;
+    }
+    .card.expanded:last-child .card-header {
+      border-bottom: 1px solid #ccc;
+    }
+  }
+
+  .cards.no-popout {
+    padding-left: $side-margin;
+    padding-right: $side-margin;
+
+    .card-header {
+      padding-top: $side-margin;
+      padding-bottom: $side-margin;
+
+      .expander {
+        top: auto;
+      }
+    }
+
+    .card:last-child .card-header {
+      border-bottom: none;
+    }
+
+    .card-body {
+      padding-top: 15px;
+    }
+
+    .card.expanded .card-body {
+      border-bottom: $card-border;
     }
   }
 }
