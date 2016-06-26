@@ -18,6 +18,7 @@
 @media (max-width: 650px) {
   .experiences {
     padding-top: 60px;
+    padding-bottom: 0;
 
     .employer {
       display: table-cell;
@@ -28,11 +29,21 @@
     }
 
     .card {
-      max-height: 80px;
+      margin-bottom: 0;
+      max-height: 110px;
+      padding-bottom: 21px;
+
+      .card-header {
+        padding-bottom: 20px;
+      }
 
       .card-body {
         padding: 0;
       }
+    }
+
+    .card.expanded {
+      padding-bottom: 10px;
     }
   }
 }

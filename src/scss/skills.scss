@@ -35,3 +35,42 @@
     }
   }
 }
+
+@media (max-width: 650px) {
+  .skills.cards {
+    padding-top: 50px;
+    padding-bottom: 0;
+
+    .card.expanded {
+      // The card contents can never exceed this height otherwise the animation will stop expanding at a certian point.
+      max-height: 1500px;
+    }
+
+    .card-header,
+    .card-body {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .skillset {
+      .card-header {
+        padding-top: 0;
+        border-bottom: none;
+      }
+
+      separator {
+        display: none;
+      }
+
+      .card-body,
+      .card.expanded .card-body {
+        padding: 0;
+        border-bottom: none;
+      }
+
+      .points .title-detail {
+        display: block;
+      }
+    }
+  }
+}

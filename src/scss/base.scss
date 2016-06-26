@@ -207,6 +207,10 @@ body {
 // Small screens
 
 @media (max-width: 849px) {
+  body {
+    background-color: white;
+  }
+
   .col-md-6,
   .col-md-12 {
     display: block;
@@ -215,11 +219,9 @@ body {
 
   .page-wrapper {
     border-radius: 0;
+    border: none;
+    box-shadow: none;
     margin-bottom: 0;
     width: 100%;
-  }
-
-  .page {
-    padding-top: 60px;
   }
 }

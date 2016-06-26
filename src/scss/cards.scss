@@ -1,11 +1,10 @@
+$side-margin: 20px;
+$card-border: 1px solid #ddd;
 .cards {
-  $card-border: 1px solid #ddd;
   padding-left: 25px;
   padding-right: 25px;
 
   .card {
-    $side-margin: 20px;
-
     border: $card-border;
     border-radius: 6px;
     box-shadow: 0 0 5px #ddd;
@@ -125,7 +124,7 @@
   .cards {
     .card {
       .picture {
-        margin-top: 20px;
+        margin-top: $side-margin;
         height: 320px;
       }
 
@@ -143,6 +142,8 @@
 @media (max-width: 650px) {
   .cards {
     padding-top: 55px;
+    padding-left: 20px;
+    padding-right: 20px;
 
     .summary {
       margin-bottom: 0;
@@ -194,6 +195,39 @@
       &.expanded {
         max-height: 800px;
       }
+    }
+
+    .card:last-child .card-header {
+      border-bottom: none;
+    }
+    .card.expanded:last-child .card-header {
+      border-bottom: 1px solid #ccc;
+    }
+  }
+
+  .cards.no-popout {
+    padding-left: $side-margin;
+    padding-right: $side-margin;
+
+    .card-header {
+      padding-top: $side-margin;
+      padding-bottom: $side-margin;
+
+      .expander {
+        top: auto;
+      }
+    }
+
+    .card:last-child .card-header {
+      border-bottom: none;
+    }
+
+    .card-body {
+      padding-top: 15px;
+    }
+
+    .card.expanded .card-body {
+      border-bottom: $card-border;
     }
   }
 }

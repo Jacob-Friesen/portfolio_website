@@ -151,13 +151,15 @@ body {
     opacity: 1; } }
 
 @media (max-width: 849px) {
+  body {
+    background-color: white; }
   .col-md-6,
   .col-md-12 {
     display: block;
     width: 100%; }
   .page-wrapper {
     border-radius: 0;
+    border: none;
+    box-shadow: none;
     margin-bottom: 0;
-    width: 100%; }
-  .page {
-    padding-top: 60px; } }
+    width: 100%; } }

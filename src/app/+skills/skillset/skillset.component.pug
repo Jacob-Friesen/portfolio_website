@@ -5,14 +5,14 @@
         i.fa.fa-chevron-up(*ngIf='index === collapseManager.openIndex')
         i.fa.fa-chevron-down(*ngIf='index !== collapseManager.openIndex')
       h4.title
-        span {{ skill.name }}
-        span.title-detail &nbsp;{{ skill.level }} ({{ skill.time.join('') }} years)
+        span {{ skill.name }}&nbsp;
+        span.title-detail {{ skill.level }} ({{ skill.time.join('') }} years)
     .card-body(*ngIf='index === collapseManager.openIndex')
       hr.separator
       p.summary {{ skill.summary || 'A fake summary here.' }}
 
       ul.points(*ngIf='skill.subSkills')
         li.point(*ngFor='let subSkill of skill.subSkills')
-          span {{ subSkill.name }}
-          span.title-detail &nbsp;{{ subSkill.level }} ({{ subSkill.time.join('') }} years)
+          span {{ subSkill.name }}&nbsp;
+          span.title-detail {{ subSkill.level }} ({{ subSkill.time.join('') }} years)
         
