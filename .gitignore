@@ -34,6 +34,7 @@ Thumbs.db
 *.min.js
 *.js.gz
 *.tmp
+*.zip
 *component.html
 src/css
 src/jacob.json
