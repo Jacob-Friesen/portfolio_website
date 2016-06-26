@@ -1,7 +1,7 @@
 Portfolio Website
 =================
 
-A new simpler rewrite of the portfolio website. This is in development and can be viewed at [jacobfriesen.com:4200](http://jacobfriesen.com:4200). Finally, it is not supported by a proper server, so it only reloads to that exact address.
+A new simpler rewrite of the portfolio website. This is in development and can be viewed at [jacobfriesen.com:4200](http://jacobfriesen.com:4200). The site should be **run using Node.js 4.2.x**, but will probably work fine with other versions.
 
 Install
 =======
@@ -35,7 +35,11 @@ Build everything into a `dist` production folder:
 
     gulp build
 
-If there is not a custom server, use the Node.js one in dist:
+Use express 4 to run the site:
+
+    node app.js 5000
+
+If the Express server fails or cannot run a basic pure Node.js backup server can also be run in dist:
 
     node dist/customServer.js 5000
 
