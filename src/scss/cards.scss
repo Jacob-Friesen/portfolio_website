@@ -16,6 +16,11 @@
     max-height: 70px;
     overflow: hidden;
 
+    .dates,
+    .title-detail {
+      color: #999;
+    }
+
     .card-header {
       cursor: pointer;
       padding: $side-margin $side-margin $side-margin ($side-margin - 5);
@@ -26,9 +31,6 @@
         margin: 0 0 0 30px;
       }
 
-      .dates {
-        color: #999;
-      }
       .date {
         padding-left: 5px;
       }
@@ -43,6 +45,16 @@
         position: absolute;
         top: $side-margin;
         left: ($side-margin - 5);
+      }
+    }
+
+    .card-body {
+      .points {
+        padding-left: $side-margin;
+
+        .point {
+          padding: 0 0 7px 5px;
+        }
       }
     }
 
@@ -96,6 +108,18 @@
   }
 }
 
+.cards.no-popout {
+  padding-top: 60px;
+  padding-left: 0;
+  padding-right: 0;
+
+  .card {
+    border: none;
+    box-shadow: none;
+    margin-bottom: 0;
+  }
+}
+
 // tablet
 @media (max-width: 1023px) and (min-width: 765px) {
   .cards {
@@ -139,7 +163,8 @@
           left: 0;
         }
 
-        .dates {
+        .dates,
+        .title-detail {
           display: block;
         }
         .date {

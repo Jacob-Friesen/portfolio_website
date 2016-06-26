@@ -1,4 +1,4 @@
-.page.skills.cards
+.page.skills.cards.no-popout
   each skillsetData, index in skills.sections
     .card([class.expanded]=index + ' === collapseManager.openIndex')
       .card-header((click)='collapseManager.toggle('+index+')')
@@ -8,6 +8,4 @@
         h3.title
           span= ' ' + skillsetData.title
       .card-body(*ngIf=index + ' === collapseManager.openIndex')
-        hr.separator
-
         skillset([data]=skillsetData.skills)
