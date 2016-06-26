@@ -1,6 +1,0 @@
-#!/bin/bash
-
-echo "Cleaning shared javascript..."
-find . -name '*.min.js' ! -name "jquery.min.js"  ! -name "underscore.min.js" ! -name "jquery.history.min.js" ! -name "angular.min.js" -delete
-find . -name '*.min.js.gz' -delete
-find . -name '*.min.min.js' ! -name "jquery.min.js" -delete

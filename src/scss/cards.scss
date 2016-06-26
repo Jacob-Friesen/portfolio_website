@@ -1,0 +1,233 @@
+$side-margin: 20px;
+$card-border: 1px solid #ddd;
+.cards {
+  padding-left: 25px;
+  padding-right: 25px;
+
+  .card {
+    border: $card-border;
+    border-radius: 6px;
+    box-shadow: 0 0 5px #ddd;
+    margin-bottom: $side-margin;
+
+    // Make it expand and collapse gradually (See .expanded too). Generalize this later for other sections.
+    // This was a pretty ingenious solution: http://stackoverflow.com/a/8331169
+    max-height: 70px;
+    overflow: hidden;
+
+    .dates,
+    .title-detail {
+      color: #999;
+    }
+
+    .card-header {
+      cursor: pointer;
+      padding: $side-margin $side-margin $side-margin ($side-margin - 5);
+      position: relative;
+      margin: 0;
+
+      .title {
+        margin: 0 0 0 30px;
+      }
+
+      .date {
+        padding-left: 5px;
+      }
+
+      .expander {
+        background-color: transparent;
+        cursor: pointer;
+        border: none;
+        font-size: 14px;
+        outline-width: 0;
+
+        position: absolute;
+        top: $side-margin;
+        left: ($side-margin - 5);
+      }
+    }
+
+    .card-body {
+      .points {
+        padding-left: $side-margin;
+
+        .point {
+          padding: 0 0 7px 5px;
+        }
+      }
+    }
+
+    .row {
+      padding-bottom: $side-margin;
+
+      .left,
+      .right {
+        padding-top: 0;
+        vertical-align: top;
+
+        p {
+          margin: 0;
+        }
+      }
+      
+      .left {
+        padding-left: $side-margin;
+      }
+
+      .right {
+        height: 180px;
+        padding-right: $side-margin;
+      }
+    }
+
+    hr {
+      margin: 0;
+    }
+
+    .links {
+      background-color: #eee;
+      border-top: 1px solid #ddd;
+      padding: $side-margin;
+
+      .link {
+        display: inline-block;
+        padding-left: 5px;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 10px;
+    }
+
+    &.expanded {
+      // The card contents can never exceed this height otherwise the animation will stop expanding at a certian point.
+      max-height: 600px;
+      transition: max-height 0.3s ease-in;
+    }
+  }
+}
+
+.cards.no-popout {
+  padding-top: 60px;
+  padding-left: 0;
+  padding-right: 0;
+
+  .card {
+    border: none;
+    box-shadow: none;
+    margin-bottom: 0;
+  }
+}
+
+// tablet
+@media (max-width: 1023px) and (min-width: 765px) {
+  .cards {
+    .card {
+      .picture {
+        margin-top: $side-margin;
+        height: 320px;
+      }
+
+      .row .right {
+        height: auto;
+      }
+
+      &.expanded {
+        max-height: 1000px;
+      }
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .cards {
+    padding-top: 55px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    .summary {
+      margin-bottom: 0;
+    }
+
+    .card {
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      margin-bottom: 0;
+
+      .card-header {
+        border-bottom: 1px solid #ccc;
+        padding: 10px 0 10px 0;
+
+        .expander {
+          top: 10px;
+          left: 0;
+        }
+
+        .dates,
+        .title-detail {
+          display: block;
+        }
+        .date {
+          padding-left: 0;
+        }
+      }
+
+      .card-body {
+        padding-top: 15px;
+
+        .left,
+        .right {
+          padding: 0;
+        }
+
+        .right {
+          margin-top: 15px;
+        }
+      }
+
+      .links {
+        background-color: transparent;
+        border: none;
+        padding: 0 0 10px 0;
+      }
+
+      &.expanded {
+        max-height: 800px;
+      }
+    }
+
+    .card:last-child .card-header {
+      border-bottom: none;
+    }
+    .card.expanded:last-child .card-header {
+      border-bottom: 1px solid #ccc;
+    }
+  }
+
+  .cards.no-popout {
+    padding-left: $side-margin;
+    padding-right: $side-margin;
+
+    .card-header {
+      padding-top: $side-margin;
+      padding-bottom: $side-margin;
+
+      .expander {
+        top: auto;
+      }
+    }
+
+    .card:last-child .card-header {
+      border-bottom: none;
+    }
+
+    .card-body {
+      padding-top: 15px;
+    }
+
+    .card.expanded .card-body {
+      border-bottom: $card-border;
+    }
+  }
+}

@@ -1,4 +1,0 @@
-#!/bin/bash
-echo "Cleaning constants.js..."
-rm -f constants.min.js
-rm -f constants.min.js.gz
