@@ -8,8 +8,7 @@
     div(*ngIf='menuOpen')
       li.menu-item(*ngFor='let item of items')
         a(
-          class='menu-link \
-                {{ item.id }} \
+          class='menu-link menu-item \
                 {{ isMobile ? "mobile-menu-link" : "" }} \
                 {{ (getHash() === "" || getHash() === "/") ? "router-link-active2" : "" }}',
           [id]='item.id',
