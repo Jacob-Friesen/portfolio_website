@@ -1,2 +1,13 @@
-.page
-  p#title skills works!
+.page.skills.cards
+  each skillsetData, index in skills.sections
+    .card([class.expanded]=index + ' === collapseManager.openIndex')
+      .card-header((click)='collapseManager.toggle('+index+')')
+        button.expander
+          i.fa.fa-chevron-up(*ngIf=index + ' === collapseManager.openIndex')
+          i.fa.fa-chevron-down(*ngIf=index + ' !== collapseManager.openIndex')
+        h3.title
+          span= ' ' + skillsetData.title
+      .card-body(*ngIf=index + ' === collapseManager.openIndex')
+        hr.separator
+
+        skillset([data]=skillsetData.skills)

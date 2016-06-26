@@ -9,7 +9,7 @@ export class CollapseManagerService {
     this.openIndex = 0;
   }
 
-  toggle(index) {
+  toggle(index: number) {
     if (index === this.openIndex) {
       this.openIndex = -1;
     } else {

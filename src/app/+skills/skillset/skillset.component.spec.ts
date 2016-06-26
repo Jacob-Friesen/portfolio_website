@@ -9,26 +9,26 @@ import {
 import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { SkillsComponent } from './skills.component';
-import { CollapseManagerService } from '../collapse-manager.service';
+import { SkillsetComponent } from './skillset.component';
+import { CollapseManagerService } from '../../collapse-manager.service';
 
-describe('Component: Skills', () => {
+describe('Component: Skillset', () => {
   let builder: TestComponentBuilder;
 
-  beforeEachProviders(() => [CollapseManagerService, SkillsComponent]);
+  beforeEachProviders(() => [CollapseManagerService, SkillsetComponent]);
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
     builder = tcb;
   }));
 
-  it('should inject the component', inject([SkillsComponent],
-      (component: SkillsComponent) => {
+  it('should inject the component', inject([SkillsetComponent],
+      (component: SkillsetComponent) => {
     expect(component).toBeTruthy();
   }));
 
   it('should create the component', inject([], () => {
-    return builder.createAsync(SkillsComponentTestController)
+    return builder.createAsync(SkillsetComponentTestController)
       .then((fixture: ComponentFixture<any>) => {
-        let query = fixture.debugElement.query(By.directive(SkillsComponent));
+        let query = fixture.debugElement.query(By.directive(SkillsetComponent));
         expect(query).toBeTruthy();
         expect(query.componentInstance).toBeTruthy();
       });
@@ -38,10 +38,10 @@ describe('Component: Skills', () => {
 @Component({
   selector: 'test',
   template: `
-    <app-skills></app-skills>
+    <skillset></skillset>
   `,
-  directives: [SkillsComponent]
+  directives: [SkillsetComponent]
 })
-class SkillsComponentTestController {
+class SkillsetComponentTestController {
 }
 
