@@ -1,7 +1,7 @@
 .page.skills.cards.no-popout
   each skillsetData, index in skills.sections
     .card([class.expanded]=index + ' === collapseManager.openIndex')
-      .card-header((click)='collapseManager.toggle('+index+')')
+      .card-header.skillset-header((click)='collapseManager.toggle('+index+')')
         button.expander
           i.fa.fa-chevron-up(*ngIf=index + ' === collapseManager.openIndex')
           i.fa.fa-chevron-down(*ngIf=index + ' !== collapseManager.openIndex')

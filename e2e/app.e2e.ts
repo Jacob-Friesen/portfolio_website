@@ -56,9 +56,36 @@ describe('portfolio-website App', function() {
       });
     });
 
-    it('should show the skills page', () => {
-      skills.navigateTo();
-      expect(skills.title.getText()).toEqual('skills works!');
+    describe('skills', function() {
+      var SKILL_0_0 = 'I have used JavaScript in client side (browser)',
+          SKILL_0_3 = 'I have created many types of layouts ranging from complex',
+          SKILL_3_0 = 'Most of my work experiences involved a Linux environment';
+
+      it('should start with the 1st skill of the first skillset as expanded', () => {
+        skills.navigateTo();
+        expect(skills.currentDescription.getText()).toContain(SKILL_0_0);
+      });
+
+      it('should be able to expand the 3rd skill of the first skillset', () => {
+        skills.navigateTo();
+        skills.toggleSubSkillAt(2);
+        expect(skills.currentDescription.getText()).toContain(SKILL_0_3);
+      });
+
+      it('should show 1st skill of the the 3rd skills when it is expanded', () => {
+        skills.toggleCardAt(2);
+        expect(skills.currentDescription.getText()).toContain(SKILL_3_0);
+      });
+
+      it('should be able to expand to the first skill of the first skillset again', () => {
+        skills.toggleCardAt(0);
+        expect(skills.currentDescription.getText()).toContain(SKILL_0_0);
+      });
+
+      it('should be able to collapse the first skillset when it is clicked on again', () => {
+        skills.toggleCardAt(0);
+        expect(skills.currentDescription.isPresent()).toBe(false);
+      });
     });
 
     describe('demos', () => {

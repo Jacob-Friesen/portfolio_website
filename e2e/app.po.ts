@@ -58,8 +58,22 @@ export class ExperiencePage extends CollapsiblePage {
   menuId = 'experience-menu-item';
 }
 
-export class SkillsPage extends Page {
+export class SkillsPage extends CollapsiblePage {
+  currentDescription = element(by.id('skill-summary'));
+  headers = element.all(by.css('.skillset-header'));
+  subHeaders = element.all(by.css('.skill-header'));
   menuId = 'skills-menu-item';
+
+  /**
+   * Open the sub skill at the specified index.
+   *
+   * @param {number} index The card to open. Starts at 0.
+   */
+  toggleSubSkillAt(index) {
+    this.subHeaders.get(index).click();
+    // Wait for it to expand
+    browser.sleep(300);
+  }
 }
 
 export class DemosPage extends CollapsiblePage {
