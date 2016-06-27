@@ -71,6 +71,16 @@ For the various watchers:
     gulp watch-lint
     gulp test
 
+**Target Desktop Browsers**
+  * Chrome
+  * Firefox
+  * Safari
+  * IE (Low priority)
+
+**Target Mobile Browsers**
+  * Chrome
+  * Safari
+
 Deployment
 ==========
 Build everything into a `dist` production folder:
