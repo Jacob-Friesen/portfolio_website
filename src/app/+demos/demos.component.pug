@@ -1,0 +1,34 @@
+.page.demos.cards
+  p#summary.summary
+    span These are projects I have built across the years. More examples are on my 
+    a(href=links.github.address)= links.github.name
+    span . Finally, due to the legal or practical nature of some of these demos, not all components of them are downloadable/viewable.
+
+  each demo, index in demos
+    .card([class.expanded]=index + ' === collapseManager.openIndex')
+      .card-header((click)='collapseManager.toggle('+index+')')
+        button.expander
+          i.fa.fa-chevron-up(*ngIf=index + ' === collapseManager.openIndex')
+          i.fa.fa-chevron-down(*ngIf=index + ' !== collapseManager.openIndex')
+        h3.title
+          span= demo.title
+          span.dates
+            span.date= demo.startDate
+            if demo.endDate
+              span &nbsp;-&nbsp;
+              span= demo.endDate
+
+      .card-body(*ngIf=index + ' === collapseManager.openIndex')
+        .row
+          .col-md-6.left
+            p#demo-description= demo.description
+          .col-md-6.right
+            lightbox(id='lightbox-' + index, [image]='"images/' + demo.image + '"')
+
+        .links
+          strong Links:
+          each link in demo.links
+            .link
+              a(href=link.address)= link.name
+          if demo.links.length === 0
+            span &nbsp;(None)

@@ -1,68 +1,110 @@
 Portfolio Website
 =================
+This is the fifth version of my Portfolio website and the second Angular.js version (Using [Angular 2](https://angular.io/)). The site should be **run using Node.js 4.2.x**, but will probably work fine with other versions.
 
-My integrated interface portfolio website, which is the 5th major revision of my website. There are still revisions needed for the build/compile process, css organization, and mobile. This site is [here](http://jacobfriesen.com). This is the culmination of my attempts at making an interface with no comprimises: 
- 
- * Single domain with no unecessary scripts/loads for any interface (A problem with most media query based adaptations)
- * Full AJAX page loads (~200ms)
- * Bookmarkable pages and revisitable pages (browser back and forward buttons still work)
- * Manual caching to ensure pages load instantly after they are opened once on the site
- * A unified object oriented approach for all the JS
+This site was created to provide a much simpler software and visual design relative to the older site. The philosophy is to employ as much preprocessing, testing and automated tools to make development as fast as possible. While this approach results in extremely fast development, I would probably not take things as far when a project needs to account for the learning curves of other developers. For example, I would probably use not use Pug (formerly Jade), the HTML Preprocessor.
 
-Architecture
-=====================               
-This is an express app (Node.js based) that mimics page loads via AJAX and history.pushState (HTML5), falling back to hash loading on older browsers. Currently it supports Phone and Desktop/Laptop interfaces.
+**Files And Folders (Top Level)**
+ * **bin/** Files used before the main dependencies such as the Angular CLI are present e.g. install scripts.
+ * **config/** Any Angular config files used to setup builds and tests. This is where the unit test config (Karma) and Protractor config are.
+ * **dist/** A generated folder containing the production built static assets.
+ * **e2e/** All E2E test specifications are here.
+ * **node_modules/** All 3rd party libraries used in development and running of this site.
+ * **src/** All the unbuilt files. Edit these as you develop.
+ * **tmp/** Used to cache Angular CLI merge changes while developing (don't touch this).
+ * **typings/** Type definitions for TypeScript that are used across the enire application.
+ * **angular-cli-build.js** Defines how the code is built for production. For now just points to libary files.
+ * **angular-cli.json** Specifies the locations of code and test files so Angular CLI know where they are.
+ * **app.js** The Express server definition. This defines how to run files in production.
+ * **customServer.js** A backup server for running production code in case Express errors for a strange reason.
+ * **gulpfile.js** Defines all the tasks that Angular CLI does not cover such as builds with minification.
+ * **package.json** Defines all the libaries and their version to be installed with `npm install`.
+ * **robots.txt** Defines where various webcrawlers can go. This should be copied into the public directory.
+ * **sitemap.xml** Defines the locations of the site for webcrawlers making the site more SEO friendly.
+ * **tslint.json** Defines all rules that will be used for the linting system.
+ * **typings.json** Defines the versions of type definitions for TypeScript to be used for each library.
 
-1. A very light page is loaded containing:
- * The inlined (and minified) mobile interface code (Selector.js in source)
- * All meta tags except viewport which is added once the interface type is determined
-2. If client is an older IE or is not using JavaScript the no_script interface is loaded
-3. Client is chosen and specific scripts and index page is loaded
-4. Once all scripts and pages have been loaded the system is started for the interface
+Technologies & Architecture
+===========================
+Before diving in with the code, it is helpful to know the basics of the technologies and architecture so you have a roadmap of where things fit.
+
+**Technologies**
+ * **[Node.js](https://nodejs.org/en/)** A runtime that runs over Chrome's JavaScript engine that allows you to write server side JavaScript. Many user interface libaries are written for Node.js, so it drastically reduces the amount of code used.
+ * **[Gulp.js](https://nodejs.org/en/)** Used to run all the tasks not supported by Angular CLI. Implemented via streams.
+ * **[Angular CLI](https://github.com/angular/angular-cli)** Used to run commands such as the development server and to generate various client side files. It is recommended that you read through the whole README there.
+ * **[Angular 2](https://angular.io/)** A single page JavaScript framework that is based on extending HTML by using a component tree. It is recommended that you go through the tutorial [here](https://angular.io/docs/ts/latest/tutorial/).
+ * **[Express](http://expressjs.com/)** An extremely minimal non-opinionated Node.js server. See `app.js` to see how it was configured. 
+ * **[TS Lint](https://palantir.github.io/tslint/)** Used to lint all files. Similar to ESLint.
+ * **[Jasmine](http://jasmine.github.io/2.4/introduction.html)** Used to run all the tests (End to End and unit tests).
+ * **[Karma](https://karma-runner.github.io/1.0/index.html)** Used to manage running unit tests in multiple browsers. See the `config` folder.
+ * **[Protractor](http://www.protractortest.org/#/)** Used to run tests in browsers using Selenium. See the `config` folder.
+
+**Architecture**
+1. Files are installed and copied from various `node_modules`, see `bin/install.bash`.
+2. Pug files are transformed into HTML files automatically which read various JSON config files.
+3. SCSS is also transformed on changes.
+4. Typescript is dynamically translated while running in development via Angular CLI.
+5. There are no internal AJAX requests, all data is generated before load to eliminate roundtrips.
+6. The system is run via Express once it has been built. Building converts all assets into their base versions. Then concatenates and minifies them.
+7. When common libraries are used, they are not stored locally. They are loaded via a CloudFlare CDN (Content Delivery Network).
+
+Install
+=======
+To Install
+
+    bash bin/install.bash# --no-npm-install to skip any NPM dependency installations
+
+OS X only:
+
+    brew install watchman
+
+Development
+===========
+To run use:
+
+    ng serve --port 8000
+
+For the various watchers:
+
+    gulp watch-pug
+    gulp watch-css
+    gulp watch-lint
+    gulp test
+
+**Target Desktop Browsers**
+  * Chrome
+  * Firefox
+  * Safari
+  * IE (Low priority)
+
+**Target Mobile Browsers**
+  * Chrome
+  * Safari
+
+Deployment
+==========
+Build everything into a `dist` production folder:
+
+    gulp build
+
+Use express 4 to run the site:
+
+    node app.js 5000
+
+If the Express server fails or cannot run a basic pure Node.js backup server can also be run in dist:
+
+    node dist/customServer.js 5000
 
 Testing
 =======
-Uses Karma for all tests. All test configurations are stored in config.
+Unit tests:
 
-**To run all tests:** make test-all or make test-a
+    ng test
 
-**Unit Tests:** Covers all lower level code, especially controllers.
+E2Es using Protractor:
 
- * **Run them once:** make test or make test-u or make test-unit
- * **Run them with every code change:** make test-w or make test-u-w or make test-unit-watch
-
-**End to End Tests:** Tests the client interface without using client side JavaScript.
-
- * **Run them once:** make test-e or make test-end-to-end
- * **Run them with every code change:** make test-e-w or make test-end-to-end-watch
- * The only way to test mobile currently is to change this.render_desktop(); to this.render_mobile();
- 
-Interfaces Supported
-====================
-These are the browsers I tested for, the site probably works in other browsers but I don't want to speculate.
-
- * Desktop
-    * Firefox
-    * Chrome
-    * Opera
-    * IE 9
-    * IE 8
-    * IE 7 (no script interface only)
- * Mobile
-    * Android
-        * 2.2 Default Browser
-        * 4.2 Default Browser (should support 4.1s and 4.0s too)
-        * Chrome
-        * Dolphin
-        * Firefox
-        * Opera
-    * iOS
-        * Safari for iOS 4, 5 and 6
-
-Future
-======
-More integration between the interfaces namely a more responsive-like design (without media queries). This also means JS and CSS inheritance between the interfaces.
+    ng e2e
 
 License
 =======
-MIT so you can do whatever you want with the code here as long as you don't remove the MIT license when using major portions of the codebase (>10%).
+See MIT_License.txt

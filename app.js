@@ -1,42 +1,23 @@
-var PORT = process.argv[2];
+const express = require('express'),
+      compression = require('compression');
 
-/**
- * Module dependencies.
- */
+const app = express();
+const oneDay = 86400000;
 
-global.constant = require('./public/constants.js');
-var http = require('http');
-var express = require('express');
-var app = module.exports = express();
-var server = http.createServer(app);
+if (!process.argv[2]){
+  throw('You must specify a port as the first argument.');
+}
 
-// Configuration
-app.configure(function(){
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
-  app.set('view options', {layout: 'layout.jade'});
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(express.cookieParser());
-  app.use(require('stylus').middleware({ src: __dirname + '/public' }));
-  app.use(app.router);
-  app.use(express.static(__dirname + '/public', { maxAge: 86400000 }));// 1 day in ms
-  
-  app.use(express.favicon(__dirname + '/public/images/favicon.ico', { maxAge: 604800000 }));// 1 week in ms
+app.use(compression());
+app.use(express.static(__dirname + '/dist', { maxAge: oneDay }));
+app.use(express.static(__dirname + '/dist/production', { maxAge: oneDay }));
+app.use(express.static(__dirname + '/dist/images', { maxAge: oneDay }));
+
+// All remaining requests will just load the index page and Angular will handle routing.
+app.all('/*', function(req, res, next) {
+  res.sendFile('index.html', { root: __dirname + '/dist' });
 });
 
-
-app.configure('development', function(){
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
-});
-
-app.configure('production', function(){
-  app.use(express.errorHandler());
-});
-
-// Routes
-require('./routes')(app);
-
-server.listen(PORT, function(){
-  console.log("JacobFriesen.com listening on port %d in %s mode", server.address().port, app.settings.env);
+app.listen(process.argv[2], function () {
+  console.log(`jacobfriesen.com listening on port ${process.argv[2]}.`);
 });

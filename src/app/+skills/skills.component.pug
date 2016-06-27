@@ -1,0 +1,11 @@
+.page.skills.cards.no-popout
+  each skillsetData, index in skills.sections
+    .card([class.expanded]=index + ' === collapseManager.openIndex')
+      .card-header.skillset-header((click)='collapseManager.toggle('+index+')')
+        button.expander
+          i.fa.fa-chevron-up(*ngIf=index + ' === collapseManager.openIndex')
+          i.fa.fa-chevron-down(*ngIf=index + ' !== collapseManager.openIndex')
+        h3.title
+          span= ' ' + skillsetData.title
+      .card-body(*ngIf=index + ' === collapseManager.openIndex')
+        skillset([data]=skillsetData.skills)

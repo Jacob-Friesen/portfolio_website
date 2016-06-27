@@ -1,5 +1,0 @@
-#!/bin/bash
-./clean
-
-echo "Compressing generic css..."
-java -jar ../../compilers/compiler.jar  -o '.css$:_c.css' *.css
