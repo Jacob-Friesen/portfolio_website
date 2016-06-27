@@ -59,8 +59,6 @@
       "check-operator",
       "check-separator",
       "check-type"
-    ],
-    "component-selector-name": [true, "kebab-case"],
-    "component-selector-type": [true, "element"]
+    ]
   }
 }

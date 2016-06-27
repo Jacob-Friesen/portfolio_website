@@ -28,14 +28,19 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.css">
 </head>
 <body>
-  <portfolio-website-app></portfolio-website-app>
+  <portfolio-website-app>
+    <center>
+      <img class='loading-message-spinner' src='images/spin.svg'></img>
+      <h2 class='loading-message'>Loading...</h2>
+    </center>
+  </portfolio-website-app>
 
     <!-- Does not properly load when combined, only the static style below works -->
     {{!-- {{#each scripts.polyfills}}<script src="{{.}}"></script>{{/each}} --}}
 
     <!-- build:js production/combined.js -->
-    <script src="vendor/es6-shim/es6-shim.js"></script>
     <script src="vendor/reflect-metadata/Reflect.js"></script>
+    <script src="vendor/es6-shim/es6-shim.js"></script>
     <script src="vendor/systemjs/dist/system.src.js"></script>
     <script src="vendor/zone.js/dist/zone.js"></script>
     <script src="app/tingle.min.js"></script>

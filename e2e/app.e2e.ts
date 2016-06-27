@@ -41,17 +41,17 @@ describe('portfolio-website App', function() {
       });
 
       it('should show the 3rd experience when it is expanded', () => {
-        experience.toggleCardAt(2);
+        experience.toggleCardAt(2, false);
         expect(experience.currentDescription.getText()).toContain(THIRD_EXPERIENCE_TEXT);
       });
 
       it('should be able to expand the first experience again', () => {
-        experience.toggleCardAt(0);
+        experience.toggleCardAt(0, false);
         expect(experience.currentDescription.getText()).toContain(FIRST_EXPERIENCE_TEXT);
       });
 
       it('should be able to collapse the first experience when it is clicked on again', () => {
-        experience.toggleCardAt(0);
+        experience.toggleCardAt(0, true);
         expect(experience.currentDescription.isPresent()).toBe(false);
       });
     });
@@ -63,27 +63,27 @@ describe('portfolio-website App', function() {
 
       it('should start with the 1st skill of the first skillset as expanded', () => {
         skills.navigateTo();
+        skills.waitForSkillOpen();
         expect(skills.currentDescription.getText()).toContain(SKILL_0_0);
       });
 
       it('should be able to expand the 3rd skill of the first skillset', () => {
-        skills.navigateTo();
-        skills.toggleSubSkillAt(2);
+        skills.toggleSubSkillAt(2, false);
         expect(skills.currentDescription.getText()).toContain(SKILL_0_3);
       });
 
       it('should show 1st skill of the the 3rd skills when it is expanded', () => {
-        skills.toggleCardAt(2);
-        expect(skills.currentDescription.getText()).toContain(SKILL_3_0);
+        skills.toggleCardAt(2, false);
+        skills.checkCardText(SKILL_3_0);
       });
 
       it('should be able to expand to the first skill of the first skillset again', () => {
-        skills.toggleCardAt(0);
-        expect(skills.currentDescription.getText()).toContain(SKILL_0_0);
+        skills.toggleCardAt(0, false);
+        skills.checkCardText(SKILL_0_0);
       });
 
       it('should be able to collapse the first skillset when it is clicked on again', () => {
-        skills.toggleCardAt(0);
+        skills.toggleCardAt(0, true);
         expect(skills.currentDescription.isPresent()).toBe(false);
       });
     });
@@ -99,12 +99,12 @@ describe('portfolio-website App', function() {
 
       it('should show a lightbox for the first items image', function() {
         demos.openLightboxAt(0);
-        expect(demos.modalImage.isDisplayed()).toBe(true);
+        demos.waitUntilImagePresent();
       });
 
       it('should be able to close that lightbox', function() {
         demos.closeLightbox();
-        expect(demos.modalImage.isDisplayed()).toBe(false);
+        demos.waitUntilImageNotPresent();
       });
 
       it('should start with the first demo as expanded', () => {
@@ -112,17 +112,17 @@ describe('portfolio-website App', function() {
       });
 
       it('should show the 3rd demo when it is expanded', () => {
-        demos.toggleCardAt(2);
+        demos.toggleCardAt(2, false);
         expect(demos.currentDescription.getText()).toContain(THIRD_DEMO_TEXT);
       });
 
       it('should be able to expand the first demo again', () => {
-        demos.toggleCardAt(0);
+        demos.toggleCardAt(0, false);
         expect(demos.currentDescription.getText()).toContain(FIRST_DEMO_TEXT);
       });
 
       it('should be able to collapse the first demo when it is clicked on again', () => {
-        demos.toggleCardAt(0);
+        demos.toggleCardAt(0, true);
         expect(demos.currentDescription.isPresent()).toBe(false);
       });
     });

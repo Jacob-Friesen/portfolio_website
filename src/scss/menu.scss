@@ -3,12 +3,7 @@ $menu-fade-time: 0.3s;
 $menu-border: 1px solid #ddd;
 $main-box-shadow: 0 2px 10px #999;
 
-$home-color: #add8e6;
-$experience-color: #e5ab47;
-$skills-color: #c4b891;
-$demos-color: #98d398;
-$blog-color: #a05b5b;
-$resume-color: #dedede;
+$highlight-color: #add8e6;
 
 $menu-background: rgba(239, 239, 239, 0.90);
 
@@ -33,92 +28,22 @@ $menu-background: rgba(239, 239, 239, 0.90);
       padding: $menu-margin;
       text-decoration: none;
 
-      &.home-menu-item {
-        animation: $menu-fade-time ease-out 0s home-hover-fadeout;
+      &.menu-item {
+        animation: $menu-fade-time ease-out 0s highlight-hover-fadeout;
       }
-      &.router-link-active.home-menu-item,
-      &.router-link-active2.home-menu-item,
-      &.router-link-active.home-menu-item:hover,
-      &.router-link-active2.home-menu-item:hover {
-        background-color: $home-color;
+      &.router-link-active.menu-item,
+      &.router-link-active2.menu-item,
+      &.router-link-active.menu-item:hover,
+      &.router-link-active2.menu-item:hover {
+        background-color: $highlight-color;
         animation: none;
       }
-      &.home-menu-item {
+      &.menu-item {
         background-color: transparent;
       }
-      &.home-menu-item:hover {
-        background-color: $home-color;
-        animation: $menu-fade-time ease-in 0s home-hover-fadein;
-      }
-
-
-      &.experience-menu-item {
-        animation: $menu-fade-time ease-out 0s experience-hover-fadeout;
-      }
-      &.router-link-active.experience-menu-item,
-      &.router-link-active.experience-menu-item:hover {
-        background-color: $experience-color;
-        animation: none;
-      }
-      &.experience-menu-item:hover {
-        background-color: $experience-color;
-        animation: $menu-fade-time ease-in 0s experience-hover-fadein;
-      }
-
-
-      &.skills-menu-item {
-        animation: $menu-fade-time ease-out 0s skills-hover-fadeout;
-      }
-      &.router-link-active.skills-menu-item,
-      &.router-link-active.skills-menu-item:hover {
-        background-color: $skills-color;
-        animation: none;
-      }
-      &.skills-menu-item:hover {
-        background-color: $skills-color;
-        animation: $menu-fade-time ease-in 0s skills-hover-fadein;
-      }
-
-
-      &.demos-menu-item {
-        animation: $menu-fade-time ease-out 0s demos-hover-fadeout;
-      }
-      &.router-link-active.demos-menu-item,
-      &.router-link-active.demos-menu-item:hover {
-        background-color: $demos-color;
-        animation: none;
-      }
-      &.demos-menu-item:hover {
-        background-color: $demos-color;
-        animation: $menu-fade-time ease-in 0s demos-hover-fadein;
-      }
-
-
-      &.blog-menu-item {
-        animation: $menu-fade-time ease-out 0s blog-hover-fadeout;
-      }
-      &.router-link-active.blog-menu-item,
-      &.router-link-active.blog-menu-item:hover {
-        background-color: $blog-color;
-        animation: none;
-      }
-      &.blog-menu-item:hover {
-        background-color: $blog-color;
-        animation: $menu-fade-time ease-in 0s blog-hover-fadein;
-      }
-
-
-      &.resume-menu-item {
-        animation: $menu-fade-time ease-out 0s resume-hover-fadeout;
-      }
-      &.router-link-active.resume-menu-item,
-      &.router-link-active.resume-menu-item:hover {
-        background-color: $resume-color;
-        animation: none;
-      }
-      &.resume-menu-item:hover {
-        background-color: $resume-color;
-        animation: $menu-fade-time ease-in 0s resume-hover-fadein;
+      &.menu-item:hover {
+        background-color: $highlight-color;
+        animation: $menu-fade-time ease-in 0s highlight-hover-fadein;
       }
     }
 
@@ -165,53 +90,13 @@ $menu-background: rgba(239, 239, 239, 0.90);
 
 // animations
 
-@keyframes home-hover-fadein {
+@keyframes highlight-hover-fadein {
   from { background-color: transparent; }
-  to   { background-color: $home-color; }
-}
-@keyframes experience-hover-fadein {
-  from { background-color: transparent; }
-  to   { background-color: $experience-color; }
-}
-@keyframes skills-hover-fadein {
-  from { background-color: transparent; }
-  to   { background-color: $skills-color; }
-}
-@keyframes demos-hover-fadein {
-  from { background-color: transparent; }
-  to   { background-color: $demos-color; }
-}
-@keyframes blog-hover-fadein {
-  from { background-color: transparent; }
-  to   { background-color: $blog-color; }
-}
-@keyframes resume-hover-fadein {
-  from { background-color: transparent; }
-  to   { background-color: $resume-color; }
+  to   { background-color: $highlight-color; }
 }
 
-@keyframes home-hover-fadeout {
-  from { background-color: $home-color; }
-  to   { background-color: transparent; }
-}
-@keyframes experience-hover-fadeout {
-  from { background-color: $experience-color; }
-  to   { background-color: transparent; }
-}
-@keyframes skills-hover-fadeout {
-  from { background-color: $skills-color; }
-  to   { background-color: transparent; }
-}
-@keyframes demos-hover-fadeout {
-  from { background-color: $demos-color; }
-  to   { background-color: transparent; }
-}
-@keyframes blog-hover-fadeout {
-  from { background-color: $blog-color; }
-  to   { background-color: transparent; }
-}
-@keyframes resume-hover-fadeout {
-  from { background-color: $resume-color; }
+@keyframes highlight-hover-fadeout {
+  from { background-color: $highlight-color; }
   to   { background-color: transparent; }
 }
 
