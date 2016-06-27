@@ -40,13 +40,14 @@ Before diving in with the code, it is helpful to know the basics of the technolo
  * **[Protractor](http://www.protractortest.org/#/)** Used to run tests in browsers using Selenium. See the `config` folder.
 
 **Architecture**
-1. Files are installed and copied from various `node_modules`, see `bin/install.bash`.
-2. Pug files are transformed into HTML files automatically which read various JSON config files.
-3. SCSS is also transformed on changes.
-4. Typescript is dynamically translated while running in development via Angular CLI.
-5. There are no internal AJAX requests, all data is generated before load to eliminate roundtrips.
-6. The system is run via Express once it has been built. Building converts all assets into their base versions. Then concatenates and minifies them.
-7. When common libraries are used, they are not stored locally. They are loaded via a CloudFlare CDN (Content Delivery Network).
+ 
+ 1. Files are installed and copied from various `node_modules`, see `bin/install.bash`.
+ 2. Pug files are transformed into HTML files automatically which read various JSON config files.
+ 3. SCSS is also transformed on changes.
+ 4. Typescript is dynamically translated while running in development via Angular CLI.
+ 5. There are no internal AJAX requests, all data is generated before load to eliminate roundtrips.
+ 6. The system is run via Express once it has been built. Building converts all assets into their base versions. Then concatenates and minifies them.
+ 7. When common libraries are used, they are not stored locally. They are loaded via a CloudFlare CDN (Content Delivery Network).
 
 Install
 =======
