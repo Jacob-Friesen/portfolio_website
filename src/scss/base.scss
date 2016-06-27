@@ -72,6 +72,20 @@ body {
   height: 100%;
 }
 
+.github-link {
+  margin-top: 0;
+  text-align: center;
+
+  .fa {
+    margin-right: 5px;
+  }
+
+  cite {
+    display: block;
+    margin-top: 5px;
+  }
+}
+
 .image-lightbox {
   // Some mobile browsers are not fully covered with 100% (possibly browser bugs).
   height: 101%;
@@ -167,7 +181,7 @@ body {
   background-color: white;
   box-shadow: 1px 2px 10px #999;
   width: 850px;
-  margin: 0 auto 30px auto;
+  margin: 0 auto 15px auto;
   border-radius: 0 0 $radius $radius;
 }
 
