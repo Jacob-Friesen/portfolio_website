@@ -57,6 +57,21 @@ body {
   width: 100%;
   height: 100%; }
 
+.loading-message-spinner,
+.loading-message {
+  display: inline-block; }
+
+.loading-message {
+  text-align: center; }
+
+.loading-message-spinner {
+  height: 30px;
+  margin-bottom: -8px; }
+
+@media (max-width: 650px) {
+  .loading-message-spinner {
+    display: none; } }
+
 .github-link {
   margin-top: 0;
   text-align: center; }

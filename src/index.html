@@ -28,7 +28,12 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.css">
 </head>
 <body>
-  <portfolio-website-app></portfolio-website-app>
+  <portfolio-website-app>
+    <center>
+      <img class='loading-message-spinner' src='images/spin.svg'></img>
+      <h2 class='loading-message'>Loading...</h2>
+    </center>
+  </portfolio-website-app>
 
     <!-- Does not properly load when combined, only the static style below works -->
     {{!-- {{#each scripts.polyfills}}<script src="{{.}}"></script>{{/each}} --}}
