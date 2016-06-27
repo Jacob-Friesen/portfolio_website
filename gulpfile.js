@@ -6,15 +6,19 @@ const gulp = require('gulp'),
       gulpif = require('gulp-if'),
       data = require('gulp-data'),
       exec = require('child_process').exec,
+      inlineNg2Template = require('gulp-inline-ng2-template'),
       pug = require('gulp-pug'),
       rename = require('gulp-rename'),
       runSequence = require('run-sequence'),
       sass = require('gulp-sass'),
       Transform = require('stream').Transform,
       tslint = require('gulp-tslint'),
+      ts = require('gulp-typescript'),
       UglifyJS = require('uglify-js'),
       uglifycss = require('gulp-uglifycss'),
       useref = require('gulp-useref');
+
+const PRODUCTION = 'dist';
 
 // CSS Specific
 
@@ -62,11 +66,18 @@ gulp.task('tslint', () =>
         .pipe(tslint.report("verbose"))
 );
 
+gulp.task('inline-component-templates', () =>
+    gulp.src(JS_FILES[1])
+        .pipe(inlineNg2Template({ 
+          base: '/src/app',
+          useRelativePaths: true
+        }))
+        .pipe(gulp.dest('src'))
+);
+
 gulp.task('watch-lint', () => gulp.watch(JS_FILES, ['tslint']) );
 
 // TRIFORCE!! (JS, CSS And HTML Specific)
-
-const PRODUCTION = 'dist';
 
 const minifyFilesStream = function() {
   const minifyFiles = new Transform({objectMode: true});
@@ -96,6 +107,28 @@ gulp.task('angular-cli-build', function(done) {
     }
 
     console.log(stdout);
+    setTimeout(done, 500);
+  });
+});
+
+gulp.task('move-src', function(done) {
+  exec('rm -rf src_temp; cp -rf src src_temp', function(err, stdout) {
+    if (err) {
+      throw(err);
+    }
+
+    console.log(stdout);
+    done();
+  });
+});
+
+gulp.task('restore-src', function(done) {
+  exec('rm -rf src; mv src_temp src', function(err, stdout) {
+    if (err) {
+      throw(err);
+    }
+
+    console.log(stdout);
     done();
   });
 });
@@ -104,8 +137,12 @@ gulp.task('move-server', () =>
   gulp.src('customServer.js').pipe(gulp.dest(PRODUCTION))
 );
 
-gulp.task('move-tingle', () =>
+gulp.task('move-tingle-js', () =>
   gulp.src('src/app/tingle/tingle.min.js').pipe(gulp.dest(PRODUCTION + '/app'))
+);
+
+gulp.task('move-tingle-css', () =>
+  gulp.src('src/app/tingle/tingle.min.css').pipe(gulp.dest(PRODUCTION + '/css/tingle'))
 );
 
 gulp.task('move-robots', () =>
@@ -116,6 +153,17 @@ gulp.task('move-sitemap', () =>
   gulp.src('sitemap.xml').pipe(gulp.dest(PRODUCTION))
 );
 
+gulp.task('short-reinstall', function(done) {
+  exec('bash bin/install.bash --no-npm-install', function(err, stdout) {
+    if (err) {
+      throw(err);
+    }
+
+    console.log(stdout);
+    done();
+  });
+});
+
 gulp.task('optimize', () =>
   gulp.src(PRODUCTION + '/index.html')
       .pipe(useref({}, minifyIndividualFiles))
@@ -125,9 +173,13 @@ gulp.task('optimize', () =>
 
 gulp.task('build', (done) =>
   runSequence(
+    'move-src',
+    'inline-component-templates',
     'angular-cli-build',
-    ['move-tingle', 'move-robots', 'move-sitemap'],
-    ['move-server', 'optimize'],
+    ['move-tingle-js', 'move-tingle-css', 'move-robots', 'move-sitemap', 'move-server'],
+    'optimize',
+    'restore-src',
+    'short-reinstall',
     done
   )
 );
