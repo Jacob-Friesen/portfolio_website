@@ -38,5 +38,6 @@ dist.zip
 *component.html
 src/css
 src/jacob.json
+src_temp
 # Resume generation
 *resume-body*
