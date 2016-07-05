@@ -3,7 +3,7 @@
     {
       "title": "Jubileo Mobile App",
       "startDate": "May 2016",
-      "description": "I Worked with another person who provided content, store listing and non technical aspects. This application provide a few simple tools and targeted information for Catholics for the 2016 Jubilee. It is a Hybrid application built in Ionic and has to support file storage, audio playback, audio recording and data persistence.",
+      "description": "I worked with another person who provided content, store listing and non technical aspects. This application provide a few simple tools and targeted information for Catholics for the 2016 Jubilee. It is a Hybrid application built in Ionic and has to support file storage, audio playback, audio recording and data persistence.",
       "image": "jubileo.png",
       "imageLarge": "jubileo.large.png",
       "links": [
@@ -16,7 +16,7 @@
     {
       "title": "Vida Sobria Mobile App",
       "startDate": "October 2015",
-      "description": "I Worked with another person who provided content, store listing and non technical aspects. The application helps individuals manage their sobriety via a few simple tools and targeted information. It is a Hybrid application built in Ionic and has to support file storage, audio playback, audio recording and data persistence.",
+      "description": "I worked with another person who provided content, store listing and non technical aspects. The application helps individuals manage their sobriety via a few simple tools and targeted information. It is a Hybrid application built in Ionic and has to support file storage, audio playback, audio recording and data persistence.",
       "image": "vidaSobria.png",
       "imageLarge": "vidaSobria.large.png",
       "links": [
@@ -109,7 +109,7 @@
       "links": [
         {
           "name": "C# Source Code (Zipped)",
-          "address": "downloads/MovieOrganizerSource.zip"
+          "address": "downloads/movie_organizer_source.zip"
         }
       ]
     },
@@ -136,7 +136,7 @@
       "links": [
         {
           "name": "Java Source Code (Zipped)",
-          "address": "downloads/schedulePatients.zip"
+          "address": "downloads/schedule_patients.zip"
         }
       ]
     },
@@ -149,7 +149,7 @@
       "links": [
         {
           "name": "C# Source Code (Zipped)",
-          "address": "downloads/contactList.zip"
+          "address": "downloads/contact_list.zip"
         }
       ]
     }
