@@ -38,6 +38,5 @@ Thumbs.db
 *component.html
 src/css
 src/jacob.json
-downloads/
 # Resume generation
 *resume-body*
