@@ -24,6 +24,7 @@ cp "${BASIS}node_modules/jacob-friesens-resume/Jacob_Friesen_Resume.pdf" "${DOWN
 cp "${BASIS}node_modules/jacob-friesens-resume/jacob.json" "${JSON_TO}.tmp"
 cp "${BASIS}node_modules/jacob-friesens-resume/resume_body.pug" "${RESUME_BODY_TO}.tmp"
 cp "${BASIS}node_modules/jacob-friesens-resume/style.css" "${RESUME_CSS_TO}"
+cp "${BASIS}node_modules/tingle.js/dist/tingle.min.js" "${BASIS}src/app/tingle.min.js"
 cp "${BASIS}node_modules/tingle.js/dist/tingle.min.js" "${BASIS}src/app/tingle/tingle.min.js"
 mkdir -p "src/css/tingle"
 cp "${BASIS}node_modules/tingle.js/dist/tingle.min.css" "${BASIS}src/css/tingle/tingle.min.css"
