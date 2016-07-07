@@ -1,0 +1,43 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Replicate blog styling */
+.most-popular-sidebar {
+    font-family: Helvetica,​Arial,​sans-serif;
+    font-size: 15px;
+    color: #4c4c4c;
+}
+
+    .most-popular-sidebar .most-popular-title {
+        font-family: "Times New Roman", ​Times,​ serif;
+        margin-top: 0;
+        margin-bottom: 5px;
+        font-weight: normal;
+        text-transform: uppercase;
+    }
+
+    .most-popular-sidebar ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .most-popular-sidebar li {
+        padding-bottom: 3px;
+    }
+
+        .most-popular-sidebar li b {
+            font-family: "Times New Roman", ​Times,​ serif;
+            padding-right: 3px;
+        }
+
+        .most-popular-sidebar li a {
+            color: #4c4c4c;
+            text-decoration: none;
+        }
+
+        .most-popular-sidebar li a:hover {
+            color: #26ff00;
+        }

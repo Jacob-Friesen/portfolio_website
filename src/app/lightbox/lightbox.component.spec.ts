@@ -1,19 +1,10 @@
-/* tslint:disable:no-unused-variable */
-
-import { By }           from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
-
-import {
-  beforeEach, beforeEachProviders,
-  describe, xdescribe,
-  expect, it, xit,
-  async, inject
-} from '@angular/core/testing';
-
+import { addProviders, inject } from '@angular/core/testing';
 import { LightboxComponent } from './lightbox.component';
 
 describe('Component: Lightbox', () => {
-  beforeEachProviders(() => [LightboxComponent]);
+  beforeEach(() => {
+    addProviders([LightboxComponent]);
+  });
 
   describe('onImageClick', function() {
     var modal;

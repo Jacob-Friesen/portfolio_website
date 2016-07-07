@@ -1,13 +1,9 @@
-import {
-  beforeEachProviders,
-  describe,
-  expect,
-  it,
-  inject
-} from '@angular/core/testing';
+import { addProviders, inject } from '@angular/core/testing';
 import { PortfolioWebsiteAppComponent } from '../app/portfolio-website.component';
 
-beforeEachProviders(() => [PortfolioWebsiteAppComponent]);
+beforeEach(() => {
+  addProviders([PortfolioWebsiteAppComponent]);
+});
 
 describe('App: PortfolioWebsite', () => {
   it('should create the app',

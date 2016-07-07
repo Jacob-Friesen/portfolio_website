@@ -1,15 +1,10 @@
-/* tslint:disable:no-unused-variable */
-
-import {
-  beforeEach, beforeEachProviders,
-  describe, xdescribe,
-  expect, it, xit,
-  async, inject
-} from '@angular/core/testing';
+import { addProviders, inject } from '@angular/core/testing';
 import { CollapseManagerService } from './collapse-manager.service';
 
 describe('CollapseManager Service', () => {
-  beforeEachProviders(() => [CollapseManagerService]);
+  beforeEach(() => {
+    addProviders([CollapseManagerService]);
+  });
 
   it('should start with the first item as open', inject([CollapseManagerService], (service: CollapseManagerService) => {
     expect(service.openIndex).toEqual(0);
