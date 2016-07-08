@@ -1,22 +1,17 @@
 import { addProviders, inject, ComponentFixture, TestComponentBuilder } from '@angular/core/testing';
-import { Component, ApplicationRef, provide } from '@angular/core';
-import { ROUTER_FAKE_PROVIDERS } from '@angular/router/testing';
-import { APP_BASE_HREF } from '@angular/common';
+import { Component, provide } from '@angular/core';
+import { Router } from '@angular/router';
 import { By } from '@angular/platform-browser';
 import { MenuComponent } from './menu.component';
+
+class MockRouter { createUrlTree() {} }
 
 describe('Component: Menu', () => {
   let builder: TestComponentBuilder;
 
   beforeEach(() => {
     addProviders([
-      provide(ApplicationRef, {useValue: {
-        // A completely empty MockApplicationRef will not work, so a custom one is created below.
-        componentTypes: [MenuComponentTestController],
-        registerDisposeListener: function() {}
-      }}),
-      ROUTER_FAKE_PROVIDERS,
-      provide(APP_BASE_HREF, {useValue: '/'}),
+      provide(Router, { useClass: MockRouter }),
       MenuComponent
     ]);
   });
