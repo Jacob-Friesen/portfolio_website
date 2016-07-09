@@ -1,25 +1,21 @@
-.page-wrapper
-  ul.menu
-    .open-menu-wrapper
-      button(class='open-menu', (click)="toggleMenu($event)")
-        h1 
-          .fa.fa-bars
-          span Menu
-    div(*ngIf='menuOpen')
-      li.menu-item(*ngFor='let item of items; let index=index')
-        a(
-          class='menu-link menu-item \
-                {{ isMobile ? "mobile-menu-link" : "" }} \
-                {{ (index === 0 && (getHash() === "" || getHash() === "/")) ? "router-link-active2" : "" }}',
-          [id]='item.id',
-          [routerLink]='item.route',
-          (click)='isMobile ? closeMenu($event) : ""'
-        )
-          i([class]='item.iconClass')
-          span {{ item.title }}
-      button.close-menu((click)="closeMenu($event)")
-        h1 
-          span Close Menu
-
-  -// Menu Items will appear below
-  router-outlet
+ul.menu
+  .open-menu-wrapper
+    button(class='open-menu', (click)="toggleMenu($event)")
+      h1 
+        .fa.fa-bars
+        span Menu
+  div(*ngIf='menuOpen')
+    li.menu-item(*ngFor='let item of items; let index=index')
+      a(
+        class='menu-link menu-item \
+              {{ isMobile ? "mobile-menu-link" : "" }} \
+              {{ item.route === getHash() ? "router-link-active" : "" }}',
+        [id]='item.id',
+        [routerLink]='item.route',
+        (click)='isMobile ? closeMenu($event) : ""'
+      )
+        i([class]='item.iconClass')
+        span {{ item.title }}
+    button.close-menu((click)="closeMenu($event)")
+      h1 
+        span Close Menu

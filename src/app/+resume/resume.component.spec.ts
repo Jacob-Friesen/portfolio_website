@@ -1,12 +1,4 @@
-import {
-  beforeEach,
-  beforeEachProviders,
-  describe,
-  expect,
-  it,
-  inject,
-} from '@angular/core/testing';
-import { TestComponentBuilder } from '@angular/compiler/testing';
+import { addProviders, inject, TestComponentBuilder } from '@angular/core/testing';
 import { Component } from '@angular/core';
 import { ResumeComponent } from './resume.component';
 import { Router } from '@angular/router';
@@ -21,7 +13,10 @@ describe('Component: Resume', () => {
     component = new ResumeComponent(router);
   });
 
-  beforeEachProviders(() => [ResumeComponent]);
+  beforeEach(() => {
+    addProviders([ResumeComponent]);
+  });
+
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
     builder = tcb;
   }));

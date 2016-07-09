@@ -1,12 +1,4 @@
-import {
-  beforeEach,
-  beforeEachProviders,
-  describe,
-  expect,
-  it,
-  inject,
-} from '@angular/core/testing';
-import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
+import { addProviders, inject, ComponentFixture, TestComponentBuilder } from '@angular/core/testing';
 import { Component } from '@angular/core';
 import { BlogRemoteService } from '../blog-remote.service';
 import { By } from '@angular/platform-browser';
@@ -17,11 +9,14 @@ import * as _ from 'lodash';
 describe('Component: Blog', () => {
   let builder: TestComponentBuilder;
 
-  beforeEachProviders(() => [
-    JSONP_PROVIDERS,
-    BlogRemoteService,
-    BlogComponent
-  ]);
+  beforeEach(() => {
+    addProviders([
+      JSONP_PROVIDERS,
+      BlogRemoteService,
+      BlogComponent
+    ]);
+  });
+
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
     builder = tcb;
   }));

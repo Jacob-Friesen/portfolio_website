@@ -1,12 +1,4 @@
-import {
-  beforeEach,
-  beforeEachProviders,
-  describe,
-  expect,
-  it,
-  inject,
-} from '@angular/core/testing';
-import { ComponentFixture, TestComponentBuilder } from '@angular/compiler/testing';
+import { addProviders, inject, ComponentFixture, TestComponentBuilder } from '@angular/core/testing';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { SkillsComponent } from './skills.component';
@@ -15,7 +7,13 @@ import { CollapseManagerService } from '../collapse-manager.service';
 describe('Component: Skills', () => {
   let builder: TestComponentBuilder;
 
-  beforeEachProviders(() => [CollapseManagerService, SkillsComponent]);
+  beforeEach(() => {
+    addProviders([
+      CollapseManagerService,
+      SkillsComponent
+    ]);
+  });
+
   beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
     builder = tcb;
   }));
