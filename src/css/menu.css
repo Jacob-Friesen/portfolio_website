@@ -29,9 +29,10 @@
       padding-right: 5px; }
   .menu .close-menu,
   .menu .open-menu {
-    background-color: none;
+    background-color: #ddd;
     border: none;
     display: none;
+    margin-left: 0;
     padding: 10px 0;
     width: 100%; }
     .menu .close-menu h1,
@@ -44,7 +45,8 @@
   .menu .open-menu {
     padding: 10px;
     border-right: 1px solid #bbb;
-    outline-width: 0; }
+    outline-width: 0;
+    height: 100%; }
     .menu .open-menu .fa {
       margin-right: 5px; }
 
@@ -81,7 +83,8 @@
       animation: none; }
     .menu .close-menu {
       border-top: 1px solid #bbb;
-      display: block; }
+      display: block;
+      margin-bottom: 0; }
     .menu .open-menu-wrapper {
       border-bottom: 1px solid #bbb;
       background-color: transparent;

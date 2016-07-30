@@ -54,9 +54,10 @@ $menu-background: rgba(239, 239, 239, 0.90);
 
   .close-menu,
   .open-menu {
-    background-color: none;
+    background-color: #ddd;
     border: none;
     display: none;
+    margin-left: 0;
     padding: 10px 0;
     width: 100%;
 
@@ -75,6 +76,7 @@ $menu-background: rgba(239, 239, 239, 0.90);
     padding: 10px;
     border-right: 1px solid #bbb;
     outline-width: 0;
+    height: 100%;
 
     .fa {
       margin-right: 5px;
@@ -130,6 +132,7 @@ $menu-background: rgba(239, 239, 239, 0.90);
     .close-menu {
       border-top: $mobile-menu-border;
       display: block;
+      margin-bottom: 0;
     }
 
     .open-menu-wrapper {

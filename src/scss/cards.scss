@@ -40,10 +40,16 @@ $card-border: 1px solid #ddd;
         border: none;
         font-size: 14px;
         outline-width: 0;
+        padding: 0;
+        width: 20px;
 
         position: absolute;
         top: $side-margin;
         left: ($side-margin - 5);
+
+        .fa {
+          margin-left: 5px;
+        }
       }
     }
 
