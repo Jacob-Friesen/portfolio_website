@@ -5,9 +5,6 @@
   <title>Jacob Friesen - Software Developer</title>
   <base href="/">
 
-  {{#unless environment.production}}
-  <script src="/ember-cli-live-reload.js" type="text/javascript"></script>
-  {{/unless}}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Portfolio of Jacob Friesen a skilled software developer specializing in JavaScript and other web technologies. Contains information about Jacob Friesen's skills, work experience and projects.">
   <link rel="icon" type="image/x-icon" href="images/favicon.ico?v=2.0">
@@ -36,23 +33,10 @@
     </center>
   </portfolio-website-app>
 
-    <!-- Does not properly load when combined, only the static style below works -->
-    {{!-- {{#each scripts.polyfills}}<script src="{{.}}"></script>{{/each}} --}}
+  <!-- build:js production/combined.js -->
+  <script src="app/tingle.min.js"></script>
+  <!-- endbuild -->
 
-    <!-- build:js production/combined.js -->
-    <script src="vendor/reflect-metadata/Reflect.js"></script>
-    <script src="vendor/es6-shim/es6-shim.js"></script>
-    <script src="vendor/systemjs/dist/system.src.js"></script>
-    <script src="vendor/zone.js/dist/zone.js"></script>
-    <script src="app/tingle.min.js"></script>
-    <!-- endbuild -->
-    <script>
-      System.import('system-config.js').then(function () {
-        System.import('main');
-      }).catch(console.error.bind(console));
-    </script>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
 </body>
 </html>

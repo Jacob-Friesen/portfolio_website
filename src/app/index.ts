@@ -1,2 +1,3 @@
-export * from './environment';
-export * from './portfolio-website.component';
+export * from './environments/environment';
+export * from './app.component';
+export * from './app.module';
