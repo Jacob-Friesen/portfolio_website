@@ -32,7 +32,7 @@ describe('portfolio-website App', function() {
     });
 
     describe('experience', function() {
-      var FIRST_EXPERIENCE_TEXT = 'I design and develop interfaces across multiple products (including architecture).',
+      let FIRST_EXPERIENCE_TEXT = 'I design and develop interfaces across multiple products (including architecture).',
           THIRD_EXPERIENCE_TEXT = 'Added a new Inventory Location Management system';
 
       it('should start with the first experience as expanded', () => {
@@ -57,7 +57,7 @@ describe('portfolio-website App', function() {
     });
 
     describe('skills', function() {
-      var SKILL_0_0 = 'I have used JavaScript in client side (browser)',
+      let SKILL_0_0 = 'I have used JavaScript in client side (browser)',
           SKILL_0_3 = 'I have created many types of layouts ranging from complex',
           SKILL_3_0 = 'Most of my work experiences involved a Linux environment';
 
@@ -89,7 +89,7 @@ describe('portfolio-website App', function() {
     });
 
     describe('demos', () => {
-      var FIRST_DEMO_TEXT = 'This application provide a few simple tools and targeted information for Catholics',
+      let FIRST_DEMO_TEXT = 'This application provide a few simple tools and targeted information for Catholics',
           THIRD_DEMO_TEXT = 'This is the prototype interface I designed for a project at work';
 
       it('should show the demos page', () => {

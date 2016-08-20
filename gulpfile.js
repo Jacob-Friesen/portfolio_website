@@ -62,8 +62,10 @@ const JS_FILES = ['e2e/**/*.ts', 'src/**/*.ts'];
 
 gulp.task('tslint', () =>
     gulp.src(JS_FILES)
-        .pipe(tslint())
-        .pipe(tslint.report("verbose"))
+        .pipe(tslint({
+          formatter: "verbose"
+        }))
+        .pipe(tslint.report())
 );
 
 gulp.task('inline-component-templates', () =>

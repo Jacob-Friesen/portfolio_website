@@ -49,7 +49,7 @@ export class CollapsiblePage extends Page {
    */
   toggleCardAt(index: number, closing: boolean) {
     this.headers.get(index).click();
-    var method = closing === true ? 'invisibilityOf' : 'presenceOf';
+    let method = closing === true ? 'invisibilityOf' : 'presenceOf';
     browser.wait(protractor.ExpectedConditions[method](this.currentDescription), 5000);
   }
 
@@ -91,7 +91,7 @@ export class SkillsPage extends CollapsiblePage {
    */
   toggleSubSkillAt(index: number, closing: boolean) {
     this.subHeaders.get(index).click();
-    var method = closing === true ? 'invisibilityOf' : 'presenceOf';
+    let method = closing === true ? 'invisibilityOf' : 'presenceOf';
     browser.wait(protractor.ExpectedConditions[method](this.currentDescription), 5000);
   }
 }

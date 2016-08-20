@@ -13,8 +13,8 @@ export class MenuComponent {
   isMobile: Boolean;
 
   constructor(router: Router) {
-    var iconPrefix = 'fa fa-';
-    var menuAppend = '-menu-item';
+    let iconPrefix = 'fa fa-',
+        menuAppend = '-menu-item';
 
     this.items = [
       { title: 'Home', route: '/home', id: `home${menuAppend}`, iconClass: `${iconPrefix}home` },

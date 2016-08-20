@@ -38,7 +38,7 @@ describe('Component: Skillset', () => {
 @Component({
   selector: 'test',
   template: `
-    <skillset></skillset>
+    <skill-set></skill-set>
   `,
   directives: [SkillsetComponent]
 })
