@@ -63,7 +63,7 @@ const JS_FILES = ['e2e/**/*.ts', 'src/**/*.ts'];
 gulp.task('tslint', () =>
     gulp.src(JS_FILES)
         .pipe(tslint({
-          formatter: "verbose"
+          formatter: "prose"
         }))
         .pipe(tslint.report())
 );
