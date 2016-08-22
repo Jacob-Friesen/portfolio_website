@@ -8,7 +8,7 @@ module.exports = function (config) {
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
-      require('karma-remap-istanbul'),
+      require('karma-coverage'),
       require('angular-cli/plugins/karma')
     ],
     customLaunchers: {
@@ -19,6 +19,8 @@ module.exports = function (config) {
       }
     },
     files: [
+      { pattern: 'node_modules/lodash/lodash.js', included: true, watched: false },
+      // { pattern: 'node_modules/rxjs/Rx.js', included: true, watched: true },
       { pattern: './src/test.ts', watched: false }
     ],
     preprocessors: {
@@ -30,7 +32,7 @@ module.exports = function (config) {
       }
     },
     angularCliConfig: './angular-cli.json',
-    reporters: ['progress', 'karma-remap-istanbul'],
+    reporters: ['coverage', 'progress'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
