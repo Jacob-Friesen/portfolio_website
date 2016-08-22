@@ -20,7 +20,7 @@ describe('Component: Home', () => {
   }));
 
   it('should create the component', inject([], () => {
-    return builder.createAsync(HomeComponentTestController)
+    return builder.createAsync(HomeComponentTestComponent)
       .then((fixture: ComponentFixture<any>) => {
         let query = fixture.debugElement.query(By.directive(HomeComponent));
         expect(query).toBeTruthy();
@@ -30,12 +30,12 @@ describe('Component: Home', () => {
 });
 
 @Component({
-  selector: 'test',
+  selector: 'app-home-test',
   template: `
     <app-home></app-home>
   `,
   directives: [HomeComponent]
 })
-class HomeComponentTestController {
+class HomeComponentTestComponent {
 }
 
