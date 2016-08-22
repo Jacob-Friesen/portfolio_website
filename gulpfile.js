@@ -155,6 +155,16 @@ gulp.task('move-sitemap', () =>
   gulp.src('sitemap.xml').pipe(gulp.dest(PRODUCTION))
 );
 
+// Basic assets like CSS and images are not properly copied over by Web Pack (needs more research)
+
+gulp.task('move-css-to-build', () =>
+  gulp.src('src/css/**/*').pipe(gulp.dest(PRODUCTION + '/css'))
+);
+
+gulp.task('move-images-to-build', () =>
+  gulp.src('src/images/**/*').pipe(gulp.dest(PRODUCTION + '/images'))
+);
+
 gulp.task('short-reinstall', function(done) {
   exec('bash bin/install.bash --no-npm-install', function(err, stdout) {
     if (err) {
@@ -179,6 +189,7 @@ gulp.task('build', (done) =>
     'inline-component-templates',
     'angular-cli-build',
     ['move-tingle-js', 'move-tingle-css', 'move-robots', 'move-sitemap', 'move-server'],
+    ['move-css-to-build', 'move-images-to-build'],
     'optimize',
     'restore-src',
     'short-reinstall',
