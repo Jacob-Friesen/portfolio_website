@@ -25,7 +25,7 @@ describe('Component: Menu', () => {
   }));
 
   it('should create the component', inject([], () => {
-    return builder.createAsync(MenuComponentTestController)
+    return builder.createAsync(MenuComponentTestComponent)
       .then((fixture: ComponentFixture<any>) => {
         let query = fixture.debugElement.query(By.directive(MenuComponent));
         expect(query).toBeTruthy();
@@ -91,10 +91,10 @@ describe('Component: Menu', () => {
 });
 
 @Component({
-  selector: 'test',
+  selector: 'app-menu-test',
   template: `
     <app-menu></app-menu>
   `,
   directives: [MenuComponent]
 })
-class MenuComponentTestController {}
+class MenuComponentTestComponent {}

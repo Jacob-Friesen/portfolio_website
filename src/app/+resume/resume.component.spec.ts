@@ -50,12 +50,12 @@ describe('Component: Resume', () => {
 });
 
 @Component({
-  selector: 'test',
+  selector: 'app-resume-test',
   template: `
     <app-resume></app-resume>
   `,
   directives: [ResumeComponent]
 })
-class ResumeComponentTestController {
+class ResumeComponentTestComponent {
 }
 

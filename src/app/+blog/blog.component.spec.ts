@@ -22,7 +22,7 @@ describe('Component: Blog', () => {
   }));
 
   it('should create the component', inject([], () => {
-    return builder.createAsync(BlogComponentTestController)
+    return builder.createAsync(BlogComponentTestComponent)
       .then((fixture: ComponentFixture<any>) => {
         let query = fixture.debugElement.query(By.directive(BlogComponent));
         expect(query).toBeTruthy();
@@ -82,11 +82,11 @@ describe('Component: Blog', () => {
 });
 
 @Component({
-  selector: 'test',
+  selector: 'app-blog-test',
   template: `
     <app-blog></app-blog>
   `,
   directives: [BlogComponent]
 })
-class BlogComponentTestController {
+class BlogComponentTestComponent {
 }

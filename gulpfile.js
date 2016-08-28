@@ -62,8 +62,10 @@ const JS_FILES = ['e2e/**/*.ts', 'src/**/*.ts'];
 
 gulp.task('tslint', () =>
     gulp.src(JS_FILES)
-        .pipe(tslint())
-        .pipe(tslint.report("verbose"))
+        .pipe(tslint({
+          formatter: "prose"
+        }))
+        .pipe(tslint.report())
 );
 
 gulp.task('inline-component-templates', () =>
@@ -101,7 +103,7 @@ const minifyIndividualFiles = function() {
 };
 
 gulp.task('angular-cli-build', function(done) {
-  exec('ng build -prod', function(err, stdout) {
+  exec('ng build -prod', { maxBuffer: 1024 * 500 }, function(err, stdout) {
     if (err) {
       throw(err);
     }
@@ -153,6 +155,16 @@ gulp.task('move-sitemap', () =>
   gulp.src('sitemap.xml').pipe(gulp.dest(PRODUCTION))
 );
 
+// Basic assets like CSS and images are not properly copied over by Web Pack (needs more research)
+
+gulp.task('move-css-to-build', () =>
+  gulp.src('src/css/**/*').pipe(gulp.dest(PRODUCTION + '/css'))
+);
+
+gulp.task('move-images-to-build', () =>
+  gulp.src('src/images/**/*').pipe(gulp.dest(PRODUCTION + '/images'))
+);
+
 gulp.task('short-reinstall', function(done) {
   exec('bash bin/install.bash --no-npm-install', function(err, stdout) {
     if (err) {
@@ -177,6 +189,7 @@ gulp.task('build', (done) =>
     'inline-component-templates',
     'angular-cli-build',
     ['move-tingle-js', 'move-tingle-css', 'move-robots', 'move-sitemap', 'move-server'],
+    ['move-css-to-build', 'move-images-to-build'],
     'optimize',
     'restore-src',
     'short-reinstall',

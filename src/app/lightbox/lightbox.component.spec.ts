@@ -7,7 +7,7 @@ describe('Component: Lightbox', () => {
   });
 
   describe('onImageClick', function() {
-    var modal;
+    let modal;
     beforeEach(function() {
       modal = {
         setContent: jasmine.createSpy('setContent'),
@@ -48,7 +48,9 @@ describe('Component: Lightbox', () => {
     }));
 
     describe('onOpen', function() {
-      var onOpen, modalImage, modalLoadingMessage;
+      let onOpen,
+          modalImage,
+          modalLoadingMessage;
       beforeEach(inject([LightboxComponent], (service: LightboxComponent) => {
         service.onImageClick('images/test.png');
         onOpen = window['tingle'].modal.calls.argsFor(0)[0].onOpen;

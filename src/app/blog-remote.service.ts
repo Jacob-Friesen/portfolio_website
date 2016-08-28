@@ -12,7 +12,7 @@ export class BlogRemoteService {
    * @returns {Observable} path The promise to get the post data.
    */
   getPost(): Observable<any> {
-    var url = 'http://obscurejavascript.tumblr.com/api/read/json?callback=JSONP_CALLBACK';
+    let url = 'http://obscurejavascript.tumblr.com/api/read/json?callback=JSONP_CALLBACK';
     return this.jsonp.request(url).map(res => res.json().posts[0]);
   }
 }

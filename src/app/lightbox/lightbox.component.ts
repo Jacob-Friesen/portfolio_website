@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   moduleId: module.id,
-  selector: 'lightbox',
-  inputs: ['image'],
+  selector: 'light-box',
   templateUrl: 'lightbox.component.html'
 })
 export class LightboxComponent {
+  @Input() image: string;
 
   modalLoadingMessageId: string;
   modalImageId: string;
@@ -25,7 +25,7 @@ export class LightboxComponent {
     this.modalImageId = 'modal-image';
     this.modalLoadingMessageId = 'loading-message';
 
-    var modal = new window['tingle'].modal({
+    let modal = new window['tingle'].modal({
       footer: false,
       stickyFooter: false,
       cssClass: ['image-lightbox'],

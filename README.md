@@ -1,18 +1,37 @@
 Portfolio Website
 =================
-This is the fifth version of my Portfolio website and the second Angular.js version (Using [Angular 2](https://angular.io/)). The site should be **run using Node.js 4.2.x**, but will probably work fine with other versions.
+**Important Temporary fix (Angular 2 bug)**
 
-This site was created to provide a much simpler software and visual design relative to the older site. The philosophy is to employ as much preprocessing, testing and automated tools to make development as fast as possible. While this approach results in extremely fast development, I would probably not take things as far when a project needs to account for the learning curves of other developers. For example, I would probably use not use Pug (formerly Jade), the HTML Preprocessor.
+In `portfolio_website/node_modules/@angular/compiler/src/url_resolver.js`:
+
+```
+function _split(uri) {
+    return uri.match(_splitRe);
+}
+
+```
+to
+```
+function _split(uri) {
+    if (typeof uri === 'string')
+    return uri.match(_splitRe);
+}
+```
+---
+
+This is the fifth version of my Portfolio website and the second Angular.js version (Using [Angular 2](https://angular.io/)). The site should be **run using Node.js 4.5.x**, but will probably work fine with other versions. Also, NPM 3.10.x or greater should be used to overcome issues with installing the newer projects.
+
+This site was created to provide a much simpler software and visual design relative to the older site. The philosophy is to employ as much preprocessing, testing and automated tools to make development as fast as possible. While this approach results in extremely fast development, I would probably not take things as far when a project needs to account for the learning curves of other developers. For example, I would probably not use Pug (formerly Jade), the HTML Preprocessor.
 
 **Files And Folders (Top Level)**
  * **bin/** Files used before the main dependencies such as the Angular CLI are present e.g. install scripts.
  * **config/** Any Angular config files used to setup builds and tests. This is where the unit test config (Karma) and Protractor config are.
+ * **coverage/** A section showing unit test coverage. Which is probably not useful for a project like this so it will be eliminated.
  * **dist/** A generated folder containing the production built static assets.
  * **e2e/** All E2E test specifications are here.
  * **node_modules/** All 3rd party libraries used in development and running of this site.
- * **src/** All the unbuilt files. Edit these as you develop.
+ * **public/** All the unbuilt files. Edit these as you develop.
  * **tmp/** Used to cache Angular CLI merge changes while developing (don't touch this).
- * **typings/** Type definitions for TypeScript that are used across the enire application.
  * **angular-cli-build.js** Defines how the code is built for production. For now just points to libary files.
  * **angular-cli.json** Specifies the locations of code and test files so Angular CLI know where they are.
  * **app.js** The Express server definition. This defines how to run files in production.
@@ -38,15 +57,16 @@ Before diving in with the code, it is helpful to know the basics of the technolo
  * **[Jasmine](http://jasmine.github.io/2.4/introduction.html)** Used to run all the tests (End to End and unit tests).
  * **[Karma](https://karma-runner.github.io/1.0/index.html)** Used to manage running unit tests in multiple browsers. See the `config` folder.
  * **[Protractor](http://www.protractortest.org/#/)** Used to run tests in browsers using Selenium. See the `config` folder.
+ * **[Webpack](http://webpack.github.io/docs/what-is-webpack.html)** Used to modularize all assets. Integrated into Angular CLI.
 
 **Architecture**
  
  1. Files are installed and copied from various `node_modules`, see `bin/install.bash`.
  2. Pug files are transformed into HTML files automatically which read various JSON config files.
- 3. SCSS is also transformed on changes.
- 4. Typescript is dynamically translated while running in development via Angular CLI.
- 5. There are no internal AJAX requests, all data is generated before load to eliminate roundtrips.
- 6. The system is run via Express once it has been built. Building converts all assets into their base versions. Then concatenates and minifies them.
+ 3. SCSS is also transformed to CSS on changes.
+ 4. TypeScript is dynamically translated while running in development via Angular CLI.
+ 5. There are no internal AJAX requests (only for data like the blog), all data is generated before load to eliminate roundtrips.
+ 6. The system is run via Express once it has been built. Building converts all assets into their base versions (e.g. SCSS to CSS). Then concatenates and minifies them.
  7. When common libraries are used, they are not stored locally. They are loaded via a CloudFlare CDN (Content Delivery Network).
 
 Install
@@ -84,7 +104,7 @@ For the various watchers:
 
 Deployment
 ==========
-Build everything into a `dist` production folder:
+Build everything into a `dist` production folder. **Make sure no servers and no watchers are running**:
 
     gulp build
 
