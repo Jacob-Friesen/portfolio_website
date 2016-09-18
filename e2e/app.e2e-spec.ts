@@ -32,8 +32,8 @@ describe('portfolio-website App', function() {
     });
 
     describe('experience', function() {
-      let FIRST_EXPERIENCE_TEXT = 'I design and develop interfaces across multiple products (including architecture).',
-          THIRD_EXPERIENCE_TEXT = 'Added a new Inventory Location Management system';
+      let FIRST_EXPERIENCE_TEXT = 'Full stack JavaScript development on the companies first product (pre-beta',
+          THIRD_EXPERIENCE_TEXT = 'Improved Panda, the internal web application.';
 
       it('should start with the first experience as expanded', () => {
         experience.navigateTo();
@@ -135,7 +135,7 @@ describe('portfolio-website App', function() {
     it('should show the resume page', () => {
       resume.navigateTo();
       resume.title.getText().then((contents) => {
-        expect(contents.replace(/\n/g, ' ')).toEqual('Jacob Friesen - Front End Developer');
+        expect(contents.replace(/\n/g, ' ')).toEqual('Jacob Friesen - Software Developer');
       });
     });
   });
