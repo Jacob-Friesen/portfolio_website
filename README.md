@@ -124,7 +124,7 @@ Unit tests:
 
 E2Es using Protractor:
 
-    ng e2e
+    protractor "config/protractor.conf.js"
 
 License
 =======
