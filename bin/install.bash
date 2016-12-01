@@ -12,6 +12,7 @@ echo
 
 if [ "${1}" != "--no-npm-install" ]; then
   echo "Refreshing NPM packages..."
+  npm install -g gulp
   npm install -g angular-cli
   npm install -g typings
   npm install
