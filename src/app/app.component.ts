@@ -1,9 +1,8 @@
 import { NgModule, Component, OnInit } from '@angular/core';
-import { MenuComponent } from './menu';
-// import { ROUTER_DIRECTIVES} from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [ AppComponent, MenuComponent ],
+  declarations: [ AppComponent ],
   bootstrap:    [ AppComponent ]
 })
 @Component({

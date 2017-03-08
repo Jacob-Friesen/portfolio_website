@@ -1,4 +1,5 @@
-import { provideRouter, RouterConfig } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { Routes } from '@angular/router';
 import { HomeComponent } from './+home';
 import { ExperienceComponent } from './+experience';
 import { SkillsComponent } from './+skills';
@@ -6,16 +7,16 @@ import { DemosComponent } from './+demos';
 import { BlogComponent } from './+blog';
 import { ResumeComponent } from './+resume';
 
-export const routes: RouterConfig = [
+export const routes: Routes = [
   {path: 'home', component: HomeComponent},
-  {path: 'experience', component: ExperienceComponent},
-  {path: 'skills', component: SkillsComponent},
-  {path: 'demos', component: DemosComponent},
-  {path: 'blog', component: BlogComponent},
-  {path: 'resume', component: ResumeComponent},
+  // {path: 'experience', component: ExperienceComponent},
+  // {path: 'skills', component: SkillsComponent},
+  // {path: 'demos', component: DemosComponent},
+  // {path: 'blog', component: BlogComponent},
+  // {path: 'resume', component: ResumeComponent},
   {path: '**', redirectTo: '/home', pathMatch: 'full'}
 ];
 
-export const APP_ROUTER_PROVIDERS = [
-  provideRouter(routes)
-];
+// export const APP_ROUTER_PROVIDERS = [
+//   provideRouter(routes)
+// ];
