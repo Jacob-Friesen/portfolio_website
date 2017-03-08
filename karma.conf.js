@@ -3,36 +3,36 @@
 
 module.exports = function (config) {
   config.set({
-    basePath: '..',
+    basePath: '',
     frameworks: ['jasmine', 'angular-cli'],
     plugins: [
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
-      require('karma-coverage'),
+      require('karma-remap-istanbul'),
       require('angular-cli/plugins/karma')
     ],
-    customLaunchers: {
-      // chrome setup for travis CI using chromium
-      Chrome_travis_ci: {
-        base: 'Chrome',
-        flags: ['--no-sandbox']
-      }
-    },
     files: [
-      { pattern: 'node_modules/lodash/lodash.js', included: true, watched: false },
-      // { pattern: 'node_modules/rxjs/Rx.js', included: true, watched: true },
       { pattern: './src/test.ts', watched: false }
     ],
     preprocessors: {
       './src/test.ts': ['angular-cli']
     },
+    mime: {
+      'text/x-typescript': ['ts','tsx']
+    },
     remapIstanbulReporter: {
       reports: {
-        html: 'coverage'
+        html: 'coverage',
+        lcovonly: './coverage/coverage.lcov'
       }
     },
-    angularCliConfig: './angular-cli.json',
-    reporters: ['coverage', 'progress'],
+    angularCli: {
+      config: './angular-cli.json',
+      environment: 'dev'
+    },
+    reporters: config.angularCli && config.angularCli.codeCoverage
+              ? ['progress', 'karma-remap-istanbul']
+              : ['progress'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,

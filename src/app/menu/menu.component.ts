@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES, Router } from '@angular/router';
+import { Router } from '@angular/router';
+// import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 
 @Component({
-  moduleId: module.id,
+  // moduleId: module.id,
   selector: 'app-menu',
   templateUrl: 'menu.component.html',
-  directives: [ROUTER_DIRECTIVES]
+  // directives: [ROUTER_DIRECTIVES]
 })
 export class MenuComponent {
   items: Array<any>;

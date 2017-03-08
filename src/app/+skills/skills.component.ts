@@ -3,7 +3,7 @@ import { CollapseManagerService } from '../collapse-manager.service';
 import { SkillsetComponent } from './skillset';
 
 @Component({
-  moduleId: module.id,
+  // moduleId: module.id,
   selector: 'app-skills',
   templateUrl: 'skills.component.html',
   directives: [SkillsetComponent],

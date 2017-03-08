@@ -1,0 +1,22 @@
+.blog {
+  padding: 55px 25px 5px 25px; }
+  .blog .post-title {
+    text-align: center; }
+  .blog .other-posts-comment {
+    text-align: center; }
+  .blog .prettyprint {
+    background-color: white;
+    border: none;
+    border-left: 1px solid lightGrey;
+    padding-left: 15px;
+    overflow: auto; }
+
+@media (max-width: 650px) {
+  .blog {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 45px; }
+    .blog .prettyprint {
+      overflow: scroll; }
+  a {
+    word-break: break-all; } }

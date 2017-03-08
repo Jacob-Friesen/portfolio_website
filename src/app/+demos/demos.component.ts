@@ -3,7 +3,7 @@ import { CollapseManagerService } from '../collapse-manager.service';
 import { LightboxComponent } from '../lightbox';
 
 @Component({
-  moduleId: module.id,
+  // moduleId: module.id,
   selector: 'app-demos',
   templateUrl: 'demos.component.html',
   directives: [LightboxComponent],

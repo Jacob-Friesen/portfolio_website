@@ -1,0 +1,16 @@
+
+<ul class="menu">
+  <div class="open-menu-wrapper">
+    <button class="open-menu" (click)="toggleMenu($event)">
+      <h1> 
+        <div class="fa fa-bars"></div><span>Menu</span>
+      </h1>
+    </button>
+  </div>
+  <div *ngIf="menuOpen">
+    <li class="menu-item" *ngFor="let item of items; let index=index"><a class="menu-link menu-item               {{ isMobile ? &quot;mobile-menu-link&quot; : &quot;&quot; }}               {{ item.route === getHash() ? &quot;router-link-active&quot; : &quot;&quot; }}" [id]="item.id" [routerLink]="item.route" (click)="isMobile ? closeMenu($event) : &quot;&quot;"><i [class]="item.iconClass"></i><span>{{ item.title }}</span></a></li>
+    <button class="close-menu" (click)="closeMenu($event)">
+      <h1> <span>Close Menu</span></h1>
+    </button>
+  </div>
+</ul>

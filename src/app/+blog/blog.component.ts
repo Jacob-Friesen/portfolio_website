@@ -3,7 +3,7 @@ import { BlogRemoteService } from '../blog-remote.service';
 import * as _ from 'lodash';
 
 @Component({
-  moduleId: module.id,
+  // moduleId: module.id,
   selector: 'app-blog',
   templateUrl: 'blog.component.html',
   providers: [BlogRemoteService]

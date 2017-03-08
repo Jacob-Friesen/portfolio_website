@@ -1,0 +1,41 @@
+.skills .card-body {
+  padding: 0 20px 5px 20px; }
+
+.skills .card.expanded {
+  max-height: 800px; }
+
+.skills .skillset .card {
+  border: none;
+  box-shadow: none;
+  margin-bottom: 10px; }
+  .skills .skillset .card .card-header {
+    padding-top: 10px;
+    padding-bottom: 10px; }
+    .skills .skillset .card .card-header .expander {
+      top: auto; }
+  .skills .skillset .card .summary {
+    margin-bottom: 0; }
+  .skills .skillset .card .points {
+    margin-top: 15px; }
+
+@media (max-width: 650px) {
+  .skills.cards {
+    padding-top: 50px;
+    padding-bottom: 0; }
+    .skills.cards .card.expanded {
+      max-height: 1500px; }
+    .skills.cards .card-header,
+    .skills.cards .card-body {
+      padding-left: 0;
+      padding-right: 0; }
+    .skills.cards .skillset .card-header {
+      padding-top: 0;
+      border-bottom: none; }
+    .skills.cards .skillset separator {
+      display: none; }
+    .skills.cards .skillset .card-body,
+    .skills.cards .skillset .card.expanded .card-body {
+      padding: 0;
+      border-bottom: none; }
+    .skills.cards .skillset .points .title-detail {
+      display: block; } }

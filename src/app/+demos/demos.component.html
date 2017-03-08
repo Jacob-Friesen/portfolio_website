@@ -1,0 +1,231 @@
+
+<div class="page demos cards">
+  <p class="summary" id="summary"><span>These are projects I have built across the years. More examples are on my </span><a href="https://github.com/Jacob-Friesen">Github</a><span>. Finally, due to the legal or practical nature of some of these demos, not all components of them are downloadable/viewable.</span></p>
+  <div class="card" [class.expanded]="0 === collapseManager.openIndex">
+    <div class="card-header" (click)="collapseManager.toggle(0)">
+      <button class="expander"><i class="fa fa-chevron-up" *ngIf="0 === collapseManager.openIndex"></i><i class="fa fa-chevron-down" *ngIf="0 !== collapseManager.openIndex"></i></button>
+      <h3 class="title"><span>Jubileo Mobile App</span><span class="dates"><span class="date">May 2016</span></span></h3>
+    </div>
+    <div class="card-body" *ngIf="0 === collapseManager.openIndex">
+      <div class="row">
+        <div class="col-md-6 left">
+          <p id="demo-description">I worked with another person who provided content, store listing and non technical aspects. This application provide a few simple tools and targeted information for Catholics for the 2016 Jubilee. It is a Hybrid application built in Ionic and has to support file storage, audio playback, audio recording and data persistence.</p>
+        </div>
+        <div class="col-md-6 right">
+          <light-box id="lightbox-0" [image]="&quot;images/jubileo.png&quot;"></light-box>
+        </div>
+      </div>
+      <div class="links"><strong>Links:</strong>
+        <div class="link"><a href="https://play.google.com/store/apps/details?id=com.jubileo">Google Play Store</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="card" [class.expanded]="1 === collapseManager.openIndex">
+    <div class="card-header" (click)="collapseManager.toggle(1)">
+      <button class="expander"><i class="fa fa-chevron-up" *ngIf="1 === collapseManager.openIndex"></i><i class="fa fa-chevron-down" *ngIf="1 !== collapseManager.openIndex"></i></button>
+      <h3 class="title"><span>Vida Sobria Mobile App</span><span class="dates"><span class="date">October 2015</span></span></h3>
+    </div>
+    <div class="card-body" *ngIf="1 === collapseManager.openIndex">
+      <div class="row">
+        <div class="col-md-6 left">
+          <p id="demo-description">I worked with another person who provided content, store listing and non technical aspects. The application helps individuals manage their sobriety via a few simple tools and targeted information. It is a Hybrid application built in Ionic and has to support file storage, audio playback, audio recording and data persistence.</p>
+        </div>
+        <div class="col-md-6 right">
+          <light-box id="lightbox-1" [image]="&quot;images/vidaSobria.png&quot;"></light-box>
+        </div>
+      </div>
+      <div class="links"><strong>Links:</strong>
+        <div class="link"><a href="https://play.google.com/store/apps/details?id=com.vidasobria">Google Play Store</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="card" [class.expanded]="2 === collapseManager.openIndex">
+    <div class="card-header" (click)="collapseManager.toggle(2)">
+      <button class="expander"><i class="fa fa-chevron-up" *ngIf="2 === collapseManager.openIndex"></i><i class="fa fa-chevron-down" *ngIf="2 !== collapseManager.openIndex"></i></button>
+      <h3 class="title"><span>VeriAs Prototype Interface</span><span class="dates"><span class="date">September 2015</span></span></h3>
+    </div>
+    <div class="card-body" *ngIf="2 === collapseManager.openIndex">
+      <div class="row">
+        <div class="col-md-6 left">
+          <p id="demo-description">This is the prototype interface I designed for a project at work. The final product is changing quite a bit including the interface (which I cannot show until it is released). Though this snapshot gives a good idea of my current design abilities. It is a single page website implemented using Angular (1.5) with testing, building and so on implemented using Node.js with Gulp.js.</p>
+        </div>
+        <div class="col-md-6 right">
+          <light-box id="lightbox-2" [image]="&quot;images/prototypeVerias.png&quot;"></light-box>
+        </div>
+      </div>
+      <div class="links"><strong>Links:</strong><span>&nbsp;(None)</span>
+      </div>
+    </div>
+  </div>
+  <div class="card" [class.expanded]="3 === collapseManager.openIndex">
+    <div class="card-header" (click)="collapseManager.toggle(3)">
+      <button class="expander"><i class="fa fa-chevron-up" *ngIf="3 === collapseManager.openIndex"></i><i class="fa fa-chevron-down" *ngIf="3 !== collapseManager.openIndex"></i></button>
+      <h3 class="title"><span>The Unsafe Minifier</span><span class="dates"><span class="date">March 2013</span></span></h3>
+    </div>
+    <div class="card-body" *ngIf="3 === collapseManager.openIndex">
+      <div class="row">
+        <div class="col-md-6 left">
+          <p id="demo-description">For my Machine Learning class in my final school term I worked on an AI based minification scheme intended to compliment normal minification. It parses a series of JavaScript files and finds all function calls, expressions, and declarations. Then the unsafe minifier writes all the data back. Next that data is used to train a set of nueral networks (five by default) which are used to minify files sent into application. I continue to work on this on Github. This project was primarily done in Node.js.</p>
+        </div>
+        <div class="col-md-6 right">
+          <light-box id="lightbox-3" [image]="&quot;images/unsafe_minifier.png&quot;"></light-box>
+        </div>
+      </div>
+      <div class="links"><strong>Links:</strong>
+        <div class="link"><a href="https://github.com/Jacob-Friesen/unsafe_minifier">Github Source</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="card" [class.expanded]="4 === collapseManager.openIndex">
+    <div class="card-header" (click)="collapseManager.toggle(4)">
+      <button class="expander"><i class="fa fa-chevron-up" *ngIf="4 === collapseManager.openIndex"></i><i class="fa fa-chevron-down" *ngIf="4 !== collapseManager.openIndex"></i></button>
+      <h3 class="title"><span>Winnipeg JS Mobile</span><span class="dates"><span class="date">December 2012</span></span></h3>
+    </div>
+    <div class="card-body" *ngIf="4 === collapseManager.openIndex">
+      <div class="row">
+        <div class="col-md-6 left">
+          <p id="demo-description">In late December 2012, I developed the mobile interface for winnipegjs.com. Using the desktop design as a baseline, I used CSS and some some JavaScript to make the interface look good and work well across multiple devices. For detecting misbehaving browsers like IE 7 on Windows Phone 7, I used tactics like IE includes and user agent sniffing. Most of the JavaScript was done server side (the website is implemented in Node.js) to set and detect cookies so mobile browsers would be able to switch to desktop and vice versa.</p>
+        </div>
+        <div class="col-md-6 right">
+          <light-box id="lightbox-4" [image]="&quot;images/winnipegjs.png&quot;"></light-box>
+        </div>
+      </div>
+      <div class="links"><strong>Links:</strong>
+        <div class="link"><a href="https://github.com/yagudaev/winnipegjs">Github Source</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="card" [class.expanded]="5 === collapseManager.openIndex">
+    <div class="card-header" (click)="collapseManager.toggle(5)">
+      <button class="expander"><i class="fa fa-chevron-up" *ngIf="5 === collapseManager.openIndex"></i><i class="fa fa-chevron-down" *ngIf="5 !== collapseManager.openIndex"></i></button>
+      <h3 class="title"><span>C++ AES Implementation</span><span class="dates"><span class="date">October 2012</span></span></h3>
+    </div>
+    <div class="card-body" *ngIf="5 === collapseManager.openIndex">
+      <div class="row">
+        <div class="col-md-6 left">
+          <p id="demo-description">In Cryptography in the fall school term of 2012 I implemented AES in C++. The implementation is large enough to include some complexity and demonstrates my ability to code in a C environment. Since the code closely follows the AES specification the implementation was done in a bottom up C style rather than a top down C++ style. See the README for instructions.</p>
+        </div>
+        <div class="col-md-6 right">
+          <light-box id="lightbox-5" [image]="&quot;images/aes.png&quot;"></light-box>
+        </div>
+      </div>
+      <div class="links"><strong>Links:</strong>
+        <div class="link"><a href="https://github.com/Jacob-Friesen/aes_implementation">Github Source</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="card" [class.expanded]="6 === collapseManager.openIndex">
+    <div class="card-header" (click)="collapseManager.toggle(6)">
+      <button class="expander"><i class="fa fa-chevron-up" *ngIf="6 === collapseManager.openIndex"></i><i class="fa fa-chevron-down" *ngIf="6 !== collapseManager.openIndex"></i></button>
+      <h3 class="title"><span>Iders IMS</span><span class="dates"><span class="date">August 2011</span><span>&nbsp;-&nbsp;</span><span>December 2011</span></span></h3>
+    </div>
+    <div class="card-body" *ngIf="6 === collapseManager.openIndex">
+      <div class="row">
+        <div class="col-md-6 left">
+          <p id="demo-description">In the Fall coop term of 2011 I worked on the Information Management System (IMS) website at Iders with some other Web Developers. The below video is about an additional feature I implemented, automatically opening the windows you had open from last session in your new session. Keep in mind this is a web interface.</p>
+        </div>
+        <div class="col-md-6 right">
+          <light-box id="lightbox-6" [image]="&quot;images/IdersIMS2.png&quot;"></light-box>
+        </div>
+      </div>
+      <div class="links"><strong>Links:</strong>
+        <div class="link"><a href="https://www.youtube.com/watch?v=1tB5szfXYCo">Video (Youtube)</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="card" [class.expanded]="7 === collapseManager.openIndex">
+    <div class="card-header" (click)="collapseManager.toggle(7)">
+      <button class="expander"><i class="fa fa-chevron-up" *ngIf="7 === collapseManager.openIndex"></i><i class="fa fa-chevron-down" *ngIf="7 !== collapseManager.openIndex"></i></button>
+      <h3 class="title"><span>Nutrifacts Project</span><span class="dates"><span class="date">July 2011</span></span></h3>
+    </div>
+    <div class="card-body" *ngIf="7 === collapseManager.openIndex">
+      <div class="row">
+        <div class="col-md-6 left">
+          <p id="demo-description">I worked on this project along with 3 other group members. It is implemented in Java. The application uses a database of food items with associated nutritional facts in conjunction with a Java based framework of objects to track user preferences. These preferences are in the form of ratings which influence, along with filters, the suggested items for each item selected.</p>
+        </div>
+        <div class="col-md-6 right">
+          <light-box id="lightbox-7" [image]="&quot;images/nutrifactsMainScreen.jpg&quot;"></light-box>
+        </div>
+      </div>
+      <div class="links"><strong>Links:</strong>
+        <div class="link"><a href="downloads/nutrifacts.zip">Java Source Code (Zipped)</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="card" [class.expanded]="8 === collapseManager.openIndex">
+    <div class="card-header" (click)="collapseManager.toggle(8)">
+      <button class="expander"><i class="fa fa-chevron-up" *ngIf="8 === collapseManager.openIndex"></i><i class="fa fa-chevron-down" *ngIf="8 !== collapseManager.openIndex"></i></button>
+      <h3 class="title"><span>Movie Organizer</span><span class="dates"><span class="date">July 2011</span></span></h3>
+    </div>
+    <div class="card-body" *ngIf="8 === collapseManager.openIndex">
+      <div class="row">
+        <div class="col-md-6 left">
+          <p id="demo-description">This is an application that manages a database of movies for a user created in a 2011 school term. The user can create, add or edit any movie. Movies have data about their title, director(s), actors, description etc. This project was designed with another student for my Human Computer Interaction 1 course. The focus was on user interaction not developing an entire application so the database is just an XML file and there may be some small display glitches.</p>
+        </div>
+        <div class="col-md-6 right">
+          <light-box id="lightbox-8" [image]="&quot;images/movOrgPic.jpg&quot;"></light-box>
+        </div>
+      </div>
+      <div class="links"><strong>Links:</strong>
+        <div class="link"><a href="downloads/movie_organizer_source.zip">C# Source Code (Zipped)</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="card" [class.expanded]="9 === collapseManager.openIndex">
+    <div class="card-header" (click)="collapseManager.toggle(9)">
+      <button class="expander"><i class="fa fa-chevron-up" *ngIf="9 === collapseManager.openIndex"></i><i class="fa fa-chevron-down" *ngIf="9 !== collapseManager.openIndex"></i></button>
+      <h3 class="title"><span>RWRP Website</span><span class="dates"><span class="date">January 2011</span><span>&nbsp;-&nbsp;</span><span>April 2011</span></span></h3>
+    </div>
+    <div class="card-body" *ngIf="9 === collapseManager.openIndex">
+      <div class="row">
+        <div class="col-md-6 left">
+          <p id="demo-description">This is the first website I worked on professionally. It was made at my first work term. As the experience section states I worked on all parts of the website; design, front end, and back end. I have included a video demoing one of the features I worked on.</p>
+        </div>
+        <div class="col-md-6 right">
+          <light-box id="lightbox-9" [image]="&quot;images/RWRPMain.jpg&quot;"></light-box>
+        </div>
+      </div>
+      <div class="links"><strong>Links:</strong>
+        <div class="link"><a href="https://www.youtube.com/watch?v=hV-JQ9dC2nI">Video (Youtube)</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="card" [class.expanded]="10 === collapseManager.openIndex">
+    <div class="card-header" (click)="collapseManager.toggle(10)">
+      <button class="expander"><i class="fa fa-chevron-up" *ngIf="10 === collapseManager.openIndex"></i><i class="fa fa-chevron-down" *ngIf="10 !== collapseManager.openIndex"></i></button>
+      <h3 class="title"><span>Doctor Schedule Project</span><span class="dates"><span class="date">October 2010</span></span></h3>
+    </div>
+    <div class="card-body" *ngIf="10 === collapseManager.openIndex">
+      <div class="row">
+        <div class="col-md-6 left">
+          <p id="demo-description">This program schedules patients into a hospital. They are scheduled based on thier condition severity and when the available resources to treat them are ready. There are 2 types of resources: doctors and the rooms the patient is operated in. If two patients have the same condition the first one that requests treatment is treated first. This project was done for my Object Orientation (Comp 2150) course.</p>
+        </div>
+        <div class="col-md-6 right">
+          <light-box id="lightbox-10" [image]="&quot;images/schedulingHsptl.jpg&quot;"></light-box>
+        </div>
+      </div>
+      <div class="links"><strong>Links:</strong>
+        <div class="link"><a href="downloads/schedule_patients.zip">Java Source Code (Zipped)</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="card" [class.expanded]="11 === collapseManager.openIndex">
+    <div class="card-header" (click)="collapseManager.toggle(11)">
+      <button class="expander"><i class="fa fa-chevron-up" *ngIf="11 === collapseManager.openIndex"></i><i class="fa fa-chevron-down" *ngIf="11 !== collapseManager.openIndex"></i></button>
+      <h3 class="title"><span>Contact List Project</span><span class="dates"><span class="date">October 2010</span></span></h3>
+    </div>
+    <div class="card-body" *ngIf="11 === collapseManager.openIndex">
+      <div class="row">
+        <div class="col-md-6 left">
+          <p id="demo-description">This is a GUI application that manages various contacts a person could have. The contact info includes variables like phone numbers which is read from an XML file. Using this application you can add, delete or edit any entry clicked on in the list display. This was done as part of an assignment I had in my current Human Computer Interaction course.</p>
+        </div>
+        <div class="col-md-6 right">
+          <light-box id="lightbox-11" [image]="&quot;images/contactList.jpg&quot;"></light-box>
+        </div>
+      </div>
+      <div class="links"><strong>Links:</strong>
+        <div class="link"><a href="downloads/contact_list.zip">C# Source Code (Zipped)</a></div>
+      </div>
+    </div>
+  </div>
+</div>

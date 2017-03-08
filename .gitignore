@@ -6,10 +6,21 @@
 
 # dependencies
 /node_modules
-/bower_components
 
 # IDEs and editors
 /.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
 # misc
 /.sass-cache
@@ -24,20 +35,6 @@ testem.log
 /e2e/*.js
 /e2e/*.map
 
-# System Files
+#System Files
 .DS_Store
 Thumbs.db
-
-# Custom
-*~
-*_c.css
-*.min.js
-*.js.gz
-*.tmp
-dist.zip
-*component.html
-src/css
-src/jacob.json
-src_temp
-# Resume generation
-*resume-body*
