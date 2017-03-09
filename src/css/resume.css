@@ -62,16 +62,17 @@
 .resume-body table.skills tr td:nth-child(2) {
   width: 25%; }
 
-.resume-body center.header {
+.resume-body .header {
+  text-align: center;
   margin-top: 40px;
   /* pdf replace */
   margin-bottom: 20px;
   /* pdf replace */ }
 
-.resume-body center.header h1 {
+.resume-body .header h1 {
   margin: 10px 0 5px 0; }
 
-.resume-body center.header p {
+.resume-body .header p {
   margin: 0 0 3px 0;
   padding: 0; }
 
