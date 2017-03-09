@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { JsonpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
@@ -12,6 +12,7 @@ import { SkillsetComponent } from './+skills/skillset';
 import { SkillsComponent } from './+skills';
 import { DemosComponent } from './+demos';
 import { LightboxComponent } from './lightbox';
+import { BlogComponent } from './+blog';
 import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
@@ -23,13 +24,14 @@ import { MenuComponent } from './menu/menu.component';
     SkillsComponent,
     LightboxComponent,
     DemosComponent,
+    BlogComponent,
     MenuComponent
   ],
   imports: [
+    JsonpModule,
     RouterModule.forRoot(routes),
     BrowserModule,
-    CommonModule,
-    FormsModule
+    CommonModule
   ],
   providers: [],
   entryComponents: [AppComponent],
