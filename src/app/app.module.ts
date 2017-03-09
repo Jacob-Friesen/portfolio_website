@@ -13,6 +13,7 @@ import { SkillsComponent } from './+skills';
 import { DemosComponent } from './+demos';
 import { LightboxComponent } from './lightbox';
 import { BlogComponent } from './+blog';
+import { ResumeComponent } from './+resume';
 import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
@@ -25,6 +26,7 @@ import { MenuComponent } from './menu/menu.component';
     LightboxComponent,
     DemosComponent,
     BlogComponent,
+    ResumeComponent,
     MenuComponent
   ],
   imports: [

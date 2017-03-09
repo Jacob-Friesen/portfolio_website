@@ -13,7 +13,7 @@ export const routes: Routes = [
   {path: 'skills', component: SkillsComponent},
   {path: 'demos', component: DemosComponent},
   {path: 'blog', component: BlogComponent},
-  // {path: 'resume', component: ResumeComponent},
+  {path: 'resume', component: ResumeComponent},
   {path: '**', redirectTo: '/home', pathMatch: 'full'}
 ];
 
