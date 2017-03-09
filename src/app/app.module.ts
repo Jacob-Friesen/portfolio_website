@@ -7,12 +7,18 @@ import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 
 import { HomeComponent } from './+home';
+import { ExperienceComponent } from './+experience';
+import { SkillsetComponent } from './+skills/skillset';
+import { SkillsComponent } from './+skills';
 import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    ExperienceComponent,
+    SkillsetComponent,
+    SkillsComponent,
     MenuComponent
   ],
   imports: [
