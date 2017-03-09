@@ -10,6 +10,8 @@ import { HomeComponent } from './+home';
 import { ExperienceComponent } from './+experience';
 import { SkillsetComponent } from './+skills/skillset';
 import { SkillsComponent } from './+skills';
+import { DemosComponent } from './+demos';
+import { LightboxComponent } from './lightbox';
 import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
@@ -19,6 +21,8 @@ import { MenuComponent } from './menu/menu.component';
     ExperienceComponent,
     SkillsetComponent,
     SkillsComponent,
+    LightboxComponent,
+    DemosComponent,
     MenuComponent
   ],
   imports: [

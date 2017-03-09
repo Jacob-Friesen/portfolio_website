@@ -11,7 +11,7 @@ export const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'experience', component: ExperienceComponent},
   {path: 'skills', component: SkillsComponent},
-  // {path: 'demos', component: DemosComponent},
+  {path: 'demos', component: DemosComponent},
   // {path: 'blog', component: BlogComponent},
   // {path: 'resume', component: ResumeComponent},
   {path: '**', redirectTo: '/home', pathMatch: 'full'}
