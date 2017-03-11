@@ -1,4 +1,3 @@
-import { NgModule } from '@angular/core';
 import { Routes } from '@angular/router';
 import { HomeComponent } from './+home';
 import { ExperienceComponent } from './+experience';

@@ -32,7 +32,7 @@ export class BlogComponent implements OnInit {
 
   /**
    * Loads the passed in post data into the page (via bindings).
-   * 
+   *
    * @param {object} post Contains all the post data retrieved from Tumblr. The only relevant fields are 'regular-title'
    *                      and 'regular-body'.
    */

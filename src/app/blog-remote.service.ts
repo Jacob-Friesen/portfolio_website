@@ -8,7 +8,7 @@ export class BlogRemoteService {
 
   /**
    * Extract the first post from the list of posts returned.
-   * 
+   *
    * @returns {Observable} path The promise to get the post data.
    */
   getPost(): Observable<any> {

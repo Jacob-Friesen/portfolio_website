@@ -60,7 +60,7 @@ gulp.task('watch-pug', () => gulp.watch(HTML_TEMPLATES, ['pug']) );
 
 const JS_FILES = ['e2e/**/*.ts', 'src/**/*.ts'];
 
-gulp.task('tslint', () =>
+gulp.task('lint', () =>
     gulp.src(JS_FILES)
         .pipe(tslint({
           formatter: "prose"
@@ -77,7 +77,7 @@ gulp.task('inline-component-templates', () =>
         .pipe(gulp.dest('src'))
 );
 
-gulp.task('watch-lint', () => gulp.watch(JS_FILES, ['tslint']) );
+gulp.task('watch-lint', ['lint'], () => gulp.watch(JS_FILES, ['lint']) );
 
 // TRIFORCE!! (JS, CSS And HTML Specific)
 

@@ -15,7 +15,7 @@ export class LightboxComponent {
   /**
    * Opens a Lighbox style modal with the large version of the sent in image. The modal is based on the Tingle modal
    * which can be found here: http://robinparisi.github.io/tingle/
-   * 
+   *
    * @param {string} image The image to base the full size image load on. The full size images will have .large.<type>
    */
   onImageClick(image) {
