@@ -1,5 +1,4 @@
 import { TestBed, async } from '@angular/core/testing';
-import { Component } from '@angular/core';
 import { BlogRemoteService } from '../blog-remote.service';
 import { By } from '@angular/platform-browser';
 import { BlogComponent } from './blog.component';
@@ -79,13 +78,3 @@ describe('Component: Blog', () => {
     }));
   });
 });
-
-@Component({
-  selector: 'app-blog-test',
-  template: `
-    <app-blog></app-blog>
-  `,
-  directives: [BlogComponent]
-})
-class BlogComponentTestComponent {
-}
