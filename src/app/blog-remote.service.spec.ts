@@ -1,5 +1,4 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { provide } from '@angular/core';
 import { JSONPBackend, Response, ResponseOptions } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import { BlogRemoteService } from './blog-remote.service';

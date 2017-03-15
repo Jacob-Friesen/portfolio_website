@@ -13,9 +13,7 @@ describe('App (Base)', () => {
         AppComponent
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
-    }).compileComponents(() => {
-      fixture = TestBed.createComponent(AppComponent);
-    });
+    }).compileComponents();
   });
   beforeEach(() => {
     fixture = TestBed.createComponent(AppComponent);
