@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuComponent } from './menu';
-import { ROUTER_DIRECTIVES} from '@angular/router';
 
 @Component({
-  moduleId: module.id + '',
-  selector: 'portfolio-website-app',
-  templateUrl: 'app.component.html',
-  directives: [ROUTER_DIRECTIVES, MenuComponent]
+  selector: 'app-root',
+  templateUrl: 'app.component.html'
 })
 export class AppComponent implements OnInit {
   // This creates a class that causes CSS to trigger only after load after at least one page has loaded. There seems to

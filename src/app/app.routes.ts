@@ -1,4 +1,4 @@
-import { provideRouter, RouterConfig } from '@angular/router';
+import { Routes } from '@angular/router';
 import { HomeComponent } from './+home';
 import { ExperienceComponent } from './+experience';
 import { SkillsComponent } from './+skills';
@@ -6,7 +6,7 @@ import { DemosComponent } from './+demos';
 import { BlogComponent } from './+blog';
 import { ResumeComponent } from './+resume';
 
-export const routes: RouterConfig = [
+export const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'experience', component: ExperienceComponent},
   {path: 'skills', component: SkillsComponent},
@@ -16,6 +16,6 @@ export const routes: RouterConfig = [
   {path: '**', redirectTo: '/home', pathMatch: 'full'}
 ];
 
-export const APP_ROUTER_PROVIDERS = [
-  provideRouter(routes)
-];
+// export const APP_ROUTER_PROVIDERS = [
+//   provideRouter(routes)
+// ];

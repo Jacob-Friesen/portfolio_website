@@ -1,68 +1,65 @@
-import { addProviders, inject, ComponentFixture, TestComponentBuilder } from '@angular/core/testing';
-import { Component } from '@angular/core';
+import { TestBed, async } from '@angular/core/testing';
 import { BlogRemoteService } from '../blog-remote.service';
 import { By } from '@angular/platform-browser';
 import { BlogComponent } from './blog.component';
-import { JSONP_PROVIDERS } from '@angular/http';
-import * as _ from 'lodash';
+import { JsonpModule } from '@angular/http';
 
 describe('Component: Blog', () => {
-  let builder: TestComponentBuilder;
+  let fixture,
+    component;
 
   beforeEach(() => {
-    addProviders([
-      JSONP_PROVIDERS,
-      BlogRemoteService,
-      BlogComponent
-    ]);
+    TestBed.configureTestingModule({
+      imports: [JsonpModule],
+      declarations: [
+        BlogComponent
+      ],
+      providers: [
+        BlogRemoteService
+      ],
+    }).compileComponents();
+  });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(BlogComponent);
+    component = fixture.debugElement.componentInstance;
   });
 
-  beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
-    builder = tcb;
-  }));
+  afterEach(() => TestBed.resetTestingModule());
 
-  it('should create the component', inject([], () => {
-    return builder.createAsync(BlogComponentTestComponent)
-      .then((fixture: ComponentFixture<any>) => {
-        let query = fixture.debugElement.query(By.directive(BlogComponent));
-        expect(query).toBeTruthy();
-        expect(query.componentInstance).toBeTruthy();
-      });
-  }));
+  it('should create the component', () => {
+    expect(component).toBeTruthy();
+    const node = fixture.debugElement.query(By.all());
+    expect(node.nativeElement.innerHTML).not.toEqual('');
+  });
 
   describe('ngOnInit', function() {
-    it('should display loading messages and retrieve the blog post',
-    inject([BlogComponent], (component: BlogComponent) => {
+    it('should display loading messages and retrieve the blog post', () => {
       spyOn(component, 'getBlogPost');
-
       component.ngOnInit();
 
-      expect(_.isString(component.postTitle) && !_.isEmpty(component.postTitle)).toEqual(true);
-      expect(_.isString(component.postBody) && !_.isEmpty(component.postBody)).toEqual(true);
+      expect(typeof component.postTitle === 'string' && component.postTitle !== '').toEqual(true);
+      expect(typeof component.postBody === 'string' && component.postBody !== '').toEqual(true);
       expect(component.getBlogPost).toHaveBeenCalledWith();
-    }));
+    });
   });
 
   describe('getBlogPost', function() {
-    it('should subscribe and pass the data to loadPost',
-    inject([BlogComponent], (component: BlogComponent) => {
+    it('should subscribe and pass the data to loadPost', () => {
       const subscribe = jasmine.createSpy('subscribe');
       spyOn(component.blogRemote, 'getPost').and.returnValue({ subscribe: subscribe });
 
       component.getBlogPost();
 
       expect(subscribe).toHaveBeenCalledWith(jasmine.any(Function), jasmine.any(Function));
-    }));
+    });
   });
 
   describe('loadPost', function() {
-    beforeEach(inject([BlogComponent], (component: BlogComponent) => {
-      spyOn(_, 'defer').and.callFake((callback) => callback());
+    beforeEach(() => {
       spyOn(component, 'setupPrettyPrint');
-    }));
+    });
 
-    it('should set the postTitle and postBody based on the corresponding data in the sent in post',
-    inject([BlogComponent], (component: BlogComponent) => {
+    it('should set the postTitle and postBody based on the corresponding data in the sent in post', () => {
       component.loadPost({
         'regular-title': 'A title',
         'regular-body': 'Some body content'
@@ -70,23 +67,14 @@ describe('Component: Blog', () => {
 
       expect(component.postTitle).toEqual('A title');
       expect(component.postBody).toEqual('Some body content');
-    }));
+    });
 
-    it('should setup pretty printing',
-    inject([BlogComponent], (component: BlogComponent) => {
+    it('should setup pretty printing', async(() => {
       component.loadPost({});
 
-      expect(component.setupPrettyPrint).toHaveBeenCalledWith();
+      setTimeout(() => {
+        expect(component.setupPrettyPrint).toHaveBeenCalledWith();
+      });
     }));
   });
 });
-
-@Component({
-  selector: 'app-blog-test',
-  template: `
-    <app-blog></app-blog>
-  `,
-  directives: [BlogComponent]
-})
-class BlogComponentTestComponent {
-}

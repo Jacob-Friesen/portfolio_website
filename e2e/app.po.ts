@@ -1,3 +1,5 @@
+import { browser, element, by, protractor } from 'protractor';
+
 export class TopSection {
   navigateTo() {
     return browser.get('/');

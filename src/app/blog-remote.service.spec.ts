@@ -1,19 +1,21 @@
-import { addProviders, inject } from '@angular/core/testing';
-import { provide } from '@angular/core';
+import { TestBed, inject } from '@angular/core/testing';
 import { JSONPBackend, Response, ResponseOptions } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import { BlogRemoteService } from './blog-remote.service';
-import { JSONP_PROVIDERS } from '@angular/http';
+import { JsonpModule } from '@angular/http';
 import 'rxjs/Rx';
 
 describe('BlogRemote Service', () => {
   beforeEach(() => {
-    addProviders([
-      JSONP_PROVIDERS,
-      provide(JSONPBackend, {useClass: MockBackend}),
-      BlogRemoteService
-    ]);
+    TestBed.configureTestingModule({
+      imports: [JsonpModule],
+      providers: [
+        BlogRemoteService,
+        { provide: JSONPBackend, useClass: MockBackend }
+      ],
+    });
   });
+  afterEach(() => TestBed.resetTestingModule());
 
   describe('getPosts', function() {
     it('should return a promise that gets all the posts then takes the first one',

@@ -1,45 +1,30 @@
-import { addProviders, inject, ComponentFixture, TestComponentBuilder } from '@angular/core/testing';
-import { Component } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { ExperienceComponent } from './experience.component';
 import { CollapseManagerService } from '../collapse-manager.service';
 
 describe('Component: Experience', () => {
-  let builder: TestComponentBuilder;
+  let fixture,
+    component;
 
   beforeEach(() => {
-    addProviders([
-      CollapseManagerService,
-      ExperienceComponent
-    ]);
+    TestBed.configureTestingModule({
+      declarations: [
+        ExperienceComponent
+      ],
+      providers: [
+        CollapseManagerService
+      ],
+    }).compileComponents();
+  });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(ExperienceComponent);
+    component = fixture.debugElement.componentInstance;
   });
 
-  beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
-    builder = tcb;
-  }));
-
-  it('should inject the component', inject([ExperienceComponent],
-      (component: ExperienceComponent) => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
-  }));
-
-  it('should create the component', inject([], () => {
-    return builder.createAsync(ExperienceComponentTestComponent)
-      .then((fixture: ComponentFixture<any>) => {
-        let query = fixture.debugElement.query(By.directive(ExperienceComponent));
-        expect(query).toBeTruthy();
-        expect(query.componentInstance).toBeTruthy();
-      });
-  }));
+    const node = fixture.debugElement.query(By.all());
+    expect(node.nativeElement.innerHTML).not.toEqual('');
+  });
 });
-
-@Component({
-  selector: 'app-experience-test',
-  template: `
-    <app-experience></app-experience>
-  `,
-  directives: [ExperienceComponent]
-})
-class ExperienceComponentTestComponent {
-}
-

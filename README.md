@@ -1,51 +1,26 @@
 Portfolio Website
 =================
-**Important Temporary fix (Angular 2 bug)**
-
-In `portfolio_website/node_modules/@angular/compiler/src/url_resolver.js`:
-
-```
-function _split(uri) {
-    return uri.match(_splitRe);
-}
-
-```
-to
-```
-function _split(uri) {
-    if (typeof uri === 'string')
-    return uri.match(_splitRe);
-}
-```
----
-
 This is the fifth version of my Portfolio website and the second Angular.js version (Using [Angular 2](https://angular.io/)). The site should be **run using Node.js 6.9.x** (it uses many cutting edge tools), but will probably work fine with other versions. Also, NPM 3.10.x or greater should be used to overcome issues with installing the newer projects.
 
-This site was created to provide a much simpler software and visual design relative to the older site. The philosophy is to employ as much preprocessing, testing and automated tools to make development as fast as possible. While this approach results in extremely fast development, I would probably not take things as far when a project needs to account for the learning curves of other developers. For example, I would probably not use Pug (formerly Jade), the HTML Preprocessor.
+This site was created to provide a much simpler software and visual design relative to the older site. The philosophy is to employ as much preprocessing, testing and automated tools to make development as fast as possible. While this approach results in extremely fast development, I would probably not take things as far when a project needs to account for the learning curves of other developers. For example, I would probably not use Pug (formerly Jade), the HTML Preprocessor. Finally, due to the small size, practices like multi-module systems were not used because they would add implementation overhead without providing much maintainability.
 
 **Files And Folders (Top Level)**
  * **bin/** Files used before the main dependencies such as the Angular CLI are present e.g. install scripts.
- * **config/** Any Angular config files used to setup builds and tests. This is where the unit test config (Karma) and Protractor config are.
- * **coverage/** A section showing unit test coverage. Which is probably not useful for a project like this so it will be eliminated.
  * **dist/** A generated folder containing the production built static assets.
  * **e2e/** All E2E test specifications are here.
  * **node_modules/** All 3rd party libraries used in development and running of this site.
- * **public/** All the unbuilt files. Edit these as you develop.
- * **tmp/** Used to cache Angular CLI merge changes while developing (don't touch this).
- * **angular-cli-build.js** Defines how the code is built for production. For now just points to libary files.
- * **angular-cli.json** Specifies the locations of code and test files so Angular CLI know where they are.
+ * **src/** All the unbuilt files. Edit these as you develop.
  * **app.js** The Express server definition. This defines how to run files in production.
- * **customServer.js** A backup server for running production code in case Express errors for a strange reason.
+ * **customServer.js** A backup server for running production code in case the Express server errors for a strange reason.
  * **gulpfile.js** Defines all the tasks that Angular CLI does not cover such as builds with minification.
  * **package.json** Defines all the libaries and their version to be installed with `npm install`.
  * **robots.txt** Defines where various webcrawlers can go. This should be copied into the public directory.
  * **sitemap.xml** Defines the locations of the site for webcrawlers making the site more SEO friendly.
  * **tslint.json** Defines all rules that will be used for the linting system.
- * **typings.json** Defines the versions of type definitions for TypeScript to be used for each library.
 
 Technologies & Architecture
 ===========================
-Before diving in with the code, it is helpful to know the basics of the technologies and architecture so you have a roadmap of where things fit.
+Before diving into the code, it is helpful to know the basics of the technologies and architecture so you have a roadmap of where things fit.
 
 **Technologies**
  * **[Node.js](https://nodejs.org/en/)** A runtime that runs over Chrome's JavaScript engine that allows you to write server side JavaScript. Many user interface libaries are written for Node.js, so it drastically reduces the amount of code used.
@@ -65,7 +40,7 @@ Before diving in with the code, it is helpful to know the basics of the technolo
  2. Pug files are transformed into HTML files automatically which read various JSON config files.
  3. SCSS is also transformed to CSS on changes.
  4. TypeScript is dynamically translated while running in development via Angular CLI.
- 5. There are no internal AJAX requests (only for data like the blog), all data is generated before load to eliminate roundtrips.
+ 5. There are no internal AJAX requests (other than for blog data), all data is generated before load to eliminate roundtrips.
  6. The system is run via Express once it has been built. Building converts all assets into their base versions (e.g. SCSS to CSS). Then concatenates and minifies them.
  7. When common libraries are used, they are not stored locally. They are loaded via a CloudFlare CDN (Content Delivery Network).
 
@@ -90,7 +65,11 @@ For the various watchers:
     gulp watch-pug
     gulp watch-css
     gulp watch-lint
+    # unit tests
     ng test
+    # brower tests
+    ng e2e
+
 
 **Target Desktop Browsers**
   * Chrome
@@ -124,7 +103,7 @@ Unit tests:
 
 E2Es using Protractor:
 
-    protractor "config/protractor.conf.js"
+    ng e2e
 
 License
 =======

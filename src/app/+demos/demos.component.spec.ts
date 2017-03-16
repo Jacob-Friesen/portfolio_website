@@ -1,45 +1,32 @@
-import { addProviders, inject, ComponentFixture, TestComponentBuilder } from '@angular/core/testing';
-import { Component } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DemosComponent } from './demos.component';
+import { LightboxComponent } from '../lightbox';
 import { CollapseManagerService } from '../collapse-manager.service';
 
 describe('Component: Demos', () => {
-  let builder: TestComponentBuilder;
+  let fixture,
+    component;
 
   beforeEach(() => {
-    addProviders([
-      CollapseManagerService,
-      DemosComponent
-    ]);
+    TestBed.configureTestingModule({
+      declarations: [
+        LightboxComponent,
+        DemosComponent
+      ],
+      providers: [
+        CollapseManagerService
+      ],
+    }).compileComponents();
+  });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(DemosComponent);
+    component = fixture.debugElement.componentInstance;
   });
 
-  beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
-    builder = tcb;
-  }));
-
-  it('should inject the component', inject([DemosComponent],
-      (component: DemosComponent) => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
-  }));
-
-  it('should create the component', inject([], () => {
-    return builder.createAsync(DemosComponentTestComponent)
-      .then((fixture: ComponentFixture<any>) => {
-        let query = fixture.debugElement.query(By.directive(DemosComponent));
-        expect(query).toBeTruthy();
-        expect(query.componentInstance).toBeTruthy();
-      });
-  }));
+    const node = fixture.debugElement.query(By.all());
+    expect(node.nativeElement.innerHTML).not.toEqual('');
+  });
 });
-
-@Component({
-  selector: 'app-demos-test',
-  template: `
-    <app-demos></app-demos>
-  `,
-  directives: [DemosComponent]
-})
-class DemosComponentTestComponent {
-}
-

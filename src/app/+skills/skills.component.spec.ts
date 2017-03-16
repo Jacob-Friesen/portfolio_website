@@ -1,45 +1,32 @@
-import { addProviders, inject, ComponentFixture, TestComponentBuilder } from '@angular/core/testing';
-import { Component } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { SkillsComponent } from './skills.component';
+import { SkillsetComponent } from './skillset';
 import { CollapseManagerService } from '../collapse-manager.service';
 
 describe('Component: Skills', () => {
-  let builder: TestComponentBuilder;
+  let fixture,
+    component;
 
   beforeEach(() => {
-    addProviders([
-      CollapseManagerService,
-      SkillsComponent
-    ]);
+    TestBed.configureTestingModule({
+      declarations: [
+        SkillsetComponent,
+        SkillsComponent
+      ],
+      providers: [
+        CollapseManagerService
+      ],
+    }).compileComponents();
+  });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(SkillsComponent);
+    component = fixture.debugElement.componentInstance;
   });
 
-  beforeEach(inject([TestComponentBuilder], function (tcb: TestComponentBuilder) {
-    builder = tcb;
-  }));
-
-  it('should inject the component', inject([SkillsComponent],
-      (component: SkillsComponent) => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
-  }));
-
-  it('should create the component', inject([], () => {
-    return builder.createAsync(SkillsComponentTestComponent)
-      .then((fixture: ComponentFixture<any>) => {
-        let query = fixture.debugElement.query(By.directive(SkillsComponent));
-        expect(query).toBeTruthy();
-        expect(query.componentInstance).toBeTruthy();
-      });
-  }));
+    const node = fixture.debugElement.query(By.all());
+    expect(node.nativeElement.innerHTML).not.toEqual('');
+  });
 });
-
-@Component({
-  selector: 'app-skills-test',
-  template: `
-    <app-skills></app-skills>
-  `,
-  directives: [SkillsComponent]
-})
-class SkillsComponentTestComponent {
-}
-
