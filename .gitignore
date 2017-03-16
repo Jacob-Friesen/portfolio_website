@@ -7,21 +7,6 @@
 # dependencies
 /node_modules
 
-# IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-
-# IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-
 # misc
 /.sass-cache
 /connect.lock
@@ -38,3 +23,17 @@ testem.log
 #System Files
 .DS_Store
 Thumbs.db
+
+# Custom
+*~
+*_c.css
+*.min.js
+*.js.gz
+*.tmp
+dist.zip
+*component.html
+src/css
+src/jacob.json
+src_temp
+# Resume generation
+*resume-body*
