@@ -79,7 +79,7 @@ gulp.task('inline-component-templates', () =>
 
 gulp.task('watch-lint', ['lint'], () => gulp.watch(JS_FILES, ['lint']) );
 
-// TRIFORCE!! (JS, CSS And HTML Specific)
+// JS, CSS And HTML Specific
 
 const minifyFilesStream = function() {
   const minifyFiles = new Transform({objectMode: true});
