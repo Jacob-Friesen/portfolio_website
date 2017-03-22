@@ -1,6 +1,6 @@
 Portfolio Website
 =================
-This is the fifth version of my Portfolio website and the second Angular.js version (Using [Angular 2](https://angular.io/)). The site should be **run using Node.js 6.9.x** (it uses many cutting edge tools), but will probably work fine with other versions. Also, NPM 3.10.x or greater should be used to overcome issues with installing the newer projects.
+This is the fifth version of my Portfolio website and the second Angular.js version (Using [Angular 2](https://angular.io/)). The site should be **run using Node.js 6.9.x** (it uses many cutting edge tools). Also, NPM 3.10.x or greater should be used to overcome issues with installing the newer projects.
 
 This site was created to provide a much simpler software and visual design relative to the older site. The philosophy is to employ as much preprocessing, testing and automated tools to make development as fast as possible. While this approach results in extremely fast development, I would probably not take things as far when a project needs to account for the learning curves of other developers. For example, I would probably not use Pug (formerly Jade), the HTML Preprocessor. Finally, due to the small size, practices like multi-module systems were not used because they would add implementation overhead without providing much maintainability.
 
