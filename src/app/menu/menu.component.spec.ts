@@ -14,7 +14,7 @@ describe('Component: Menu', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterModule.forRoot([])
-      ]
+      ],
       providers: [
         { provide: Router, useClass: MockRouter }
       ],
