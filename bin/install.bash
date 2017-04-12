@@ -17,7 +17,6 @@ if [ "${1}" != "--no-npm-install" ]; then
   npm install -g typings
   npm install -g protractor
   npm install
-  typings install lodash --global --save
 fi
 
 echo "File copies..."
