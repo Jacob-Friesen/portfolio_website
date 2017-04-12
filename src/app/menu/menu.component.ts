@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   // moduleId: module.id,
@@ -11,7 +10,7 @@ export class MenuComponent {
   menuOpen: Boolean;
   isMobile: Boolean;
 
-  constructor(router: Router) {
+  constructor() {
     let iconPrefix = 'fa fa-',
         menuAppend = '-menu-item';
 
