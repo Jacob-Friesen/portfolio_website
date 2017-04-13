@@ -1,6 +1,6 @@
 {
   "name": "jacob-friesens-portfolio",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
@@ -44,7 +44,7 @@
     "gulp-typescript": "2.13.6",
     "gulp-uglifycss": "1.0.6",
     "gulp-useref": "3.1.0",
-    "jacob-friesens-resume": "1.1.8",
+    "jacob-friesens-resume": "1.1.10",
     "jasmine-core": "2.5.2",
     "jasmine-spec-reporter": "2.5.0",
     "karma": "1.2.0",

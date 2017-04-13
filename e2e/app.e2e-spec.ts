@@ -32,7 +32,7 @@ describe('portfolio-website App', function() {
     });
 
     describe('experience', function() {
-      let FIRST_EXPERIENCE_TEXT = 'Full stack JavaScript development on the companies first product (pre-beta',
+      let FIRST_EXPERIENCE_TEXT = 'Interface, backend and database work with Angular and Node.js on the companies',
           THIRD_EXPERIENCE_TEXT = 'Improved Panda, the internal web application.';
 
       it('should start with the first experience as expanded', () => {
