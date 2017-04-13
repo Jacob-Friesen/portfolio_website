@@ -71,14 +71,14 @@
     },
 
     "profile": [
-        "Over four years of on the job Software Development experience complemented with over seven years of developing side projects in my spare time.",
+        "Over four years of on the job Software Development experience complemented with over seven years of developing side projects.",
         "Deep understanding of JavaScript with experience in client side, server side and phone environments.",
         ["Creator of the", ["blog"], ", a popular JavaScript blog with over 10,000 followers on Tumblr. All original content."],
         "Bachelor of Computer Science (Honours) graduate."
     ],
 
     "summary": {
-        "main": "I'm a Senior Software Developer who works at Zimit, currently developing their first product with a small team of developers. I specialize in JavaScript focused technologies like AngularJS and Node.js, but I also have experience with other web stacks like Ruby or Java.",
+        "main": "I'm a Senior Software Developer who works at Zimit, currently developing their first product with a team of developers. I specialize in JavaScript focused technologies like AngularJS and Node.js, but I also have experience with other web stacks like Ruby and Java.",
         "points": [
             "JavaScript - client side, server side (Node.js), mobile",
             "HTML/CSS (and various preprocessors like SCSS)",
@@ -97,15 +97,15 @@
                         "name": "JavaScript",
                         "time": ["6", "+"],
                         "level": "Expert",
-                        "summary": "I have used JavaScript in client side (browser), server side (Node.js) and mobile (Hybrid apps) environments. I also know multiple paradigms of JavaScript including Object Orientation and Functional Programming. Additionally, I have unit tested JavaScript in multiple libraries. Finally, I have done various tech talks on JavaScript to audiences of over 80 people.",
+                        "summary": "I have used JavaScript in client side (browser), server side (Node.js) and mobile (Hybrid apps) environments. I know multiple paradigms of JavaScript including Object Orientation and Functional Programming. Additionally, I have unit tested JavaScript in multiple libraries. Finally, I have done various tech talks on JavaScript to audiences of over 80 people.",
                         "subSkills": [
                             {
-                                "name": "pure",
+                                "name": "pure (ES6 experience too)",
                                 "time": ["6", "+"],
                                 "level": "Expert"
                             },
                             {
-                                "name": "AngularJS (Full MVC)",
+                                "name": "AngularJS (1 to 4)",
                                 "time": ["3", "+"],
                                 "level": "Advanced"
                             },
@@ -187,8 +187,8 @@
                     {
                         "name": "Gulp.js (Task Runner)",
                         "time": ["2", "+"],
-                        "level": "Intermediate",
-                        "summary": "I converted our entire UI build system at VeriAs from Grunt.js to Gulp.js. I am familiar with writing multiple types of tasks for it like complex builds that do minification, concatenation and so on."
+                        "level": "Advanced",
+                        "summary": "I converted our entire UI build system at VeriAs from Grunt.js to Gulp.js. I am familiar with writing multiple types of tasks for it like complex builds that do minification, concatenation and so on. I have organized and expanded Gulp code for entire projects adding features like multi-core builds."
                     },
                     {
                         "name": "Grunt.js (Task Runner)",
@@ -200,13 +200,13 @@
                         "name": "Git (and Github)",
                         "time": ["4", "+"],
                         "level": "Intermediate",
-                        "summary": "I now use Git and Github for all my work and side projects. I know how to create organized branching and commit strategies used to support multiple developers working on different areas of a project at once. I have also managed projects on Github and have created the varios Pull Request and Continuous Integration strategies."
+                        "summary": "I now use Git and Github for all my work and side projects. I know how to create organized branching and commit strategies used to support multiple developers working on different areas of a project at once. I have also managed projects on Github and have created the various Pull Request and Continuous Integration strategies."
                     },
                     {
-                        "name": "PostGreSQL",
+                        "name": "PostgreSQL",
                         "time": ["1", "+"],
                         "level": "Intermediate",
-                        "summary": "I update and manage a PostGreSQL 9.5 database at work and have done more limited work on it in the past."
+                        "summary": "I update and manage a PostgreSQL 9.5 database at work and have done more limited work on it in the past."
                     }
                 ]
             },
@@ -230,6 +230,12 @@
                         "time": ["9", "+"],
                         "level": "Intermediate",
                         "summary": "I have done some development in Windows using Java and C#. I have also had to write .bat scripts and do basic admin tasks like managing firewalls in Windows."
+                    },
+                    {
+                        "name": "Docker",
+                        "time": ["1", "+"],
+                        "level": "Intermediate",
+                        "summary": "I know how to create Docker images from scatch make them communicate and debug their containers."
                     }
                 ]
             }
@@ -246,12 +252,12 @@
                 "title": "Senior Software Developer",
                 "shortTitle": "Senior Software Developer",
                 "link": ["zimit"],
-                "description": "Full stack JavaScript development on the companies first product (pre-beta currently).",
+                "description": "Interface, backend and database work with Angular and Node.js on the companies first product.",
                 "points": [
-                    "Work all the way from client side JavaScript and HTML to Node.js to a PostGreSQL 9.5 database using tools such as linting and Gulp.js for task running.",
-                    "Frontend is in AngularJS with an SCSS preprocessor",
-                    "Backend is in Node.js using ES6 standards.",
-                    "Manage the Continuous integration (CI) and build systems using Amazon Web Services (AWS) with custom Ubuntu Docker containers."
+                    "Helped define the application architecture from front end to backend to the PostgreSQL database.",
+                    "Developed the testing strategies and improved the various build strategies using tools like Jasmine, Protractor (Selenium based) and HTTP/Socket based API tests.",
+                    "Work all the way from client side JavaScript and HTML to Node.js with ES6 to a PostgreSQL 9.5 database using tools such as linting and Gulp.js for task running.",
+                    "Manage the Continuous integration (CI) and build systems using Amazon Web Services (AWS) with custom Docker containers."
                 ]
             },
             {
@@ -303,7 +309,7 @@
 
     "volunteering": [
         {
-            "dates": "2015 July - Now",
+            "dates": "2015 July - 2016 June",
             "position": "VP Of Public Relations",
             "place": "Toastmasters, Delray Beach, FL",
             "points": [
@@ -344,11 +350,12 @@
             {"Git (and Github)": "Sept 18th, 2016 (Update in 1 year)"},
             {"Grunt.js": "Sept 18th, 2016"},
             {"Gulp.js": "Sept 18th, 2016 (Update in 1 year)"},
-            {"PostGreSQL": "Sept 18th, 2016 (Update in 1 year)"},
+            {"PostgreSQL": "Sept 18th, 2016 (Update in 1 year)"},
 
             {"Linux Admin": "Sept 18th, 2016 (Update in 1 year)"},
             {"Mac OS X Admin": "Sept 18th, 2016"},
-            {"Windows Admin": "Sept 18th, 2016"}
+            {"Windows Admin": "Sept 18th, 2016"},
+            {"Docker": "Sept 18th, 2016 (Update in 1.5 years)"}
         ]
     }
 }

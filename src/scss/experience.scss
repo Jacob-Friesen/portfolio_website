@@ -1,9 +1,14 @@
 .experiences {
   $experience-margin: 20px;
-  padding-top: 80px;
 
-  .card hr.separator {
-    background-color: #ccc;
+  .card {
+    border: none;
+    box-shadow: none;
+    margin-bottom: 0;
+
+    hr.separator {
+      background-color: #ccc;
+    }
   }
 
   .card-body {
@@ -12,6 +17,12 @@
     .description {
       margin: $experience-margin 0 15px 0;
     }
+  }
+}
+
+@media (min-width: 767px) {
+  .experiences {
+    padding: 60px 5px 1px 5px;
   }
 }
 
