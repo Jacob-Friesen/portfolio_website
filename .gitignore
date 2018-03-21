@@ -6,6 +6,7 @@
 
 # dependencies
 /node_modules
+package-lock.json
 
 # misc
 /.sass-cache
@@ -35,5 +36,6 @@ dist.zip
 src/css
 src/jacob.json
 src_temp
+commit.txt
 # Resume generation
 *resume-body*

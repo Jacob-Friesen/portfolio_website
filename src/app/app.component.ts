@@ -16,4 +16,8 @@ export class AppComponent implements OnInit {
       }
     })();
   }
+
+  getYear() {
+    return new Date().getFullYear();
+  }
 }
