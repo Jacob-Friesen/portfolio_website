@@ -43,7 +43,7 @@
     "gulp-tslint": "7.1.0",
     "gulp-typescript": "2.13.6",
     "gulp-uglifycss": "1.0.6",
-    "gulp-useref": "3.1.0",
+    "gulp-useref": "3.1.5",
     "jacob-friesens-resume": "1.1.10",
     "jasmine-core": "2.5.2",
     "jasmine-spec-reporter": "2.5.0",

@@ -176,17 +176,32 @@ gulp.task('short-reinstall', function(done) {
   });
 });
 
-gulp.task('optimize', () =>
+// Temporary solution to get around useref not handling HTML minification by Angular CLI.
+// Angular CLI provides NO option to disable HTML minification: https://github.com/angular/angular-cli/issues/7179
+gulp.task('pre-angular-cli-build', (done) => {
+  exec(`
+    sed -i '' 's/collapseWhitespace: true/collapseWhitespace: false/' node_modules/@angular/cli/models/webpack-configs/browser.js
+  `, (err) => {
+    if (err) {
+      throw(err);
+    }
+
+    return done();
+  });
+});
+
+gulp.task('optimize', () => {
   gulp.src(PRODUCTION + '/index.html')
       .pipe(useref({}, minifyIndividualFiles))
       .pipe(gulpif('*.css', uglifycss()))// Minify the CSS found with uglifycss (no optimization needed, ~100ms)
       .pipe(gulp.dest(PRODUCTION))
-);
+});
 
 gulp.task('build', (done) =>
   runSequence(
     'move-src',
     'inline-component-templates',
+    'pre-angular-cli-build',
     'angular-cli-build',
     ['move-tingle-js', 'move-tingle-css', 'move-robots', 'move-sitemap', 'move-server'],
     ['move-css-to-build', 'move-images-to-build'],
