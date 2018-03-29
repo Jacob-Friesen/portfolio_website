@@ -11,10 +11,8 @@ const gulp = require('gulp'),
       rename = require('gulp-rename'),
       runSequence = require('run-sequence'),
       sass = require('gulp-sass'),
-      Transform = require('stream').Transform,
       tslint = require('gulp-tslint'),
       ts = require('gulp-typescript'),
-      UglifyJS = require('uglify-js'),
       uglifycss = require('gulp-uglifycss'),
       useref = require('gulp-useref');
 
@@ -80,27 +78,6 @@ gulp.task('inline-component-templates', () =>
 gulp.task('watch-lint', ['lint'], () => gulp.watch(JS_FILES, ['lint']) );
 
 // JS, CSS And HTML Specific
-
-const minifyFilesStream = function() {
-  const minifyFiles = new Transform({objectMode: true});
-  minifyFiles._transform = function(file, __, callback) {
-    const result =  UglifyJS.minify(file.contents.toString(), {
-      fromString: true
-    });
-    file.contents = new Buffer(result.code);
-    callback(null, file);
-  };
-
-  return minifyFiles;
-};
-
-const fileNeedsMinification = function(file) {
-  return file.path.indexOf('.js') > -1 && file.path.indexOf('.min') < 0;
-};
-
-const minifyIndividualFiles = function() {
-  return gulpif(fileNeedsMinification, minifyFilesStream());
-};
 
 gulp.task('angular-cli-build', function(done) {
   exec('npm run build-production', { maxBuffer: 1024 * 500 }, function(err, stdout) {
@@ -192,7 +169,7 @@ gulp.task('pre-angular-cli-build', (done) => {
 
 gulp.task('optimize', () => {
   gulp.src(PRODUCTION + '/index.html')
-      .pipe(useref({}, minifyIndividualFiles))
+      .pipe(useref({}))
       .pipe(gulpif('*.css', uglifycss()))// Minify the CSS found with uglifycss (no optimization needed, ~100ms)
       .pipe(gulp.dest(PRODUCTION))
 });
