@@ -4,7 +4,6 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-    "ng": "ng",
     "start": "webpack-dev-server --config webpack-dev.config.js --port=4200",
     "test": "karma start ./karma.conf.js",
     "build": "webpack --config webpack-dev.config.js",
@@ -76,6 +75,7 @@
     "typescript": "2.2.0",
     "url-loader": "^0.6.2",
     "webpack": "~3.11.0",
-    "webpack-dev-server": "~2.11.0"
+    "webpack-dev-server": "~2.11.0",
+    "uglifyjs-webpack-plugin": "^1.1.8"
   }
 }
