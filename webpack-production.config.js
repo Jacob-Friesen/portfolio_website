@@ -1,5 +1,7 @@
+// Based on the Angular CLI Production Webpack file (ng eject --environment prod)
 const fs = require('fs');
 const path = require('path');
+const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ProgressPlugin = require('webpack/lib/ProgressPlugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
@@ -9,7 +11,7 @@ const autoprefixer = require('autoprefixer');
 const postcssUrl = require('postcss-url');
 const postcssImports = require('postcss-import');
 
-const { NoEmitOnErrorsPlugin, SourceMapDevToolPlugin, NamedModulesPlugin } = require('webpack');
+const { NoEmitOnErrorsPlugin, NamedModulesPlugin } = require('webpack');
 const { NamedLazyChunksWebpackPlugin, BaseHrefWebpackPlugin, PostcssCliResources } = require('@angular/cli/plugins/webpack');
 const { CommonsChunkPlugin } = require('webpack').optimize;
 const { AotPlugin } = require('@ngtools/webpack');
@@ -196,7 +198,7 @@ module.exports = {
             "options": {
               "ident": "embedded",
               "plugins": postcssPlugins,
-              "sourceMap": true
+              "sourceMap": false
             }
           }
         ]
@@ -215,13 +217,13 @@ module.exports = {
             "options": {
               "ident": "embedded",
               "plugins": postcssPlugins,
-              "sourceMap": true
+              "sourceMap": false
             }
           },
           {
             "loader": "sass-loader",
             "options": {
-              "sourceMap": true,
+              "sourceMap": false,
               "precision": 8,
               "includePaths": []
             }
@@ -242,13 +244,13 @@ module.exports = {
             "options": {
               "ident": "embedded",
               "plugins": postcssPlugins,
-              "sourceMap": true
+              "sourceMap": false
             }
           },
           {
             "loader": "less-loader",
             "options": {
-              "sourceMap": true
+              "sourceMap": false
             }
           }
         ]
@@ -267,13 +269,13 @@ module.exports = {
             "options": {
               "ident": "embedded",
               "plugins": postcssPlugins,
-              "sourceMap": true
+              "sourceMap": false
             }
           },
           {
             "loader": "stylus-loader",
             "options": {
-              "sourceMap": true,
+              "sourceMap": false,
               "paths": []
             }
           }
@@ -294,7 +296,7 @@ module.exports = {
             "options": {
               "ident": "embedded",
               "plugins": postcssPlugins,
-              "sourceMap": true
+              "sourceMap": false
             }
           }
         ]
@@ -314,13 +316,13 @@ module.exports = {
             "options": {
               "ident": "embedded",
               "plugins": postcssPlugins,
-              "sourceMap": true
+              "sourceMap": false
             }
           },
           {
             "loader": "sass-loader",
             "options": {
-              "sourceMap": true,
+              "sourceMap": false,
               "precision": 8,
               "includePaths": []
             }
@@ -342,13 +344,13 @@ module.exports = {
             "options": {
               "ident": "embedded",
               "plugins": postcssPlugins,
-              "sourceMap": true
+              "sourceMap": false
             }
           },
           {
             "loader": "less-loader",
             "options": {
-              "sourceMap": true
+              "sourceMap": false
             }
           }
         ]
@@ -368,13 +370,13 @@ module.exports = {
             "options": {
               "ident": "embedded",
               "plugins": postcssPlugins,
-              "sourceMap": true
+              "sourceMap": false
             }
           },
           {
             "loader": "stylus-loader",
             "options": {
-              "sourceMap": true,
+              "sourceMap": false,
               "paths": []
             }
           }
@@ -387,6 +389,14 @@ module.exports = {
     ]
   },
   "plugins": [
+    new webpack.optimize.UglifyJsPlugin({
+      uglifyOptions: {
+        ecma: 8,
+      },
+      output: { 
+        comments: false,
+      },
+    }),
     new NoEmitOnErrorsPlugin(),
     new CopyWebpackPlugin([
       {
@@ -494,12 +504,6 @@ module.exports = {
         "main"
       ]
     }),
-    new SourceMapDevToolPlugin({
-      "filename": "[file].map[query]",
-      "moduleFilenameTemplate": "[resource-path]",
-      "fallbackModuleFilenameTemplate": "[resource-path]?[hash]",
-      "sourceRoot": "webpack:///"
-    }),
     new CommonsChunkPlugin({
       "name": [
         "main"
@@ -512,9 +516,9 @@ module.exports = {
       "mainPath": "main.ts",
       "replaceExport": false,
       "hostReplacementPaths": {
-        "environments/environment.ts": "environments/environment.ts"
+        "environments/environment.ts": "environments/environment.prod.ts"
       },
-      "sourceMap": true,
+      "sourceMap": false,
       "exclude": [],
       "tsConfigPath": "src/tsconfig.json",
       "skipCodeGeneration": true,

@@ -103,7 +103,7 @@ const minifyIndividualFiles = function() {
 };
 
 gulp.task('angular-cli-build', function(done) {
-  exec('npm run build -prod', { maxBuffer: 1024 * 500 }, function(err, stdout) {
+  exec('npm run build-production', { maxBuffer: 1024 * 500 }, function(err, stdout) {
     if (err) {
       throw(err);
     }
