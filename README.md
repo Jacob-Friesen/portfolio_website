@@ -58,7 +58,7 @@ Development
 ===========
 To run use:
 
-    ng serve --port 8000
+    npm start
 
 For the various watchers:
 
@@ -66,9 +66,9 @@ For the various watchers:
     gulp watch-css
     gulp watch-lint
     # unit tests
-    ng test
+    npm test
     # brower tests
-    ng e2e
+    npm run e2e
 
 
 **Target Desktop Browsers**
