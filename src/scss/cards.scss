@@ -11,7 +11,7 @@ $card-border: 1px solid #ddd;
     margin-bottom: $side-margin;
 
     // Make it expand and collapse gradually (See .expanded too). Generalize this later for other sections.
-    // This was a pretty ingenious solution: http://stackoverflow.com/a/8331169
+    // This was a pretty ingenious solution -> stackoverflow.com/a/8331169
     max-height: 70px;
     overflow: hidden;
 

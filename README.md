@@ -63,7 +63,6 @@ To run use:
 For the various watchers:
 
     gulp watch-pug
-    gulp watch-css
     gulp watch-lint
     # unit tests
     npm test

@@ -9,21 +9,40 @@
   <meta name="description" content="Portfolio of Jacob Friesen a skilled software developer specializing in JavaScript and other web technologies. Contains information about Jacob Friesen's skills, work experience and projects.">
   <link rel="icon" type="image/x-icon" href="images/favicon.ico?v=2.0">
 
-  <!-- build:css production/combined.css -->
-  <link rel="stylesheet" type="text/css" href="css/base.css">
-  <link rel="stylesheet" type="text/css" href="css/cards.css">
-  <link rel="stylesheet" type="text/css" href="css/menu.css">
-  <link rel="stylesheet" type="text/css" href="css/home.css">
-  <link rel="stylesheet" type="text/css" href="css/experience.css">
-  <link rel="stylesheet" type="text/css" href="css/skills.css">
-  <link rel="stylesheet" type="text/css" href="css/demos.css">
-  <link rel="stylesheet" type="text/css" href="css/blog.css">
-  <link rel="stylesheet" type="text/css" href="css/resume.css">
-  <link rel="stylesheet" type="text/css" href="css/resume-customizations.css">
-  <link rel="stylesheet" type="text/css" href="css/tingle/tingle.min.css">
-  <!-- endbuild -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+  <!-- Inlined since the load message content needs to load in very fast -->
+  <style>
+    body {
+      background-color: whitesmoke;
+      font-family: helvetica, arial;
+      margin: 0;
+      padding: 0;
+    }
+
+    .loading-message-spinner,
+    .loading-message {
+      display: inline-block;
+      font-weight: normal;
+    }
+
+    .loading-message {
+      text-align: center;
+    }
+
+    .loading-message-spinner {
+      height: 30px;
+      margin-bottom: -8px;
+    }
+
+    @media (max-width: 650px) {
+      // Mobile displays this very poorly.
+      .loading-message-spinner {
+        display: none;
+      }
+    }
+  </style>
+
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.css">
+  <!-- CSS is auto-injected by Webpack here -->
 </head>
 <body>
   <app-root>
@@ -34,7 +53,7 @@
   </app-root>
 
   <!-- build:js production/combined.js -->
-  <script src="app/tingle.min.js"></script>
+  <script src="../node_modules/tingle.js/src/tingle.js"></script>
   <!-- endbuild -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
