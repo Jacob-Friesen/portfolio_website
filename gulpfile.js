@@ -1,9 +1,7 @@
 'use strict';
 
-const fs = require('fs');
-
 const gulp = require('gulp'),
-      gulpif = require('gulp-if'),
+      fs = require('fs'),
       data = require('gulp-data'),
       exec = require('child_process').exec,
       inlineNg2Template = require('gulp-inline-ng2-template'),
@@ -11,12 +9,7 @@ const gulp = require('gulp'),
       rename = require('gulp-rename'),
       runSequence = require('run-sequence'),
       sass = require('gulp-sass'),
-      Transform = require('stream').Transform,
-      tslint = require('gulp-tslint'),
-      ts = require('gulp-typescript'),
-      UglifyJS = require('uglify-js'),
-      uglifycss = require('gulp-uglifycss'),
-      useref = require('gulp-useref');
+      tslint = require('gulp-tslint');
 
 const PRODUCTION = 'dist';
 
@@ -38,16 +31,16 @@ const HTML_TEMPLATES = 'src/app/**/*.pug';
 
 gulp.task('pug', () =>
    gulp.src(HTML_TEMPLATES)
-    .pipe(data(function(file) {
+    .pipe(data((file) => {
       return JSON.parse(fs.readFileSync('./src/jacob.json'));
     }))
-    .pipe(data(function(file) {
+    .pipe(data((file) => {
       return JSON.parse(fs.readFileSync('./src/demos.json'));
     }))
     .pipe(pug({
       pretty: true
     }))
-    .pipe(rename(function(path) {
+    .pipe(rename((path) => {
         path.extname = '.html';
         return path;
     }))
@@ -81,29 +74,8 @@ gulp.task('watch-lint', ['lint'], () => gulp.watch(JS_FILES, ['lint']) );
 
 // JS, CSS And HTML Specific
 
-const minifyFilesStream = function() {
-  const minifyFiles = new Transform({objectMode: true});
-  minifyFiles._transform = function(file, __, callback) {
-    const result =  UglifyJS.minify(file.contents.toString(), {
-      fromString: true
-    });
-    file.contents = new Buffer(result.code);
-    callback(null, file);
-  };
-
-  return minifyFiles;
-};
-
-const fileNeedsMinification = function(file) {
-  return file.path.indexOf('.js') > -1 && file.path.indexOf('.min') < 0;
-};
-
-const minifyIndividualFiles = function() {
-  return gulpif(fileNeedsMinification, minifyFilesStream());
-};
-
-gulp.task('angular-cli-build', function(done) {
-  exec('ng build -prod', { maxBuffer: 1024 * 500 }, function(err, stdout) {
+gulp.task('angular-cli-build', (done) => {
+  exec('npm run build-production', { maxBuffer: 1024 * 500 }, (err, stdout) => {
     if (err) {
       throw(err);
     }
@@ -113,8 +85,8 @@ gulp.task('angular-cli-build', function(done) {
   });
 });
 
-gulp.task('move-src', function(done) {
-  exec('rm -rf src_temp; cp -rf src src_temp', function(err, stdout) {
+gulp.task('move-src', (done) => {
+  exec('rm -rf src_temp; cp -rf src src_temp', (err, stdout) => {
     if (err) {
       throw(err);
     }
@@ -124,8 +96,8 @@ gulp.task('move-src', function(done) {
   });
 });
 
-gulp.task('restore-src', function(done) {
-  exec('rm -rf src; mv src_temp src', function(err, stdout) {
+gulp.task('restore-src', (done) => {
+  exec('rm -rf src; mv src_temp src', (err, stdout) => {
     if (err) {
       throw(err);
     }
@@ -137,14 +109,6 @@ gulp.task('restore-src', function(done) {
 
 gulp.task('move-server', () =>
   gulp.src('customServer.js').pipe(gulp.dest(PRODUCTION))
-);
-
-gulp.task('move-tingle-js', () =>
-  gulp.src('src/app/tingle/tingle.min.js').pipe(gulp.dest(PRODUCTION + '/app'))
-);
-
-gulp.task('move-tingle-css', () =>
-  gulp.src('src/app/tingle/tingle.min.css').pipe(gulp.dest(PRODUCTION + '/css/tingle'))
 );
 
 gulp.task('move-robots', () =>
@@ -165,8 +129,8 @@ gulp.task('move-images-to-build', () =>
   gulp.src('src/images/**/*').pipe(gulp.dest(PRODUCTION + '/images'))
 );
 
-gulp.task('short-reinstall', function(done) {
-  exec('bash bin/install.bash --no-npm-install', function(err, stdout) {
+gulp.task('short-reinstall', (done) => {
+  exec('bash bin/install.bash --no-npm-install', (err, stdout) => {
     if (err) {
       throw(err);
     }
@@ -176,36 +140,13 @@ gulp.task('short-reinstall', function(done) {
   });
 });
 
-// Temporary solution to get around useref not handling HTML minification by Angular CLI.
-// Angular CLI provides NO option to disable HTML minification: https://github.com/angular/angular-cli/issues/7179
-gulp.task('pre-angular-cli-build', (done) => {
-  exec(`
-    sed -i '' 's/collapseWhitespace: true/collapseWhitespace: false/' node_modules/@angular/cli/models/webpack-configs/browser.js
-  `, (err) => {
-    if (err) {
-      throw(err);
-    }
-
-    return done();
-  });
-});
-
-gulp.task('optimize', () => {
-  gulp.src(PRODUCTION + '/index.html')
-      .pipe(useref({}, minifyIndividualFiles))
-      .pipe(gulpif('*.css', uglifycss()))// Minify the CSS found with uglifycss (no optimization needed, ~100ms)
-      .pipe(gulp.dest(PRODUCTION))
-});
-
 gulp.task('build', (done) =>
   runSequence(
     'move-src',
     'inline-component-templates',
-    'pre-angular-cli-build',
     'angular-cli-build',
-    ['move-tingle-js', 'move-tingle-css', 'move-robots', 'move-sitemap', 'move-server'],
+    ['move-robots', 'move-sitemap', 'move-server'],
     ['move-css-to-build', 'move-images-to-build'],
-    'optimize',
     'restore-src',
     'short-reinstall',
     done

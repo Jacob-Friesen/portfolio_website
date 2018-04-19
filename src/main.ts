@@ -1,3 +1,6 @@
+import * as tingle from 'tingle.js/dist/tingle.min.js';
+window['tingle'] = tingle;
+
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { enableProdMode } from '@angular/core';
 import { environment } from './environments/environment';

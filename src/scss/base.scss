@@ -45,13 +45,6 @@ hr {
   color: #fff;
 }
 
-body {
-  background-color: lighten(#dedede, 10%);// AKA whitesmoke
-  font-family: helvetica, arial;
-  margin: 0;
-  padding: 0;
-}
-
 .like-link {
   text-decoration: underline;
   color: blue;
@@ -70,27 +63,6 @@ body {
   cursor: pointer;
   width: 100%;
   height: 100%;
-}
-
-.loading-message-spinner,
-.loading-message {
-  display: inline-block;
-}
-
-.loading-message {
-  text-align: center;
-}
-
-.loading-message-spinner {
-  height: 30px;
-  margin-bottom: -8px;
-}
-
-@media (max-width: 650px) {
-  // Mobile displays this very poorly.
-  .loading-message-spinner {
-    display: none;
-  }
 }
 
 .github-link {
@@ -113,7 +85,7 @@ body {
 
   .tingle-modal-box {
     background-color: transparent;
-    transform: none;
+    // DO NOT USE TRANSFORM, THIS CAUSES TINGLE.JS TO FAIL TO CALL ONOPEN EVENT.
   }
 
   .tingle-modal-box__content {
