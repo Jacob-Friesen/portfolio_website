@@ -467,7 +467,7 @@ module.exports = {
       "favicon": false,
       "minify": {
         "caseSensitive": true,
-        "collapseWhitespace": false,
+        "collapseWhitespace": true,
         "keepClosingSlash": true
       },
       "cache": true,

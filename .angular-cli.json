@@ -22,7 +22,7 @@
       "testTsconfig": "tsconfig.json",
       "prefix": "app",
       "styles": [
-        "styles.scss",
+        "styles.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
