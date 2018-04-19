@@ -98,11 +98,11 @@ Testing
 =======
 Unit tests:
 
-    ng test
+    npm test
 
 E2Es using Protractor:
 
-    ng e2e
+    npm run e2e
 
 License
 =======
