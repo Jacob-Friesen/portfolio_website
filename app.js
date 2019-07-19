@@ -20,6 +20,14 @@ app.all('/system-config.js.map', (req, res, next) => {
   res.send('');
 });
 
+app.all('/downloads/Jacob_Friesen_Resume.pdf', function(req, res, next) {
+  res.sendFile('src/downloads/Jacob_Friesen_Resume.pdf', { root: __dirname });
+});
+
+app.all('/downloads/Jacob_Friesen_Resume.html', function(req, res, next) {
+  res.sendFile('src/downloads/Jacob_Friesen_Resume.html', { root: __dirname });
+});
+
 // All remaining requests will just load the index page and Angular will handle routing.
 app.all('/*', (req, res, next) => {
   res.sendFile('index.html', { root: __dirname + '/dist' });

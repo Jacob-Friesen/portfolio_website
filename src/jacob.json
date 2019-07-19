@@ -54,16 +54,6 @@
             "name": "VeriAS"
         },
 
-        "canadaDrugs": {
-            "address": "http://canadadrugs.com",
-            "name": "CanadaDrugs.com"
-        },
-
-        "iders": {
-            "address": "https://www.linkedin.com/company/1037902?trk=prof-exp-company-name",
-            "name": "Iders"
-        },
-
         "zimit": {
             "address": "http://zimit.io/",
             "name": "Zimit"
@@ -71,9 +61,9 @@
     },
 
     "profile": [
-        "Over four years of on the job Software Development experience complemented with over seven years of developing side projects.",
+        "Over six years of on the job Software Development experience.",
         "Deep understanding of JavaScript with experience in client side, server side and phone environments.",
-        ["Creator of the", ["blog"], ", a popular JavaScript blog with over 10,000 followers on Tumblr. All original content."],
+        ["Creator of the", ["blog"], ", a popular JavaScript blog with over 19,000 followers on Tumblr. All original content."],
         "Bachelor of Computer Science (Honours) graduate."
     ],
 
@@ -95,28 +85,33 @@
                 "skills": [
                     {
                         "name": "JavaScript",
-                        "time": ["6", "+"],
+                        "time": ["8", "+"],
                         "level": "Expert",
                         "summary": "I have used JavaScript in client side (browser), server side (Node.js) and mobile (Hybrid apps) environments. I know multiple paradigms of JavaScript including Object Orientation and Functional Programming. Additionally, I have unit tested JavaScript in multiple libraries. Finally, I have done various tech talks on JavaScript to audiences of over 80 people.",
                         "subSkills": [
                             {
                                 "name": "pure (ES6 experience too)",
-                                "time": ["6", "+"],
+                                "time": ["8", "+"],
                                 "level": "Expert"
                             },
                             {
-                                "name": "AngularJS (1 to 4)",
-                                "time": ["3", "+"],
+                                "name": "Angular (4 to 6)",
+                                "time": ["1", "+"],
+                                "level": "Advanced"
+                            },
+                            {
+                                "name": "AngularJS (1.2 to 1.7)",
+                                "time": ["5", "+"],
                                 "level": "Advanced"
                             },
                             {
                                 "name": "Node.js (Server Side)",
-                                "time": ["4", "+"],
+                                "time": ["6", "+"],
                                 "level": "Advanced"
                             },
                             {
                                 "name": "Jasmine + Other Libraries (Unit Testing)",
-                                "time": ["3", "+"],
+                                "time": ["5", "+"],
                                 "level": "Advanced"
                             },
                             {
@@ -126,20 +121,20 @@
                             },
                             {
                                 "name": "jQuery",
-                                "time": ["2", "+"],
+                                "time": ["4", "+"],
                                 "level": "Advanced"
                             }
                         ]
                     },
                     {
                         "name": "HTML",
-                        "time": ["9", "+"],
+                        "time": ["11", "+"],
                         "level": "Advanced",
                         "summary": "I have used HTML in multiple environments like browsers and hybrid mobile applications. I know how to do modern grid-style layouts as well as how to support and convert from legacy table based layouts. Finally, I have used many dynamically generated HTML languages like HAML, JSP and and Jade (now called Pug)."
                     },
                     {
                         "name": "CSS (Including Preprocessors)",
-                        "time": ["9", "+"],
+                        "time": ["11", "+"],
                         "level": "Advanced",
                         "summary": "I have created many types of layouts ranging from complex data driven applications with complex grids to simple websites. This includes responsive designs for mobile phones and tablets. I know of most modern CSS techniques including CSS3. I have also used mutliple CSS preprocessors such as SCSS."
                     },
@@ -163,7 +158,7 @@
                     },
                     {
                         "name": "SQL",
-                        "time": ["1.5", "+"],
+                        "time": ["4", "+"],
                         "level": "Intermediate",
                         "summary": "I have used this across multiple jobs and projects. I know how to create and manage databases including how to write pure SQL statements to update, create and delete data without an Object-Relational Mapping tool (ORM)."
                     },
@@ -185,28 +180,28 @@
                         "summary": "I have configured and run Apache servers across multiple Operating Systems. I have also dealt with issues like using multiple different websites on different ports using the same Apache server."
                     },
                     {
-                        "name": "Gulp.js (Task Runner)",
+                        "name": "Webpack (Bundler)",
                         "time": ["2", "+"],
+                        "level": "Intermediate",
+                        "summary": "I converted our custom UI build system at Zimit from Gulp.js to mainly Webpack. I am familiar with customizing it, transition code between version and migrating from older build systems."
+                    },
+                    {
+                        "name": "Gulp.js (Task Runner)",
+                        "time": ["4", "+"],
                         "level": "Advanced",
                         "summary": "I converted our entire UI build system at VeriAs from Grunt.js to Gulp.js. I am familiar with writing multiple types of tasks for it like complex builds that do minification, concatenation and so on. I have organized and expanded Gulp code for entire projects adding features like multi-core builds."
                     },
                     {
-                        "name": "Grunt.js (Task Runner)",
-                        "time": ["2", "+"],
-                        "level": "Intermediate",
-                        "summary": "I created build systems for multiple projects while at VeriAs. This included creating complex tasks such as builds that do minification, concatenation and so on."
-                    },
-                    {
                         "name": "Git (and Github)",
-                        "time": ["4", "+"],
+                        "time": ["6", "+"],
                         "level": "Intermediate",
                         "summary": "I now use Git and Github for all my work and side projects. I know how to create organized branching and commit strategies used to support multiple developers working on different areas of a project at once. I have also managed projects on Github and have created the various Pull Request and Continuous Integration strategies."
                     },
                     {
                         "name": "PostgreSQL",
-                        "time": ["1", "+"],
+                        "time": ["3", "+"],
                         "level": "Intermediate",
-                        "summary": "I update and manage a PostgreSQL 9.5 database at work and have done more limited work on it in the past."
+                        "summary": "I update and manage a PostgreSQL 9.5 database at work, upgraded it to 10 and have done more limited work on it in the past."
                     }
                 ]
             },
@@ -215,13 +210,13 @@
                 "skills": [
                     {
                         "name": "Linux Admin",
-                        "time": ["4", "+"],
+                        "time": ["6", "+"],
                         "level": "Advanced",
-                        "summary": "Most of my work experiences involved a Linux environment with a focus towards command line driven development. I know how to setup and manage Linux based servers using tools like Screen and how to create automated scripts in Bash to do various tasks. For example, I created a script to install all dependencies for the main Zimit Web Application that works across Ubuntu, OS X and as part of the Docker installation Continuous Integration process"
+                        "summary": "Most of my work experiences involved a Linux environment with a focus towards command line driven development. I know how to setup and manage Linux based servers and have worked with both Debian and RHEL (Red Hat Enterprise Linux) based environments. For example, I created a script to install all dependencies for the main Zimit Web Application that works across Ubuntu, OS X and as part of the Docker installation Continuous Integration process"
                     },
                     {
                         "name": "Mac OS X Admin",
-                        "time": ["2", "+"],
+                        "time": ["4", "+"],
                         "level": "Intermediate",
                         "summary": "I have developed in various command line heavy technologies on OS X and do so at my job on a daily basis. I also have a good knowledge of various UNIX tools like Bash gained from my Linux experience."
                     },
@@ -233,7 +228,7 @@
                     },
                     {
                         "name": "Docker",
-                        "time": ["1", "+"],
+                        "time": ["3", "+"],
                         "level": "Intermediate",
                         "summary": "I know how to create Docker images from scatch make them communicate and debug their containers."
                     }
@@ -256,7 +251,7 @@
                 "points": [
                     "Helped define the application architecture from front end to backend to the PostgreSQL database.",
                     "Developed the testing strategies and improved the various build strategies using tools like Jasmine, Protractor (Selenium based) and HTTP/Socket based API tests.",
-                    "Work all the way from client side JavaScript and HTML to Node.js with ES6 to a PostgreSQL 9.5 database using tools such as linting and Gulp.js for task running.",
+                    "Work all the way from client side JavaScript and HTML to Node.js with ES6 to a PostgreSQL 10 database using tools such as linting and Gulp.js for task running.",
                     "Manage the Continuous integration (CI) and build systems using Amazon Web Services (AWS) with custom Docker containers."
                 ]
             },
@@ -273,20 +268,6 @@
                     "Designed the user experience and help design the general user processes across the various projects.",
                     "Ensured that the visual designs are appealing and usable across multiple devices.",
                     "Using Angular.js, tested with Jasmine.js and Protractor.js which runs on Selenium. Created a CI server (Jenkins based) to test across multiple browsers and operating systems among other functions."
-                ]
-            },
-            {
-                "dates": "2012 May - August",
-                "startDate": "May 2012",
-                "endDate": "August 2012",
-                "title": "Co-op Work Term 3 Web Developer",
-                "shortTitle": "Intern Web Developer",
-                "link": ["canadaDrugs"],
-                "description": "Improved Panda, the internal web application. Panda managed the business from all of the pharmacy sites. Worked in an Agile Environment.",
-                "points": [
-                    "Using HTML, SCSS (CSS preprocessor), and jQuery, I designed and updated many front end interfaces.",
-                    "Implemented server code in Ruby on Rails which connected to a MySQL database.",
-                    "Improved a small HR application which had a Twitter Bootstrap interface and a Ruby on Rails backend."
                 ]
             }
         ]
@@ -332,30 +313,30 @@
 
     "comments": {
         "skill_updates": [
-            {"JavaScript": "Sept 18th, 2016 (Update in 1 year)"},
-            {"AngularJS": "Sept 18th, 2016 (Update in 1 year)"},
-            {"Node.js": "Sept 18th, 2016 (Update in 1 year)"},
-            {"Jasmine": "Sept 18th, 2016 (Update in 1 year)"},
-            {"jQuery": "Sept 18th, 2016"},
-            {"Protractor": "Sept 18th, 2016 (Update in 1 year)"},
-            {"HTML": "Sept 18th, 2016 (Update in 1 year)"},
-            {"CSS": "Sept 18th, 2016 (Update in 1 year)"},
-            {"Java": "Sept 18th, 2016"},
-            {"Ruby On Rails": "Sept 18th, 2016"},
-            {"Python": "Sept 18th, 2016"},
-            {"SQL": "Sept 18th, 2016 (Update in 1 year)"},
-            {"Erlang": "Sept 18th, 2016"},
+            {"JavaScript": "July 12th, 2019 (Update in 1 year)"},
+            {"AngularJS": "July 12th, 2019 (Update in 1 year)"},
+            {"Node.js": "July 12th, 2019 (Update in 1 year)"},
+            {"Jasmine": "July 12th, 2019 (Update in 1 year)"},
+            {"jQuery": "July 12th, 2019 (Update in 1 year)"},
+            {"Protractor": "July 12th, 2019"},
+            {"HTML": "July 12th, 2019 (Update in 1 year)"},
+            {"CSS": "July 12th, 2019 (Update in 1 year)"},
+            {"Java": "July 12th, 2019"},
+            {"Ruby On Rails": "July 12th, 2019"},
+            {"Python": "July 12th, 2019"},
+            {"SQL": "July 12th, 2019 (Update in 1 year)"},
+            {"Erlang": "July 12th, 2019"},
 
-            {"Apache HTTP Server": "Sept 18th, 2016"},
-            {"Git (and Github)": "Sept 18th, 2016 (Update in 1 year)"},
-            {"Grunt.js": "Sept 18th, 2016"},
-            {"Gulp.js": "Sept 18th, 2016 (Update in 1 year)"},
-            {"PostgreSQL": "Sept 18th, 2016 (Update in 1 year)"},
+            {"Apache HTTP Server": "July 12th, 2019"},
+            {"Git (and Github)": "July 12th, 2019 (Update in 1 year)"},
+            {"Webpack": "July 12th, 2019 (Update in 1 year)"},
+            {"Gulp.js": "July 12th, 2019 (Update in 1 year)"},
+            {"PostgreSQL": "July 12th, 2019 (Update in 1 year)"},
 
-            {"Linux Admin": "Sept 18th, 2016 (Update in 1 year)"},
-            {"Mac OS X Admin": "Sept 18th, 2016"},
-            {"Windows Admin": "Sept 18th, 2016"},
-            {"Docker": "Sept 18th, 2016 (Update in 1.5 years)"}
+            {"Linux Admin": "July 12th, 2019 (Update in 1 year)"},
+            {"Mac OS X Admin": "July 12th, 2019 (Update in 1 year)"},
+            {"Windows Admin": "July 12th, 2019"},
+            {"Docker": "July 12th, 2019 (Update in 1 year)"}
         ]
     }
 }
