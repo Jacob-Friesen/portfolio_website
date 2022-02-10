@@ -4,12 +4,12 @@
         "subTitle": "Software Developer",
 
         "email": "jacob@jacobfriesen.com",
-        "phone": "1-561-542-6990",
+        "phone": "1-786-944-6002",
 
         "address": {
-            "street": "250 Congress Park Drive",
-            "city": "Delray Beach",
-            "postal": "33445",
+            "street": "7801 N Federal Hwy",
+            "city": "Boca Raton",
+            "postal": "33487",
             "state": {
                 "_short": "FL",
                 "_long": "Florida"
@@ -57,18 +57,23 @@
         "zimit": {
             "address": "http://zimit.io/",
             "name": "Zimit"
+        },
+
+        "workday": {
+            "address": "https://www.workday.com/",
+            "name": "Workday"
         }
     },
 
     "profile": [
-        "Over six years of on the job Software Development experience.",
+        "About 10 years of on the job Software Development experience.",
         "Deep understanding of JavaScript with experience in client side, server side and phone environments.",
         ["Creator of the", ["blog"], ", a popular JavaScript blog with over 19,000 followers on Tumblr. All original content."],
         "Bachelor of Computer Science (Honours) graduate."
     ],
 
     "summary": {
-        "main": "I'm a Senior Software Developer who works at Zimit, currently developing their first product with a team of developers. I specialize in JavaScript focused technologies like AngularJS and Node.js, but I also have experience with other web stacks like Ruby and Java.",
+        "main": "I'm a Senior Software Developer who works at Workday after the company I worked at pre-customer was acquired by them. I specialize in JavaScript focused technologies like React, Angular and Node.js, but I also have experience with other web stacks like Ruby and Java.",
         "points": [
             "JavaScript - client side, server side (Node.js), mobile",
             "HTML/CSS (and various preprocessors like SCSS)",
@@ -85,33 +90,33 @@
                 "skills": [
                     {
                         "name": "JavaScript",
-                        "time": ["8", "+"],
+                        "time": ["10", "+"],
                         "level": "Expert",
                         "summary": "I have used JavaScript in client side (browser), server side (Node.js) and mobile (Hybrid apps) environments. I know multiple paradigms of JavaScript including Object Orientation and Functional Programming. Additionally, I have unit tested JavaScript in multiple libraries. Finally, I have done various tech talks on JavaScript to audiences of over 80 people.",
                         "subSkills": [
                             {
                                 "name": "pure (ES6 experience too)",
-                                "time": ["8", "+"],
+                                "time": ["10", "+"],
                                 "level": "Expert"
                             },
                             {
-                                "name": "Angular (4 to 6)",
-                                "time": ["1", "+"],
+                                "name": "Angular (4 to 12)",
+                                "time": ["3", "+"],
                                 "level": "Advanced"
                             },
                             {
-                                "name": "AngularJS (1.2 to 1.7)",
-                                "time": ["5", "+"],
+                                "name": "AngularJS (1.2 to 1.8)",
+                                "time": ["7", "+"],
                                 "level": "Advanced"
                             },
                             {
                                 "name": "Node.js (Server Side)",
-                                "time": ["6", "+"],
+                                "time": ["8", "+"],
                                 "level": "Advanced"
                             },
                             {
                                 "name": "Jasmine + Other Libraries (Unit Testing)",
-                                "time": ["5", "+"],
+                                "time": ["7", "+"],
                                 "level": "Advanced"
                             },
                             {
@@ -121,20 +126,20 @@
                             },
                             {
                                 "name": "jQuery",
-                                "time": ["4", "+"],
+                                "time": ["6", "+"],
                                 "level": "Advanced"
                             }
                         ]
                     },
                     {
                         "name": "HTML",
-                        "time": ["11", "+"],
+                        "time": ["13", "+"],
                         "level": "Advanced",
                         "summary": "I have used HTML in multiple environments like browsers and hybrid mobile applications. I know how to do modern grid-style layouts as well as how to support and convert from legacy table based layouts. Finally, I have used many dynamically generated HTML languages like HAML, JSP and and Jade (now called Pug)."
                     },
                     {
                         "name": "CSS (Including Preprocessors)",
-                        "time": ["11", "+"],
+                        "time": ["13", "+"],
                         "level": "Advanced",
                         "summary": "I have created many types of layouts ranging from complex data driven applications with complex grids to simple websites. This includes responsive designs for mobile phones and tablets. I know of most modern CSS techniques including CSS3. I have also used mutliple CSS preprocessors such as SCSS."
                     },
@@ -158,7 +163,7 @@
                     },
                     {
                         "name": "SQL",
-                        "time": ["4", "+"],
+                        "time": ["6", "+"],
                         "level": "Intermediate",
                         "summary": "I have used this across multiple jobs and projects. I know how to create and manage databases including how to write pure SQL statements to update, create and delete data without an Object-Relational Mapping tool (ORM)."
                     },
@@ -181,25 +186,25 @@
                     },
                     {
                         "name": "Webpack (Bundler)",
-                        "time": ["2", "+"],
+                        "time": ["4", "+"],
                         "level": "Intermediate",
                         "summary": "I converted our custom UI build system at Zimit from Gulp.js to mainly Webpack. I am familiar with customizing it, transition code between version and migrating from older build systems."
                     },
                     {
                         "name": "Gulp.js (Task Runner)",
-                        "time": ["4", "+"],
+                        "time": ["6", "+"],
                         "level": "Advanced",
                         "summary": "I converted our entire UI build system at VeriAs from Grunt.js to Gulp.js. I am familiar with writing multiple types of tasks for it like complex builds that do minification, concatenation and so on. I have organized and expanded Gulp code for entire projects adding features like multi-core builds."
                     },
                     {
                         "name": "Git (and Github)",
-                        "time": ["6", "+"],
+                        "time": ["8", "+"],
                         "level": "Intermediate",
                         "summary": "I now use Git and Github for all my work and side projects. I know how to create organized branching and commit strategies used to support multiple developers working on different areas of a project at once. I have also managed projects on Github and have created the various Pull Request and Continuous Integration strategies."
                     },
                     {
                         "name": "PostgreSQL",
-                        "time": ["3", "+"],
+                        "time": ["5", "+"],
                         "level": "Intermediate",
                         "summary": "I update and manage a PostgreSQL 9.5 database at work, upgraded it to 10 and have done more limited work on it in the past."
                     }
@@ -210,25 +215,25 @@
                 "skills": [
                     {
                         "name": "Linux Admin",
-                        "time": ["6", "+"],
+                        "time": ["8", "+"],
                         "level": "Advanced",
                         "summary": "Most of my work experiences involved a Linux environment with a focus towards command line driven development. I know how to setup and manage Linux based servers and have worked with both Debian and RHEL (Red Hat Enterprise Linux) based environments. For example, I created a script to install all dependencies for the main Zimit Web Application that works across Ubuntu, OS X and as part of the Docker installation Continuous Integration process"
                     },
                     {
                         "name": "Mac OS X Admin",
-                        "time": ["4", "+"],
+                        "time": ["6", "+"],
                         "level": "Intermediate",
                         "summary": "I have developed in various command line heavy technologies on OS X and do so at my job on a daily basis. I also have a good knowledge of various UNIX tools like Bash gained from my Linux experience."
                     },
                     {
                         "name": "Windows Admin",
-                        "time": ["9", "+"],
+                        "time": ["11", "+"],
                         "level": "Intermediate",
                         "summary": "I have done some development in Windows using Java and C#. I have also had to write .bat scripts and do basic admin tasks like managing firewalls in Windows."
                     },
                     {
                         "name": "Docker",
-                        "time": ["3", "+"],
+                        "time": ["5", "+"],
                         "level": "Intermediate",
                         "summary": "I know how to create Docker images from scatch make them communicate and debug their containers."
                     }
@@ -241,15 +246,29 @@
         "summary": ["For older work experiences, see my", ["linkedin"], "."],
         "jobs": [
             {
-                "dates": "2016 August - Current",
+                "dates": "2021 September - Current",
+                "startDate": "September 2021",
+                "endDate": "Current",
+                "title": "Senior Software Development Engineer",
+                "shortTitle": "Senior Software Engineer",
+                "link": ["workday"],
+                "description": "Primarily developing and defining new development processes for the new Workday CPQ product based on Zimit's Current CPQ. Continuing to develop full stack as explained in the Zimit position too.",
+                "points": [
+                    "Developing UI development processes, standards and code in a modern React/Redux application.",
+                    "Assisting with planning the overall project and technologies based on experiences from Zimit's CPQ product.",
+                    "More to come as the Workday CPQ product develops."
+                ]
+            },
+            {
+                "dates": "2016 August - 2021 September",
                 "startDate": "August 2016",
                 "endDate": "Current",
                 "title": "Senior Software Developer",
                 "shortTitle": "Senior Software Developer",
                 "link": ["zimit"],
-                "description": "Interface, backend and database work with Angular and Node.js on the companies first product.",
+                "description": "Defined software development standards and technological direction of products in addition to full stack work on Node.js and Angular applications. Did this until Zimit was acquired by Workday.",
                 "points": [
-                    "Helped define the application architecture from front end to backend to the PostgreSQL database.",
+                    "Define development standards and general processes from start of coding to release of code before infrastructure deployment",
                     "Developed the testing strategies and improved the various build strategies using tools like Jasmine, Protractor (Selenium based) and HTTP/Socket based API tests.",
                     "Work all the way from client side JavaScript and HTML to Node.js with ES6 to a PostgreSQL 10 database using tools such as linting and Gulp.js for task running.",
                     "Manage the Continuous integration (CI) and build systems using Amazon Web Services (AWS) with custom Docker containers."
@@ -313,30 +332,30 @@
 
     "comments": {
         "skill_updates": [
-            {"JavaScript": "July 12th, 2019 (Update in 1 year)"},
-            {"AngularJS": "July 12th, 2019 (Update in 1 year)"},
-            {"Node.js": "July 12th, 2019 (Update in 1 year)"},
-            {"Jasmine": "July 12th, 2019 (Update in 1 year)"},
-            {"jQuery": "July 12th, 2019 (Update in 1 year)"},
+            {"JavaScript": "February 10th, 2021 (Update in 1 year)"},
+            {"Angular": "February 10th, 2021 (Update in 1 year)"},
+            {"Node.js": "February 10th, 2021 (Update in 1 year)"},
+            {"Jasmine": "February 10th, 2021 (Update in 1 year)"},
+            {"jQuery": "February 10th, 2021 (Update in 1 year)"},
             {"Protractor": "July 12th, 2019"},
-            {"HTML": "July 12th, 2019 (Update in 1 year)"},
-            {"CSS": "July 12th, 2019 (Update in 1 year)"},
+            {"HTML": "February 10th, 2021 (Update in 1 year)"},
+            {"CSS": "February 10th, 2021 (Update in 1 year)"},
             {"Java": "July 12th, 2019"},
             {"Ruby On Rails": "July 12th, 2019"},
             {"Python": "July 12th, 2019"},
-            {"SQL": "July 12th, 2019 (Update in 1 year)"},
+            {"SQL": "February 10th, 2021 (Update in 1 year)"},
             {"Erlang": "July 12th, 2019"},
 
             {"Apache HTTP Server": "July 12th, 2019"},
-            {"Git (and Github)": "July 12th, 2019 (Update in 1 year)"},
-            {"Webpack": "July 12th, 2019 (Update in 1 year)"},
-            {"Gulp.js": "July 12th, 2019 (Update in 1 year)"},
-            {"PostgreSQL": "July 12th, 2019 (Update in 1 year)"},
+            {"Git (and Github)": "February 10th, 2021 (Update in 1 year)"},
+            {"Webpack": "February 10th, 2021 (Update in 1 year)"},
+            {"Gulp.js": "February 10th, 2021 (Update in 1 year)"},
+            {"PostgreSQL": "February 10th, 2021 (Update in 1 year)"},
 
-            {"Linux Admin": "July 12th, 2019 (Update in 1 year)"},
-            {"Mac OS X Admin": "July 12th, 2019 (Update in 1 year)"},
-            {"Windows Admin": "July 12th, 2019"},
-            {"Docker": "July 12th, 2019 (Update in 1 year)"}
+            {"Linux Admin": "February 10th, 2021 (Update in 1 year)"},
+            {"Mac OS X Admin": "February 10th, 2021 (Update in 1 year)"},
+            {"Windows Admin": "February 10th, 2021"},
+            {"Docker": "February 10th, 2021 (Update in 1 year)"}
         ]
     }
 }
