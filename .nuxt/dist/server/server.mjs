@@ -871,8 +871,9 @@ const __nuxt_component_1 = _sfc_main$4;
 const _sfc_main$3 = {};
 function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs) {
   _push(`<a${ssrRenderAttrs(mergeProps({
-    href: "static/Jacob_Friesen_Resume.pdf",
-    download: ""
+    href: "/Jacob_Friesen_Resume.pdf",
+    download: "",
+    target: "_blank"
   }, _attrs))}>Download Resume</a>`);
 }
 const _sfc_setup$3 = _sfc_main$3.setup;

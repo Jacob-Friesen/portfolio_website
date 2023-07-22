@@ -8,7 +8,7 @@
     "resourceType": "script",
     "module": true,
     "css": [],
-    "file": "error-404.5393bdc5.js",
+    "file": "error-404.feb97bad.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
@@ -28,7 +28,7 @@
     "resourceType": "script",
     "module": true,
     "css": [],
-    "file": "error-500.c1134d5e.js",
+    "file": "error-500.22f2adeb.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ],
@@ -54,7 +54,7 @@
       "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue",
       "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue"
     ],
-    "file": "entry.01b168f1.js",
+    "file": "entry.33ca0cc1.js",
     "isEntry": true,
     "src": "node_modules/nuxt/dist/app/entry.js",
     "_globalCSS": true
