@@ -125,6 +125,27 @@ Deployment
 ==========
 TBD
 
+Manual
+------
+1. curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+2. source ~/.bashrc
+3. READ_ONLY_ACCESS_TOKEN="<PAT HERE>"
+4. git clone https://$READ_ONLY_ACCESS_TOKEN@github.com/Jacob-Friesen/portfolio_website.git
+5. cd portfolio-website
+6. git checkout v6
+7. "nvm install" to get the current node and NPM versions
+8. "npm ci" to make everything run
+9. "npm run build" to build everything
+10. To forward 3000 to 80: sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 3000
+11. "npm run production &" to start the application - docker or PM2 needed later
+    - A process manager or Docker will be added later
+12. View it at the public IP address like: http://v6.jacobfriesen.com
+    - The IP has been temporarily hooked up to a sub domain of the main one
+
+Automatic
+---------
+TBD
+
 Build everything into a `dist` production folder. **Make sure no servers and no watchers are running**:
 
     gulp build
