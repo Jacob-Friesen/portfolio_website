@@ -631,7 +631,7 @@ const _export_sfc = (sfc, props) => {
   }
   return target;
 };
-const _sfc_main$5 = {
+const _sfc_main$6 = {
   __name: "welcome",
   __ssrInlineRender: true,
   props: {
@@ -676,13 +676,13 @@ const _sfc_main$5 = {
     };
   }
 };
-const _sfc_setup$5 = _sfc_main$5.setup;
-_sfc_main$5.setup = (props, ctx) => {
+const _sfc_setup$6 = _sfc_main$6.setup;
+_sfc_main$6.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
   (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("node_modules/@nuxt/ui-templates/dist/templates/welcome.vue");
-  return _sfc_setup$5 ? _sfc_setup$5(props, ctx) : void 0;
+  return _sfc_setup$6 ? _sfc_setup$6(props, ctx) : void 0;
 };
-const __nuxt_component_0 = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-c3b5d155"]]);
+const __nuxt_component_0 = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["__scopeId", "data-v-c3b5d155"]]);
 const getDefault = () => null;
 function useAsyncData(...args) {
   const autoKey = typeof args[args.length - 1] === "string" ? args.pop() : void 0;
@@ -850,7 +850,7 @@ function useFetch(request, arg1, arg2) {
   }, _asyncDataOptions);
   return asyncData;
 }
-const _sfc_main$4 = {
+const _sfc_main$5 = {
   __name: "Hello",
   __ssrInlineRender: true,
   async setup(__props) {
@@ -861,37 +861,46 @@ const _sfc_main$4 = {
     };
   }
 };
+const _sfc_setup$5 = _sfc_main$5.setup;
+_sfc_main$5.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Hello.vue");
+  return _sfc_setup$5 ? _sfc_setup$5(props, ctx) : void 0;
+};
+const __nuxt_component_1 = _sfc_main$5;
+const _sfc_main$4 = {};
+function _sfc_ssrRender$2(_ctx, _push, _parent, _attrs) {
+  _push(`<div${ssrRenderAttrs(_attrs)}><a href="/Jacob_Friesen_Resume.pdf" download="" target="_blank">Download Resume</a></div>`);
+}
 const _sfc_setup$4 = _sfc_main$4.setup;
 _sfc_main$4.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/Hello.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/ResumeDownload.vue");
   return _sfc_setup$4 ? _sfc_setup$4(props, ctx) : void 0;
 };
-const __nuxt_component_1 = _sfc_main$4;
+const __nuxt_component_2 = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["ssrRender", _sfc_ssrRender$2]]);
 const _sfc_main$3 = {};
 function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs) {
-  _push(`<a${ssrRenderAttrs(mergeProps({
-    href: "/Jacob_Friesen_Resume.pdf",
-    download: "",
-    target: "_blank"
-  }, _attrs))}>Download Resume</a>`);
+  _push(`<div${ssrRenderAttrs(_attrs)}><a href="/contact_list.zip" download="" target="_blank">Download Zip File</a></div>`);
 }
 const _sfc_setup$3 = _sfc_main$3.setup;
 _sfc_main$3.setup = (props, ctx) => {
   const ssrContext = useSSRContext();
-  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/ResumeDownload.vue");
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/ZipDownloadTest.vue");
   return _sfc_setup$3 ? _sfc_setup$3(props, ctx) : void 0;
 };
-const __nuxt_component_2 = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["ssrRender", _sfc_ssrRender$1]]);
+const __nuxt_component_3 = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["ssrRender", _sfc_ssrRender$1]]);
 const _sfc_main$2 = {};
 function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
   const _component_NuxtWelcome = __nuxt_component_0;
   const _component_Hello = __nuxt_component_1;
   const _component_ResumeDownload = __nuxt_component_2;
+  const _component_ZipDownloadTest = __nuxt_component_3;
   _push(`<div${ssrRenderAttrs(_attrs)}>`);
   _push(ssrRenderComponent(_component_NuxtWelcome, null, null, _parent));
   _push(ssrRenderComponent(_component_Hello, null, null, _parent));
   _push(ssrRenderComponent(_component_ResumeDownload, null, null, _parent));
+  _push(ssrRenderComponent(_component_ZipDownloadTest, null, null, _parent));
   _push(`</div>`);
 }
 const _sfc_setup$2 = _sfc_main$2.setup;

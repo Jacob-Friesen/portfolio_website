@@ -3,5 +3,6 @@
     <NuxtWelcome />
     <Hello />
     <ResumeDownload />
+    <ZipDownloadTest />
   </div>
 </template>
