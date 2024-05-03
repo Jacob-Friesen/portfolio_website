@@ -1,0 +1,61 @@
+{
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "jsx": "preserve",
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
+    "paths": {
+      "#imports": [
+        "/Users/jacobfriesen/Documents/work/portfolio_website/.nuxt/types/nitro-imports"
+      ],
+      "#paths": [
+        "/Users/jacobfriesen/Documents/work/portfolio_website/node_modules/nuxt/dist/core/runtime/nitro/paths"
+      ],
+      "~": [
+        "/Users/jacobfriesen/Documents/work/portfolio_website"
+      ],
+      "~/*": [
+        "/Users/jacobfriesen/Documents/work/portfolio_website/*"
+      ],
+      "@": [
+        "/Users/jacobfriesen/Documents/work/portfolio_website"
+      ],
+      "@/*": [
+        "/Users/jacobfriesen/Documents/work/portfolio_website/*"
+      ],
+      "~~": [
+        "/Users/jacobfriesen/Documents/work/portfolio_website"
+      ],
+      "~~/*": [
+        "/Users/jacobfriesen/Documents/work/portfolio_website/*"
+      ],
+      "@@": [
+        "/Users/jacobfriesen/Documents/work/portfolio_website"
+      ],
+      "@@/*": [
+        "/Users/jacobfriesen/Documents/work/portfolio_website/*"
+      ],
+      "assets": [
+        "/Users/jacobfriesen/Documents/work/portfolio_website/assets"
+      ],
+      "public": [
+        "/Users/jacobfriesen/Documents/work/portfolio_website/public"
+      ],
+      "public/*": [
+        "/Users/jacobfriesen/Documents/work/portfolio_website/public/*"
+      ]
+    }
+  },
+  "include": [
+    "/Users/jacobfriesen/Documents/work/portfolio_website/.nuxt/types/nitro-nuxt.d.ts",
+    "./types/nitro.d.ts",
+    "../**/*",
+    "../server/**/*"
+  ]
+}
