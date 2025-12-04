@@ -1,9 +1,15 @@
 
-import type { CustomAppConfig } from 'nuxt/schema'
+import type { AppConfigInput, CustomAppConfig } from 'nuxt/schema'
 import type { Defu } from 'defu'
 
 
-declare const inlineConfig = {}
+declare global {
+  const defineAppConfig: <C extends AppConfigInput> (config: C) => C
+}
+
+declare const inlineConfig = {
+  "nuxt": {}
+}
 type ResolvedAppConfig = Defu<typeof inlineConfig, []>
 type IsAny<T> = 0 extends 1 & T ? true : false
 
