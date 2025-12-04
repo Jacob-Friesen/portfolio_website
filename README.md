@@ -9,12 +9,6 @@ Make sure to install the dependencies:
 ```bash
 # npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
 ```
 
 ## Development Server
@@ -24,12 +18,6 @@ Start the development server on `http://localhost:3000`:
 ```bash
 # npm
 npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
 ```
 
 ## Production
@@ -39,12 +27,6 @@ Build the application for production:
 ```bash
 # npm
 npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
 ```
 
 Locally preview production build:
@@ -52,12 +34,13 @@ Locally preview production build:
 ```bash
 # npm
 npm run preview
+```
 
-# pnpm
-pnpm run preview
+Run production build:
 
-# yarn
-yarn preview
+```bash
+# npm
+npm run production
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
@@ -67,7 +50,9 @@ Portfolio Website
 This is the sixth version of my Portfolio website and the first Vue.js version. More details coming soon.
 
 **Files And Folders (Top Level)**
- * **bin/** Files used before the main dependencies such as the Angular CLI are present e.g. install scripts.
+ * **app/** Main locations of all UI components.
+ * **public/** Publicly downloadable files.
+ * **server/** Server side code.
  * TBD
 
 Technologies & Architecture

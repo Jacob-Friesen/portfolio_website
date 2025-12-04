@@ -53,16 +53,16 @@
         "../node_modules/vite/client"
       ],
       "~": [
-        ".."
+        "../app"
       ],
       "~/*": [
-        "../*"
+        "../app/*"
       ],
       "@": [
-        ".."
+        "../app"
       ],
       "@/*": [
-        "../*"
+        "../app/*"
       ],
       "~~": [
         ".."
@@ -101,7 +101,7 @@
         "./imports"
       ],
       "#app-manifest": [
-        "./manifest/meta/b3a52b3f-e3d2-4106-a073-e30d740ddf9d"
+        "./manifest/meta/dev.json"
       ],
       "#components": [
         "./components"
@@ -143,7 +143,7 @@
   },
   "include": [
     "./nuxt.d.ts",
-    "../**/*",
+    "../app/**/*",
     "../modules/*/runtime/**/*",
     "../layers/*/app/**/*",
     "../layers/*/modules/*/runtime/**/*",
