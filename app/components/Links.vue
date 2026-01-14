@@ -1,15 +1,16 @@
 <style>
   .links-wrapper {
-    padding: 16px;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 32px 0;
+    width: 200px;
   }
 </style>
 
 <template>
   <div class="links-wrapper">
-    <b>Links</b>
-    <ul class="link-list">
-      <li><a href="https://www.linkedin.com/in/jacobfriesen/">LinkedIn</a></li>
-      <li><a href="https://github.com/Jacob-Friesen">Github</a></li>
-    </ul>
+    <a href="https://www.linkedin.com/in/jacobfriesen/">LinkedIn</a>
+    &nbsp;•&nbsp;
+    <a href="https://github.com/Jacob-Friesen">Github</a>
   </div>
 </template>
