@@ -32,7 +32,7 @@
 
     <div class="description">
       <p>
-        I am a software developer with over 10 years of experience. I have deep experience in in client side, server
+        I am a software developer with over 10 years of experience. I have deep experience in client side, server
         side and phone environments. I have worked in many different environments over the years ranging from startups,
         to the government to large companies. Alongside this I have worked as a back end, front end and full stack
         developer. One highlight is scaling the startup Zimit's software from no product to a $90 million exit in five years.
