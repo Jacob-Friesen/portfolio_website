@@ -5,7 +5,6 @@
 
   .resume {
     margin-top: 32px;
-    height: 2276px;
     width: 100%;
     border: none;
   }
@@ -17,25 +16,31 @@
   }
 </style>
 
-<script>
-export default {
-  data() {
-    return {
-      resumeSrc: '/Jacob_Friesen_Resume_No_Title.html',
-      timestamp: Date.now(),
-    };
-  },
-  computed: {
-    iframeSrc() {
-      // Append the timestamp as a query parameter for cache busting
-      return `${this.resumeSrc}?v=${this.timestamp}`;
-    },
-  },
-};
+<script setup>
+import { ref } from 'vue';
+
+const resumeFrame = ref(null);
+const iframeHeight = ref('auto');
+const iframeSrc = ref(`/Jacob_Friesen_Resume_No_Title.html?v=${Date.now()}`);
+
+const resizeIframe = () => {
+  if (resumeFrame.value) {
+    iframeHeight.value = `${resumeFrame.value.contentWindow.document.body.scrollHeight + 32}px`;
+  }
+}
 </script>
 
 <template>
   <ResumeDownload class="resume-download-btn"/>
   
-  <iframe class="resume" width="100%" :src="iframeSrc"></iframe>
+  <iframe 
+    class="resume"
+    width="100%"
+    frameborder="0"
+    scrolling="no"
+    ref="resumeFrame"
+    :src="iframeSrc"
+    :height="iframeHeight"
+    @load="resizeIframe"
+  ></iframe>
 </template>

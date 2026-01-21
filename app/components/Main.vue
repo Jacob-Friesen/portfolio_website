@@ -54,7 +54,9 @@
       <!-- <NuxtWelcome /> -->
       <!-- <Hello /> -->
       <hr/>
-      <Resume />
+      <ClientOnly>
+        <Resume />
+      </ClientOnly>
       <!-- <ZipDownloadTest /> -->
     </div>
   </div>
