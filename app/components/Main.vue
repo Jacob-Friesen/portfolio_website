@@ -33,6 +33,13 @@
     border-top: 1px solid #aaa;
     margin: 0;
   }
+
+  @media (max-width: 1023px) {
+    .main {
+      width: 100%;
+      padding: 0;
+    }
+  }
 </style>
 
 <template>

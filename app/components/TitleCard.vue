@@ -8,6 +8,7 @@
 
   .card-side-by-side {
     display: flex;
+    justify-content: center;
   }
 
   .profile-image {
@@ -20,7 +21,22 @@
     display: flex;
     align-items: center;
     width: 600px;
-    padding-left: 32px;
+    padding: 0 32px;
+  }
+
+  @media (max-width: 1023px) {
+    .title {
+      padding: 0 32px;
+    }
+
+    .card-side-by-side {
+      flex-wrap: wrap;
+    }
+
+    .description {
+      width: 100%;
+      padding-top: 32px;
+    }
   }
 </style>
 

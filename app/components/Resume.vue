@@ -9,6 +9,12 @@
     width: 100%;
     border: none;
   }
+
+  @media (max-width: 1023px) {
+    .resume-download-btn {
+      padding-left: 32px;
+    }
+  }
 </style>
 
 <script>
